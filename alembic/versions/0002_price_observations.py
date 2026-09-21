@@ -30,7 +30,7 @@ def upgrade() -> None:
             "market_name",
             name="uq_markets_state_district_market",
         ),
-        schema="agri",
+        schema="app",
     )
     op.create_table(
         "commodities",
@@ -38,7 +38,7 @@ def upgrade() -> None:
         sa.Column("name", sa.String(128), nullable=False),
         sa.Column("group_name", sa.String(128)),
         sa.UniqueConstraint("name", name="uq_commodities_name"),
-        schema="agri",
+        schema="app",
     )
     op.create_table(
         "price_observations",
@@ -53,12 +53,12 @@ def upgrade() -> None:
         sa.Column("arrivals_quintal", sa.Numeric(14, 2)),
         sa.ForeignKeyConstraint(
             ["market_id"],
-            ["agri.markets.id"],
+            ["app.markets.id"],
             name="fk_price_observations_market_id_markets",
         ),
         sa.ForeignKeyConstraint(
             ["commodity_id"],
-            ["agri.commodities.id"],
+            ["app.commodities.id"],
             name="fk_price_observations_commodity_id_commodities",
         ),
         sa.PrimaryKeyConstraint(
@@ -85,18 +85,18 @@ def upgrade() -> None:
             "arrivals_quintal IS NULL OR arrivals_quintal >= 0",
             name="ck_price_observations_arrivals_nonnegative",
         ),
-        schema="agri",
+        schema="app",
     )
     op.create_index(
         "ix_price_observations_commodity_arrival",
         "price_observations",
         ["commodity_id", "arrival_date"],
-        schema="agri",
+        schema="app",
     )
     # Partition column must already be part of the primary key.
     op.execute(
         "SELECT create_hypertable("
-        "'agri.price_observations', 'arrival_date', if_not_exists => TRUE)"
+        "'app.price_observations', 'arrival_date', if_not_exists => TRUE)"
     )
 
 
@@ -104,8 +104,8 @@ def downgrade() -> None:
     op.drop_index(
         "ix_price_observations_commodity_arrival",
         table_name="price_observations",
-        schema="agri",
+        schema="app",
     )
-    op.drop_table("price_observations", schema="agri")
-    op.drop_table("commodities", schema="agri")
-    op.drop_table("markets", schema="agri")
+    op.drop_table("price_observations", schema="app")
+    op.drop_table("commodities", schema="app")
+    op.drop_table("markets", schema="app")

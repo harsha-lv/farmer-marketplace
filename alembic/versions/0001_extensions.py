@@ -1,4 +1,4 @@
-"""enable postgis timescaledb and agri schema
+"""enable postgis timescaledb and app schema
 
 Revision ID: 0001_extensions
 Revises:
@@ -19,9 +19,9 @@ def upgrade() -> None:
     with op.get_context().autocommit_block():
         op.execute("CREATE EXTENSION IF NOT EXISTS postgis")
         op.execute("CREATE EXTENSION IF NOT EXISTS timescaledb")
-    op.execute("CREATE SCHEMA IF NOT EXISTS agri")
+    op.execute("CREATE SCHEMA IF NOT EXISTS app")
 
 
 def downgrade() -> None:
-    op.execute("DROP SCHEMA IF EXISTS agri CASCADE")
+    op.execute("DROP SCHEMA IF EXISTS app CASCADE")
     # Extensions stay installed; other databases on the cluster may use them.

@@ -167,7 +167,7 @@ async def test_repository_reads_an_inserted_observation() -> None:
         if not await database.ping():
             pytest.skip("postgres is not available")
         async with database.engine.connect() as connection:
-            table = await connection.scalar(text("SELECT to_regclass('agri.price_observations')"))
+            table = await connection.scalar(text("SELECT to_regclass('app.price_observations')"))
         if table is None:
             pytest.skip("price migration has not been applied")
 
