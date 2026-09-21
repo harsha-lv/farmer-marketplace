@@ -1,0 +1,16 @@
+Metadata-Version: 2.4
+Name: agri-market-backend
+Version: 0.1.0
+Summary: Agri-Market Intelligence and Transaction Enablement Platform API
+Requires-Python: >=3.12
+Requires-Dist: fastapi[standard]>=0.115
+Requires-Dist: uvicorn[standard]>=0.32
+Requires-Dist: pydantic-settings>=2.6
+Requires-Dist: sqlalchemy[asyncio]>=2.0.36
+Requires-Dist: asyncpg>=0.30
+Requires-Dist: alembic>=1.14
+Requires-Dist: greenlet>=3.1
+Provides-Extra: dev
+Requires-Dist: pytest>=8.3; extra == "dev"
+Requires-Dist: pytest-asyncio>=0.24; extra == "dev"
+Requires-Dist: httpx>=0.28; extra == "dev"
