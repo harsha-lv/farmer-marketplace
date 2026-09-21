@@ -15,6 +15,10 @@ class Settings(BaseSettings):
     environment: str = "local"
     log_level: str = "INFO"
     database_url: str = "postgresql+asyncpg://app:app@localhost:5432/app"
+    data_gov_api_key: str = ""
+    data_gov_resource_url: str = (
+        "https://api.data.gov.in/resource/9ef84268-d588-465a-a308-a864a43d0070"
+    )
 
 
 @lru_cache

@@ -1,4 +1,7 @@
+from datetime import date
+
 from sqlalchemy import func, select
+from sqlalchemy.dialects.postgresql import insert
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.prices.models import Commodity, Market, PriceObservation
@@ -76,3 +79,75 @@ class PriceRepository:
         records = [PriceRecord.model_validate(row) for row in result.mappings()]
         count = await self.session.scalar(count_statement(query))
         return PricePage(records=records, count=int(count or 0))
+
+    async def upsert_market(
+        self,
+        *,
+        state_name: str,
+        state_lgd_code: str | None,
+        district_name: str,
+        market_name: str,
+    ) -> int:
+        statement = insert(Market).values(
+            state_name=state_name,
+            state_lgd_code=state_lgd_code,
+            district_name=district_name,
+            district_lgd_code=None,
+            market_name=market_name,
+        )
+        excluded = statement.excluded
+        statement = statement.on_conflict_do_update(
+            constraint="uq_markets_state_district_market",
+            set_={
+                "state_lgd_code": func.coalesce(excluded.state_lgd_code, Market.state_lgd_code),
+            },
+        ).returning(Market.id)
+        market_id = await self.session.scalar(statement)
+        if market_id is None:
+            raise RuntimeError("market upsert did not return an id")
+        return int(market_id)
+
+    async def upsert_commodity(self, *, name: str, group_name: str | None) -> int:
+        statement = insert(Commodity).values(name=name, group_name=group_name)
+        excluded = statement.excluded
+        statement = statement.on_conflict_do_update(
+            constraint="uq_commodities_name",
+            set_={"group_name": func.coalesce(excluded.group_name, Commodity.group_name)},
+        ).returning(Commodity.id)
+        commodity_id = await self.session.scalar(statement)
+        if commodity_id is None:
+            raise RuntimeError("commodity upsert did not return an id")
+        return int(commodity_id)
+
+    async def upsert_observation(
+        self,
+        *,
+        arrival_date: date,
+        market_id: int,
+        commodity_id: int,
+        variety: str,
+        grade: str,
+        min_price: int,
+        max_price: int,
+        modal_price: int,
+    ) -> None:
+        statement = insert(PriceObservation).values(
+            arrival_date=arrival_date,
+            market_id=market_id,
+            commodity_id=commodity_id,
+            variety=variety,
+            grade=grade,
+            min_price_inr_per_quintal=min_price,
+            max_price_inr_per_quintal=max_price,
+            modal_price_inr_per_quintal=modal_price,
+        )
+        excluded = statement.excluded
+        statement = statement.on_conflict_do_update(
+            index_elements=["arrival_date", "market_id", "commodity_id", "variety", "grade"],
+            set_={
+                "min_price_inr_per_quintal": excluded.min_price_inr_per_quintal,
+                "max_price_inr_per_quintal": excluded.max_price_inr_per_quintal,
+                "modal_price_inr_per_quintal": excluded.modal_price_inr_per_quintal,
+            },
+        )
+        await self.session.execute(statement)

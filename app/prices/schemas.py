@@ -32,6 +32,12 @@ class PriceListResponse(BaseModel):
     meta: PageMeta
 
 
+class IngestResponse(BaseModel):
+    fetched: int
+    stored: int
+    skipped: int
+
+
 class PriceFilter(BaseModel):
     state: str | None = None
     district: str | None = None
