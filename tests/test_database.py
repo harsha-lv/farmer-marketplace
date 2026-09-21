@@ -7,7 +7,7 @@ from app.db.session import Database
 
 @pytest.fixture
 async def database():
-    db = Database("postgresql+asyncpg://agri:agri@127.0.0.1:1/agri")
+    db = Database("postgresql+asyncpg://app:app@127.0.0.1:1/app")
     yield db
     await db.dispose()
 

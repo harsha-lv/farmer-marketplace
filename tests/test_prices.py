@@ -31,7 +31,7 @@ def _client(reader: _Reader) -> TestClient:
         Settings(
             environment="test",
             log_level="WARNING",
-            database_url="postgresql+asyncpg://agri:agri@127.0.0.1:1/agri",
+            database_url="postgresql+asyncpg://app:app@127.0.0.1:1/app",
         )
     )
     application.dependency_overrides[get_price_reader] = lambda: reader
@@ -162,7 +162,7 @@ def test_limit_above_maximum_is_rejected() -> None:
 
 
 async def test_repository_reads_an_inserted_observation() -> None:
-    database = Database("postgresql+asyncpg://agri:agri@127.0.0.1:5432/agri")
+    database = Database("postgresql+asyncpg://app:app@127.0.0.1:5432/app")
     try:
         if not await database.ping():
             pytest.skip("postgres is not available")

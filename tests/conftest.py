@@ -10,7 +10,7 @@ def settings() -> Settings:
     return Settings(
         environment="test",
         log_level="WARNING",
-        database_url="postgresql+asyncpg://agri:agri@127.0.0.1:1/agri",
+        database_url="postgresql+asyncpg://app:app@127.0.0.1:1/app",
     )
 
 
