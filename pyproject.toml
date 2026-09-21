@@ -1,5 +1,5 @@
 [project]
-name = "agri-market-backend"
+name = "backend"
 version = "0.1.0"
 description = "Agri-Market Intelligence and Transaction Enablement Platform API"
 requires-python = ">=3.12"
