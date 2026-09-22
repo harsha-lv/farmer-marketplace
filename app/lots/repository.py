@@ -1,7 +1,7 @@
 from datetime import UTC, datetime
 from uuid import uuid4
 
-from sqlalchemy import select
+from sqlalchemy import func, select
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
 
@@ -24,6 +24,18 @@ class LotRepository:
             .options(selectinload(Lot.assay))
             .order_by(Lot.created_at.desc(), Lot.lot_code)
         )
+        return list(await self.session.scalars(statement))
+
+    async def list_registered(self, commodity: str | None) -> list[Lot]:
+        statement = (
+            select(Lot)
+            .where(Lot.enam_lot_id.is_not(None))
+            .options(selectinload(Lot.assay))
+            .order_by(Lot.created_at.desc(), Lot.lot_code)
+            .limit(50)
+        )
+        if commodity is not None:
+            statement = statement.where(func.lower(Lot.commodity) == commodity.casefold())
         return list(await self.session.scalars(statement))
 
     async def create(self, request: LotCreateRequest) -> Lot:

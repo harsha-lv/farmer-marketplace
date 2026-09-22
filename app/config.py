@@ -23,6 +23,9 @@ class Settings(BaseSettings):
     consent_signing_secret: str = ""
     cors_origins: str = "http://127.0.0.1:5173,http://localhost:5173"
     enam_base_url: str = ""
+    ondc_bpp_id: str = "market.local"
+    ondc_bpp_uri: str = "http://127.0.0.1:8000/beckn"
+    ondc_bpp_name: str = "Market desk"
 
 
 @lru_cache
