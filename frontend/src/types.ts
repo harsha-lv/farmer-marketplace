@@ -40,6 +40,21 @@ export type Consent = {
   withdrawn_at: string | null
 }
 
+export type Lot = {
+  lot_code: string
+  farmer_id: string
+  commodity: string
+  variety: string
+  quantity_mt: string
+  status: string
+  assay: {
+    grade: string
+    foreign_matter_percent: string | null
+    moisture_percent: string | null
+    damaged_percent: string | null
+  }
+}
+
 export type FarmerProfile = {
   farmer_id: string
   state_lgd_code: string

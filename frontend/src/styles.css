@@ -228,7 +228,7 @@ dd {
 
   nav {
     flex-direction: row;
-    overflow-x: auto;
+    flex-wrap: wrap;
     margin-bottom: 1rem;
   }
 

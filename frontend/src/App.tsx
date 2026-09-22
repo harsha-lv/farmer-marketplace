@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { ApiError, request } from "./api"
+import { LotsScreen } from "./lots"
 import { ConsentScreen, Prices, ProfileScreen, SaleWindowScreen } from "./screens"
 
 const screens = [
@@ -7,6 +8,7 @@ const screens = [
   { id: "sale", label: "Sale window" },
   { id: "consent", label: "Consent" },
   { id: "profile", label: "Profile" },
+  { id: "lots", label: "Lots" },
 ] as const
 
 type ScreenId = (typeof screens)[number]["id"]
@@ -39,7 +41,7 @@ export function App() {
       <header>
         <div>
           <p className="eyebrow">Market desk</p>
-          <h1>Prices, timing, and consent</h1>
+          <h1>Prices, lots, and consent</h1>
         </div>
         <p className={api === "API connected" ? "api ok" : "api"}>{api}</p>
       </header>
@@ -65,6 +67,7 @@ export function App() {
           {screen === "sale" ? <SaleWindowScreen /> : null}
           {screen === "consent" ? <ConsentScreen /> : null}
           {screen === "profile" ? <ProfileScreen /> : null}
+          {screen === "lots" ? <LotsScreen /> : null}
         </main>
       </div>
     </div>

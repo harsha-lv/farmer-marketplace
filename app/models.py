@@ -2,14 +2,17 @@
 
 from app.consent.models import ConsentArtifact
 from app.farmers.models import CropRecord, Farmer, LandParcel
+from app.lots.models import AssayReport, Lot
 from app.prices.models import Commodity, Market, PriceObservation
 
 __all__ = [
     "Commodity",
     "ConsentArtifact",
     "CropRecord",
+    "AssayReport",
     "Farmer",
     "LandParcel",
+    "Lot",
     "Market",
     "PriceObservation",
 ]
