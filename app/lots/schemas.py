@@ -48,11 +48,17 @@ class LotResponse(BaseModel):
     created_at: datetime
     enam_gate_id: str | None = None
     enam_lot_id: str | None = None
+    warehouse_id: str | None = None
+    warehouse_receipt_id: str | None = None
     assay: AssayResponse
 
 
 class EnamRegistrationRequest(BaseModel):
     mandi: str = Field(min_length=1, max_length=128)
+
+
+class WarehouseReceiptRequest(BaseModel):
+    warehouse_id: str = Field(min_length=1, max_length=64)
 
 
 class LotListResponse(BaseModel):

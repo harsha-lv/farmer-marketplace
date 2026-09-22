@@ -16,6 +16,7 @@ from app.lots.schemas import (
     AssayResponse,
     EnamRegistrationRequest,
     LotCreateRequest,
+    WarehouseReceiptRequest,
     LotListResponse,
     LotResponse,
 )
@@ -36,6 +37,8 @@ def lot_response(lot: Lot) -> LotResponse:
         created_at=lot.created_at,
         enam_gate_id=lot.enam_gate_id,
         enam_lot_id=lot.enam_lot_id,
+        warehouse_id=lot.warehouse_id,
+        warehouse_receipt_id=lot.warehouse_receipt_id,
         assay=AssayResponse(
             grade=assay.grade,
             foreign_matter_percent=assay.foreign_matter_percent,
@@ -123,6 +126,32 @@ class LotService:
         await self.session.commit()
         return lot_response(lot)
 
+    async def issue_receipt(self, lot_code: str, warehouse_id: str) -> LotResponse:
+        if self.enam is None:
+            raise AppError(503, "Market registry is not configured")
+        lot = await self.lots.get(lot_code)
+        if lot is None or lot.assay is None:
+            raise AppError(404, "Lot not found")
+        if lot.warehouse_receipt_id:
+            return lot_response(lot)
+        if not lot.enam_lot_id:
+            raise AppError(409, "Lot is not registered")
+        await self._require_consent(lot)
+        try:
+            receipt_id = await self.enam.issue_receipt(
+                enam_lot_id=lot.enam_lot_id,
+                lot_code=lot.lot_code,
+                commodity=lot.commodity,
+                quantity_mt=lot.quantity_mt,
+                grade=lot.assay.grade,
+                warehouse_id=warehouse_id,
+            )
+        except EnamError as exc:
+            raise AppError(502, "Market registry request failed") from exc
+        await self.lots.assign_receipt(lot, warehouse_id, receipt_id)
+        await self.session.commit()
+        return lot_response(lot)
+
     async def _require_consent(self, lot: Lot) -> None:
         farmer = await self.farmers.get(lot.farmer_id)
         if farmer is None:
@@ -182,3 +211,12 @@ async def register_lot(
     service: LotServiceDep,
 ) -> LotResponse:
     return await service.register(lot_code, body.mandi.strip())
+
+
+@router.post("/{lot_code}/warehouse-receipt")
+async def issue_warehouse_receipt(
+    lot_code: str,
+    body: WarehouseReceiptRequest,
+    service: LotServiceDep,
+) -> LotResponse:
+    return await service.issue_receipt(lot_code, body.warehouse_id.strip())

@@ -90,6 +90,9 @@ class _Lot:
         self.enam_gate_id = None
         self.enam_lot_id = None
         self.enam_registered_at = None
+        self.warehouse_id = None
+        self.warehouse_receipt_id = None
+        self.warehoused_at = None
         self.assay = type("Assay", (), {"grade": "FAQ", "foreign_matter_percent": None, "moisture_percent": None, "damaged_percent": None, "recorded_at": self.created_at})()
 
 
@@ -109,6 +112,12 @@ class _Lots:
         lot.enam_lot_id = enam_lot_id
         lot.status = "registered"
         lot.enam_registered_at = datetime.now(UTC)
+
+    async def assign_receipt(self, lot: _Lot, warehouse_id: str, receipt_id: str) -> None:
+        lot.warehouse_id = warehouse_id
+        lot.warehouse_receipt_id = receipt_id
+        lot.status = "warehoused"
+        lot.warehoused_at = datetime.now(UTC)
 
 
 class _Session:
@@ -170,6 +179,10 @@ class _Enam:
         if self.fail_lot_once and self.lots == 1:
             raise EnamError("market registry returned 503")
         return "ENAM-9"
+
+    async def issue_receipt(self, **kwargs) -> str:
+        self.receipts = getattr(self, "receipts", 0) + 1
+        return "ENWR-4"
 
 
 async def test_registration_retries_lot_creation_without_a_second_gate() -> None:
@@ -256,10 +269,12 @@ async def test_repository_persists_enam_ids() -> None:
             )
             await repository.assign_gate(created, "GATE-1")
             await repository.assign_enam_lot(created, "ENAM-9")
+            await repository.assign_receipt(created, "WH-1", "ENWR-4")
             await session.commit()
             loaded = await repository.get(created.lot_code)
             gate_id = None if loaded is None else loaded.enam_gate_id
             enam_lot_id = None if loaded is None else loaded.enam_lot_id
+            receipt_id = None if loaded is None else loaded.warehouse_receipt_id
             status = None if loaded is None else loaded.status
             await session.execute(delete(Lot).where(Lot.lot_code == created.lot_code))
             await session.commit()
@@ -268,4 +283,55 @@ async def test_repository_persists_enam_ids() -> None:
 
     assert gate_id == "GATE-1"
     assert enam_lot_id == "ENAM-9"
-    assert status == "registered"
+    assert receipt_id == "ENWR-4"
+    assert status == "warehoused"
+
+
+async def test_receipt_requires_an_enam_lot_id() -> None:
+    service = LotService(_Session(), _Farmers(), _Consents(_artifact()), _Lots(_Lot()), _Enam())
+
+    with pytest.raises(AppError) as caught:
+        await service.issue_receipt("LOT-1", "WH-1")
+
+    assert caught.value.status_code == 409
+    assert caught.value.title == "Lot is not registered"
+
+
+async def test_receipt_is_issued_once() -> None:
+    lot = _Lot()
+    lot.enam_lot_id = "ENAM-9"
+    lot.enam_gate_id = "GATE-1"
+    lot.status = "registered"
+    enam = _Enam()
+    service = LotService(_Session(), _Farmers(), _Consents(_artifact()), _Lots(lot), enam)
+
+    first = await service.issue_receipt("LOT-1", "WH-1")
+    second = await service.issue_receipt("LOT-1", "WH-2")
+
+    assert first.warehouse_receipt_id == "ENWR-4"
+    assert first.status == "warehoused"
+    assert second.warehouse_id == "WH-1"
+    assert enam.receipts == 1
+
+
+async def test_client_requests_a_warehouse_receipt() -> None:
+    seen: dict = {}
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        seen["path"] = request.url.path
+        seen["body"] = json.loads(request.content)
+        return httpx.Response(200, json={"receipt_id": "ENWR-4"})
+
+    client = EnamClient("https://enam.example", transport=httpx.MockTransport(handler))
+    receipt_id = await client.issue_receipt(
+        enam_lot_id="ENAM-9",
+        lot_code="LOT-1",
+        commodity="Onion",
+        quantity_mt=Decimal("12.5"),
+        grade="FAQ",
+        warehouse_id="WH-1",
+    )
+
+    assert receipt_id == "ENWR-4"
+    assert seen["path"] == "/warehouse-receipts"
+    assert seen["body"]["warehouse_id"] == "WH-1"

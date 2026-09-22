@@ -12,6 +12,7 @@ class Lot(Base):
     __table_args__ = (
         UniqueConstraint("lot_code", name="uq_lots_lot_code"),
         UniqueConstraint("enam_lot_id", name="uq_lots_enam_lot_id"),
+        UniqueConstraint("warehouse_receipt_id", name="uq_lots_warehouse_receipt_id"),
     )
 
     id: Mapped[int] = mapped_column(BigInteger, Identity(), primary_key=True)
@@ -26,6 +27,9 @@ class Lot(Base):
     enam_gate_id: Mapped[str | None] = mapped_column(String(64))
     enam_lot_id: Mapped[str | None] = mapped_column(String(64))
     enam_registered_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    warehouse_id: Mapped[str | None] = mapped_column(String(64))
+    warehouse_receipt_id: Mapped[str | None] = mapped_column(String(64))
+    warehoused_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
     assay: Mapped["AssayReport"] = relationship(
         back_populates="lot",
         uselist=False,

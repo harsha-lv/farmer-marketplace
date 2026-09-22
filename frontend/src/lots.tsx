@@ -77,11 +77,14 @@ export function LotsScreen() {
                   {lot.variety ? ` (${lot.variety})` : ""} · {lot.assay.grade}
                 </span>
                 <span className="muted">{lot.status}</span>
-                {lot.enam_lot_id ? (
-                  <span className="muted">e-NAM {lot.enam_lot_id}</span>
-                ) : (
+                {lot.enam_lot_id ? <span className="muted">e-NAM {lot.enam_lot_id}</span> : (
                   <RegisterLot lot={lot} onRegistered={(updated) => replaceLot(setLots, updated)} />
                 )}
+                {lot.warehouse_receipt_id ? (
+                  <span className="muted">Receipt {lot.warehouse_receipt_id}</span>
+                ) : lot.enam_lot_id ? (
+                  <IssueReceipt lot={lot} onIssued={(updated) => replaceLot(setLots, updated)} />
+                ) : null}
               </li>
             ))}
           </ul>
@@ -121,6 +124,36 @@ function RegisterLot({ lot, onRegistered }: { lot: Lot; onRegistered: (lot: Lot)
         {register.pending ? "Registering…" : "Register with e-NAM"}
       </button>
       <Notice error={register.error} />
+    </form>
+  )
+}
+
+function IssueReceipt({ lot, onIssued }: { lot: Lot; onIssued: (lot: Lot) => void }) {
+  const issue = useSubmit()
+
+  return (
+    <form
+      className="inline-form"
+      onSubmit={(event) => {
+        event.preventDefault()
+        const data = new FormData(event.currentTarget)
+        void issue.run(async () => {
+          const updated = await request<Lot>(`/api/v1/lots/${encodeURIComponent(lot.lot_code)}/warehouse-receipt`, {
+            method: "POST",
+            body: JSON.stringify({ warehouse_id: String(data.get("warehouse_id") ?? "").trim() }),
+          })
+          onIssued(updated)
+        })
+      }}
+    >
+      <label>
+        Warehouse
+        <input name="warehouse_id" required />
+      </label>
+      <button type="submit" disabled={issue.pending}>
+        {issue.pending ? "Issuing…" : "Issue warehouse receipt"}
+      </button>
+      <Notice error={issue.error} />
     </form>
   )
 }

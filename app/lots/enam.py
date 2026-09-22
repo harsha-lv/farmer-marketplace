@@ -64,6 +64,32 @@ class EnamClient:
             raise EnamError("market registry did not return a lot id")
         return lot_id.strip()
 
+    async def issue_receipt(
+        self,
+        *,
+        enam_lot_id: str,
+        lot_code: str,
+        commodity: str,
+        quantity_mt: Decimal,
+        grade: str,
+        warehouse_id: str,
+    ) -> str:
+        body = await self._post(
+            "/warehouse-receipts",
+            {
+                "enam_lot_id": enam_lot_id,
+                "lot_code": lot_code,
+                "commodity": commodity,
+                "quantity_mt": str(quantity_mt),
+                "grade": grade,
+                "warehouse_id": warehouse_id,
+            },
+        )
+        receipt_id = body.get("receipt_id")
+        if not isinstance(receipt_id, str) or not receipt_id.strip():
+            raise EnamError("market registry did not return a receipt id")
+        return receipt_id.strip()
+
     async def _post(self, path: str, payload: dict) -> dict:
         try:
             async with httpx.AsyncClient(transport=self._transport, timeout=30.0) as client:

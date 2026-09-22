@@ -57,3 +57,10 @@ class LotRepository:
         lot.status = "registered"
         lot.enam_registered_at = datetime.now(UTC)
         await self.session.flush()
+
+    async def assign_receipt(self, lot: Lot, warehouse_id: str, receipt_id: str) -> None:
+        lot.warehouse_id = warehouse_id
+        lot.warehouse_receipt_id = receipt_id
+        lot.status = "warehoused"
+        lot.warehoused_at = datetime.now(UTC)
+        await self.session.flush()
