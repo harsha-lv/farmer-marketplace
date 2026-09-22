@@ -1,9 +1,12 @@
+from datetime import UTC, datetime
 from typing import Annotated
 
 from fastapi import APIRouter, Depends
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.api.deps import SessionDep, SettingsDep
+from app.consent.repository import ConsentRepository
+from app.consent.signing import authorize_profile_fetch
 from app.errors import AppError
 from app.farmers.models import Farmer
 from app.farmers.repository import FarmerRepository
@@ -39,12 +42,27 @@ def profile_response(farmer: Farmer) -> FarmerProfileResponse:
 
 
 class ProfileResolver:
-    def __init__(self, client: UfsiClient, repository: FarmerRepository, session: AsyncSession) -> None:
+    def __init__(
+        self,
+        client: UfsiClient,
+        repository: FarmerRepository,
+        consents: ConsentRepository,
+        session: AsyncSession,
+    ) -> None:
         self.client = client
         self.repository = repository
+        self.consents = consents
         self.session = session
 
     async def resolve(self, request: FarmerProfileRequest) -> FarmerProfileResponse:
+        artifact = await self.consents.get(request.consent_artifact_id)
+        reason = authorize_profile_fetch(
+            None if artifact is None else ConsentRepository.record(artifact),
+            request.farmer_id,
+            datetime.now(UTC),
+        )
+        if reason is not None:
+            raise AppError(403, reason)
         profile = await self.client.fetch_profile(
             farmer_id=request.farmer_id,
             state_lgd_code=request.state_lgd_code,
@@ -65,6 +83,7 @@ def get_resolver(session: SessionDep, settings: SettingsDep) -> ProfileResolver:
     return ProfileResolver(
         UfsiClient(settings.ufsi_base_url),
         FarmerRepository(session),
+        ConsentRepository(session),
         session,
     )
 
