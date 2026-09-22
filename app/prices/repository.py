@@ -14,27 +14,7 @@ class PricePage:
         self.count = count
 
 
-def price_statement(query: PriceFilter, *, paginate: bool = True):
-    statement = (
-        select(
-            PriceObservation.arrival_date.label("arrival_date"),
-            Market.state_name.label("state"),
-            Market.state_lgd_code.label("state_lgd_code"),
-            Market.district_name.label("district"),
-            Market.district_lgd_code.label("district_lgd_code"),
-            Market.market_name.label("market"),
-            Commodity.name.label("commodity"),
-            Commodity.group_name.label("commodity_group"),
-            PriceObservation.variety.label("variety"),
-            PriceObservation.grade.label("grade"),
-            PriceObservation.min_price_inr_per_quintal.label("min_price_inr_per_quintal"),
-            PriceObservation.max_price_inr_per_quintal.label("max_price_inr_per_quintal"),
-            PriceObservation.modal_price_inr_per_quintal.label("modal_price_inr_per_quintal"),
-            PriceObservation.arrivals_quintal.label("arrivals_quintal"),
-        )
-        .join(Market, PriceObservation.market_id == Market.id)
-        .join(Commodity, PriceObservation.commodity_id == Commodity.id)
-    )
+def apply_price_filters(statement, query: PriceFilter):
     if query.state is not None:
         statement = statement.where(Market.state_name == query.state)
     if query.district is not None:
@@ -53,6 +33,31 @@ def price_statement(query: PriceFilter, *, paginate: bool = True):
         statement = statement.where(PriceObservation.arrival_date >= query.arrival_from)
     if query.arrival_to is not None:
         statement = statement.where(PriceObservation.arrival_date <= query.arrival_to)
+    return statement
+
+
+def price_statement(query: PriceFilter, *, paginate: bool = True):
+    statement = apply_price_filters(
+        select(
+            PriceObservation.arrival_date.label("arrival_date"),
+            Market.state_name.label("state"),
+            Market.state_lgd_code.label("state_lgd_code"),
+            Market.district_name.label("district"),
+            Market.district_lgd_code.label("district_lgd_code"),
+            Market.market_name.label("market"),
+            Commodity.name.label("commodity"),
+            Commodity.group_name.label("commodity_group"),
+            PriceObservation.variety.label("variety"),
+            PriceObservation.grade.label("grade"),
+            PriceObservation.min_price_inr_per_quintal.label("min_price_inr_per_quintal"),
+            PriceObservation.max_price_inr_per_quintal.label("max_price_inr_per_quintal"),
+            PriceObservation.modal_price_inr_per_quintal.label("modal_price_inr_per_quintal"),
+            PriceObservation.arrivals_quintal.label("arrivals_quintal"),
+        )
+        .join(Market, PriceObservation.market_id == Market.id)
+        .join(Commodity, PriceObservation.commodity_id == Commodity.id),
+        query,
+    )
     statement = statement.order_by(
         PriceObservation.arrival_date.desc(),
         Market.market_name,
@@ -70,6 +75,19 @@ def count_statement(query: PriceFilter):
     return select(func.count()).select_from(filtered.subquery())
 
 
+def daily_modal_statement(query: PriceFilter):
+    statement = apply_price_filters(
+        select(
+            PriceObservation.arrival_date.label("arrival_date"),
+            func.avg(PriceObservation.modal_price_inr_per_quintal).label("modal_price"),
+        )
+        .join(Market, PriceObservation.market_id == Market.id)
+        .join(Commodity, PriceObservation.commodity_id == Commodity.id),
+        query,
+    )
+    return statement.group_by(PriceObservation.arrival_date).order_by(PriceObservation.arrival_date)
+
+
 class PriceRepository:
     def __init__(self, session: AsyncSession) -> None:
         self.session = session
@@ -79,6 +97,10 @@ class PriceRepository:
         records = [PriceRecord.model_validate(row) for row in result.mappings()]
         count = await self.session.scalar(count_statement(query))
         return PricePage(records=records, count=int(count or 0))
+
+    async def daily_modal_prices(self, query: PriceFilter) -> list[tuple[date, int]]:
+        result = await self.session.execute(daily_modal_statement(query))
+        return [(row.arrival_date, int(round(row.modal_price))) for row in result]
 
     async def upsert_market(
         self,

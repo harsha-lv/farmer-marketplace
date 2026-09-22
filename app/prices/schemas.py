@@ -38,6 +38,23 @@ class IngestResponse(BaseModel):
     skipped: int
 
 
+class SaleWindowResponse(BaseModel):
+    commodity: str
+    state: str | None
+    district: str | None
+    market: str | None
+    horizon_days: int
+    lookback_days: int
+    observations: int
+    latest_arrival_date: date | None
+    latest_modal_price_inr_per_quintal: int | None
+    average_modal_price_inr_per_quintal: int | None
+    projected_modal_price_inr_per_quintal: int | None
+    storage_cost_inr_per_quintal: int
+    recommendation: str
+    reason: str
+
+
 class PriceFilter(BaseModel):
     state: str | None = None
     district: str | None = None

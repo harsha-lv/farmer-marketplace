@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import date, timedelta
 from typing import Annotated
 
 from fastapi import APIRouter, Depends, Query
@@ -9,7 +9,8 @@ from app.errors import AppError
 from app.prices.feed import FeedError, MandiFeed
 from app.prices.ingest import IngestCounts, store_quotes
 from app.prices.repository import PriceRepository
-from app.prices.schemas import IngestResponse, PageMeta, PriceFilter, PriceListResponse
+from app.prices.sale_window import recommend_sale_window
+from app.prices.schemas import IngestResponse, PageMeta, PriceFilter, PriceListResponse, SaleWindowResponse
 
 router = APIRouter(tags=["prices"])
 
@@ -117,3 +118,55 @@ async def ingest_prices(
     except FeedError as exc:
         raise AppError(502, "Price source request failed") from exc
     return IngestResponse(fetched=counts.fetched, stored=counts.stored, skipped=counts.skipped)
+
+
+@router.get("/prices/sale-window")
+async def sale_window(
+    reader: PriceReaderDep,
+    commodity: Annotated[str, Query(min_length=1, max_length=128)],
+    state: Annotated[str | None, Query(max_length=128)] = None,
+    district: Annotated[str | None, Query(max_length=128)] = None,
+    market: Annotated[str | None, Query(max_length=128)] = None,
+    variety: Annotated[str | None, Query(max_length=128)] = None,
+    grade: Annotated[str | None, Query(max_length=64)] = None,
+    horizon_days: Annotated[int, Query(ge=7, le=21)] = 14,
+    lookback_days: Annotated[int, Query(ge=7, le=365)] = 90,
+    storage_cost_per_quintal_per_day: Annotated[int, Query(ge=0)] = 0,
+) -> SaleWindowResponse:
+    commodity_name = commodity.strip()
+    if not commodity_name:
+        raise AppError(422, "Invalid request", "commodity is required")
+    query = PriceFilter(
+        commodity=commodity_name,
+        state=_blank_to_none(state),
+        district=_blank_to_none(district),
+        market=_blank_to_none(market),
+        variety=_blank_to_none(variety),
+        grade=_blank_to_none(grade),
+        arrival_from=date.today() - timedelta(days=lookback_days),
+        limit=1,
+    )
+    series = await reader.daily_modal_prices(query)
+    if not series:
+        raise AppError(404, "No prices found")
+    window = recommend_sale_window(
+        series,
+        horizon_days=horizon_days,
+        storage_cost_per_quintal_per_day=storage_cost_per_quintal_per_day,
+    )
+    return SaleWindowResponse(
+        commodity=commodity_name,
+        state=query.state,
+        district=query.district,
+        market=query.market,
+        horizon_days=horizon_days,
+        lookback_days=lookback_days,
+        observations=window.observations,
+        latest_arrival_date=window.latest_arrival_date,
+        latest_modal_price_inr_per_quintal=window.latest_modal_price_inr_per_quintal,
+        average_modal_price_inr_per_quintal=window.average_modal_price_inr_per_quintal,
+        projected_modal_price_inr_per_quintal=window.projected_modal_price_inr_per_quintal,
+        storage_cost_inr_per_quintal=window.storage_cost_inr_per_quintal,
+        recommendation=window.recommendation,
+        reason=window.reason,
+    )
