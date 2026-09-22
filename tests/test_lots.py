@@ -103,7 +103,7 @@ def _request() -> LotCreateRequest:
 
 
 async def test_create_lot_refuses_an_unknown_farmer() -> None:
-    service = LotService(_Session(), _Farmers(None), _Consents(_artifact()), _Lots())
+    service = LotService(_Session(), _Farmers(None), _Consents(_artifact()), _Lots(), None)
 
     with pytest.raises(AppError) as caught:
         await service.create(_request())
@@ -113,7 +113,7 @@ async def test_create_lot_refuses_an_unknown_farmer() -> None:
 
 
 async def test_create_lot_refuses_a_consent_that_does_not_match_the_profile() -> None:
-    service = LotService(_Session(), _Farmers(_farmer("other-artifact")), _Consents(_artifact()), _Lots())
+    service = LotService(_Session(), _Farmers(_farmer("other-artifact")), _Consents(_artifact()), _Lots(), None)
 
     with pytest.raises(AppError) as caught:
         await service.create(_request())
@@ -222,6 +222,7 @@ async def test_repository_stores_an_assayed_lot_for_a_consented_farmer() -> None
                 FarmerRepository(session),
                 ConsentRepository(session),
                 LotRepository(session),
+                None,
             ).create(
                 LotCreateRequest(
                     farmer_id="MH-400004",

@@ -47,6 +47,7 @@ export type Lot = {
   variety: string
   quantity_mt: string
   status: string
+  enam_lot_id: string | null
   assay: {
     grade: string
     foreign_matter_percent: string | null

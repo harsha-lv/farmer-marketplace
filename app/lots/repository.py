@@ -47,3 +47,13 @@ class LotRepository:
         self.session.add(lot)
         await self.session.flush()
         return lot
+
+    async def assign_gate(self, lot: Lot, gate_id: str) -> None:
+        lot.enam_gate_id = gate_id
+        await self.session.flush()
+
+    async def assign_enam_lot(self, lot: Lot, enam_lot_id: str) -> None:
+        lot.enam_lot_id = enam_lot_id
+        lot.status = "registered"
+        lot.enam_registered_at = datetime.now(UTC)
+        await self.session.flush()

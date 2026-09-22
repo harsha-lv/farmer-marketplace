@@ -220,6 +220,17 @@ dd {
   padding-left: 1.1rem;
 }
 
+.inline-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: end;
+  margin-top: 0.4rem;
+  padding: 0;
+  background: transparent;
+  border: 0;
+}
+
 @media (max-width: 720px) {
   header,
   .layout {

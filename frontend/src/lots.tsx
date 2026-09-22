@@ -77,12 +77,51 @@ export function LotsScreen() {
                   {lot.variety ? ` (${lot.variety})` : ""} · {lot.assay.grade}
                 </span>
                 <span className="muted">{lot.status}</span>
+                {lot.enam_lot_id ? (
+                  <span className="muted">e-NAM {lot.enam_lot_id}</span>
+                ) : (
+                  <RegisterLot lot={lot} onRegistered={(updated) => replaceLot(setLots, updated)} />
+                )}
               </li>
             ))}
           </ul>
         ) : null}
       </Notice>
     </section>
+  )
+}
+
+function replaceLot(setLots: (value: Lot[] | null | ((current: Lot[] | null) => Lot[] | null)) => void, updated: Lot) {
+  setLots((current) => (current ?? []).map((item) => (item.lot_code === updated.lot_code ? updated : item)))
+}
+
+function RegisterLot({ lot, onRegistered }: { lot: Lot; onRegistered: (lot: Lot) => void }) {
+  const register = useSubmit()
+
+  return (
+    <form
+      className="inline-form"
+      onSubmit={(event) => {
+        event.preventDefault()
+        const data = new FormData(event.currentTarget)
+        void register.run(async () => {
+          const updated = await request<Lot>(`/api/v1/lots/${encodeURIComponent(lot.lot_code)}/enam-registration`, {
+            method: "POST",
+            body: JSON.stringify({ mandi: String(data.get("mandi") ?? "").trim() }),
+          })
+          onRegistered(updated)
+        })
+      }}
+    >
+      <label>
+        Mandi
+        <input name="mandi" required />
+      </label>
+      <button type="submit" disabled={register.pending}>
+        {register.pending ? "Registering…" : "Register with e-NAM"}
+      </button>
+      <Notice error={register.error} />
+    </form>
   )
 }
 

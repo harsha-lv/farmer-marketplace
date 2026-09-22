@@ -9,7 +9,10 @@ from app.db.base import Base
 
 class Lot(Base):
     __tablename__ = "lots"
-    __table_args__ = (UniqueConstraint("lot_code", name="uq_lots_lot_code"),)
+    __table_args__ = (
+        UniqueConstraint("lot_code", name="uq_lots_lot_code"),
+        UniqueConstraint("enam_lot_id", name="uq_lots_enam_lot_id"),
+    )
 
     id: Mapped[int] = mapped_column(BigInteger, Identity(), primary_key=True)
     lot_code: Mapped[str] = mapped_column(String(32))
@@ -20,6 +23,9 @@ class Lot(Base):
     consent_artifact_id: Mapped[str] = mapped_column(String(128))
     status: Mapped[str] = mapped_column(String(16))
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+    enam_gate_id: Mapped[str | None] = mapped_column(String(64))
+    enam_lot_id: Mapped[str | None] = mapped_column(String(64))
+    enam_registered_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
     assay: Mapped["AssayReport"] = relationship(
         back_populates="lot",
         uselist=False,
