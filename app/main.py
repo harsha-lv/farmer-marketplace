@@ -1,6 +1,7 @@
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.exception_handlers import install_exception_handlers
 from app.api.health import router as health_router
@@ -28,6 +29,14 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     )
     app.state.settings = settings
     app.state.database = database
+    origins = [item.strip() for item in settings.cors_origins.split(",") if item.strip()]
+    if origins:
+        app.add_middleware(
+            CORSMiddleware,
+            allow_origins=origins,
+            allow_methods=["*"],
+            allow_headers=["*"],
+        )
     install_exception_handlers(app)
     app.include_router(health_router)
     app.include_router(api_router)

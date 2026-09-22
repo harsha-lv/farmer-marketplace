@@ -1,0 +1,238 @@
+:root {
+  color: #1c2416;
+  background: #f3efe4;
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  line-height: 1.45;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.page {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: end;
+  border-bottom: 1px solid #d5cdb8;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+}
+
+h1,
+h2,
+h3 {
+  font-family: Palatino, "Palatino Linotype", "Iowan Old Style", serif;
+  font-weight: 600;
+  margin: 0;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.2rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  color: #5c6848;
+}
+
+.api {
+  margin: 0;
+  color: #8a4b08;
+}
+
+.api.ok {
+  color: #1f6b4a;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 11rem 1fr;
+  gap: 1.5rem;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.nav {
+  text-align: left;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 0.45rem 0.8rem;
+  cursor: pointer;
+}
+
+.nav.active {
+  background: #1f6b4a;
+  color: #f7f4ec;
+}
+
+main section {
+  display: grid;
+  gap: 1rem;
+}
+
+form,
+.card,
+.decision {
+  background: #fffdf8;
+  border: 1px solid #e2dac8;
+  border-radius: 16px;
+  padding: 1rem;
+}
+
+form {
+  display: grid;
+  gap: 0.75rem;
+}
+
+label {
+  display: grid;
+  gap: 0.25rem;
+  font-size: 0.92rem;
+}
+
+input {
+  border: 1px solid #cfc6b2;
+  border-radius: 8px;
+  padding: 0.45rem 0.6rem;
+  background: white;
+}
+
+button[type="submit"] {
+  justify-self: start;
+  background: #243226;
+  color: #f7f4ec;
+  border: 0;
+  border-radius: 999px;
+  padding: 0.55rem 1rem;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.lede,
+.purpose,
+.muted {
+  color: #5c584c;
+}
+
+.purpose {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.muted {
+  display: block;
+  font-size: 0.85rem;
+}
+
+.error {
+  margin: 0;
+  color: #8d2b1f;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fffdf8;
+}
+
+caption {
+  text-align: left;
+  padding-bottom: 0.4rem;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.45rem 0.5rem;
+  border-bottom: 1px solid #eadfcd;
+  white-space: nowrap;
+}
+
+.decision-label,
+.status {
+  margin: 0;
+  font-family: Palatino, "Palatino Linotype", serif;
+  font-size: 1.8rem;
+  text-transform: capitalize;
+}
+
+.store,
+.status.active {
+  color: #1f6b4a;
+}
+
+.sell,
+.status.withdrawn {
+  color: #8a4b08;
+}
+
+dl {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  gap: 0.6rem;
+  margin: 0.8rem 0 0;
+}
+
+dt {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #5c584c;
+}
+
+dd {
+  margin: 0;
+}
+
+.parcels {
+  padding-left: 1.1rem;
+}
+
+@media (max-width: 720px) {
+  header,
+  .layout {
+    display: block;
+  }
+
+  nav {
+    flex-direction: row;
+    overflow-x: auto;
+    margin-bottom: 1rem;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+}
