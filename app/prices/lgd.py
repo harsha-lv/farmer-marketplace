@@ -65,3 +65,14 @@ def state_lgd_code(name: str) -> str | None:
     key = normalize_place(name)
     key = _ALIASES.get(key, key)
     return _STATES.get(key)
+
+
+def canonical_state_lgd_code(code: str) -> str | None:
+    digits = code.strip()
+    if not digits.isdigit():
+        return None
+    padded = digits.zfill(2)
+    for value in _STATES.values():
+        if value.zfill(2) == padded:
+            return value
+    return None

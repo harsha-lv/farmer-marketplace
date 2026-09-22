@@ -19,6 +19,7 @@ class Settings(BaseSettings):
     data_gov_resource_url: str = (
         "https://api.data.gov.in/resource/9ef84268-d588-465a-a308-a864a43d0070"
     )
+    ufsi_base_url: str = ""
 
 
 @lru_cache
