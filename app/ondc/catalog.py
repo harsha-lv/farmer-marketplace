@@ -12,7 +12,7 @@ REQUIRED_CONTEXT = (
 )
 
 
-def context_error(context: object) -> str | None:
+def context_error(context: object, *, action: str = "search") -> str | None:
     if not isinstance(context, dict):
         return "context is required"
     missing = [field for field in REQUIRED_CONTEXT if not str(context.get(field, "")).strip()]
@@ -20,8 +20,8 @@ def context_error(context: object) -> str | None:
         return f"context is missing {missing[0]}"
     if context.get("domain") != "ONDC:AGR10":
         return "domain is not supported"
-    if context.get("action") != "search":
-        return "action must be search"
+    if context.get("action") != action:
+        return f"action must be {action}"
     if context.get("version") != "2.0.0":
         return "version is not supported"
     return None
