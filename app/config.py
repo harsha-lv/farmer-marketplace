@@ -26,6 +26,7 @@ class Settings(BaseSettings):
     ondc_bpp_id: str = "market.local"
     ondc_bpp_uri: str = "http://127.0.0.1:8000/beckn"
     ondc_bpp_name: str = "Market desk"
+    ondc_commission_percent: int = 0
 
 
 @lru_cache

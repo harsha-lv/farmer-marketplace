@@ -4,6 +4,7 @@ from app.consent.models import ConsentArtifact
 from app.farmers.models import CropRecord, Farmer, LandParcel
 from app.lots.models import AssayReport, Lot
 from app.prices.models import Commodity, Market, PriceObservation
+from app.trades.models import TradeContract
 
 __all__ = [
     "Commodity",
@@ -15,4 +16,5 @@ __all__ = [
     "Lot",
     "Market",
     "PriceObservation",
+    "TradeContract",
 ]

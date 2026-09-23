@@ -19,8 +19,10 @@ from app.ondc.catalog import (
     nack,
     response_context,
 )
+from app.ondc.init import InitService
 from app.ondc.select import SelectService
 from app.prices.repository import PriceRepository
+from app.trades.repository import ContractRepository
 
 router = APIRouter(prefix="/beckn", tags=["beckn"])
 
@@ -110,8 +112,23 @@ def get_select_service(session: SessionDep, settings: SettingsDep) -> SelectServ
     )
 
 
+def get_init_service(session: SessionDep, settings: SettingsDep) -> InitService:
+    return InitService(
+        LotRepository(session),
+        FarmerRepository(session),
+        ConsentRepository(session),
+        PriceRepository(session),
+        ContractRepository(session),
+        BecknCallback(),
+        bpp_id=settings.ondc_bpp_id,
+        bpp_uri=settings.ondc_bpp_uri,
+        commission_percent=settings.ondc_commission_percent,
+    )
+
+
 SearchDep = Annotated[SearchService, Depends(get_search_service)]
 SelectDep = Annotated[SelectService, Depends(get_select_service)]
+InitDep = Annotated[InitService, Depends(get_init_service)]
 
 
 @router.post("/search")
@@ -132,3 +149,13 @@ async def select(request: Request, service: SelectDep) -> JSONResponse:
         context = response_context({}, action="select", bpp_id=service.bpp_id, bpp_uri=service.bpp_uri)
         return JSONResponse(status_code=400, content=nack(context, "context is required"))
     return await service.select(body)
+
+
+@router.post("/init")
+async def init(request: Request, service: InitDep) -> JSONResponse:
+    try:
+        body = await request.json()
+    except ValueError:
+        context = response_context({}, action="init", bpp_id=service.bpp_id, bpp_uri=service.bpp_uri)
+        return JSONResponse(status_code=400, content=nack(context, "context is required"))
+    return await service.init(body)
