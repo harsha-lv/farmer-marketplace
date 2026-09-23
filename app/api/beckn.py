@@ -19,6 +19,7 @@ from app.ondc.catalog import (
     nack,
     response_context,
 )
+from app.ondc.confirm import ConfirmService
 from app.ondc.init import InitService
 from app.ondc.select import SelectService
 from app.prices.repository import PriceRepository
@@ -126,9 +127,22 @@ def get_init_service(session: SessionDep, settings: SettingsDep) -> InitService:
     )
 
 
+def get_confirm_service(session: SessionDep, settings: SettingsDep) -> ConfirmService:
+    return ConfirmService(
+        LotRepository(session),
+        FarmerRepository(session),
+        ConsentRepository(session),
+        ContractRepository(session),
+        BecknCallback(),
+        bpp_id=settings.ondc_bpp_id,
+        bpp_uri=settings.ondc_bpp_uri,
+    )
+
+
 SearchDep = Annotated[SearchService, Depends(get_search_service)]
 SelectDep = Annotated[SelectService, Depends(get_select_service)]
 InitDep = Annotated[InitService, Depends(get_init_service)]
+ConfirmDep = Annotated[ConfirmService, Depends(get_confirm_service)]
 
 
 @router.post("/search")
@@ -159,3 +173,13 @@ async def init(request: Request, service: InitDep) -> JSONResponse:
         context = response_context({}, action="init", bpp_id=service.bpp_id, bpp_uri=service.bpp_uri)
         return JSONResponse(status_code=400, content=nack(context, "context is required"))
     return await service.init(body)
+
+
+@router.post("/confirm")
+async def confirm(request: Request, service: ConfirmDep) -> JSONResponse:
+    try:
+        body = await request.json()
+    except ValueError:
+        context = response_context({}, action="confirm", bpp_id=service.bpp_id, bpp_uri=service.bpp_uri)
+        return JSONResponse(status_code=400, content=nack(context, "context is required"))
+    return await service.confirm(body)

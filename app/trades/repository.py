@@ -62,3 +62,9 @@ class ContractRepository:
             existing.updated_at = now
         await self.session.flush()
         return existing
+
+    async def confirm(self, contract: TradeContract) -> TradeContract:
+        contract.status = "confirmed"
+        contract.updated_at = datetime.now(UTC)
+        await self.session.flush()
+        return contract

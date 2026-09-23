@@ -1,4 +1,5 @@
 from datetime import UTC, datetime
+from decimal import Decimal
 from uuid import uuid4
 
 from sqlalchemy import func, select
@@ -75,4 +76,10 @@ class LotRepository:
         lot.warehouse_receipt_id = receipt_id
         lot.status = "warehoused"
         lot.warehoused_at = datetime.now(UTC)
+        await self.session.flush()
+
+    async def deduct_quantity(self, lot: Lot, quantity: Decimal) -> None:
+        lot.quantity_mt = max(Decimal(0), lot.quantity_mt - quantity)
+        if lot.quantity_mt == Decimal(0):
+            lot.status = "traded"
         await self.session.flush()
