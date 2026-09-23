@@ -68,3 +68,15 @@ class ContractRepository:
         contract.updated_at = datetime.now(UTC)
         await self.session.flush()
         return contract
+
+    async def settle(self, contract: TradeContract) -> TradeContract:
+        contract.status = "settled"
+        contract.updated_at = datetime.now(UTC)
+        await self.session.flush()
+        return contract
+
+    async def dispute(self, contract: TradeContract) -> TradeContract:
+        contract.status = "disputed"
+        contract.updated_at = datetime.now(UTC)
+        await self.session.flush()
+        return contract
