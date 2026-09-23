@@ -2,7 +2,7 @@ from datetime import UTC, datetime
 from decimal import Decimal
 from uuid import uuid4
 
-from sqlalchemy import func, select
+from sqlalchemy import func, or_, select
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
 
@@ -83,3 +83,15 @@ class LotRepository:
         if lot.quantity_mt == Decimal(0):
             lot.status = "traded"
         await self.session.flush()
+
+    async def list_modified_since(self, since: datetime | None) -> list[Lot]:
+        statement = select(Lot).options(selectinload(Lot.assay)).order_by(Lot.created_at.desc()).limit(100)
+        if since is not None:
+            statement = statement.where(
+                or_(
+                    Lot.created_at >= since,
+                    Lot.enam_registered_at >= since,
+                    Lot.warehoused_at >= since,
+                )
+            )
+        return list(await self.session.scalars(statement))
