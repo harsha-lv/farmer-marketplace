@@ -80,3 +80,9 @@ class ContractRepository:
         contract.updated_at = datetime.now(UTC)
         await self.session.flush()
         return contract
+
+    async def cancel(self, contract: TradeContract) -> TradeContract:
+        contract.status = "cancelled"
+        contract.updated_at = datetime.now(UTC)
+        await self.session.flush()
+        return contract

@@ -19,6 +19,7 @@ from app.ondc.catalog import (
     nack,
     response_context,
 )
+from app.ondc.cancel import CancelService
 from app.ondc.confirm import ConfirmService
 from app.ondc.init import InitService
 from app.ondc.select import SelectService
@@ -149,11 +150,22 @@ def get_status_service(session: SessionDep, settings: SettingsDep) -> StatusServ
     )
 
 
+def get_cancel_service(session: SessionDep, settings: SettingsDep) -> CancelService:
+    return CancelService(
+        LotRepository(session),
+        ContractRepository(session),
+        BecknCallback(),
+        bpp_id=settings.ondc_bpp_id,
+        bpp_uri=settings.ondc_bpp_uri,
+    )
+
+
 SearchDep = Annotated[SearchService, Depends(get_search_service)]
 SelectDep = Annotated[SelectService, Depends(get_select_service)]
 InitDep = Annotated[InitService, Depends(get_init_service)]
 ConfirmDep = Annotated[ConfirmService, Depends(get_confirm_service)]
 StatusDep = Annotated[StatusService, Depends(get_status_service)]
+CancelDep = Annotated[CancelService, Depends(get_cancel_service)]
 
 
 @router.post("/search")
@@ -204,3 +216,13 @@ async def status(request: Request, service: StatusDep) -> JSONResponse:
         context = response_context({}, action="status", bpp_id=service.bpp_id, bpp_uri=service.bpp_uri)
         return JSONResponse(status_code=400, content=nack(context, "context is required"))
     return await service.status(body)
+
+
+@router.post("/cancel")
+async def cancel(request: Request, service: CancelDep) -> JSONResponse:
+    try:
+        body = await request.json()
+    except ValueError:
+        context = response_context({}, action="cancel", bpp_id=service.bpp_id, bpp_uri=service.bpp_uri)
+        return JSONResponse(status_code=400, content=nack(context, "context is required"))
+    return await service.cancel(body)

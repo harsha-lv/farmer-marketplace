@@ -84,6 +84,12 @@ class LotRepository:
             lot.status = "traded"
         await self.session.flush()
 
+    async def restore_quantity(self, lot: Lot, quantity: Decimal) -> None:
+        lot.quantity_mt += quantity
+        if lot.status == "traded":
+            lot.status = "registered"
+        await self.session.flush()
+
     async def list_modified_since(self, since: datetime | None) -> list[Lot]:
         statement = select(Lot).options(selectinload(Lot.assay)).order_by(Lot.created_at.desc()).limit(100)
         if since is not None:
