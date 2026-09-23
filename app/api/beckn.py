@@ -24,6 +24,7 @@ from app.ondc.confirm import ConfirmService
 from app.ondc.init import InitService
 from app.ondc.select import SelectService
 from app.ondc.status import StatusService
+from app.ondc.support import SupportService
 from app.prices.repository import PriceRepository
 from app.trades.repository import ContractRepository
 
@@ -160,12 +161,24 @@ def get_cancel_service(session: SessionDep, settings: SettingsDep) -> CancelServ
     )
 
 
+def get_support_service(session: SessionDep, settings: SettingsDep) -> SupportService:
+    return SupportService(
+        ContractRepository(session),
+        BecknCallback(),
+        bpp_id=settings.ondc_bpp_id,
+        bpp_uri=settings.ondc_bpp_uri,
+        support_phone=settings.ondc_support_phone,
+        support_email=settings.ondc_support_email,
+    )
+
+
 SearchDep = Annotated[SearchService, Depends(get_search_service)]
 SelectDep = Annotated[SelectService, Depends(get_select_service)]
 InitDep = Annotated[InitService, Depends(get_init_service)]
 ConfirmDep = Annotated[ConfirmService, Depends(get_confirm_service)]
 StatusDep = Annotated[StatusService, Depends(get_status_service)]
 CancelDep = Annotated[CancelService, Depends(get_cancel_service)]
+SupportDep = Annotated[SupportService, Depends(get_support_service)]
 
 
 @router.post("/search")
@@ -226,3 +239,13 @@ async def cancel(request: Request, service: CancelDep) -> JSONResponse:
         context = response_context({}, action="cancel", bpp_id=service.bpp_id, bpp_uri=service.bpp_uri)
         return JSONResponse(status_code=400, content=nack(context, "context is required"))
     return await service.cancel(body)
+
+
+@router.post("/support")
+async def support(request: Request, service: SupportDep) -> JSONResponse:
+    try:
+        body = await request.json()
+    except ValueError:
+        context = response_context({}, action="support", bpp_id=service.bpp_id, bpp_uri=service.bpp_uri)
+        return JSONResponse(status_code=400, content=nack(context, "context is required"))
+    return await service.support(body)

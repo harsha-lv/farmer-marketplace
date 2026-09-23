@@ -27,6 +27,8 @@ class Settings(BaseSettings):
     ondc_bpp_uri: str = "http://127.0.0.1:8000/beckn"
     ondc_bpp_name: str = "Market desk"
     ondc_commission_percent: int = 0
+    ondc_support_phone: str = "+911800123456"
+    ondc_support_email: str = "grievance@market.local"
 
 
 @lru_cache
