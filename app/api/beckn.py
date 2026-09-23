@@ -22,6 +22,7 @@ from app.ondc.catalog import (
 from app.ondc.confirm import ConfirmService
 from app.ondc.init import InitService
 from app.ondc.select import SelectService
+from app.ondc.status import StatusService
 from app.prices.repository import PriceRepository
 from app.trades.repository import ContractRepository
 
@@ -139,10 +140,20 @@ def get_confirm_service(session: SessionDep, settings: SettingsDep) -> ConfirmSe
     )
 
 
+def get_status_service(session: SessionDep, settings: SettingsDep) -> StatusService:
+    return StatusService(
+        ContractRepository(session),
+        BecknCallback(),
+        bpp_id=settings.ondc_bpp_id,
+        bpp_uri=settings.ondc_bpp_uri,
+    )
+
+
 SearchDep = Annotated[SearchService, Depends(get_search_service)]
 SelectDep = Annotated[SelectService, Depends(get_select_service)]
 InitDep = Annotated[InitService, Depends(get_init_service)]
 ConfirmDep = Annotated[ConfirmService, Depends(get_confirm_service)]
+StatusDep = Annotated[StatusService, Depends(get_status_service)]
 
 
 @router.post("/search")
@@ -183,3 +194,13 @@ async def confirm(request: Request, service: ConfirmDep) -> JSONResponse:
         context = response_context({}, action="confirm", bpp_id=service.bpp_id, bpp_uri=service.bpp_uri)
         return JSONResponse(status_code=400, content=nack(context, "context is required"))
     return await service.confirm(body)
+
+
+@router.post("/status")
+async def status(request: Request, service: StatusDep) -> JSONResponse:
+    try:
+        body = await request.json()
+    except ValueError:
+        context = response_context({}, action="status", bpp_id=service.bpp_id, bpp_uri=service.bpp_uri)
+        return JSONResponse(status_code=400, content=nack(context, "context is required"))
+    return await service.status(body)
