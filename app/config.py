@@ -29,6 +29,7 @@ class Settings(BaseSettings):
     ondc_commission_percent: int = 0
     ondc_support_phone: str = "+911800123456"
     ondc_support_email: str = "grievance@market.local"
+    ondc_tracking_base_url: str = "https://track.market.local/shipments"
 
 
 @lru_cache
