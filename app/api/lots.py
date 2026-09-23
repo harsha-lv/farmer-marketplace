@@ -10,10 +10,14 @@ from app.consent.signing import authorize_profile_fetch
 from app.errors import AppError
 from app.farmers.repository import FarmerRepository
 from app.lots.enam import EnamClient, EnamError
+from app.lots.grading import evaluate_crop_quality
 from app.lots.models import Lot
 from app.lots.repository import LotRepository
 from app.lots.schemas import (
+    AssayEvaluationRequest,
+    AssayEvaluationResponse,
     AssayResponse,
+    AssayUpdateRequest,
     EnamRegistrationRequest,
     LotCreateRequest,
     WarehouseReceiptRequest,
@@ -78,7 +82,42 @@ class LotService:
             raise AppError(403, reason)
         if farmer.consent_artifact_id != request.consent_artifact_id:
             raise AppError(403, "Consent does not match the stored profile")
-        lot = await self.lots.create(request)
+        grade: str | None = None
+        if request.grade.strip().upper() in ("AUTO", "ASSAY_AUTO", "ASSAY-AUTO"):
+            grading = evaluate_crop_quality(
+                commodity=request.commodity,
+                foreign_matter_percent=request.foreign_matter_percent,
+                moisture_percent=request.moisture_percent,
+                damaged_percent=request.damaged_percent,
+            )
+            grade = grading.grade
+        lot = await self.lots.create(request, grade=grade)
+        await self.session.commit()
+        return lot_response(lot)
+
+    async def reassay(self, lot_code: str, request: AssayUpdateRequest) -> LotResponse:
+        lot = await self.lots.get(lot_code)
+        if lot is None or lot.assay is None:
+            raise AppError(404, "Lot not found")
+        await self._require_consent(lot)
+        grade = request.grade.strip()
+        if grade.upper() in ("AUTO", "ASSAY_AUTO", "ASSAY-AUTO"):
+            grading = evaluate_crop_quality(
+                commodity=lot.commodity,
+                foreign_matter_percent=request.foreign_matter_percent,
+                moisture_percent=request.moisture_percent,
+                damaged_percent=request.damaged_percent,
+                immature_percent=request.immature_percent,
+                weevilled_percent=request.weevilled_percent,
+            )
+            grade = grading.grade
+        await self.lots.update_assay(
+            lot=lot,
+            grade=grade,
+            foreign_matter_percent=request.foreign_matter_percent,
+            moisture_percent=request.moisture_percent,
+            damaged_percent=request.damaged_percent,
+        )
         await self.session.commit()
         return lot_response(lot)
 
@@ -191,6 +230,26 @@ async def create_lot(body: LotCreateRequest, service: LotServiceDep) -> LotRespo
     return await service.create(body)
 
 
+@router.post("/assay-evaluate")
+async def evaluate_assay(body: AssayEvaluationRequest) -> AssayEvaluationResponse:
+    result = evaluate_crop_quality(
+        commodity=body.commodity,
+        foreign_matter_percent=body.foreign_matter_percent,
+        moisture_percent=body.moisture_percent,
+        damaged_percent=body.damaged_percent,
+        immature_percent=body.immature_percent,
+        weevilled_percent=body.weevilled_percent,
+    )
+    return AssayEvaluationResponse(
+        commodity=result.commodity,
+        grade=result.grade,
+        is_faq=result.is_faq,
+        quality_score=result.quality_score,
+        defect_breakdown=result.defect_breakdown,
+        standard_used=result.standard_used,
+    )
+
+
 @router.get("")
 async def list_lots(
     service: LotServiceDep,
@@ -202,6 +261,15 @@ async def list_lots(
 @router.get("/{lot_code}")
 async def read_lot(lot_code: str, service: LotServiceDep) -> LotResponse:
     return await service.read(lot_code)
+
+
+@router.post("/{lot_code}/reassay")
+async def reassay_lot(
+    lot_code: str,
+    body: AssayUpdateRequest,
+    service: LotServiceDep,
+) -> LotResponse:
+    return await service.reassay(lot_code, body)
 
 
 @router.post("/{lot_code}/enam-registration")
@@ -220,3 +288,4 @@ async def issue_warehouse_receipt(
     service: LotServiceDep,
 ) -> LotResponse:
     return await service.issue_receipt(lot_code, body.warehouse_id.strip())
+

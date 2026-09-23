@@ -63,3 +63,52 @@ class WarehouseReceiptRequest(BaseModel):
 
 class LotListResponse(BaseModel):
     data: list[LotResponse]
+
+
+class AssayEvaluationRequest(BaseModel):
+    commodity: str = Field(min_length=1, max_length=128)
+    foreign_matter_percent: Decimal | None = None
+    moisture_percent: Decimal | None = None
+    damaged_percent: Decimal | None = None
+    immature_percent: Decimal | None = None
+    weevilled_percent: Decimal | None = None
+
+    @field_validator(
+        "foreign_matter_percent",
+        "moisture_percent",
+        "damaged_percent",
+        "immature_percent",
+        "weevilled_percent",
+    )
+    @classmethod
+    def percentage_range(cls, value: Decimal | None) -> Decimal | None:
+        return _percent(value)
+
+
+class AssayEvaluationResponse(BaseModel):
+    commodity: str
+    grade: str
+    is_faq: bool
+    quality_score: Decimal
+    defect_breakdown: list[str]
+    standard_used: str
+
+
+class AssayUpdateRequest(BaseModel):
+    grade: str = Field(default="AUTO", max_length=64)
+    foreign_matter_percent: Decimal | None = None
+    moisture_percent: Decimal | None = None
+    damaged_percent: Decimal | None = None
+    immature_percent: Decimal | None = None
+    weevilled_percent: Decimal | None = None
+
+    @field_validator(
+        "foreign_matter_percent",
+        "moisture_percent",
+        "damaged_percent",
+        "immature_percent",
+        "weevilled_percent",
+    )
+    @classmethod
+    def percentage_range(cls, value: Decimal | None) -> Decimal | None:
+        return _percent(value)

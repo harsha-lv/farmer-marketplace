@@ -39,7 +39,8 @@ class LotRepository:
             statement = statement.where(func.lower(Lot.commodity) == commodity.casefold())
         return list(await self.session.scalars(statement))
 
-    async def create(self, request: LotCreateRequest) -> Lot:
+    async def create(self, request: LotCreateRequest, grade: str | None = None) -> Lot:
+        assigned_grade = (grade or request.grade).strip()
         lot = Lot(
             lot_code=f"LOT-{uuid4().hex[:12].upper()}",
             farmer_id=request.farmer_id,
@@ -51,7 +52,7 @@ class LotRepository:
             created_at=datetime.now(UTC),
         )
         lot.assay = AssayReport(
-            grade=request.grade.strip(),
+            grade=assigned_grade,
             foreign_matter_percent=request.foreign_matter_percent,
             moisture_percent=request.moisture_percent,
             damaged_percent=request.damaged_percent,
@@ -60,6 +61,31 @@ class LotRepository:
         self.session.add(lot)
         await self.session.flush()
         return lot
+
+    async def update_assay(
+        self,
+        lot: Lot,
+        grade: str,
+        foreign_matter_percent: Decimal | None,
+        moisture_percent: Decimal | None,
+        damaged_percent: Decimal | None,
+    ) -> None:
+        if lot.assay is None:
+            lot.assay = AssayReport(
+                grade=grade.strip(),
+                foreign_matter_percent=foreign_matter_percent,
+                moisture_percent=moisture_percent,
+                damaged_percent=damaged_percent,
+                recorded_at=datetime.now(UTC),
+            )
+            self.session.add(lot.assay)
+        else:
+            lot.assay.grade = grade.strip()
+            lot.assay.foreign_matter_percent = foreign_matter_percent
+            lot.assay.moisture_percent = moisture_percent
+            lot.assay.damaged_percent = damaged_percent
+            lot.assay.recorded_at = datetime.now(UTC)
+        await self.session.flush()
 
     async def assign_gate(self, lot: Lot, gate_id: str) -> None:
         lot.enam_gate_id = gate_id
