@@ -10,7 +10,16 @@ from app.prices.feed import FeedError, MandiFeed
 from app.prices.ingest import IngestCounts, store_quotes
 from app.prices.repository import PriceRepository
 from app.prices.sale_window import recommend_sale_window
-from app.prices.schemas import IngestResponse, PageMeta, PriceFilter, PriceListResponse, SaleWindowResponse
+from app.prices.schemas import (
+    IngestResponse,
+    PageMeta,
+    PriceFilter,
+    PriceListResponse,
+    SaleWindowResponse,
+    TftForecastResponse,
+    TftHorizonPoint,
+)
+from app.prices.tft_forecasting import tft_multivariate_forecast
 
 router = APIRouter(tags=["prices"])
 
@@ -132,6 +141,7 @@ async def sale_window(
     horizon_days: Annotated[int, Query(ge=7, le=21)] = 14,
     lookback_days: Annotated[int, Query(ge=7, le=365)] = 90,
     storage_cost_per_quintal_per_day: Annotated[int, Query(ge=0)] = 0,
+    model: Annotated[str, Query(pattern="^(linear|tft)$")] = "linear",
 ) -> SaleWindowResponse:
     commodity_name = commodity.strip()
     if not commodity_name:
@@ -146,9 +156,37 @@ async def sale_window(
         arrival_from=date.today() - timedelta(days=lookback_days),
         limit=1,
     )
-    series = await reader.daily_modal_prices(query)
+    if model == "tft" and hasattr(reader, "multivariate_daily_series"):
+        series = await reader.multivariate_daily_series(query)
+    else:
+        series = await reader.daily_modal_prices(query)
     if not series:
         raise AppError(404, "No prices found")
+
+    if model == "tft":
+        forecast = tft_multivariate_forecast(
+            series,
+            horizon_days=horizon_days,
+            storage_cost_per_quintal_per_day=storage_cost_per_quintal_per_day,
+        )
+        avg_price = int(round(sum(p[1] for p in series) / len(series)))
+        return SaleWindowResponse(
+            commodity=commodity_name,
+            state=query.state,
+            district=query.district,
+            market=query.market,
+            horizon_days=horizon_days,
+            lookback_days=lookback_days,
+            observations=forecast.observations,
+            latest_arrival_date=forecast.latest_date,
+            latest_modal_price_inr_per_quintal=forecast.latest_modal_price_inr,
+            average_modal_price_inr_per_quintal=avg_price,
+            projected_modal_price_inr_per_quintal=forecast.p50_terminal_price_inr,
+            storage_cost_inr_per_quintal=forecast.storage_cost_inr,
+            recommendation=forecast.recommendation.lower(),
+            reason=forecast.rationale,
+        )
+
     window = recommend_sale_window(
         series,
         horizon_days=horizon_days,
@@ -169,4 +207,77 @@ async def sale_window(
         storage_cost_inr_per_quintal=window.storage_cost_inr_per_quintal,
         recommendation=window.recommendation,
         reason=window.reason,
+    )
+
+
+@router.get("/prices/forecast/tft")
+async def tft_forecast(
+    reader: PriceReaderDep,
+    commodity: Annotated[str, Query(min_length=1, max_length=128)],
+    state: Annotated[str | None, Query(max_length=128)] = None,
+    district: Annotated[str | None, Query(max_length=128)] = None,
+    market: Annotated[str | None, Query(max_length=128)] = None,
+    variety: Annotated[str | None, Query(max_length=128)] = None,
+    grade: Annotated[str | None, Query(max_length=64)] = None,
+    horizon_days: Annotated[int, Query(ge=7, le=21)] = 14,
+    lookback_days: Annotated[int, Query(ge=7, le=365)] = 90,
+    storage_cost_per_quintal_per_day: Annotated[int, Query(ge=0)] = 0,
+    capital_interest_rate_bps: Annotated[int, Query(ge=0, le=5000)] = 700,
+) -> TftForecastResponse:
+    commodity_name = commodity.strip()
+    if not commodity_name:
+        raise AppError(422, "Invalid request", "commodity is required")
+    query = PriceFilter(
+        commodity=commodity_name,
+        state=_blank_to_none(state),
+        district=_blank_to_none(district),
+        market=_blank_to_none(market),
+        variety=_blank_to_none(variety),
+        grade=_blank_to_none(grade),
+        arrival_from=date.today() - timedelta(days=lookback_days),
+        limit=1,
+    )
+    if hasattr(reader, "multivariate_daily_series"):
+        series = await reader.multivariate_daily_series(query)
+    else:
+        series = await reader.daily_modal_prices(query)
+    if not series:
+        raise AppError(404, "No prices found")
+
+    forecast = tft_multivariate_forecast(
+        series,
+        horizon_days=horizon_days,
+        storage_cost_per_quintal_per_day=storage_cost_per_quintal_per_day,
+        capital_interest_rate_bps=capital_interest_rate_bps,
+    )
+    return TftForecastResponse(
+        commodity=commodity_name,
+        state=query.state,
+        district=query.district,
+        market=query.market,
+        horizon_days=horizon_days,
+        lookback_days=lookback_days,
+        observations=forecast.observations,
+        latest_date=forecast.latest_date,
+        latest_modal_price_inr=forecast.latest_modal_price_inr,
+        p10_terminal_price_inr=forecast.p10_terminal_price_inr,
+        p50_terminal_price_inr=forecast.p50_terminal_price_inr,
+        p90_terminal_price_inr=forecast.p90_terminal_price_inr,
+        storage_cost_inr=forecast.storage_cost_inr,
+        capital_cost_inr=forecast.capital_cost_inr,
+        total_holding_cost_inr=forecast.total_holding_cost_inr,
+        expected_net_gain_inr=forecast.expected_net_gain_inr,
+        recommendation=forecast.recommendation,
+        rationale=forecast.rationale,
+        horizons=[
+            TftHorizonPoint(
+                day_offset=h.day_offset,
+                forecast_date=h.forecast_date,
+                p10_price_inr=h.p10_price_inr,
+                p50_price_inr=h.p50_price_inr,
+                p90_price_inr=h.p90_price_inr,
+            )
+            for h in forecast.horizons
+        ],
+        attention_weights=forecast.attention_weights,
     )

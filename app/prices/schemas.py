@@ -67,3 +67,35 @@ class PriceFilter(BaseModel):
     arrival_to: date | None = None
     limit: int = Field(default=50, ge=1, le=200)
     offset: int = Field(default=0, ge=0)
+
+
+class TftHorizonPoint(BaseModel):
+    day_offset: int
+    forecast_date: date
+    p10_price_inr: int
+    p50_price_inr: int
+    p90_price_inr: int
+
+
+class TftForecastResponse(BaseModel):
+    commodity: str
+    state: str | None = None
+    district: str | None = None
+    market: str | None = None
+    horizon_days: int
+    lookback_days: int
+    observations: int
+    latest_date: date | None = None
+    latest_modal_price_inr: int | None = None
+    p10_terminal_price_inr: int | None = None
+    p50_terminal_price_inr: int | None = None
+    p90_terminal_price_inr: int | None = None
+    storage_cost_inr: int
+    capital_cost_inr: int
+    total_holding_cost_inr: int
+    expected_net_gain_inr: int
+    recommendation: str
+    rationale: str
+    horizons: list[TftHorizonPoint]
+    attention_weights: list[float]
+

@@ -88,6 +88,22 @@ def daily_modal_statement(query: PriceFilter):
     return statement.group_by(PriceObservation.arrival_date).order_by(PriceObservation.arrival_date)
 
 
+def multivariate_daily_statement(query: PriceFilter):
+    statement = apply_price_filters(
+        select(
+            PriceObservation.arrival_date.label("arrival_date"),
+            func.avg(PriceObservation.modal_price_inr_per_quintal).label("modal_price"),
+            func.coalesce(func.sum(PriceObservation.arrivals_quintal), 0).label("arrivals_quintal"),
+            func.min(PriceObservation.min_price_inr_per_quintal).label("min_price"),
+            func.max(PriceObservation.max_price_inr_per_quintal).label("max_price"),
+        )
+        .join(Market, PriceObservation.market_id == Market.id)
+        .join(Commodity, PriceObservation.commodity_id == Commodity.id),
+        query,
+    )
+    return statement.group_by(PriceObservation.arrival_date).order_by(PriceObservation.arrival_date)
+
+
 class PriceRepository:
     def __init__(self, session: AsyncSession) -> None:
         self.session = session
@@ -101,6 +117,21 @@ class PriceRepository:
     async def daily_modal_prices(self, query: PriceFilter) -> list[tuple[date, int]]:
         result = await self.session.execute(daily_modal_statement(query))
         return [(row.arrival_date, int(round(row.modal_price))) for row in result]
+
+    async def multivariate_daily_series(
+        self, query: PriceFilter
+    ) -> list[tuple[date, int, float, int, int]]:
+        result = await self.session.execute(multivariate_daily_statement(query))
+        return [
+            (
+                row.arrival_date,
+                int(round(row.modal_price)),
+                float(row.arrivals_quintal or 0.0),
+                int(row.min_price),
+                int(row.max_price),
+            )
+            for row in result
+        ]
 
     async def upsert_market(
         self,
