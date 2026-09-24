@@ -37,6 +37,10 @@ class Settings(BaseSettings):
     settlement_tds_rate_bps: int = 100
     kafka_bootstrap_servers: str = ""
     nats_url: str = ""
+    nats_jetstream_max_messages: int = 100_000
+    nats_jetstream_max_bytes: int = 104_857_600
+    nats_jetstream_max_age_seconds: int = 604_800
+    nats_jetstream_dedup_window_seconds: int = 120
     event_outbox_batch_size: int = 100
     pledge_finance_default_ltv_bps: int = 7500
     pledge_finance_default_interest_bps: int = 700
