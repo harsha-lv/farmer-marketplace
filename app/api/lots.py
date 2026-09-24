@@ -8,6 +8,7 @@ from app.api.deps import SessionDep, SettingsDep
 from app.consent.repository import ConsentRepository
 from app.consent.signing import authorize_profile_fetch
 from app.errors import AppError
+from app.events.repository import EventRepository
 from app.farmers.repository import FarmerRepository
 from app.lots.enam import EnamClient, EnamError
 from app.lots.grading import evaluate_crop_quality
@@ -92,6 +93,21 @@ class LotService:
             )
             grade = grading.grade
         lot = await self.lots.create(request, grade=grade)
+        if isinstance(self.lots, LotRepository):
+            await EventRepository(self.session).record_event(
+                event_type="LotCreated",
+                stream_id=f"lot:{lot.lot_code}",
+                partition_key=lot.farmer_id,
+                payload={
+                    "lot_code": lot.lot_code,
+                    "farmer_id": lot.farmer_id,
+                    "commodity": lot.commodity,
+                    "variety": lot.variety,
+                    "quantity_mt": str(lot.quantity_mt),
+                    "grade": lot.assay.grade if lot.assay else None,
+                },
+                consent_artifact_id=lot.consent_artifact_id,
+            )
         await self.session.commit()
         return lot_response(lot)
 
@@ -118,6 +134,22 @@ class LotService:
             moisture_percent=request.moisture_percent,
             damaged_percent=request.damaged_percent,
         )
+        if isinstance(self.lots, LotRepository):
+            await EventRepository(self.session).record_event(
+                event_type="AssayCompleted",
+                stream_id=f"lot:{lot.lot_code}",
+                partition_key=lot.farmer_id,
+                payload={
+                    "lot_code": lot.lot_code,
+                    "farmer_id": lot.farmer_id,
+                    "commodity": lot.commodity,
+                    "grade": grade,
+                    "foreign_matter_percent": str(request.foreign_matter_percent),
+                    "moisture_percent": str(request.moisture_percent),
+                    "damaged_percent": str(request.damaged_percent),
+                },
+                consent_artifact_id=lot.consent_artifact_id,
+            )
         await self.session.commit()
         return lot_response(lot)
 

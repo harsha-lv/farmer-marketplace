@@ -15,6 +15,7 @@ from app.consent.signing import (
     signature_matches,
 )
 from app.errors import AppError
+from app.events.repository import EventRepository
 
 router = APIRouter(prefix="/consents", tags=["consents"])
 
@@ -74,6 +75,19 @@ class ConsentService:
             signature=request.signature,
         )
         await self.repository.add(artifact)
+        await EventRepository(self.session).record_event(
+            event_type="ConsentGranted",
+            stream_id=f"consent:{artifact.artifact_id}",
+            partition_key=artifact.farmer_id,
+            payload={
+                "artifact_id": artifact.artifact_id,
+                "farmer_id": artifact.farmer_id,
+                "purpose": artifact.purpose,
+                "attributes": artifact.attributes,
+                "expires_at": artifact.expires_at.isoformat(),
+            },
+            consent_artifact_id=artifact.artifact_id,
+        )
         await self.session.commit()
         return consent_response(artifact)
 
@@ -88,6 +102,17 @@ class ConsentService:
             artifact.status = "withdrawn"
             artifact.withdrawn_at = utcnow()
             await self.repository.delete_profile(artifact.farmer_id, artifact.artifact_id)
+            await EventRepository(self.session).record_event(
+                event_type="ConsentRevoked",
+                stream_id=f"consent:{artifact.artifact_id}",
+                partition_key=artifact.farmer_id,
+                payload={
+                    "artifact_id": artifact.artifact_id,
+                    "farmer_id": artifact.farmer_id,
+                    "withdrawn_at": artifact.withdrawn_at.isoformat(),
+                },
+                consent_artifact_id=artifact.artifact_id,
+            )
             await self.session.commit()
         return consent_response(artifact)
 

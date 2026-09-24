@@ -5,6 +5,7 @@ from fastapi import APIRouter
 
 from app.api.deps import SessionDep, SettingsDep
 from app.errors import AppError
+from app.events.repository import EventRepository
 from app.trades.repository import ContractRepository, SettlementRepository
 from app.trades.schemas import (
     DeliveryConfirmationRequest,
@@ -86,6 +87,18 @@ async def redeem_erupi_voucher(
         raise AppError(status_code=400, title="voucher expired", detail="this e-RUPI voucher has expired")
 
     redeemed = await repo.redeem_erupi_voucher(voucher)
+    if type(repo).__name__ == "SettlementRepository" and type(repo).__module__ == "app.trades.repository":
+        await EventRepository(session).record_event(
+            event_type="VoucherRedeemed",
+            stream_id=f"voucher:{voucher.voucher_code}",
+            partition_key=voucher.farmer_id,
+            payload={
+                "voucher_code": voucher.voucher_code,
+                "settlement_id": voucher.settlement_id,
+                "amount_inr": voucher.amount_inr,
+                "agent_id": request.agent_id,
+            },
+        )
     await session.commit()
 
     return VoucherRedeemResponse(
@@ -129,6 +142,20 @@ async def confirm_delivery(
         await repository.settle(contract)
     else:
         await repository.dispute(contract)
+
+    if type(repository).__name__ == "ContractRepository" and type(repository).__module__ == "app.trades.repository":
+        await EventRepository(session).record_event(
+            event_type="TradeSettled" if request.acceptance else "TradeDisputed",
+            stream_id=f"trade:{contract.transaction_id}",
+            partition_key=contract.farmer_id,
+            payload={
+                "transaction_id": contract.transaction_id,
+                "lot_code": contract.lot_code,
+                "farmer_id": contract.farmer_id,
+                "price_inr": contract.price_inr,
+                "acceptance": request.acceptance,
+            },
+        )
 
     await session.commit()
     return TradeContractResponse.from_model(contract)
@@ -226,6 +253,33 @@ async def initiate_settlement(
             status="INITIATED",
             payout_ref=payout_ref,
         )
+
+    if type(settlement_repo).__name__ == "SettlementRepository" and type(settlement_repo).__module__ == "app.trades.repository":
+        await EventRepository(session).record_event(
+            event_type="SettlementInitiated",
+            stream_id=f"trade:{contract.transaction_id}",
+            partition_key=contract.farmer_id,
+            payload={
+                "settlement_id": settlement_id,
+                "transaction_id": transaction_id,
+                "payout_mode": payout_mode,
+                "net_payout_inr": net_payout,
+                "tds_inr": tds_inr,
+            },
+        )
+        if voucher is not None:
+            await EventRepository(session).record_event(
+                event_type="VoucherIssued",
+                stream_id=f"voucher:{voucher.voucher_code}",
+                partition_key=contract.farmer_id,
+                payload={
+                    "voucher_code": voucher.voucher_code,
+                    "settlement_id": settlement_id,
+                    "transaction_id": transaction_id,
+                    "amount_inr": net_payout,
+                    "beneficiary_phone": phone,
+                },
+            )
 
     await session.commit()
     return SettlementResponse.from_model(settlement, voucher)

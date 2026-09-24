@@ -33,6 +33,9 @@ class Settings(BaseSettings):
     erupi_issuer_id: str = "ONDC-RSP-PARTNER-BANK"
     erupi_validity_days: int = 30
     settlement_tds_rate_bps: int = 100
+    kafka_bootstrap_servers: str = ""
+    nats_url: str = ""
+    event_outbox_batch_size: int = 100
 
 
 @lru_cache

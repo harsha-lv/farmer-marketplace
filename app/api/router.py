@@ -1,6 +1,7 @@
 from fastapi import APIRouter
 
 from app.api.consents import router as consents_router
+from app.api.events import router as events_router
 from app.api.farmers import router as farmers_router
 from app.api.lots import router as lots_router
 from app.api.prices import router as prices_router
@@ -14,3 +15,4 @@ api_router.include_router(consents_router)
 api_router.include_router(lots_router)
 api_router.include_router(trades_router)
 api_router.include_router(sync_router)
+api_router.include_router(events_router)
