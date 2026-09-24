@@ -104,6 +104,52 @@ def multivariate_daily_statement(query: PriceFilter):
     return statement.group_by(PriceObservation.arrival_date).order_by(PriceObservation.arrival_date)
 
 
+def weekly_rollup_statement(query: PriceFilter):
+    time_col = func.date_trunc("week", PriceObservation.arrival_date).label("week_start")
+    statement = apply_price_filters(
+        select(
+            time_col,
+            func.min(PriceObservation.min_price_inr_per_quintal).label("min_price"),
+            func.max(PriceObservation.max_price_inr_per_quintal).label("max_price"),
+            func.avg(PriceObservation.modal_price_inr_per_quintal).label("avg_modal_price"),
+            func.coalesce(
+                func.sum(PriceObservation.modal_price_inr_per_quintal * PriceObservation.arrivals_quintal)
+                / func.nullif(func.sum(PriceObservation.arrivals_quintal), 0),
+                func.avg(PriceObservation.modal_price_inr_per_quintal),
+            ).label("vwap_modal_price"),
+            func.coalesce(func.sum(PriceObservation.arrivals_quintal), 0).label("total_arrivals"),
+            func.count(func.distinct(PriceObservation.arrival_date)).label("observation_days"),
+        )
+        .join(Market, PriceObservation.market_id == Market.id)
+        .join(Commodity, PriceObservation.commodity_id == Commodity.id),
+        query,
+    )
+    return statement.group_by(time_col).order_by(time_col)
+
+
+def monthly_rollup_statement(query: PriceFilter):
+    time_col = func.date_trunc("month", PriceObservation.arrival_date).label("month_start")
+    statement = apply_price_filters(
+        select(
+            time_col,
+            func.min(PriceObservation.min_price_inr_per_quintal).label("min_price"),
+            func.max(PriceObservation.max_price_inr_per_quintal).label("max_price"),
+            func.avg(PriceObservation.modal_price_inr_per_quintal).label("avg_modal_price"),
+            func.coalesce(
+                func.sum(PriceObservation.modal_price_inr_per_quintal * PriceObservation.arrivals_quintal)
+                / func.nullif(func.sum(PriceObservation.arrivals_quintal), 0),
+                func.avg(PriceObservation.modal_price_inr_per_quintal),
+            ).label("vwap_modal_price"),
+            func.coalesce(func.sum(PriceObservation.arrivals_quintal), 0).label("total_arrivals"),
+            func.count(func.distinct(PriceObservation.arrival_date)).label("observation_days"),
+        )
+        .join(Market, PriceObservation.market_id == Market.id)
+        .join(Commodity, PriceObservation.commodity_id == Commodity.id),
+        query,
+    )
+    return statement.group_by(time_col).order_by(time_col)
+
+
 class PriceRepository:
     def __init__(self, session: AsyncSession) -> None:
         self.session = session
@@ -132,6 +178,36 @@ class PriceRepository:
             )
             for row in result
         ]
+
+    async def weekly_rollups(
+        self, query: PriceFilter, lookback_weeks: int = 12
+    ):
+        from app.prices.aggregations import aggregate_weekly_rollups
+        series = await self.multivariate_daily_series(query)
+        return aggregate_weekly_rollups(series, lookback_weeks=lookback_weeks)
+
+    async def monthly_rollups(
+        self, query: PriceFilter, lookback_months: int = 12
+    ):
+        from app.prices.aggregations import aggregate_monthly_rollups
+        series = await self.multivariate_daily_series(query)
+        return aggregate_monthly_rollups(series, lookback_months=lookback_months)
+
+    async def mandi_volatility(
+        self, query: PriceFilter, lookback_days: int = 30
+    ):
+        from app.prices.aggregations import calculate_mandi_volatility
+        series = await self.multivariate_daily_series(query)
+        commodity = query.commodity or "Unknown"
+        return calculate_mandi_volatility(
+            series,
+            commodity=commodity,
+            lookback_days=lookback_days,
+            state=query.state,
+            district=query.district,
+            market=query.market,
+        )
+
 
     async def upsert_market(
         self,

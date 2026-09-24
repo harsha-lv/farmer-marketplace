@@ -99,3 +99,54 @@ class TftForecastResponse(BaseModel):
     horizons: list[TftHorizonPoint]
     attention_weights: list[float]
 
+
+class PriceRollupPoint(BaseModel):
+    period_start: date
+    period_end: date
+    period_label: str
+    min_price_inr: int
+    max_price_inr: int
+    avg_modal_price_inr: int
+    vwap_modal_price_inr: int
+    total_arrivals_quintal: float
+    observation_days: int
+
+
+class WeeklyRollupResponse(BaseModel):
+    commodity: str
+    state: str | None = None
+    district: str | None = None
+    market: str | None = None
+    lookback_weeks: int
+    rollups: list[PriceRollupPoint]
+
+
+class MonthlyRollupResponse(BaseModel):
+    commodity: str
+    state: str | None = None
+    district: str | None = None
+    market: str | None = None
+    lookback_months: int
+    rollups: list[PriceRollupPoint]
+
+
+class MandiVolatilityResponse(BaseModel):
+    commodity: str
+    state: str | None = None
+    district: str | None = None
+    market: str | None = None
+    lookback_days: int
+    observations: int
+    mean_modal_price_inr: int
+    std_dev_inr: float
+    coefficient_of_variation_pct: float
+    min_price_inr: int
+    max_price_inr: int
+    price_spread_inr: int
+    volatility_rating: str
+    is_volume_shock: bool
+    volume_shock_type: str
+    volume_shock_ratio: float | None = None
+    market_commentary: str
+
+

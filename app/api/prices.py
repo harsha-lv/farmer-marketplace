@@ -12,12 +12,16 @@ from app.prices.repository import PriceRepository
 from app.prices.sale_window import recommend_sale_window
 from app.prices.schemas import (
     IngestResponse,
+    MandiVolatilityResponse,
+    MonthlyRollupResponse,
     PageMeta,
     PriceFilter,
     PriceListResponse,
+    PriceRollupPoint,
     SaleWindowResponse,
     TftForecastResponse,
     TftHorizonPoint,
+    WeeklyRollupResponse,
 )
 from app.prices.tft_forecasting import tft_multivariate_forecast
 
@@ -281,3 +285,145 @@ async def tft_forecast(
         ],
         attention_weights=forecast.attention_weights,
     )
+
+
+@router.get("/prices/aggregations/weekly")
+async def weekly_aggregations(
+    reader: PriceReaderDep,
+    commodity: Annotated[str, Query(min_length=1, max_length=128)],
+    state: Annotated[str | None, Query(max_length=128)] = None,
+    district: Annotated[str | None, Query(max_length=128)] = None,
+    market: Annotated[str | None, Query(max_length=128)] = None,
+    variety: Annotated[str | None, Query(max_length=128)] = None,
+    grade: Annotated[str | None, Query(max_length=64)] = None,
+    lookback_weeks: Annotated[int, Query(ge=1, le=104)] = 12,
+) -> WeeklyRollupResponse:
+    commodity_name = commodity.strip()
+    if not commodity_name:
+        raise AppError(422, "Invalid request", "commodity is required")
+    query = PriceFilter(
+        commodity=commodity_name,
+        state=_blank_to_none(state),
+        district=_blank_to_none(district),
+        market=_blank_to_none(market),
+        variety=_blank_to_none(variety),
+        grade=_blank_to_none(grade),
+        arrival_from=date.today() - timedelta(weeks=lookback_weeks),
+        limit=1,
+    )
+    if hasattr(reader, "weekly_rollups"):
+        rollups = await reader.weekly_rollups(query, lookback_weeks=lookback_weeks)
+    elif hasattr(reader, "multivariate_daily_series"):
+        from app.prices.aggregations import aggregate_weekly_rollups
+
+        series = await reader.multivariate_daily_series(query)
+        rollups = aggregate_weekly_rollups(series, lookback_weeks=lookback_weeks)
+    else:
+        raise AppError(500, "Repository does not support aggregations")
+
+    if not rollups:
+        raise AppError(404, "No prices found")
+
+    return WeeklyRollupResponse(
+        commodity=commodity_name,
+        state=query.state,
+        district=query.district,
+        market=query.market,
+        lookback_weeks=lookback_weeks,
+        rollups=rollups,
+    )
+
+
+@router.get("/prices/aggregations/monthly")
+async def monthly_aggregations(
+    reader: PriceReaderDep,
+    commodity: Annotated[str, Query(min_length=1, max_length=128)],
+    state: Annotated[str | None, Query(max_length=128)] = None,
+    district: Annotated[str | None, Query(max_length=128)] = None,
+    market: Annotated[str | None, Query(max_length=128)] = None,
+    variety: Annotated[str | None, Query(max_length=128)] = None,
+    grade: Annotated[str | None, Query(max_length=64)] = None,
+    lookback_months: Annotated[int, Query(ge=1, le=60)] = 12,
+) -> MonthlyRollupResponse:
+    commodity_name = commodity.strip()
+    if not commodity_name:
+        raise AppError(422, "Invalid request", "commodity is required")
+    query = PriceFilter(
+        commodity=commodity_name,
+        state=_blank_to_none(state),
+        district=_blank_to_none(district),
+        market=_blank_to_none(market),
+        variety=_blank_to_none(variety),
+        grade=_blank_to_none(grade),
+        arrival_from=date.today() - timedelta(days=lookback_months * 31),
+        limit=1,
+    )
+    if hasattr(reader, "monthly_rollups"):
+        rollups = await reader.monthly_rollups(query, lookback_months=lookback_months)
+    elif hasattr(reader, "multivariate_daily_series"):
+        from app.prices.aggregations import aggregate_monthly_rollups
+
+        series = await reader.multivariate_daily_series(query)
+        rollups = aggregate_monthly_rollups(series, lookback_months=lookback_months)
+    else:
+        raise AppError(500, "Repository does not support aggregations")
+
+    if not rollups:
+        raise AppError(404, "No prices found")
+
+    return MonthlyRollupResponse(
+        commodity=commodity_name,
+        state=query.state,
+        district=query.district,
+        market=query.market,
+        lookback_months=lookback_months,
+        rollups=rollups,
+    )
+
+
+@router.get("/prices/volatility")
+async def mandi_volatility_analysis(
+    reader: PriceReaderDep,
+    commodity: Annotated[str, Query(min_length=1, max_length=128)],
+    state: Annotated[str | None, Query(max_length=128)] = None,
+    district: Annotated[str | None, Query(max_length=128)] = None,
+    market: Annotated[str | None, Query(max_length=128)] = None,
+    variety: Annotated[str | None, Query(max_length=128)] = None,
+    grade: Annotated[str | None, Query(max_length=64)] = None,
+    lookback_days: Annotated[int, Query(ge=7, le=365)] = 30,
+) -> MandiVolatilityResponse:
+    commodity_name = commodity.strip()
+    if not commodity_name:
+        raise AppError(422, "Invalid request", "commodity is required")
+    query = PriceFilter(
+        commodity=commodity_name,
+        state=_blank_to_none(state),
+        district=_blank_to_none(district),
+        market=_blank_to_none(market),
+        variety=_blank_to_none(variety),
+        grade=_blank_to_none(grade),
+        arrival_from=date.today() - timedelta(days=lookback_days),
+        limit=1,
+    )
+    if hasattr(reader, "mandi_volatility"):
+        try:
+            return await reader.mandi_volatility(query, lookback_days=lookback_days)
+        except ValueError:
+            raise AppError(404, "No prices found")
+    elif hasattr(reader, "multivariate_daily_series"):
+        from app.prices.aggregations import calculate_mandi_volatility
+
+        series = await reader.multivariate_daily_series(query)
+        if not series:
+            raise AppError(404, "No prices found")
+        return calculate_mandi_volatility(
+            series,
+            commodity=commodity_name,
+            lookback_days=lookback_days,
+            state=query.state,
+            district=query.district,
+            market=query.market,
+        )
+    else:
+        raise AppError(500, "Repository does not support volatility analysis")
+
