@@ -24,6 +24,9 @@ class TradeContract(Base):
     price_inr: Mapped[int] = mapped_column(BigInteger)
     commission_inr: Mapped[int] = mapped_column(BigInteger)
     status: Mapped[str] = mapped_column(String(16))
+    fulfillment_status: Mapped[str | None] = mapped_column(String(32), nullable=True, default=None)
+    tracking_url: Mapped[str | None] = mapped_column(String(512), nullable=True, default=None)
+    carrier_name: Mapped[str | None] = mapped_column(String(128), nullable=True, default=None)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
     updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
 

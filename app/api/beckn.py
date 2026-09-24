@@ -26,6 +26,7 @@ from app.ondc.select import SelectService
 from app.ondc.status import StatusService
 from app.ondc.support import SupportService
 from app.ondc.track import TrackService
+from app.ondc.update import UpdateService
 from app.prices.repository import PriceRepository
 from app.trades.repository import ContractRepository
 
@@ -183,6 +184,15 @@ def get_track_service(session: SessionDep, settings: SettingsDep) -> TrackServic
     )
 
 
+def get_update_service(session: SessionDep, settings: SettingsDep) -> UpdateService:
+    return UpdateService(
+        ContractRepository(session),
+        BecknCallback(),
+        bpp_id=settings.ondc_bpp_id,
+        bpp_uri=settings.ondc_bpp_uri,
+    )
+
+
 SearchDep = Annotated[SearchService, Depends(get_search_service)]
 SelectDep = Annotated[SelectService, Depends(get_select_service)]
 InitDep = Annotated[InitService, Depends(get_init_service)]
@@ -191,6 +201,7 @@ StatusDep = Annotated[StatusService, Depends(get_status_service)]
 CancelDep = Annotated[CancelService, Depends(get_cancel_service)]
 SupportDep = Annotated[SupportService, Depends(get_support_service)]
 TrackDep = Annotated[TrackService, Depends(get_track_service)]
+UpdateDep = Annotated[UpdateService, Depends(get_update_service)]
 
 
 @router.post("/search")
@@ -271,4 +282,15 @@ async def track(request: Request, service: TrackDep) -> JSONResponse:
         context = response_context({}, action="track", bpp_id=service.bpp_id, bpp_uri=service.bpp_uri)
         return JSONResponse(status_code=400, content=nack(context, "context is required"))
     return await service.track(body)
+
+
+@router.post("/update")
+async def update(request: Request, service: UpdateDep) -> JSONResponse:
+    try:
+        body = await request.json()
+    except ValueError:
+        context = response_context({}, action="update", bpp_id=service.bpp_id, bpp_uri=service.bpp_uri)
+        return JSONResponse(status_code=400, content=nack(context, "context is required"))
+    return await service.update(body)
+
 

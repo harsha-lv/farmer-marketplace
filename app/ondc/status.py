@@ -50,9 +50,8 @@ class StatusService:
             else ("Accepted" if contract.status == "confirmed" else "Created")
         )
         fulfillment_state = (
-            "Order-delivered"
-            if contract.status == "settled"
-            else ("Order-confirmed" if contract.status == "confirmed" else "Pending")
+            getattr(contract, "fulfillment_status", None)
+            or ("Order-delivered" if contract.status == "settled" else ("Order-confirmed" if contract.status == "confirmed" else "Pending"))
         )
         payment_status = (
             "PAID-TO-SELLER"

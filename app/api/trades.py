@@ -10,6 +10,8 @@ from app.trades.repository import ContractRepository, SettlementRepository
 from app.trades.schemas import (
     DeliveryConfirmationRequest,
     ErupiVoucherResponse,
+    FulfillmentStatusResponse,
+    FulfillmentUpdateRequest,
     ReconciliationSummaryResponse,
     SettlementInitiateRequest,
     SettlementResponse,
@@ -293,3 +295,84 @@ async def get_settlement_status(transaction_id: str, session: SessionDep) -> Set
         raise AppError(status_code=404, title="settlement not found", detail=f"settlement for {transaction_id} does not exist")
     voucher = await repo.get_erupi_by_transaction(transaction_id)
     return SettlementResponse.from_model(settlement, voucher)
+
+
+@router.post("/{transaction_id}/fulfillment", response_model=FulfillmentStatusResponse)
+async def update_trade_fulfillment(
+    transaction_id: str,
+    request: FulfillmentUpdateRequest,
+    session: SessionDep,
+) -> FulfillmentStatusResponse:
+    repo = ContractRepository(session)
+    contract = await repo.get_by_transaction(transaction_id)
+    if contract is None:
+        raise AppError(status_code=404, title="contract not found", detail=f"trade contract for {transaction_id} does not exist")
+    if contract.status == "cancelled":
+        raise AppError(status_code=400, title="invalid contract status", detail="cannot update fulfillment for cancelled contract")
+
+    status_code = request.fulfillment_status
+    if status_code in ("Order-delivered", "Delivered"):
+        await repo.settle(contract)
+    elif status_code in ("Disputed", "Order-disputed"):
+        await repo.dispute(contract)
+
+    if hasattr(repo, "update_fulfillment"):
+        await repo.update_fulfillment(
+            contract,
+            fulfillment_status=status_code,
+            tracking_url=request.tracking_url,
+            carrier_name=request.carrier_name,
+        )
+
+    if type(repo).__name__ == "ContractRepository" and type(repo).__module__ == "app.trades.repository":
+        await EventRepository(session).record_event(
+            event_type="FulfillmentUpdated",
+            stream_id=f"trade:{contract.transaction_id}",
+            partition_key=contract.farmer_id,
+            payload={
+                "transaction_id": contract.transaction_id,
+                "contract_status": contract.status,
+                "fulfillment_status": status_code,
+                "tracking_url": request.tracking_url or getattr(contract, "tracking_url", None),
+                "carrier_name": request.carrier_name or getattr(contract, "carrier_name", None),
+                "remarks": request.remarks,
+            },
+        )
+
+    await session.commit()
+    return FulfillmentStatusResponse(
+        transaction_id=contract.transaction_id,
+        contract_status=contract.status,
+        fulfillment_status=getattr(contract, "fulfillment_status", None) or status_code,
+        tracking_url=getattr(contract, "tracking_url", None),
+        carrier_name=getattr(contract, "carrier_name", None),
+        delivery_gps=contract.delivery_gps,
+        updated_at=contract.updated_at,
+    )
+
+
+@router.get("/{transaction_id}/fulfillment", response_model=FulfillmentStatusResponse)
+async def get_trade_fulfillment(
+    transaction_id: str,
+    session: SessionDep,
+) -> FulfillmentStatusResponse:
+    repo = ContractRepository(session)
+    contract = await repo.get_by_transaction(transaction_id)
+    if contract is None:
+        raise AppError(status_code=404, title="contract not found", detail=f"trade contract for {transaction_id} does not exist")
+
+    default_status = (
+        "Order-delivered"
+        if contract.status == "settled"
+        else ("Order-confirmed" if contract.status == "confirmed" else "Pending")
+    )
+    return FulfillmentStatusResponse(
+        transaction_id=contract.transaction_id,
+        contract_status=contract.status,
+        fulfillment_status=getattr(contract, "fulfillment_status", None) or default_status,
+        tracking_url=getattr(contract, "tracking_url", None),
+        carrier_name=getattr(contract, "carrier_name", None),
+        delivery_gps=contract.delivery_gps,
+        updated_at=contract.updated_at,
+    )
+

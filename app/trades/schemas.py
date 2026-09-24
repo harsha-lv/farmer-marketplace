@@ -22,6 +22,9 @@ class TradeContractResponse(BaseModel):
     price_inr: int
     commission_inr: int
     status: str
+    fulfillment_status: str | None = None
+    tracking_url: str | None = None
+    carrier_name: str | None = None
     created_at: datetime
     updated_at: datetime
 
@@ -40,9 +43,32 @@ class TradeContractResponse(BaseModel):
             price_inr=contract.price_inr,
             commission_inr=contract.commission_inr,
             status=contract.status,
+            fulfillment_status=getattr(contract, "fulfillment_status", None),
+            tracking_url=getattr(contract, "tracking_url", None),
+            carrier_name=getattr(contract, "carrier_name", None),
             created_at=contract.created_at,
             updated_at=contract.updated_at,
         )
+
+
+class FulfillmentUpdateRequest(BaseModel):
+    fulfillment_status: str = Field(
+        ...,
+        description="Fulfillment state code, e.g., Order-picked-up, In-transit, Out-for-delivery, Order-delivered, Disputed, RTO",
+    )
+    tracking_url: str | None = Field(default=None, max_length=512)
+    carrier_name: str | None = Field(default=None, max_length=128)
+    remarks: str | None = Field(default=None, max_length=512)
+
+
+class FulfillmentStatusResponse(BaseModel):
+    transaction_id: str
+    contract_status: str
+    fulfillment_status: str
+    tracking_url: str | None = None
+    carrier_name: str | None = None
+    delivery_gps: str
+    updated_at: datetime
 
 
 class SettlementInitiateRequest(BaseModel):

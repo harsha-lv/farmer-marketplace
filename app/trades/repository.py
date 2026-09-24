@@ -87,6 +87,23 @@ class ContractRepository:
         await self.session.flush()
         return contract
 
+    async def update_fulfillment(
+        self,
+        contract: TradeContract,
+        *,
+        fulfillment_status: str,
+        tracking_url: str | None = None,
+        carrier_name: str | None = None,
+    ) -> TradeContract:
+        contract.fulfillment_status = fulfillment_status
+        if tracking_url is not None:
+            contract.tracking_url = tracking_url
+        if carrier_name is not None:
+            contract.carrier_name = carrier_name
+        contract.updated_at = datetime.now(UTC)
+        await self.session.flush()
+        return contract
+
 
 class SettlementRepository:
     def __init__(self, session: AsyncSession) -> None:

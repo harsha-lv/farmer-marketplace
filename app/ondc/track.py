@@ -65,7 +65,10 @@ class TrackService:
             carrier_status = "Pending-Confirmation"
             location_gps = contract.delivery_gps or "18.5204,73.8567"
 
-        tracking_url = f"{self.tracking_base_url}/{contract.transaction_id}"
+        custom_carrier_status = getattr(contract, "fulfillment_status", None)
+        carrier_status = custom_carrier_status or carrier_status
+        tracking_url = getattr(contract, "tracking_url", None) or f"{self.tracking_base_url}/{contract.transaction_id}"
+        carrier_name = getattr(contract, "carrier_name", None) or "FPO Agri-Logistics Direct"
         order_id = f"ORD-{contract.transaction_id}"[:64]
 
         on_track = {
@@ -90,7 +93,7 @@ class TrackService:
                         {
                             "code": "carrier",
                             "list": [
-                                {"code": "name", "value": "FPO Agri-Logistics Direct"},
+                                {"code": "name", "value": carrier_name},
                                 {"code": "status", "value": carrier_status},
                                 {"code": "vehicle_type", "value": "Refrigerated Container Truck (Eicher Pro)"},
                             ],
