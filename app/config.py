@@ -36,6 +36,9 @@ class Settings(BaseSettings):
     kafka_bootstrap_servers: str = ""
     nats_url: str = ""
     event_outbox_batch_size: int = 100
+    pledge_finance_default_ltv_bps: int = 7500
+    pledge_finance_default_interest_bps: int = 700
+    pledge_finance_default_lender: str = "NABARD Agri-Credit Partner Bank"
 
 
 @lru_cache
