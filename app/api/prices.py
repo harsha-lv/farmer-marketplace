@@ -1,16 +1,19 @@
 from datetime import date, timedelta
 from typing import Annotated
 
-from fastapi import APIRouter, Depends, Query
+from fastapi import APIRouter, Depends, Query, status
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.api.deps import SessionDep, SettingsDep
 from app.errors import AppError
+from app.prices.consumer import ContinuousIngestionConsumer
 from app.prices.feed import FeedError, MandiFeed
 from app.prices.ingest import IngestCounts, store_quotes
 from app.prices.repository import PriceRepository
 from app.prices.sale_window import recommend_sale_window
 from app.prices.schemas import (
+    IngestJobStatusResponse,
+    IngestJobTrigger,
     IngestResponse,
     MandiVolatilityResponse,
     MonthlyRollupResponse,
@@ -26,6 +29,22 @@ from app.prices.schemas import (
 from app.prices.tft_forecasting import tft_multivariate_forecast
 
 router = APIRouter(tags=["prices"])
+
+_global_ingest_consumer: ContinuousIngestionConsumer | None = None
+
+
+def get_ingest_consumer(settings: SettingsDep) -> ContinuousIngestionConsumer:
+    global _global_ingest_consumer
+    if _global_ingest_consumer is None:
+        from app.telemetry.jetstream import NatsJetStreamEngine
+
+        engine = NatsJetStreamEngine()
+        feed = MandiFeed(settings.data_gov_api_key or "demo", settings.data_gov_resource_url)
+        _global_ingest_consumer = ContinuousIngestionConsumer(engine=engine, feed=feed)
+    return _global_ingest_consumer
+
+
+IngestConsumerDep = Annotated[ContinuousIngestionConsumer, Depends(get_ingest_consumer)]
 
 
 def get_price_reader(session: SessionDep) -> PriceRepository:
@@ -426,4 +445,44 @@ async def mandi_volatility_analysis(
         )
     else:
         raise AppError(500, "Repository does not support volatility analysis")
+
+
+@router.post("/prices/ingest/schedule", status_code=status.HTTP_202_ACCEPTED)
+async def schedule_price_ingestion(
+    consumer: IngestConsumerDep,
+    state: Annotated[str | None, Query(max_length=128)] = None,
+    commodity: Annotated[str | None, Query(max_length=128)] = None,
+    max_records: Annotated[int, Query(ge=1, le=1000)] = 100,
+    rate_limit_delay_seconds: Annotated[float, Query(ge=0.0, le=5.0)] = 0.05,
+) -> IngestJobTrigger:
+    """Schedule asynchronous price ingestion via NATS JetStream continuous consumer."""
+    return await consumer.schedule_ingest(
+        state=_blank_to_none(state),
+        commodity=_blank_to_none(commodity),
+        max_records=max_records,
+        trigger_type="SCHEDULED",
+        rate_limit_delay_seconds=rate_limit_delay_seconds,
+    )
+
+
+@router.get("/prices/ingest/jobs/{job_id}")
+async def get_ingestion_job_status(
+    job_id: str,
+    consumer: IngestConsumerDep,
+) -> IngestJobStatusResponse:
+    """Retrieve status and metrics of a scheduled or running ingestion job."""
+    job = consumer.get_job(job_id)
+    if not job:
+        raise AppError(404, "Job not found")
+    return job
+
+
+@router.get("/prices/ingest/jobs")
+async def list_ingestion_jobs(
+    consumer: IngestConsumerDep,
+    limit: Annotated[int, Query(ge=1, le=100)] = 50,
+) -> list[IngestJobStatusResponse]:
+    """List recent ingestion jobs executed by the NATS consumer pipeline."""
+    return consumer.list_jobs(limit=limit)
+
 

@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import date, datetime
 from decimal import Decimal
 
 from pydantic import BaseModel, Field
@@ -148,5 +148,31 @@ class MandiVolatilityResponse(BaseModel):
     volume_shock_type: str
     volume_shock_ratio: float | None = None
     market_commentary: str
+
+
+class IngestJobTrigger(BaseModel):
+    job_id: str
+    state: str | None = None
+    commodity: str | None = None
+    max_records: int = 100
+    trigger_type: str = "SCHEDULED"
+    rate_limit_delay_seconds: float = 0.05
+    timestamp: datetime
+
+
+class IngestJobStatusResponse(BaseModel):
+    job_id: str
+    status: str  # PENDING, RUNNING, SUCCESS, FAILED
+    state: str | None = None
+    commodity: str | None = None
+    fetched: int = 0
+    stored: int = 0
+    skipped: int = 0
+    error_message: str | None = None
+    started_at: datetime | None = None
+    completed_at: datetime | None = None
+    duration_seconds: float | None = None
+    retries: int = 0
+
 
 
