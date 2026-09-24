@@ -30,6 +30,9 @@ class Settings(BaseSettings):
     ondc_support_phone: str = "+911800123456"
     ondc_support_email: str = "grievance@market.local"
     ondc_tracking_base_url: str = "https://track.market.local/shipments"
+    erupi_issuer_id: str = "ONDC-RSP-PARTNER-BANK"
+    erupi_validity_days: int = 30
+    settlement_tds_rate_bps: int = 100
 
 
 @lru_cache
