@@ -20,6 +20,8 @@ class Settings(BaseSettings):
         "https://api.data.gov.in/resource/9ef84268-d588-465a-a308-a864a43d0070"
     )
     ufsi_base_url: str = ""
+    agristack_api_key: str = ""
+    agristack_base_url: str = ""
     consent_signing_secret: str = ""
     cors_origins: str = "http://127.0.0.1:5173,http://localhost:5173"
     enam_base_url: str = ""

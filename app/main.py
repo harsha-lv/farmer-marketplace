@@ -3,6 +3,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from app.api.agristack import router as agristack_router
 from app.api.beckn import router as beckn_router
 from app.api.exception_handlers import install_exception_handlers
 from app.api.health import router as health_router
@@ -42,6 +43,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     app.include_router(health_router)
     app.include_router(api_router)
     app.include_router(beckn_router)
+    app.include_router(agristack_router)
     return app
 
 
