@@ -44,6 +44,43 @@ def canonical_withdrawal(artifact_id: str) -> bytes:
     return json.dumps(payload, separators=(",", ":")).encode()
 
 
+def canonical_cm_webhook(
+    *,
+    event_id: str,
+    event_type: str,
+    artifact_id: str,
+    farmer_id: str,
+    timestamp: datetime,
+) -> bytes:
+    payload = {
+        "artifact_id": artifact_id,
+        "event_id": event_id,
+        "event_type": event_type,
+        "farmer_id": farmer_id,
+        "timestamp": _stamp(timestamp),
+    }
+    return json.dumps(payload, separators=(",", ":")).encode()
+
+
+def mask_farmer_id(farmer_id: str) -> str:
+    """Masks a farmer identifier for DPDP-compliant privacy preservation."""
+    if len(farmer_id) <= 6:
+        return f"{farmer_id[:2]}***{farmer_id[-1:]}"
+    return f"{farmer_id[:3]}***{farmer_id[-4:]}"
+
+
+def compute_erasure_hash(
+    *,
+    certificate_id: str,
+    artifact_id: str,
+    farmer_id: str,
+    timestamp: datetime,
+    secret: str,
+) -> str:
+    canonical = f"{certificate_id}:{artifact_id}:{farmer_id}:{_stamp(timestamp)}"
+    return hmac.new(secret.encode(), canonical.encode(), hashlib.sha256).hexdigest()
+
+
 def sign(payload: bytes, secret: str) -> str:
     return hmac.new(secret.encode(), payload, hashlib.sha256).hexdigest()
 

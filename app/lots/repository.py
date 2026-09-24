@@ -30,7 +30,7 @@ class LotRepository:
     async def list_registered(self, commodity: str | None) -> list[Lot]:
         statement = (
             select(Lot)
-            .where(Lot.enam_lot_id.is_not(None))
+            .where(Lot.enam_lot_id.is_not(None), Lot.status != "withdrawn")
             .options(selectinload(Lot.assay))
             .order_by(Lot.created_at.desc(), Lot.lot_code)
             .limit(50)
@@ -38,6 +38,30 @@ class LotRepository:
         if commodity is not None:
             statement = statement.where(func.lower(Lot.commodity) == commodity.casefold())
         return list(await self.session.scalars(statement))
+
+    async def withdraw_lots_for_consent(
+        self,
+        *,
+        farmer_id: str | None = None,
+        consent_artifact_id: str | None = None,
+    ) -> list[str]:
+        conditions = []
+        if farmer_id:
+            conditions.append(Lot.farmer_id == farmer_id)
+        if consent_artifact_id:
+            conditions.append(Lot.consent_artifact_id == consent_artifact_id)
+        if not conditions:
+            return []
+
+        statement = select(Lot).where(or_(*conditions), Lot.status != "withdrawn")
+        lots = list(await self.session.scalars(statement))
+        withdrawn_codes: list[str] = []
+        for lot in lots:
+            lot.status = "withdrawn"
+            withdrawn_codes.append(lot.lot_code)
+        if withdrawn_codes:
+            await self.session.flush()
+        return withdrawn_codes
 
     async def create(self, request: LotCreateRequest, grade: str | None = None) -> Lot:
         assigned_grade = (grade or request.grade).strip()

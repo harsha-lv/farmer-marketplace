@@ -44,3 +44,47 @@ class ConsentResponse(BaseModel):
     expires_at: datetime
     status: str
     withdrawn_at: datetime | None
+
+
+class ConsentWebhookRequest(BaseModel):
+    event_id: str = Field(min_length=4, max_length=128)
+    event_type: str = Field(pattern=r"^(CONSENT_REVOKED|CONSENT_EXPIRED|DATA_ERASURE_REQUEST)$")
+    artifact_id: str = Field(min_length=4, max_length=128)
+    farmer_id: str = Field(min_length=4, max_length=64)
+    timestamp: datetime
+    reason: str | None = Field(default=None, max_length=256)
+    signature: str = Field(pattern=r"^[0-9a-f]{64}$")
+
+    @field_validator("timestamp")
+    @classmethod
+    def timezone_required(cls, value: datetime) -> datetime:
+        if value.tzinfo is None:
+            raise ValueError("timestamp must include a timezone")
+        return value
+
+
+class ErasureCertificateResponse(BaseModel):
+    certificate_id: str
+    farmer_id: str
+    artifact_id: str
+    status: str
+    reason: str
+    parcels_purged: int
+    lots_withdrawn: int
+    withdrawn_lot_codes: list[str]
+    cache_keys_evicted: list[str]
+    verification_hash: str
+    timestamp: datetime
+
+
+class ConsentAuditResponse(BaseModel):
+    artifact_id: str
+    farmer_id: str
+    purpose: str
+    attributes: list[str]
+    created_at: datetime
+    expires_at: datetime
+    status: str
+    withdrawn_at: datetime | None
+    erasure_certificate: ErasureCertificateResponse | None
+    audit_events: list[dict]
