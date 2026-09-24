@@ -1,19 +1,28 @@
-from typing import Annotated
+from datetime import datetime
+from typing import Annotated, Any
 
 from fastapi import APIRouter, Depends, Query
 
 from app.api.deps import SessionDep, SettingsDep
 from app.events.publisher import EventPublisher
+from app.events.reconciliation import reconcile_audit_ledger
+from app.events.reconstruction import reconstruct_point_in_time_state
+from app.events.replay import execute_event_replay
 from app.events.repository import EventRepository
 from app.events.schemas import (
+    AuditReconciliationReport,
     ConsentAuditResponse,
     EventListResponse,
     EventResponse,
+    PointInTimeStateResponse,
     PublishOutboxResponse,
+    ReplayRequest,
+    ReplayResponse,
     StreamReplayResponse,
 )
 
 router = APIRouter(prefix="/events", tags=["events"])
+
 
 
 def get_event_repo(session: SessionDep) -> EventRepository:
@@ -92,3 +101,48 @@ async def flush_outbox_events(
         dispatched_count=len(dispatched_ids),
         event_ids=dispatched_ids,
     )
+
+
+@router.get("/reconstruct/{stream_id}", response_model=PointInTimeStateResponse)
+async def reconstruct_state(
+    stream_id: str,
+    repo: EventRepoDep,
+    as_of: datetime | None = None,
+) -> PointInTimeStateResponse:
+    """CQRS Point-in-Time Reconstruction: Rebuild exact entity state by folding chronological events up to as_of timestamp."""
+    events = await repo.get_stream(stream_id)
+    return reconstruct_point_in_time_state(stream_id, events, as_of=as_of)
+
+
+@router.post("/replay", response_model=ReplayResponse)
+async def replay_events(
+    request: ReplayRequest,
+    repo: EventRepoDep,
+    settings: SettingsDep,
+) -> ReplayResponse:
+    """Kafka Event Replay: Sequentially replay events for a stream or time-window with dry-run verification."""
+    publisher = None
+    if not request.dry_run:
+        publisher = EventPublisher(
+            kafka_servers=settings.kafka_bootstrap_servers,
+            nats_url=settings.nats_url,
+        )
+    return await execute_event_replay(request, repo, publisher=publisher)
+
+
+@router.post("/reconcile/{stream_id}", response_model=AuditReconciliationReport)
+async def reconcile_stream(
+    stream_id: str,
+    repo: EventRepoDep,
+    current_projection: dict[str, Any] | None = None,
+) -> AuditReconciliationReport:
+    """Audit Reconciliation: Compare event-sourced reconstructed state against current read projection to detect discrepancies."""
+    events = await repo.get_stream(stream_id)
+    recon = reconstruct_point_in_time_state(stream_id, events)
+    return reconcile_audit_ledger(
+        stream_id=stream_id,
+        reconstructed_state=recon.state,
+        projection_state=current_projection,
+        event_count=len(events),
+    )
+
