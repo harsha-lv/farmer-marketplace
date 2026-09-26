@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,600&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: 'class', theme: { extend: { colors: { 'outline': '#6d797d', 'secondary-container': '#fd9168', 'on-primary': '#ffffff', 'line': '#D7E7EB', 'error-container': '#ffdad6', 'surface-container': '#d6f2ff', 'outline-variant': '#bdc8cd', 'on-tertiary-container': '#4c3300', 'surface-container-highest': '#c9e7f4', 'clear-blue': '#147F9E', 'on-primary-fixed': '#001f26', 'primary': '#00687b', 'surface': '#FFFFFF', 'sand': '#FFF3DF', 'error': '#ba1a1a', 'canvas': '#F4FAFC', 'on-primary-container': '#003e4a', 'tertiary-fixed': '#ffdeac', 'clay-orange': '#A95135', 'secondary-fixed-dim': '#ffb59a', 'on-tertiary-fixed-variant': '#604100', 'surface-bright': '#f2fbff', 'primary-container': '#36afcb', 'tertiary': '#7e5700', 'inverse-surface': '#17343e', 'secondary': '#9a4522', 'surface-dim': '#c1dfec', 'surface-container-lowest': '#ffffff', 'on-secondary-fixed-variant': '#7c2e0c', 'on-secondary-fixed': '#380d00', 'danger': '#C64F48', 'surface-container-high': '#cfedfa', 'on-background': '#001f28', 'on-surface-variant': '#3d494c', 'blue-mist': '#E2F3F8', 'surface-variant': '#c9e7f4', 'slate': '#607780', 'on-tertiary-fixed': '#281900', 'primary-fixed': '#aeecff', 'background': '#f2fbff', 'on-error-container': '#93000a', 'on-primary-fixed-variant': '#004e5d', 'on-tertiary': '#ffffff', 'on-surface': '#001f28', 'blue-soft': '#C7E8F0', 'surface-tint': '#00687b', 'mist-text': '#8FA1A7', 'on-secondary-container': '#742907', 'on-secondary': '#ffffff', 'inverse-on-surface': '#ddf5ff', 'tertiary-container': '#cf972f', 'primary-fixed-dim': '#65d5f2', 'tertiary-fixed-dim': '#f9bc51', 'on-error': '#ffffff', 'surface-container-low': '#e4f7ff', 'inverse-primary': '#65d5f2', 'secondary-fixed': '#ffdbcf' }, borderRadius: { 'DEFAULT': '0.25rem', 'lg': '0.5rem', 'xl': '0.75rem', 'full': '9999px' }, spacing: { 'space-xs': '4px', 'gutter': '12px', 'space-xl': '24px', 'margin': '16px', 'space-sm': '8px', 'space-md': '12px', 'space-lg': '16px' }, fontFamily: { 'caption': ['Inter'], 'label-md': ['Inter'], 'headline-md': ['Fraunces'], 'body-lg': ['Inter'], 'headline-lg': ['Fraunces'], 'headline-lg-mobile': ['Fraunces'], 'data-sm': ['IBM Plex Mono'], 'body-md': ['Inter'], 'data-md': ['IBM Plex Mono'], 'data-xs': ['IBM Plex Mono'], 'label-lg': ['Inter'], 'display-data': ['IBM Plex Mono'], 'data-lg': ['IBM Plex Mono'], 'headline-sm': ['Fraunces'] }, fontSize: { 'caption': ['12px', { 'lineHeight': '16px', 'fontWeight': '400' }], 'label-md': ['14px', { 'lineHeight': '20px', 'fontWeight': '500' }], 'headline-md': ['20px', { 'lineHeight': '28px', 'fontWeight': '600' }], 'body-lg': ['16px', { 'lineHeight': '24px', 'fontWeight': '400' }], 'headline-lg': ['28px', { 'lineHeight': '36px', 'fontWeight': '600' }], 'headline-lg-mobile': ['24px', { 'lineHeight': '32px', 'fontWeight': '600' }], 'data-sm': ['14px', { 'lineHeight': '20px', 'fontWeight': '500' }], 'body-md': ['14px', { 'lineHeight': '20px', 'fontWeight': '400' }], 'data-md': ['16px', { 'lineHeight': '24px', 'fontWeight': '500' }], 'data-xs': ['12px', { 'lineHeight': '16px', 'fontWeight': '500' }], 'label-lg': ['16px', { 'lineHeight': '24px', 'fontWeight': '600' }], 'display-data': ['32px', { 'lineHeight': '40px', 'letterSpacing': '-0.5px', 'fontWeight': '500' }], 'data-lg': ['22px', { 'lineHeight': '28px', 'fontWeight': '500' }], 'headline-sm': ['18px', { 'lineHeight': '24px', 'fontWeight': '500' }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-canvas font-body-md text-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><button aria-label="Go back" class="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center text-on-surface hover:text-primary transition-colors" onclick="history.back()"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><h1 class="font-headline-sm text-headline-sm text-on-surface tracking-tight truncate">Offline Mode Intro</h1></div><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-16 pb-safe bg-canvas"><div class="flex flex-col w-full pb-8">
+<div class="w-full max-w-[600px] mx-auto px-margin flex flex-col gap-space-lg pt-4">
+<!-- Hero / Status Banner -->
+<div class="bg-surface rounded-xl p-space-lg flex flex-col gap-space-md shadow-sm">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-12 h-12 rounded-full bg-blue-mist flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-clear-blue text-[26px]">wifi_off</span>
+</div>
+<div class="flex flex-col">
+<span class="inline-flex items-center gap-space-xs px-2 py-0.5 rounded-full bg-sand text-secondary font-data-xs text-data-xs w-fit">
+<span class="w-2 h-2 rounded-full bg-secondary shrink-0"></span>
+              OFFLINE READY • स्थानिक मोड
+            </span>
+<h2 class="font-headline-md text-headline-md text-on-surface mt-1">
+              Offline Mode <span class="font-headline-sm text-headline-sm block sm:inline text-on-surface-variant font-normal">(ऑफलाइन मोड)</span>
+</h2>
+</div>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+        Continue working when network connectivity is limited. 
+        <span class="block text-slate mt-0.5">मर्यादित नेटवर्कमध्येही आपले काम सुरळीत चालू ठेवा.</span>
+</p>
+<!-- Connection state summary chip -->
+<div class="bg-surface-container-low rounded-lg p-space-sm flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">cloud_sync</span>
+<div class="flex flex-col">
+<span class="font-data-xs text-data-xs text-on-surface">Last Sync: Today, 08:35 AM</span>
+<span class="font-caption text-caption text-slate">शेवटचे सिंक: आज सकाळी ०८:३५</span>
+</div>
+</div>
+<span class="px-2 py-1 rounded bg-surface font-data-xs text-data-xs text-primary font-medium">100% Cached</span>
+</div>
+</div>
+<!-- Key Capabilities List -->
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between px-1">
+<h3 class="font-label-lg text-label-lg text-on-surface">Available Capabilities</h3>
+<span class="font-caption text-caption text-slate">ऑफलाइन सुविधा</span>
+</div>
+<!-- Capability 1 -->
+<div class="bg-surface rounded-xl p-space-md shadow-sm flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-blue-mist flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-clear-blue text-[22px]">history</span>
+</div>
+<div class="flex flex-col min-w-0">
+<p class="font-label-md text-label-md text-on-surface font-semibold">View previously synchronized information</p>
+<p class="font-body-md text-body-md text-on-surface-variant mt-0.5">पूर्वी सिंक केलेली सर्व माहिती सहज पहा</p>
+<span class="font-data-xs text-data-xs text-slate mt-1">Lot archives, grade records &amp; farm registry</span>
+</div>
+</div>
+<!-- Capability 2 -->
+<div class="bg-surface rounded-xl p-space-md shadow-sm flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-blue-mist flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-clear-blue text-[22px]">inventory_2</span>
+</div>
+<div class="flex flex-col min-w-0">
+<p class="font-label-md text-label-md text-on-surface font-semibold">Review saved records</p>
+<p class="font-body-md text-body-md text-on-surface-variant mt-0.5">साठवलेले शेतमाल व मागील व्यवहार नोंदी तपासा</p>
+<span class="font-data-xs text-data-xs text-slate mt-1">Full access to verified receipts and weighment slips</span>
+</div>
+</div>
+<!-- Capability 3 -->
+<div class="bg-surface rounded-xl p-space-md shadow-sm flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-blue-mist flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-clear-blue text-[22px]">edit_note</span>
+</div>
+<div class="flex flex-col min-w-0">
+<p class="font-label-md text-label-md text-on-surface font-semibold">Enter supported information offline</p>
+<p class="font-body-md text-body-md text-on-surface-variant mt-0.5">ड्राफ्ट लॉट व शेतमाल तपशील ऑफलाइन तयार करा</p>
+<span class="font-data-xs text-data-xs text-slate mt-1">Draft new produce entries with local photo captures</span>
+</div>
+</div>
+<!-- Capability 4 -->
+<div class="bg-surface rounded-xl p-space-md shadow-sm flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-blue-mist flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-clear-blue text-[22px]">outbox</span>
+</div>
+<div class="flex flex-col min-w-0">
+<p class="font-label-md text-label-md text-on-surface font-semibold">Queue supported actions for synchronization</p>
+<p class="font-body-md text-body-md text-on-surface-variant mt-0.5">नेटवर्क आल्यावर आपोआप सिंक होण्यासाठी रांगेत ठेवा</p>
+<span class="font-data-xs text-data-xs text-slate mt-1">Automatic push queue upon signal detection</span>
+</div>
+</div>
+<!-- Capability 5 -->
+<div class="bg-surface rounded-xl p-space-md shadow-sm flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-blue-mist flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-clear-blue text-[22px]">explore</span>
+</div>
+<div class="flex flex-col min-w-0">
+<p class="font-label-md text-label-md text-on-surface font-semibold">Continue using core navigation</p>
+<p class="font-body-md text-body-md text-on-surface-variant mt-0.5">महत्त्वाचे पर्याय आणि मेनू अखंडपणे वापरा</p>
+<span class="font-data-xs text-data-xs text-slate mt-1">Uninterrupted access to calculators and settings</span>
+</div>
+</div>
+</div>
+<!-- Storage Notice Card -->
+<div class="bg-sand rounded-xl p-space-md shadow-sm flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-secondary text-[22px]">sd_card</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Local Storage Active</span>
+<span class="font-caption text-caption text-secondary font-medium">(स्थानिक संचयन)</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1 leading-normal">
+          Offline mode stores supported information on this device until connectivity is restored.
+        </p>
+<p class="font-caption text-caption text-slate mt-1 leading-normal">
+          ऑफलाइन मोड समर्थित माहिती इंटरनेट पूर्ववत होईपर्यंत या डिव्हाइसवर सुरक्षित ठेवतो.
+        </p>
+</div>
+</div>
+<!-- Crucial Truthfulness Disclaimer Card -->
+<div class="bg-surface rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center gap-space-xs text-danger">
+<span class="material-symbols-outlined text-[20px]">info</span>
+<span class="font-label-md text-label-md font-semibold">Requires Active Internet • इंटरनेट आवश्यक</span>
+</div>
+<p class="font-data-xs text-data-xs text-on-surface-variant leading-relaxed">
+        Live market price updates, real-time counter-offers, payment transfers, and official API validations require an active internet connection.
+      </p>
+<div class="bg-surface-container-low rounded-lg p-space-sm flex flex-col gap-1">
+<p class="font-data-xs text-data-xs text-slate leading-relaxed">
+          थेट बाजारभाव (Live Prices), खरेदीदार उपलब्धता, खात्यात रक्कम जमा करणे किंवा सरकारी पडताळणी इंटरनेटशिवाय शक्य नाही. हे व्यवहार नेटवर्क उपलब्ध झाल्यावरच पूर्ण होतील.
+        </p>
+</div>
+</div>
+<!-- Interactive Actions -->
+<div class="flex flex-col gap-space-md mt-2 mb-4">
+<!-- Primary Action Button -->
+<button class="w-full min-h-[56px] px-margin py-3 rounded-lg bg-clay-orange text-on-primary font-label-lg text-label-lg flex items-center justify-center gap-space-sm shadow-sm active:opacity-90 transition-opacity" id="btnContinueOffline" type="button">
+<span>Continue Offline (ऑफलाइन पुढे जा)</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+<!-- Secondary Action Button -->
+<button class="w-full min-h-[56px] px-margin py-3 rounded-lg bg-surface text-clear-blue font-label-lg text-label-lg flex items-center justify-center gap-space-sm shadow-sm active:bg-blue-mist transition-colors" id="btnCheckSync" type="button">
+<span class="material-symbols-outlined text-[20px]" id="syncIcon">sync</span>
+<span id="syncText">Check Sync Status (सिंक स्थिती तपासा)</span>
+</button>
+</div>
+<!-- Technical Device Provenance Footer -->
+<div class="flex items-center justify-between px-2 text-slate font-data-xs text-data-xs">
+<span>DB: SQLite Indexed (v4.2)</span>
+<span>STORAGE: 18.4 MB / 512 MB</span>
+</div>
+</div>
+</div>
+<script>
+  (function() {
+    const syncBtn = document.getElementById('check-sync-btn');
+    const syncIcon = document.getElementById('syncIcon');
+    const syncText = document.getElementById('syncText');
+    const continueBtn = document.getElementById('btnContinueOffline');
+
+    if (syncBtn) {
+      syncBtn.addEventListener('click', function() {
+        if (!syncIcon || !syncText) return;
+        syncIcon.classList.add('animate-spin');
+        syncText.innerText = 'Checking connectivity... (तपासणी सुरू...)';
+        
+        setTimeout(function() {
+          syncIcon.classList.remove('animate-spin');
+          syncText.innerText = 'No Network Detected (डिव्हाइस ऑफलाइन आहे)';
+          setTimeout(function() {
+            syncText.innerText = 'Check Sync Status (सिंक स्थिती तपासा)';
+          }, 2400);
+        }, 1200);
+      });
+    }
+
+    if (continueBtn) {
+      continueBtn.addEventListener('click', function() {
+        this.classList.add('opacity-80');
+        setTimeout(function() {
+          window.location.hash = '#lot-records-offline';
+        }, 200);
+      });
+    }
+  })();
+</script></main></body></html>

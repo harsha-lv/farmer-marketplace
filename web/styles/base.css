@@ -1,0 +1,537 @@
+/* =====================================================================
+   MittiMandi Mobile App — Base, Shell & Device Simulation Styles
+   ===================================================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-app);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.5;
+  overflow: hidden;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Master Workspace Container */
+#workspace {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at 50% 20%, var(--neutral-light) 0%, var(--neutral-dark) 80%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Top Flow Switcher & Control Toolbar */
+.top-toolbar {
+  height: 54px;
+  background: var(--bg-surface-overlay);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  z-index: var(--z-header);
+  flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+  .top-toolbar {
+    display: none !important;
+  }
+  .stage-container {
+    padding: 0 !important;
+  }
+  .device-frame {
+    width: 100% !important;
+    height: 100vh !important;
+    max-height: 100vh !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+  .status-notch {
+    display: none !important;
+  }
+  .status-bar {
+    display: none !important;
+  }
+}
+
+.brand-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-logo-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: var(--clear-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-logo-icon svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--text-white);
+}
+
+.brand-title {
+  font-family: var(--font-headline);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text-white);
+  letter-spacing: -0.2px;
+}
+
+.brand-subtitle {
+  font-size: 11px;
+  color: var(--primary-light);
+  font-family: var(--font-data);
+  background: var(--primary-subtle);
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid rgba(54, 175, 203, 0.3);
+}
+
+/* Flow Navigator Buttons */
+.flow-selector-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 4px 8px;
+  scrollbar-width: none;
+}
+
+.flow-selector-group::-webkit-scrollbar {
+  display: none;
+}
+
+.flow-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text-secondary);
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.flow-btn:hover {
+  background: rgba(54, 175, 203, 0.15);
+  color: var(--text-primary);
+  border-color: var(--primary);
+}
+
+.flow-btn.active {
+  background: var(--primary);
+  color: var(--text-inverse);
+  font-weight: 600;
+  border-color: var(--primary);
+}
+
+/* Control Options Right */
+.toolbar-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tool-icon-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all var(--transition-fast);
+}
+
+.tool-icon-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--primary);
+}
+
+/* Stage Area Containing Device or Full View */
+.stage-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 16px;
+}
+
+/* Realistic Mobile Frame */
+.device-frame {
+  width: 400px;
+  height: 840px;
+  max-height: calc(100vh - 90px);
+  background: var(--text-black);
+  border-radius: 46px;
+  box-shadow: 
+    0 0 0 12px var(--neutral-light),
+    0 0 0 14px var(--neutral-dark),
+    0 25px 60px rgba(0, 0, 0, 0.75),
+    0 0 40px rgba(54, 175, 203, 0.2);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-smooth);
+}
+
+/* Fullscreen Mode override */
+.device-frame.fullscreen {
+  width: 100% !important;
+  height: 100% !important;
+  max-height: 100% !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Status Bar */
+.status-bar {
+  height: 44px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-white);
+  z-index: 60;
+  flex-shrink: 0;
+  background: transparent;
+  pointer-events: none;
+}
+
+.device-frame.fullscreen .status-bar {
+  display: none;
+}
+
+.status-time {
+  font-family: var(--font-data);
+  font-size: 13px;
+  letter-spacing: -0.2px;
+}
+
+.status-notch {
+  width: 100px;
+  height: 24px;
+  background: var(--text-black);
+  border-radius: 20px;
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.notch-camera {
+  width: 10px;
+  height: 10px;
+  background: var(--bg-app);
+  border-radius: 50%;
+  border: 1px solid var(--border-medium);
+}
+
+.status-icons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Active Screen Viewport Area */
+.app-viewport {
+  flex: 1;
+  background: var(--bg-canvas);
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(54, 175, 203, 0.3) transparent;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-viewport::-webkit-scrollbar {
+  width: 4px;
+}
+
+.app-viewport::-webkit-scrollbar-thumb {
+  background: rgba(54, 175, 203, 0.3);
+  border-radius: 4px;
+}
+
+/* App Header (Dynamic per screen) */
+.app-top-header {
+  height: 56px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(21, 45, 54, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-subtle);
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  flex-shrink: 0;
+}
+
+.header-left, .header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-title-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-screen-title {
+  font-family: var(--font-headline);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.header-subtitle {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.icon-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.icon-btn:hover {
+  background: rgba(54, 175, 203, 0.2);
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+/* Bottom Navigation Dock */
+.bottom-dock {
+  height: 64px;
+  background: rgba(15, 34, 41, 0.95);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 8px;
+  z-index: 50;
+  flex-shrink: 0;
+}
+
+.dock-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  border: none;
+  background: transparent;
+  width: 60px;
+}
+
+.dock-item svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+  transition: transform var(--transition-fast);
+}
+
+.dock-item span {
+  font-size: 10px;
+  font-weight: 500;
+  font-family: var(--font-label);
+}
+
+.dock-item:hover {
+  color: var(--text-secondary);
+}
+
+.dock-item.active {
+  color: var(--primary);
+}
+
+.dock-item.active svg {
+  transform: translateY(-2px);
+  filter: drop-shadow(0 0 6px var(--primary-glow));
+}
+
+/* Home Indicator Bar */
+.home-indicator {
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-canvas);
+  flex-shrink: 0;
+}
+
+.device-frame.fullscreen .home-indicator {
+  display: none;
+}
+
+.home-bar {
+  width: 120px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: var(--radius-pill);
+}
+
+/* Content Container Inside Screen */
+.screen-content {
+  flex: 1;
+  padding: var(--margin);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  animation: fadeIn 0.25s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* =====================================================================
+   Standard Layout & Spacing Utility Classes (No Inline Styles)
+   ===================================================================== */
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+.text-primary { color: var(--text-primary); }
+.text-secondary { color: var(--text-secondary); }
+.text-muted { color: var(--text-muted); }
+.text-accent { color: var(--primary-light); }
+.text-white { color: var(--text-white); }
+.text-gold { color: var(--tertiary-light); }
+.text-danger { color: var(--danger-light); }
+.text-success { color: var(--success-light); }
+
+.mt-xs { margin-top: var(--space-xs); }
+.mt-sm { margin-top: var(--space-sm); }
+.mt-md { margin-top: var(--space-md); }
+.mt-lg { margin-top: var(--space-lg); }
+.mt-xl { margin-top: var(--space-xl); }
+.mt-auto { margin-top: auto; }
+
+.mb-xs { margin-bottom: var(--space-xs); }
+.mb-sm { margin-bottom: var(--space-sm); }
+.mb-md { margin-bottom: var(--space-md); }
+.mb-lg { margin-bottom: var(--space-lg); }
+
+.flex-row { display: flex; flex-direction: row; }
+.flex-col { display: flex; flex-direction: column; }
+.items-center { align-items: center; }
+.items-start { align-items: flex-start; }
+.justify-between { justify-content: space-between; }
+.justify-center { justify-content: center; }
+.justify-end { justify-content: flex-end; }
+.flex-1 { flex: 1; }
+.gap-xs { gap: var(--space-xs); }
+.gap-sm { gap: var(--space-sm); }
+.gap-md { gap: var(--space-md); }
+.gap-lg { gap: var(--space-lg); }
+.w-full { width: 100%; }
+
+.grid-2-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.font-semibold { font-weight: var(--fw-semibold); }
+.font-bold { font-weight: var(--fw-bold); }
+.label-sm { font-size: 11px; }
+.mt-2xs { margin-top: var(--space-2xs); }
+.assay-preview-icon { font-size: 40px; margin-bottom: var(--space-xs); }
+.break-all { word-break: break-all; }
+.bg-black-20 { background: rgba(0, 0, 0, 0.2); }
+.rounded { border-radius: var(--radius-sm); }
+.p-sm { padding: var(--space-sm); }
+.pt-xs { padding-top: var(--space-xs); }
+.hidden { display: none !important; }
+.network-type { font-size: 11px; }
+.header-icon { font-size: 14px; }
+
+/* -------------------------------------------------------------------
+   Small Device / 360px Viewport Optimization & Touch Targets (F8)
+   ------------------------------------------------------------------- */
+@media (max-width: 380px) {
+  .app-viewport {
+    padding: var(--space-sm) var(--space-xs);
+  }
+  .grid-2-col {
+    grid-template-columns: 1fr !important;
+  }
+  .headline-md {
+    font-size: 18px !important;
+  }
+  .btn {
+    min-height: 48px !important;
+  }
+  .form-input, .input-box {
+    min-height: 44px !important;
+  }
+  .dock-item {
+    min-height: 48px !important;
+  }
+}
+
+

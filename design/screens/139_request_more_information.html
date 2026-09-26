@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"secondary-container":"#fd9168","error-container":"#ffdad6","danger":"#C64F48","blue-mist":"#E2F3F8","surface-variant":"#c9e7f4","primary-fixed":"#aeecff","on-surface":"#001f28","mist-text":"#8FA1A7","surface-container-lowest":"#ffffff","on-tertiary-container":"#4c3300","on-secondary-fixed-variant":"#7c2e0c","surface-container":"#d6f2ff","secondary-fixed-dim":"#ffb59a","inverse-primary":"#65d5f2","on-tertiary-fixed-variant":"#604100","inverse-surface":"#17343e","on-tertiary-fixed":"#281900","on-secondary":"#ffffff","sand":"#FFF3DF","background":"#f2fbff","outline-variant":"#bdc8cd","inverse-on-surface":"#ddf5ff","slate":"#607780","on-error":"#ffffff","tertiary-container":"#cf972f","on-primary-fixed":"#001f26","surface":"#FFFFFF","on-tertiary":"#ffffff","canvas":"#F4FAFC","clay-orange":"#A95135","secondary-fixed":"#ffdbcf","outline":"#6d797d","on-primary-fixed-variant":"#004e5d","on-secondary-fixed":"#380d00","surface-tint":"#00687b","surface-container-high":"#cfedfa","clear-blue":"#147F9E","primary-container":"#36afcb","surface-dim":"#c1dfec","tertiary":"#7e5700","tertiary-fixed-dim":"#f9bc51","primary-fixed-dim":"#65d5f2","surface-container-highest":"#c9e7f4","primary":"#00687b","on-primary-container":"#003e4a","surface-bright":"#f2fbff","surface-container-low":"#e4f7ff","on-background":"#001f28","on-error-container":"#93000a","error":"#ba1a1a","on-secondary-container":"#742907","on-surface-variant":"#3d494c","blue-soft":"#C7E8F0","tertiary-fixed":"#ffdeac","on-primary":"#ffffff","line":"#D7E7EB","secondary":"#9a4522"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"gutter":"12px","margin":"16px","space-md":"12px","space-sm":"8px","space-xs":"4px","space-xl":"24px","space-lg":"16px"},fontFamily:{"data-lg":["IBM Plex Mono"],"caption":["Inter"],"headline-lg-mobile":["Fraunces"],"body-md":["Inter"],"headline-sm":["Fraunces"],"label-md":["Inter"],"headline-md":["Fraunces"],"headline-lg":["Fraunces"],"data-sm":["IBM Plex Mono"],"body-lg":["Inter"],"data-md":["IBM Plex Mono"],"data-xs":["IBM Plex Mono"],"label-lg":["Inter"],"display-data":["IBM Plex Mono"]},fontSize:{"data-lg":["22px",{lineHeight:"28px",fontWeight:"500"}],"caption":["12px",{lineHeight:"16px",fontWeight:"400"}],"headline-lg-mobile":["24px",{lineHeight:"32px",fontWeight:"600"}],"body-md":["14px",{lineHeight:"20px",fontWeight:"400"}],"headline-sm":["18px",{lineHeight:"24px",fontWeight:"500"}],"label-md":["14px",{lineHeight:"20px",fontWeight:"500"}],"headline-md":["20px",{lineHeight:"28px",fontWeight:"600"}],"headline-lg":["28px",{lineHeight:"36px",fontWeight:"600"}],"data-sm":["14px",{lineHeight:"20px",fontWeight:"500"}],"body-lg":["16px",{lineHeight:"24px",fontWeight:"400"}],"data-md":["16px",{lineHeight:"24px",fontWeight:"500"}],"data-xs":["12px",{lineHeight:"16px",fontWeight:"500"}],"label-lg":["16px",{lineHeight:"24px",fontWeight:"600"}],"display-data":["32px",{lineHeight:"40px",letterSpacing:"-0.5px",fontWeight:"500"}]}}}}</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-canvas text-on-surface font-body-md flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm min-w-0"><button class="w-11 h-11 -ml-2 rounded-full flex items-center justify-center text-on-surface hover:bg-surface-variant/30 transition-colors" onclick="history.back()"><span class="material-symbols-outlined text-[22px]">arrow_back</span></button><div class="flex flex-col min-w-0"><span class="font-data-xs text-data-xs text-primary leading-none uppercase truncate">Ops Workflow</span><h1 class="font-headline-sm text-headline-sm text-on-surface truncate leading-tight">Lot Inspection Detail</h1></div></div><div class="flex items-center gap-space-sm flex-shrink-0"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-safe bg-canvas"><div class="flex flex-col w-full pb-8">
+<!-- Entity Dossier Bar -->
+<div class="bg-surface-container-lowest px-margin py-space-md flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-10 h-10 rounded-xl bg-blue-soft text-primary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[24px]">storefront</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface truncate">Sahyadri Agro Traders</span>
+<span class="font-data-xs text-data-xs bg-blue-mist text-clear-blue px-2 py-0.5 rounded-full font-semibold">BUYER</span>
+</div>
+<span class="font-caption text-caption text-slate truncate">ID: SAT-PUN-2024-098 • APMC Market Yard, Pune</span>
+</div>
+</div>
+<div class="w-2 h-2 rounded-full bg-tertiary-container animate-pulse flex-shrink-0"></div>
+</div>
+<!-- Instruction Header Banner -->
+<div class="px-margin pt-space-lg pb-space-sm">
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col gap-1">
+<div class="flex items-center gap-space-xs text-primary">
+<span class="material-symbols-outlined text-[18px]">help_outline</span>
+<span class="font-label-md text-label-md text-primary font-semibold">Requirement Clarification</span>
+</div>
+<h2 class="font-label-lg text-label-lg text-on-surface">Select information required from participant</h2>
+<p class="font-caption text-caption text-slate">सहभागी घटकाकडून आवश्यक माहिती निवडा</p>
+</div>
+</div>
+<!-- Interactive Checklist Section -->
+<div class="px-margin py-space-sm flex flex-col gap-space-sm" id="checklist-group">
+<!-- Option 1: Business profile (Checked) -->
+<label class="group relative flex items-start gap-space-md p-space-md rounded-xl bg-surface transition-all cursor-pointer select-none active:scale-[0.99] shadow-sm has-[:checked]:bg-blue-mist/60">
+<input checked="" class="peer sr-only" onchange="toggleCard(this)" type="checkbox"/>
+<div class="w-6 h-6 mt-0.5 rounded flex items-center justify-center bg-slate/20 peer-checked:bg-clear-blue text-surface transition-colors flex-shrink-0">
+<span class="material-symbols-outlined text-[18px] opacity-0 peer-checked:opacity-100 font-bold">check</span>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<span class="font-label-md text-label-md text-on-surface group-hover:text-primary transition-colors">Business profile clarification</span>
+<span class="font-caption text-caption text-slate">व्यवसाय तपशील स्पष्टीकरण</span>
+</div>
+<span class="material-symbols-outlined text-slate/40 text-[20px] self-center">badge</span>
+</label>
+<!-- Option 2: Address clarification -->
+<label class="group relative flex items-start gap-space-md p-space-md rounded-xl bg-surface transition-all cursor-pointer select-none active:scale-[0.99] shadow-sm has-[:checked]:bg-blue-mist/60">
+<input class="peer sr-only" onchange="toggleCard(this)" type="checkbox"/>
+<div class="w-6 h-6 mt-0.5 rounded flex items-center justify-center bg-slate/20 peer-checked:bg-clear-blue text-surface transition-colors flex-shrink-0">
+<span class="material-symbols-outlined text-[18px] opacity-0 peer-checked:opacity-100 font-bold">check</span>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<span class="font-label-md text-label-md text-on-surface group-hover:text-primary transition-colors">Address clarification</span>
+<span class="font-caption text-caption text-slate">गोदाम पत्ता स्पष्टीकरण</span>
+</div>
+<span class="material-symbols-outlined text-slate/40 text-[20px] self-center">warehouse</span>
+</label>
+<!-- Option 3: Commodity info (Checked) -->
+<label class="group relative flex items-start gap-space-md p-space-md rounded-xl bg-surface transition-all cursor-pointer select-none active:scale-[0.99] shadow-sm has-[:checked]:bg-blue-mist/60">
+<input checked="" class="peer sr-only" onchange="toggleCard(this)" type="checkbox"/>
+<div class="w-6 h-6 mt-0.5 rounded flex items-center justify-center bg-slate/20 peer-checked:bg-clear-blue text-surface transition-colors flex-shrink-0">
+<span class="material-symbols-outlined text-[18px] opacity-0 peer-checked:opacity-100 font-bold">check</span>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<span class="font-label-md text-label-md text-on-surface group-hover:text-primary transition-colors">Commodity information</span>
+<span class="font-caption text-caption text-slate">शेतमाल खरेदी श्रेणी व प्रतवारी</span>
+</div>
+<span class="material-symbols-outlined text-slate/40 text-[20px] self-center">inventory_2</span>
+</label>
+<!-- Option 4: Document clarification -->
+<label class="group relative flex items-start gap-space-md p-space-md rounded-xl bg-surface transition-all cursor-pointer select-none active:scale-[0.99] shadow-sm has-[:checked]:bg-blue-mist/60">
+<input class="peer sr-only" onchange="toggleCard(this)" type="checkbox"/>
+<div class="w-6 h-6 mt-0.5 rounded flex items-center justify-center bg-slate/20 peer-checked:bg-clear-blue text-surface transition-colors flex-shrink-0">
+<span class="material-symbols-outlined text-[18px] opacity-0 peer-checked:opacity-100 font-bold">check</span>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<span class="font-label-md text-label-md text-on-surface group-hover:text-primary transition-colors">Document clarification</span>
+<span class="font-caption text-caption text-slate">अपलोड केलेल्या कागदपत्रातील स्पष्टता</span>
+</div>
+<span class="material-symbols-outlined text-slate/40 text-[20px] self-center">description</span>
+</label>
+<!-- Option 5: Other details -->
+<label class="group relative flex items-start gap-space-md p-space-md rounded-xl bg-surface transition-all cursor-pointer select-none active:scale-[0.99] shadow-sm has-[:checked]:bg-blue-mist/60">
+<input class="peer sr-only" onchange="toggleCard(this)" type="checkbox"/>
+<div class="w-6 h-6 mt-0.5 rounded flex items-center justify-center bg-slate/20 peer-checked:bg-clear-blue text-surface transition-colors flex-shrink-0">
+<span class="material-symbols-outlined text-[18px] opacity-0 peer-checked:opacity-100 font-bold">check</span>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<span class="font-label-md text-label-md text-on-surface group-hover:text-primary transition-colors">Other operational details</span>
+<span class="font-caption text-caption text-slate">इतर व्यापारी निकष</span>
+</div>
+<span class="material-symbols-outlined text-slate/40 text-[20px] self-center">tune</span>
+</label>
+</div>
+<!-- Note Input Section -->
+<div class="px-margin pt-space-md pb-space-xs flex flex-col gap-2">
+<div class="flex justify-between items-baseline">
+<label class="font-label-md text-label-md text-on-surface" for="clarification-note">
+        Custom Note <span class="font-caption text-caption text-slate">(पर्यायी संदेश)</span>
+</label>
+<span class="font-data-xs text-data-xs text-slate" id="char-count">82 / 300</span>
+</div>
+<div class="relative">
+<textarea class="w-full bg-surface text-on-surface font-body-md text-body-md rounded-xl p-space-md outline-none transition-all placeholder:text-mist-text shadow-sm focus:bg-surface-container-lowest" id="clarification-note" maxlength="300" oninput="updateCounter(this)" placeholder="Add specific requirements or notes..." rows="3">Please provide additional information for profile review regarding weekly procurement allocation.</textarea>
+</div>
+</div>
+<!-- Operational Flow Status Badge -->
+<div class="px-margin pt-space-sm">
+<div class="bg-blue-soft/50 rounded-xl p-space-sm flex items-center gap-space-sm">
+<div class="w-2 h-2 rounded-full bg-clear-blue"></div>
+<div class="flex flex-col min-w-0">
+<span class="font-caption text-caption text-slate uppercase font-semibold tracking-wider">Projected Next State</span>
+<span class="font-data-xs text-data-xs text-on-surface font-semibold truncate">Status upon submission: More Information Requested — Demo</span>
+</div>
+</div>
+</div>
+<!-- Prototype Warning Callout -->
+<div class="px-margin pt-space-md">
+<div class="bg-sand rounded-xl p-space-md flex gap-space-sm items-start">
+<span class="material-symbols-outlined text-tertiary text-[20px] flex-shrink-0 mt-0.5">info</span>
+<div class="flex flex-col gap-0.5 min-w-0">
+<p class="font-body-md text-body-md text-on-tertiary-container font-medium leading-snug">
+          Prototype request recorded. Do NOT send real email/SMS/WhatsApp messages.
+        </p>
+<p class="font-caption text-caption text-tertiary">
+          (प्रात्यक्षिक विनंती नोंदवली जाईल. कोणताही खरा मेसेज पाठवला जाणार नाही.)
+        </p>
+</div>
+</div>
+</div>
+<!-- CTA Action Deck -->
+<div class="px-margin pt-space-xl flex flex-col gap-space-md">
+<!-- Primary CTA in Burnt Orange -->
+<button class="w-full h-14 bg-secondary active:bg-clay-orange text-on-secondary rounded-xl font-label-lg text-label-lg flex items-center justify-center gap-space-sm transition-transform active:scale-[0.98] shadow-sm" id="send-btn" onclick="triggerSubmission()" type="button">
+<span>Send Request (मागणी पाठवा)</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+<!-- Secondary Cancel Button -->
+<button class="w-full h-14 bg-surface-container-low hover:bg-surface-container text-slate active:text-on-surface rounded-xl font-label-lg text-label-lg flex items-center justify-center transition-colors" onclick="history.back()" type="button">
+      Cancel (रद्द करा)
+    </button>
+</div>
+<!-- Submission Toast Notification -->
+<div class="fixed bottom-6 left-margin right-margin bg-inverse-surface text-inverse-on-surface p-space-md rounded-xl shadow-xl flex items-center gap-space-md transform translate-y-32 transition-transform duration-300 z-50 pointer-events-none" id="toast-notify">
+<span class="material-symbols-outlined text-inverse-primary text-[24px]">task_alt</span>
+<div class="flex flex-col min-w-0">
+<p class="font-label-md text-label-md text-inverse-on-surface font-medium">Demo Request Queued</p>
+<p class="font-caption text-caption text-inverse-on-surface/80 truncate">Status updated to: More Information Requested</p>
+</div>
+</div>
+</div>
+<script>
+  function updateCounter(textarea) {
+    const counter = document.getElementById('char-count');
+    if (counter) {
+      counter.textContent = textarea.value.length + ' / 300';
+    }
+  }
+
+  function toggleCard(checkbox) {
+    // Interactive styling handled seamlessly via Tailwind's has-[:checked]
+  }
+
+  function triggerSubmission() {
+    const btn = document.getElementById('send-btn');
+    const toast = document.getElementById('toast-notify');
+    
+    if (btn && toast) {
+      btn.disabled = true;
+      btn.classList.add('opacity-75');
+      btn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[20px]">progress_activity</span><span>Submitting...</span>';
+      
+      setTimeout(() => {
+        toast.classList.remove('translate-y-32');
+        toast.classList.add('translate-y-0');
+        
+        setTimeout(() => {
+          btn.innerHTML = '<span class="material-symbols-outlined text-[20px]">done_all</span><span>Request Logged</span>';
+          btn.classList.remove('bg-secondary', 'active:bg-clay-orange');
+          btn.classList.add('bg-clear-blue');
+        }, 600);
+      }, 500);
+    }
+  }
+</script></main></body></html>

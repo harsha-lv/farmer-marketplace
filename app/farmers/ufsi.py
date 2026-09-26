@@ -109,9 +109,15 @@ def _crops(value) -> list[ParcelCrop]:
 
 
 class UfsiClient:
-    def __init__(self, base_url: str, transport: httpx.AsyncBaseTransport | None = None) -> None:
+    def __init__(
+        self,
+        base_url: str,
+        transport: httpx.AsyncBaseTransport | None = None,
+        allow_private: bool | None = None,
+    ) -> None:
         self.base_url = base_url.rstrip("/")
         self._transport = transport
+        self._allow_private = allow_private if allow_private is not None else (transport is not None)
 
     async def fetch_profile(
         self,
@@ -135,13 +141,19 @@ class UfsiClient:
             "content-type": "application/vnd.api+json",
         }
         try:
-            async with httpx.AsyncClient(transport=self._transport, timeout=30.0) as client:
+            from app.common.http_client import SafeAsyncClient
+            from app.errors import AppError
+
+            async with SafeAsyncClient(
+                transport=self._transport,
+                allow_private=self._allow_private,
+            ) as client:
                 response = await client.post(
                     f"{self.base_url}/farmerProfileById",
                     json=payload,
                     headers=headers,
                 )
-        except httpx.HTTPError as exc:
+        except (httpx.HTTPError, AppError) as exc:
             raise RegistryError("farmer registry request failed") from exc
         if response.status_code >= 400:
             raise RegistryError(f"farmer registry returned {response.status_code}")

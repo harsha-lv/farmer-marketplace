@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "sand": "#FFF3DF", "tertiary-fixed-dim": "#f9bc51", "surface-container": "#d6f2ff", "surface": "#FFFFFF", "background": "#f2fbff", "surface-bright": "#f2fbff", "blue-soft": "#C7E8F0", "on-error-container": "#93000a", "on-tertiary-fixed-variant": "#604100", "on-primary": "#ffffff", "on-primary-fixed": "#001f26", "primary-fixed-dim": "#65d5f2", "on-secondary-fixed-variant": "#7c2e0c", "on-tertiary": "#ffffff", "line": "#D7E7EB", "primary": "#00687b", "inverse-surface": "#17343e", "outline-variant": "#bdc8cd", "blue-mist": "#E2F3F8", "surface-tint": "#00687b", "secondary-container": "#fd9168", "surface-container-low": "#e4f7ff", "primary-fixed": "#aeecff", "on-background": "#001f28", "tertiary-container": "#cf972f", "slate": "#607780", "on-tertiary-container": "#4c3300", "danger": "#C64F48", "on-secondary-container": "#742907", "on-primary-fixed-variant": "#004e5d", "on-secondary": "#ffffff", "on-surface": "#001f28", "surface-container-lowest": "#ffffff", "surface-container-high": "#cfedfa", "canvas": "#F4FAFC", "on-error": "#ffffff", "inverse-primary": "#65d5f2", "surface-dim": "#c1dfec", "tertiary": "#7e5700", "mist-text": "#8FA1A7", "error": "#ba1a1a", "on-tertiary-fixed": "#281900", "clay-orange": "#A95135", "clear-blue": "#147F9E", "secondary-fixed": "#ffdbcf", "surface-variant": "#c9e7f4", "secondary-fixed-dim": "#ffb59a", "tertiary-fixed": "#ffdeac", "inverse-on-surface": "#ddf5ff", "error-container": "#ffdad6", "outline": "#6d797d", "surface-container-highest": "#c9e7f4", "on-surface-variant": "#3d494c", "on-secondary-fixed": "#380d00", "on-primary-container": "#003e4a", "primary-container": "#36afcb", "secondary": "#9a4522" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "margin": "16px", "gutter": "12px", "space-xl": "24px", "space-md": "12px", "space-xs": "4px", "space-sm": "8px", "space-lg": "16px" }, fontFamily: { "data-xs": ["IBM Plex Mono"], "headline-sm": ["Fraunces"], "body-md": ["Inter"], "headline-md": ["Fraunces"], "data-sm": ["IBM Plex Mono"], "data-md": ["IBM Plex Mono"], "display-data": ["IBM Plex Mono"], "label-md": ["Inter"], "body-lg": ["Inter"], "headline-lg-mobile": ["Fraunces"], "data-lg": ["IBM Plex Mono"], "headline-lg": ["Fraunces"], "caption": ["Inter"], "label-lg": ["Inter"] }, fontSize: { "data-xs": ["12px", { "lineHeight": "16px", "fontWeight": "500" }], "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "500" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }], "data-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }], "data-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }], "display-data": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.5px", "fontWeight": "500" }], "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }], "data-lg": ["22px", { "lineHeight": "28px", "fontWeight": "500" }], "headline-lg": ["28px", { "lineHeight": "36px", "fontWeight": "600" }], "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "label-lg": ["16px", { "lineHeight": "24px", "fontWeight": "600" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-canvas text-on-surface font-body-md text-body-md flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe"><div class="h-16 px-margin flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0 flex-1"><button aria-label="Go Back" class="w-11 h-11 flex items-center justify-center rounded-lg text-on-surface hover:bg-surface-container-low transition-colors" onclick="history.back()" type="button"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><div class="flex flex-col min-w-0 flex-1"><h1 class="font-headline-sm text-headline-sm text-on-surface truncate leading-tight">Negotiate Offer</h1><span class="font-caption text-caption text-slate truncate">खरेदीदार कृषी खरेदी • Procurement Flow</span></div></div><div class="flex items-center gap-space-xs shrink-0"><button aria-label="More Options" class="w-11 h-11 flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" type="button"><span class="material-symbols-outlined text-[24px]">more_vert</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-16 bg-canvas min-h-screen"><div class="flex flex-col w-full pb-safe">
+<!-- Content Enclosure -->
+<div class="w-full max-w-[600px] mx-auto px-margin pt-space-md flex flex-col gap-space-lg">
+<!-- Status & Negotiation Intent Banner -->
+<div class="bg-sand rounded-xl p-space-md flex flex-col gap-space-xs shadow-sm">
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface text-secondary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">history_edu</span>
+          Counter-Offer Draft (प्रति-प्रस्ताव मसुदा)
+        </span>
+<span class="font-data-xs text-data-xs text-secondary font-medium">LOT #NSK-8492</span>
+</div>
+<p class="font-caption text-caption text-on-surface-variant flex items-start gap-1.5 mt-1">
+<span class="material-symbols-outlined text-[16px] text-secondary shrink-0 mt-0.5">info</span>
+<span>Do not claim that the FPO has accepted the counter-offer. Negotiation remains open until confirmed by both parties.</span>
+</p>
+</div>
+<!-- Product & Lot Brief Overview -->
+<div class="bg-surface rounded-xl p-space-md shadow-sm flex items-center gap-space-md">
+<div class="w-16 h-16 rounded-lg bg-blue-mist shrink-0 overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="Close up photograph of freshly harvested Nashik red onions in clean jute gunny bags ready for agricultural dispatch under soft natural morning sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChDXJPChq5iIdGatKLTYOxc8Onu9SnYIayyFDe30c7N0GX-cZnwqXcfhP4RyJ_Tx3Aayvqc30QfqSSghhSAHKQmyZFbhT3iMRDn0lKS0as4rx5W2VJNAD5DAlba88ltYWQLTXsro7DWATKjDHUFITgi1pHug3B6w-pg2oaVPlOIxgAi5-Tpbf6iToDnvdkTjR7PJGhKdL9CXm8zAQSFyl23KOyaAEMZQRgGWkyFlRFmB9RXWbc4k7u"/>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<div class="flex items-center gap-2">
+<h2 class="font-headline-sm text-headline-sm text-on-surface truncate">Nashik Red Onion (कांदा)</h2>
+<span class="px-2 py-0.5 rounded bg-blue-soft text-primary font-data-xs text-data-xs">Grade-A</span>
+</div>
+<p class="font-body-md text-body-md text-slate truncate">Godavari Farmers Producer Co. Ltd.</p>
+<div class="flex items-center gap-3 mt-1 font-data-xs text-data-xs text-on-surface-variant">
+<span>Total Lot: <strong>4,000 kg</strong></span>
+<span>•</span>
+<span>Origin: Lasalgaon</span>
+</div>
+</div>
+</div>
+<!-- Interactive Counter-Offer Rate Input -->
+<div class="bg-surface rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div>
+<label class="font-label-lg text-label-lg text-on-surface block" for="rate-input">Buyer Proposed Rate (प्रस्तावित दर)</label>
+<span class="font-caption text-caption text-slate">Set per kilogram counter price</span>
+</div>
+<div class="inline-flex items-center gap-1 px-2 py-1 rounded bg-blue-mist text-clear-blue font-data-xs text-data-xs">
+<span class="material-symbols-outlined text-[14px]">analytics</span>
+          Mandi: ₹28.80 – ₹29.20
+        </div>
+</div>
+<!-- Stepper Controller -->
+<div class="flex items-center gap-space-sm">
+<button aria-label="Decrease rate by 10 paise" class="w-14 h-14 rounded-lg bg-surface-container-low active:bg-surface-container flex items-center justify-center text-on-surface shrink-0 shadow-sm transition-transform active:scale-95" id="btn-decrement" type="button">
+<span class="material-symbols-outlined text-[24px]">remove</span>
+</button>
+<div class="relative flex-1">
+<div class="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate font-data-lg text-data-lg pointer-events-none">₹</div>
+<input class="w-full h-14 pl-8 pr-16 bg-surface-container-low rounded-lg text-center font-display-data text-display-data text-on-surface focus:outline-none focus:bg-surface focus:shadow-md transition-all" id="rate-input" max="40.00" min="20.00" step="0.05" type="number" value="29.00"/>
+<span class="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate font-body-md text-body-md pointer-events-none">/ kg</span>
+</div>
+<button aria-label="Increase rate by 10 paise" class="w-14 h-14 rounded-lg bg-surface-container-low active:bg-surface-container flex items-center justify-center text-on-surface shrink-0 shadow-sm transition-transform active:scale-95" id="btn-increment" type="button">
+<span class="material-symbols-outlined text-[24px]">add</span>
+</button>
+</div>
+<!-- Quick Preset Chips -->
+<div class="flex items-center gap-space-sm pt-1 overflow-x-auto pb-1">
+<span class="font-caption text-caption text-slate shrink-0">Quick set:</span>
+<button class="preset-chip px-3 py-1.5 rounded-full bg-canvas active:bg-blue-soft text-clear-blue font-data-xs text-data-xs transition-colors shrink-0" data-value="28.80" type="button">₹28.80 (Mandi Min)</button>
+<button class="preset-chip px-3 py-1.5 rounded-full bg-canvas active:bg-blue-soft text-clear-blue font-data-xs text-data-xs transition-colors shrink-0" data-value="29.00" type="button">₹29.00 (Balanced)</button>
+<button class="preset-chip px-3 py-1.5 rounded-full bg-canvas active:bg-blue-soft text-clear-blue font-data-xs text-data-xs transition-colors shrink-0" data-value="29.10" type="button">₹29.10 (-10p)</button>
+</div>
+</div>
+<!-- Volume Lock Card -->
+<div class="bg-surface rounded-xl p-space-md shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-11 h-11 rounded-lg bg-blue-mist flex items-center justify-center text-clear-blue shrink-0">
+<span class="material-symbols-outlined text-[22px]">inventory_2</span>
+</div>
+<div>
+<div class="font-label-md text-label-md text-on-surface">Procurement Volume (प्रमाण)</div>
+<span class="font-caption text-caption text-slate">Full lot commitment</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-data-md text-data-md text-on-surface font-semibold">4,000 kg</span>
+<span class="material-symbols-outlined text-[18px] text-slate" title="Locked to full lot size">lock</span>
+</div>
+</div>
+<!-- Live Calculation Breakdown Card -->
+<div class="bg-surface rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-2">
+<span class="font-label-md text-label-md text-slate uppercase tracking-wider">Live Economics (आर्थिक हिशोब)</span>
+<span class="inline-flex items-center gap-1 font-caption text-caption text-clear-blue">
+<span class="material-symbols-outlined text-[14px]">sync</span>
+          Dynamic Auto-calc
+        </span>
+</div>
+<!-- Math Breakdown Grid -->
+<div class="bg-canvas rounded-lg p-space-md flex flex-col gap-2.5">
+<div class="flex items-center justify-between font-body-md text-body-md">
+<span class="text-slate">Committed Volume</span>
+<span class="font-data-sm text-data-sm text-on-surface">4,000 kg</span>
+</div>
+<div class="flex items-center justify-between font-body-md text-body-md">
+<span class="text-slate">New Offer Rate</span>
+<span class="font-data-sm text-data-sm text-on-surface" id="display-calc-rate">₹29.00 / kg</span>
+</div>
+<div class="flex items-center justify-between font-body-md text-body-md">
+<span class="text-slate">Rate Spread</span>
+<span class="font-data-sm text-data-sm text-secondary font-medium" id="display-spread-rate">-₹0.20 / kg</span>
+</div>
+<div class="pt-2 flex items-center justify-between">
+<div>
+<div class="font-label-lg text-label-lg text-on-surface font-bold">Revised Gross Value</div>
+<div class="font-caption text-caption text-slate">एकूण सुधारित मूल्य</div>
+</div>
+<div class="text-right">
+<div class="font-data-lg text-data-lg text-primary font-bold" id="display-calc-gross">₹1,16,000</div>
+<div class="font-data-xs text-data-xs text-secondary font-medium" id="display-spread-total">(-₹800 vs offer)</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Side-by-Side Comparison Module -->
+<div class="bg-surface rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Offer Comparison (तुलना)</h3>
+<div class="grid grid-cols-2 gap-space-sm">
+<!-- Original Seller Offer -->
+<div class="bg-surface-container-low rounded-lg p-space-md flex flex-col justify-between">
+<div class="flex items-center gap-1 text-slate font-label-md text-label-md mb-2">
+<span class="material-symbols-outlined text-[16px]">storefront</span>
+<span>Original (मूळ)</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="font-data-sm text-data-sm text-slate">4,000 kg</div>
+<div class="font-data-md text-data-md text-on-surface font-semibold">@ ₹29.20/kg</div>
+<div class="font-data-sm text-data-sm text-slate mt-1">Gross: ₹1,16,800</div>
+</div>
+<div class="mt-3">
+<span class="inline-block px-2 py-0.5 rounded bg-surface text-slate font-data-xs text-data-xs">FPO Offer</span>
+</div>
+</div>
+<!-- Buyer Counter-Offer -->
+<div class="bg-sand rounded-lg p-space-md flex flex-col justify-between">
+<div class="flex items-center gap-1 text-secondary font-label-md text-label-md mb-2">
+<span class="material-symbols-outlined text-[16px]">handshake</span>
+<span>Counter (नवीन)</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="font-data-sm text-data-sm text-on-surface">4,000 kg</div>
+<div class="font-data-md text-data-md text-clay-orange font-bold" id="compare-counter-rate">@ ₹29.00/kg</div>
+<div class="font-data-sm text-data-sm text-clay-orange font-medium mt-1" id="compare-counter-gross">Gross: ₹1,16,000</div>
+</div>
+<div class="mt-3">
+<span class="inline-block px-2 py-0.5 rounded bg-surface text-clay-orange font-data-xs text-data-xs font-semibold">Your Counter</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Optional Buyer Message Field -->
+<div class="bg-surface rounded-xl p-space-lg shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-on-surface" for="buyer-message">Message to Seller (पर्यायी संदेश)</label>
+<span class="font-caption text-caption text-slate">Optional</span>
+</div>
+<textarea class="w-full bg-surface-container-low rounded-lg p-space-md text-on-surface font-body-md text-body-md placeholder:text-mist-text focus:outline-none focus:bg-surface focus:shadow-md transition-all resize-none" id="buyer-message" placeholder="Please confirm quantity and delivery schedule. (कृपया प्रमाण आणि डिलिव्हरी वेळेची पुष्टी करा.)" rows="3">Please confirm quantity and delivery schedule. (कृपया प्रमाण आणि डिलिव्हरी वेळेची पुष्टी करा.)</textarea>
+<div class="flex items-center gap-2 pt-1">
+<span class="material-symbols-outlined text-[16px] text-slate">schedule</span>
+<span class="font-caption text-caption text-slate">Expected decision turnaround: 4 hours</span>
+</div>
+</div>
+<!-- Bottom Actions Area -->
+<div class="flex flex-col gap-space-sm pt-space-xs pb-space-xl">
+<!-- Primary CTA: Clay Orange -->
+<button class="w-full min-h-[56px] py-4 px-margin rounded-lg bg-clay-orange text-on-primary font-label-lg text-label-lg font-bold flex items-center justify-center gap-2 shadow-md hover:opacity-95 active:scale-[0.99] transition-all" id="btn-submit-counter" type="button">
+<span>Review Counter-Offer (प्रति-प्रस्ताव तपासा)</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+<!-- Secondary CTA: Clear Blue Outline Style -->
+<button class="w-full min-h-[56px] py-4 px-margin rounded-lg bg-transparent text-clear-blue font-label-lg text-label-lg flex items-center justify-center gap-2 hover:bg-blue-mist active:bg-blue-soft transition-colors" onclick="history.back()" type="button">
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+<span>Back to Response Options (मागे जा)</span>
+</button>
+</div>
+</div>
+</div>
+<script>
+  (function initNegotiationModule() {
+    const rateInput = document.getElementById('rate-input');
+    const btnDecrement = document.getElementById('btn-decrement');
+    const btnIncrement = document.getElementById('btn-increment');
+    const presetChips = document.querySelectorAll('.preset-chip');
+    
+    // Live calculation targets
+    const displayCalcRate = document.getElementById('display-calc-rate');
+    const displaySpreadRate = document.getElementById('display-spread-rate');
+    const displayCalcGross = document.getElementById('display-calc-gross');
+    const displaySpreadTotal = document.getElementById('display-spread-total');
+    
+    // Comparison targets
+    const compareCounterRate = document.getElementById('compare-counter-rate');
+    const compareCounterGross = document.getElementById('compare-counter-gross');
+
+    const ORIGINAL_RATE = 29.20;
+    const VOLUME_KG = 4000;
+
+    function formatCurrencyINR(amount) {
+      return '₹' + Math.round(amount).toLocaleString('en-IN');
+    }
+
+    function updateCalculations() {
+      let currentRate = parseFloat(rateInput.value);
+      if (isNaN(currentRate) || currentRate <= 0) {
+        currentRate = 29.00;
+      }
+      
+      const revisedGross = currentRate * VOLUME_KG;
+      const rateDiff = currentRate - ORIGINAL_RATE;
+      const grossDiff = revisedGross - (ORIGINAL_RATE * VOLUME_KG);
+
+      // Format displays
+      displayCalcRate.textContent = '₹' + currentRate.toFixed(2) + ' / kg';
+      
+      const spreadSign = rateDiff >= 0 ? '+' : '-';
+      const spreadTotalSign = grossDiff >= 0 ? '+' : '-';
+      
+      displaySpreadRate.textContent = spreadSign + '₹' + Math.abs(rateDiff).toFixed(2) + ' / kg';
+      displayCalcGross.textContent = formatCurrencyINR(revisedGross);
+      displaySpreadTotal.textContent = '(' + spreadTotalSign + formatCurrencyINR(Math.abs(grossDiff)) + ' vs offer)';
+
+      // Color coding for spread
+      if (rateDiff < 0) {
+        displaySpreadRate.className = 'font-data-sm text-data-sm text-secondary font-medium';
+        displaySpreadTotal.className = 'font-data-xs text-data-xs text-secondary font-medium';
+      } else {
+        displaySpreadRate.className = 'font-data-sm text-data-sm text-primary font-medium';
+        displaySpreadTotal.className = 'font-data-xs text-data-xs text-primary font-medium';
+      }
+
+      // Comparison card updates
+      compareCounterRate.textContent = '@ ₹' + currentRate.toFixed(2) + '/kg';
+      compareCounterGross.textContent = 'Gross: ' + formatCurrencyINR(revisedGross);
+    }
+
+    btnDecrement.addEventListener('click', function() {
+      let val = parseFloat(rateInput.value) || 29.00;
+      val = Math.max(20.00, parseFloat((val - 0.10).toFixed(2)));
+      rateInput.value = val.toFixed(2);
+      updateCalculations();
+    });
+
+    btnIncrement.addEventListener('click', function() {
+      let val = parseFloat(rateInput.value) || 29.00;
+      val = Math.min(35.00, parseFloat((val + 0.10).toFixed(2)));
+      rateInput.value = val.toFixed(2);
+      updateCalculations();
+    });
+
+    rateInput.addEventListener('input', function() {
+      updateCalculations();
+    });
+
+    presetChips.forEach(function(chip) {
+      chip.addEventListener('click', function() {
+        const val = parseFloat(this.getAttribute('data-value'));
+        if (!isNaN(val)) {
+          rateInput.value = val.toFixed(2);
+          updateCalculations();
+        }
+      });
+    });
+
+    document.getElementById('btn-submit-counter').addEventListener('click', function() {
+      const rate = parseFloat(rateInput.value) || 29.00;
+      const message = document.getElementById('buyer-message').value;
+      // Provide clean feedback for review step
+      const notification = document.createElement('div');
+      notification.className = 'fixed bottom-6 left-1/2 -translate-x-1/2 bg-surface text-on-surface px-4 py-3 rounded-lg shadow-xl font-label-md text-label-md flex items-center gap-2 z-50 animate-bounce';
+      notification.innerHTML = '<span class="material-symbols-outlined text-clay-orange text-[20px]">check_circle</span> <span>Counter Offer of ₹' + rate.toFixed(2) + '/kg prepared!</span>';
+      document.body.appendChild(notification);
+      setTimeout(() => notification.remove(), 2500);
+    });
+
+    // Initial calculation run
+    updateCalculations();
+  })();
+</script></main></body></html>

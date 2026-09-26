@@ -1,7 +1,15 @@
 from datetime import datetime
 from decimal import Decimal
 
-from sqlalchemy import BigInteger, DateTime, Identity, Numeric, String, UniqueConstraint
+from sqlalchemy import (
+    BigInteger,
+    DateTime,
+    Identity,
+    Integer,
+    Numeric,
+    String,
+    UniqueConstraint,
+)
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.db.base import Base
@@ -14,7 +22,9 @@ class PledgeLoan(Base):
         UniqueConstraint("warehouse_receipt_id", name="uq_pledge_loans_warehouse_receipt_id"),
     )
 
-    id: Mapped[int] = mapped_column(BigInteger, Identity(), primary_key=True)
+    id: Mapped[int] = mapped_column(
+        BigInteger().with_variant(Integer, "sqlite"), Identity(), autoincrement=True, primary_key=True
+    )
     loan_id: Mapped[str] = mapped_column(String(64), index=True)
     warehouse_receipt_id: Mapped[str] = mapped_column(String(64), index=True)
     lot_code: Mapped[str] = mapped_column(String(32), index=True)

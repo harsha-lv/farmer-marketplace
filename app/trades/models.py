@@ -1,7 +1,16 @@
 from datetime import datetime
 from decimal import Decimal
 
-from sqlalchemy import BigInteger, DateTime, Identity, Numeric, String, UniqueConstraint
+from sqlalchemy import (
+    BigInteger,
+    Boolean,
+    DateTime,
+    Identity,
+    Integer,
+    Numeric,
+    String,
+    UniqueConstraint,
+)
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.db.base import Base
@@ -11,7 +20,9 @@ class TradeContract(Base):
     __tablename__ = "trade_contracts"
     __table_args__ = (UniqueConstraint("transaction_id", name="uq_trade_contracts_transaction_id"),)
 
-    id: Mapped[int] = mapped_column(BigInteger, Identity(), primary_key=True)
+    id: Mapped[int] = mapped_column(
+        BigInteger().with_variant(Integer, "sqlite"), Identity(), autoincrement=True, primary_key=True
+    )
     contract_code: Mapped[str] = mapped_column(String(160))
     transaction_id: Mapped[str] = mapped_column(String(128))
     lot_code: Mapped[str] = mapped_column(String(32))
@@ -27,8 +38,14 @@ class TradeContract(Base):
     fulfillment_status: Mapped[str | None] = mapped_column(String(32), nullable=True, default=None)
     tracking_url: Mapped[str | None] = mapped_column(String(512), nullable=True, default=None)
     carrier_name: Mapped[str | None] = mapped_column(String(128), nullable=True, default=None)
+    bap_id: Mapped[str | None] = mapped_column(String(128), nullable=True, default=None)
+    bpp_id: Mapped[str | None] = mapped_column(String(128), nullable=True, default=None)
+    role: Mapped[str | None] = mapped_column(String(16), nullable=True, default="BPP")
+    tlc_hash: Mapped[str | None] = mapped_column(String(64), nullable=True, default=None)
+    settlement_hold: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
     updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+    deleted_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True, default=None)
 
 
 class SettlementRecord(Base):
@@ -38,7 +55,9 @@ class SettlementRecord(Base):
         UniqueConstraint("transaction_id", name="uq_settlement_records_transaction_id"),
     )
 
-    id: Mapped[int] = mapped_column(BigInteger, Identity(), primary_key=True)
+    id: Mapped[int] = mapped_column(
+        BigInteger().with_variant(Integer, "sqlite"), Identity(), autoincrement=True, primary_key=True
+    )
     settlement_id: Mapped[str] = mapped_column(String(64), index=True)
     transaction_id: Mapped[str] = mapped_column(String(128), index=True)
     farmer_id: Mapped[str] = mapped_column(String(64))
@@ -60,7 +79,9 @@ class ErupiVoucher(Base):
         UniqueConstraint("voucher_code", name="uq_erupi_vouchers_voucher_code"),
     )
 
-    id: Mapped[int] = mapped_column(BigInteger, Identity(), primary_key=True)
+    id: Mapped[int] = mapped_column(
+        BigInteger().with_variant(Integer, "sqlite"), Identity(), autoincrement=True, primary_key=True
+    )
     voucher_code: Mapped[str] = mapped_column(String(64), index=True)
     settlement_id: Mapped[str] = mapped_column(String(64), index=True)
     transaction_id: Mapped[str] = mapped_column(String(128), index=True)

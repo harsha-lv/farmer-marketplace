@@ -1,0 +1,197 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"><meta content="mobile_stack" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&amp;family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{width:100%;margin:0;padding:0;}body{overscroll-behavior-y:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "sand": "#FFF3DF", "surface-container": "#d6f2ff", "surface-container-lowest": "#ffffff", "line": "#D7E7EB", "slate": "#607780", "on-surface": "#001f28", "primary-fixed": "#aeecff", "on-tertiary": "#ffffff", "on-primary-fixed-variant": "#004e5d", "on-primary-container": "#003e4a", "surface": "#FFFFFF", "mist-text": "#8FA1A7", "surface-dim": "#c1dfec", "on-secondary": "#ffffff", "on-primary": "#ffffff", "on-error": "#ffffff", "inverse-surface": "#17343e", "primary": "#00687b", "tertiary-container": "#cf972f", "surface-container-high": "#cfedfa", "surface-variant": "#c9e7f4", "surface-container-low": "#e4f7ff", "on-tertiary-fixed": "#281900", "outline-variant": "#bdc8cd", "secondary-fixed": "#ffdbcf", "on-tertiary-container": "#4c3300", "error": "#ba1a1a", "tertiary-fixed": "#ffdeac", "surface-tint": "#00687b", "on-tertiary-fixed-variant": "#604100", "on-error-container": "#93000a", "inverse-primary": "#65d5f2", "canvas": "#F4FAFC", "secondary-container": "#fd9168", "secondary-fixed-dim": "#ffb59a", "on-surface-variant": "#3d494c", "on-primary-fixed": "#001f26", "blue-soft": "#C7E8F0", "primary-container": "#36afcb", "secondary": "#9a4522", "surface-container-highest": "#c9e7f4", "inverse-on-surface": "#ddf5ff", "on-background": "#001f28", "tertiary": "#7e5700", "clear-blue": "#147F9E", "clay-orange": "#A95135", "on-secondary-fixed": "#380d00", "blue-mist": "#E2F3F8", "background": "#f2fbff", "on-secondary-container": "#742907", "outline": "#6d797d", "error-container": "#ffdad6", "on-secondary-fixed-variant": "#7c2e0c", "primary-fixed-dim": "#65d5f2", "danger": "#C64F48", "tertiary-fixed-dim": "#f9bc51", "surface-bright": "#f2fbff" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "space-xl": "24px", "space-xs": "4px", "space-md": "12px", "gutter": "12px", "space-lg": "16px", "margin": "16px", "space-sm": "8px" }, fontFamily: { "headline-lg": ["Fraunces"], "headline-sm": ["Fraunces"], "headline-lg-mobile": ["Fraunces"], "data-md": ["IBM Plex Mono"], "body-md": ["Inter"], "headline-md": ["Fraunces"], "label-lg": ["Inter"], "data-lg": ["IBM Plex Mono"], "label-md": ["Inter"], "body-lg": ["Inter"], "data-xs": ["IBM Plex Mono"], "data-sm": ["IBM Plex Mono"], "caption": ["Inter"], "display-data": ["IBM Plex Mono"] }, fontSize: { "headline-lg": ["28px", { "lineHeight": "36px", "fontWeight": "600" }], "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "500" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }], "data-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }], "label-lg": ["16px", { "lineHeight": "24px", "fontWeight": "600" }], "data-lg": ["22px", { "lineHeight": "28px", "fontWeight": "500" }], "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "data-xs": ["12px", { "lineHeight": "16px", "fontWeight": "500" }], "data-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }], "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "display-data": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.5px", "fontWeight": "500" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-canvas text-on-surface font-body-md text-body-md antialiased min-h-screen flex flex-col"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-margin flex items-center justify-between gap-space-sm max-w-[600px] mx-auto"><div class="flex items-center gap-space-sm min-w-0"><button aria-label="Go Back" class="w-11 h-11 flex items-center justify-center rounded-lg text-on-surface hover:bg-blue-mist transition-colors -ml-1" onclick="history.back()"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><h1 class="font-headline-sm text-headline-sm text-on-surface truncate">Lot Details</h1></div><div class="flex items-center gap-space-sm shrink-0"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full max-w-[600px] mx-auto px-margin pt-16 pb-safe bg-canvas"><div class="flex flex-col w-full pb-24 space-y-space-md">
+<!-- Status Callout Banner: Anti-speculative / Local Draft -->
+<section class="w-full bg-sand rounded-xl p-space-md shadow-sm">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-clay-orange text-[22px] shrink-0 mt-0.5">info</span>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-label-md text-label-md text-clay-orange font-semibold">स्थानिक मसुदा</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-data-xs text-data-xs uppercase tracking-wider">
+            Demo / Prototype ID · Local Draft
+          </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">
+          हा साठा केवळ आपल्या फोनवर सुरक्षित मसुदा म्हणून जतन केला आहे. थेट बाजारात अजून सादर झालेला नाही.
+        </p>
+</div>
+</div>
+</section>
+<!-- Primary Lot Identity Card -->
+<article class="w-full bg-surface rounded-xl p-space-lg shadow-sm">
+<!-- Lot Code & Provenance Header -->
+<div class="flex items-center justify-between gap-space-xs pb-space-sm">
+<div class="min-w-0">
+<span class="font-caption text-caption text-slate block">नोंदणी क्रमांक / Lot ID</span>
+<span class="font-data-md text-data-md text-clear-blue font-semibold tracking-wide select-all">MM-LOT-000124 <span class="text-[12px] font-body-md text-slate font-normal">(Demo / Prototype ID)</span></span>
+</div>
+<div class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-blue-mist text-clear-blue font-data-xs text-data-xs">
+<span class="material-symbols-outlined text-[14px]">folder_special</span>
+<span class="">तयारी सुरू · Draft</span>
+</div>
+</div>
+<!-- Crop Title & Regional Nomenclature -->
+<div class="pt-space-xs">
+<h2 class="font-headline-md text-headline-md text-on-surface">Nashik Red Onion</h2>
+<p class="font-body-lg text-body-lg text-slate mt-0.5">उन्हाळी लाल कांदा (मध्यम-मोठा आकार)</p>
+</div>
+<!-- Metric: Quantity Breakdown -->
+<div class="mt-space-lg bg-canvas rounded-lg p-space-md">
+<div class="flex items-baseline justify-between">
+<span class="font-label-md text-label-md text-slate">एकूण वजन / Lot Volume</span>
+<span class="inline-flex items-center gap-1 font-data-xs text-data-xs text-clear-blue bg-blue-mist px-2 py-0.5 rounded"><span class="material-symbols-outlined text-[12px]">edit_note</span><span class="">Entered Weight (Demo / Prototype)</span></span>
+</div>
+<div class="mt-1 flex items-baseline gap-2">
+<span class="font-data-lg text-data-lg text-on-surface font-semibold">4,000</span>
+<span class="font-data-md text-data-md text-slate">kg</span>
+<span class="font-body-md text-body-md text-mist-text ml-auto">(40 क्विंटल / 40 Quintals)</span>
+</div>
+</div>
+<!-- Specification Grid -->
+<div class="grid grid-cols-2 gap-space-sm mt-space-md">
+<!-- Harvest Date Card -->
+<div class="bg-canvas rounded-lg p-space-sm"><span class="font-caption text-caption text-slate block">काढणी दिनांक (Harvest)</span><div class="flex items-center gap-1.5 mt-1"><span class="material-symbols-outlined text-clear-blue text-[18px]">calendar_today</span><span class="font-data-sm text-data-sm text-on-surface">18 Oct 2026</span></div><span class="inline-block mt-1 font-caption text-caption text-clay-orange bg-sand px-1.5 py-0.5 rounded font-medium">Demo / Sample Date</span></div>
+<!-- Readiness Card -->
+<div class="bg-canvas rounded-lg p-space-sm">
+<span class="font-caption text-caption text-slate block">विक्री सज्जता (Readiness)</span>
+<div class="flex items-center gap-1.5 mt-1">
+<span class="material-symbols-outlined text-clay-orange text-[18px]">warehouse</span>
+<span class="font-label-md text-label-md text-on-surface">Ready to Sell</span>
+</div>
+<span class="font-caption text-caption text-slate block mt-1 truncate">खळा साठा / Yard Stock</span>
+</div>
+</div>
+<!-- Commercial Attributes -->
+<div class="mt-space-md p-space-sm rounded-lg bg-canvas space-y-space-sm">
+<div class="flex items-center justify-between text-body-md">
+<span class="text-slate font-label-md">किंमत वाटाघाटी (Negotiation)</span>
+<span class="font-label-md text-on-surface flex items-center gap-1 text-right">
+<span class="material-symbols-outlined text-clear-blue text-[16px]">handshake</span>
+          होय, वाटाघाटीस तयार
+        </span>
+</div>
+<div class="flex items-center justify-between text-body-md pt-space-xs">
+<span class="text-slate font-label-md">साठवण पद्धत (Storage)</span>
+<span class="font-label-md text-on-surface">चाळ साठवण (Ventilated Chawl)</span>
+</div>
+</div>
+</article>
+<!-- Visual Evidence & Media Section -->
+<section class="w-full bg-surface rounded-xl p-space-lg shadow-sm space-y-space-md">
+<div class="flex items-center justify-between"><div><h3 class="font-headline-sm text-headline-sm text-on-surface">साठा छायाचित्रे (Photos)</h3><p class="font-caption text-caption text-slate">२ फोटो जोडले (2 Photos Uploaded)</p></div><span class="font-data-xs text-data-xs text-clear-blue bg-blue-mist px-2 py-1 rounded flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">photo_library</span>Uploaded</span></div>
+<div class="grid grid-cols-2 gap-space-sm">
+<!-- Media Slot 1: Sample Crop -->
+<div class="flex flex-col bg-canvas rounded-lg overflow-hidden"><span class="font-caption text-caption text-slate block">काढणी दिनांक (Harvest)</span><div class="flex items-center gap-1.5 mt-1"><span class="font-label-md text-label-md text-on-surface truncate">Sample Crop</span><span class="inline-flex items-center gap-0.5 text-caption font-caption text-clear-blue"><span class="material-symbols-outlined text-[16px]">cloud_done</span>Uploaded / जोडले</span></div><span class="inline-block mt-1 font-caption text-caption text-clay-orange bg-sand px-1.5 py-0.5 rounded font-medium">Demo / Sample Date</span></div>
+<!-- Media Slot 2: Full Lot Bulk -->
+<div class="flex flex-col bg-canvas rounded-lg overflow-hidden">
+<div class="relative w-full h-32 bg-slate">
+<img alt="Full Stacked Lot" class="w-full h-full object-cover" data-alt="Wide perspective shot of a large clean pile of bagged red onions stacked carefully inside a traditional dry rural farm shed chawl in Maharashtra India, soft ambient natural illumination, realistic raw agricultural produce without green leaves" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuF2O_gbtejGlS1VxaOWrTaOVgLPke_ogz6qjf3Di-Kqbcmd3sXAPggf_o6u0n_fhSeyhM5lk56Bw9TP3laSPNMyOzfgAG9yODDnBd9ve_WjoAlHCoaHriqSmIdM6OQF9W8WJypJDTeZNVqZHZrq3-wnzvrANLuaAJyfZfwI6X1vsh0rJPdkeNDnYBIuOZRkAzi1Dd2u9ipcHKMbS3cSrGirspgAxBfMnfglmtiRNdLrBfu3EbuXrn">
+<div class="absolute top-2 left-2 bg-inverse-surface/90 text-inverse-on-surface font-caption text-caption px-1.5 py-0.5 rounded">
+            एकूण साठा
+          </div>
+</div>
+<div class="p-space-sm flex items-center justify-between"><span class="font-label-md text-label-md text-on-surface truncate">Bulk Lot Pile</span><span class="inline-flex items-center gap-0.5 text-caption font-caption text-clear-blue"><span class="material-symbols-outlined text-[16px]">cloud_done</span>Uploaded / जोडले</span></div>
+</div>
+</div>
+</section>
+<!-- Truthful Data Notice / Anti-speculative Guardrail -->
+<section class="w-full bg-blue-mist rounded-xl p-space-md shadow-sm">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-clear-blue text-[20px] shrink-0 mt-0.5">verified_user</span>
+<div class="space-y-1">
+<h4 class="font-label-md text-label-md text-on-surface font-semibold">नोंद सत्यता आणि गोपनीयता हमी</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          No buyer offers, market prices, or transport bookings are attached yet. This is a private farmer lot record. साठा अधिकृतपणे विक्रीसाठी खुला केल्याशिवाय बाजारात कोणतीही माहिती प्रसारित होणार नाही.
+        </p>
+</div>
+</div>
+</section>
+<!-- Interactive State Drawer / Sticky Conversion Hub -->
+<div class="fixed bottom-0 left-0 right-0 z-40 bg-surface/95 backdrop-blur-md shadow-lg py-space-sm px-margin">
+<div class="max-w-[600px] mx-auto flex flex-col sm:flex-row items-stretch gap-space-sm">
+<!-- Edit Details: Outlined Action -->
+<button aria-label="Edit Details" class="h-14 px-space-lg rounded-lg bg-canvas text-clear-blue font-label-lg text-label-lg flex items-center justify-center gap-2 active:bg-blue-mist transition-colors shrink-0" id="btnEditLot" type="button">
+<span class="material-symbols-outlined text-[20px]">edit_note</span>
+<span class="">Edit Details</span>
+</button>
+<!-- Key Action: Publish Active Sale Lot -->
+<button aria-label="Publish Active Sale Lot" class="flex-1 h-14 px-space-lg rounded-lg bg-clay-orange text-on-secondary font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-sm active:bg-secondary transition-all" id="btnPublishLot" type="button">
+<span class="">Publish Active Sale Lot</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Interactive Confirmation Dialog (Hidden by Default) -->
+<div class="hidden fixed inset-0 z-50 flex items-center justify-center p-space-lg bg-inverse-surface/40 backdrop-blur-[2px]" id="publishConfirmDialog">
+<div class="bg-surface w-full max-w-sm rounded-xl p-space-lg shadow-xl space-y-space-md">
+<div class="w-12 h-12 rounded-full bg-sand flex items-center justify-center text-clay-orange">
+<span class="material-symbols-outlined text-[28px]">storefront</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">साठा बाजारात प्रकाशित करायचा?</h3>
+<p class="font-body-md text-body-md text-slate mt-1">
+          Lot MM-LOT-000124 (4,000 kg Nashik Red Onion) will become visible to verified regional buyers.
+        </p>
+</div>
+<div class="flex flex-col gap-space-xs pt-space-xs">
+<button class="h-12 w-full rounded-lg bg-clay-orange text-on-secondary font-label-lg text-label-lg flex items-center justify-center" id="confirmPublishBtn">
+          होय, विक्री सुरू करा
+        </button>
+<button class="h-12 w-full rounded-lg bg-canvas text-slate font-label-md text-label-md" id="cancelPublishBtn">
+          मागे जा (Cancel)
+        </button>
+</div>
+</div>
+</div>
+</div>
+<script>
+  (function() {
+    const publishBtn = document.getElementById('btnPublishLot');
+    const editBtn = document.getElementById('btnEditLot');
+    const modal = document.getElementById('publishConfirmDialog');
+    const cancelBtn = document.getElementById('cancelPublishBtn');
+    const confirmBtn = document.getElementById('confirmPublishBtn');
+
+    if (publishBtn && modal) {
+      publishBtn.addEventListener('click', () => {
+        modal.classList.remove('hidden');
+      });
+    }
+
+    if (cancelBtn && modal) {
+      cancelBtn.addEventListener('click', () => {
+        modal.classList.add('hidden');
+      });
+    }
+
+    if (confirmBtn && modal) {
+      confirmBtn.addEventListener('click', () => {
+        confirmBtn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[20px]">sync</span>&nbsp;नोंदणी होत आहे...';
+        setTimeout(() => {
+          modal.classList.add('hidden');
+          publishBtn.innerHTML = '<span class="material-symbols-outlined text-[20px]">check</span>&nbsp;Published to Market';
+          publishBtn.classList.replace('bg-clay-orange', 'bg-clear-blue');
+          publishBtn.disabled = true;
+        }, 800);
+      });
+    }
+
+    if (editBtn) {
+      editBtn.addEventListener('click', () => {
+        // Feedback toast or action route simulation
+        const originalText = editBtn.innerHTML;
+        editBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]">edit</span> संपादन उघडत आहे...';
+        setTimeout(() => {
+          editBtn.innerHTML = originalText;
+        }, 600);
+      });
+    }
+  })();
+</script></main>
+
+</body></html>

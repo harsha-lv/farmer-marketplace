@@ -1,0 +1,153 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: agri-api
+  namespace: agri-platform
+  labels:
+    app.kubernetes.io/name: agri-api
+    app.kubernetes.io/part-of: farmer-marketplace
+    app.kubernetes.io/component: backend-api
+spec:
+  replicas: 3
+  revisionHistoryLimit: 5
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: agri-api
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: agri-api
+        app.kubernetes.io/part-of: farmer-marketplace
+        app.kubernetes.io/component: backend-api
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/path: "/metrics"
+        prometheus.io/port: "8000"
+    spec:
+      serviceAccountName: agri-platform-sa
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+        runAsGroup: 10001
+        fsGroup: 10001
+      containers:
+        - name: api
+          image: agri-platform-backend:latest
+          imagePullPolicy: IfNotPresent
+          command: ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "2"]
+          ports:
+            - name: http
+              containerPort: 8000
+              protocol: TCP
+          envFrom:
+            - configMapRef:
+                name: agri-platform-config
+            - secretRef:
+                name: agri-platform-secrets
+          resources:
+            requests:
+              cpu: 250m
+              memory: 512Mi
+            limits:
+              cpu: 1000m
+              memory: 1Gi
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop:
+                - ALL
+          volumeMounts:
+            - name: tmp-volume
+              mountPath: /tmp
+            - name: models-volume
+              mountPath: /app/models
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: http
+            initialDelaySeconds: 15
+            periodSeconds: 10
+            timeoutSeconds: 3
+            failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 5
+            timeoutSeconds: 3
+            failureThreshold: 2
+          lifecycle:
+            preStop:
+              exec:
+                command: ["/bin/sleep", "5"]
+      volumes:
+        - name: tmp-volume
+          emptyDir: {}
+        - name: models-volume
+          emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: agri-api-service
+  namespace: agri-platform
+  labels:
+    app.kubernetes.io/name: agri-api
+    app.kubernetes.io/part-of: farmer-marketplace
+spec:
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/name: agri-api
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8000
+      protocol: TCP
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: agri-api-hpa
+  namespace: agri-platform
+  labels:
+    app.kubernetes.io/name: agri-api-hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: agri-api
+  minReplicas: 3
+  maxReplicas: 10
+  metrics:
+    # 1. Target CPU utilization at 75%
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 75
+    # 2. Target Memory utilization at 80%
+    - type: Resource
+      resource:
+        name: memory
+        target:
+          type: Utilization
+          averageUtilization: 80
+    # 3. Custom metric: scale out when outbox relay lag exceeds 15 seconds
+    - type: External
+      external:
+        metric:
+          name: outbox_relay_lag_seconds
+          selector:
+            matchLabels:
+              channel: kafka
+        target:
+          type: AverageValue
+          averageValue: "15"

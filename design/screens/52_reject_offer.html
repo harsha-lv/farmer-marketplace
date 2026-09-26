@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "sand": "#FFF3DF", "tertiary-fixed-dim": "#f9bc51", "surface-container": "#d6f2ff", "surface": "#FFFFFF", "background": "#f2fbff", "surface-bright": "#f2fbff", "blue-soft": "#C7E8F0", "on-error-container": "#93000a", "on-tertiary-fixed-variant": "#604100", "on-primary": "#ffffff", "on-primary-fixed": "#001f26", "primary-fixed-dim": "#65d5f2", "on-secondary-fixed-variant": "#7c2e0c", "on-tertiary": "#ffffff", "line": "#D7E7EB", "primary": "#00687b", "inverse-surface": "#17343e", "outline-variant": "#bdc8cd", "blue-mist": "#E2F3F8", "surface-tint": "#00687b", "secondary-container": "#fd9168", "surface-container-low": "#e4f7ff", "primary-fixed": "#aeecff", "on-background": "#001f28", "tertiary-container": "#cf972f", "slate": "#607780", "on-tertiary-container": "#4c3300", "danger": "#C64F48", "on-secondary-container": "#742907", "on-primary-fixed-variant": "#004e5d", "on-secondary": "#ffffff", "on-surface": "#001f28", "surface-container-lowest": "#ffffff", "surface-container-high": "#cfedfa", "canvas": "#F4FAFC", "on-error": "#ffffff", "inverse-primary": "#65d5f2", "surface-dim": "#c1dfec", "tertiary": "#7e5700", "mist-text": "#8FA1A7", "error": "#ba1a1a", "on-tertiary-fixed": "#281900", "clay-orange": "#A95135", "clear-blue": "#147F9E", "secondary-fixed": "#ffdbcf", "surface-variant": "#c9e7f4", "secondary-fixed-dim": "#ffb59a", "tertiary-fixed": "#ffdeac", "inverse-on-surface": "#ddf5ff", "error-container": "#ffdad6", "outline": "#6d797d", "surface-container-highest": "#c9e7f4", "on-surface-variant": "#3d494c", "on-secondary-fixed": "#380d00", "on-primary-container": "#003e4a", "primary-container": "#36afcb", "secondary": "#9a4522" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "margin": "16px", "gutter": "12px", "space-xl": "24px", "space-md": "12px", "space-xs": "4px", "space-sm": "8px", "space-lg": "16px" }, fontFamily: { "data-xs": ["IBM Plex Mono"], "headline-sm": ["Fraunces"], "body-md": ["Inter"], "headline-md": ["Fraunces"], "data-sm": ["IBM Plex Mono"], "data-md": ["IBM Plex Mono"], "display-data": ["IBM Plex Mono"], "label-md": ["Inter"], "body-lg": ["Inter"], "headline-lg-mobile": ["Fraunces"], "data-lg": ["IBM Plex Mono"], "headline-lg": ["Fraunces"], "caption": ["Inter"], "label-lg": ["Inter"] }, fontSize: { "data-xs": ["12px", { "lineHeight": "16px", "fontWeight": "500" }], "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "500" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }], "data-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }], "data-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }], "display-data": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.5px", "fontWeight": "500" }], "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }], "data-lg": ["22px", { "lineHeight": "28px", "fontWeight": "500" }], "headline-lg": ["28px", { "lineHeight": "36px", "fontWeight": "600" }], "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "label-lg": ["16px", { "lineHeight": "24px", "fontWeight": "600" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-canvas text-on-surface font-body-md text-body-md flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe"><div class="h-16 px-margin flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0 flex-1"><button aria-label="Go Back" class="w-11 h-11 flex items-center justify-center rounded-lg text-on-surface hover:bg-surface-container-low transition-colors" onclick="history.back()" type="button"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><div class="flex flex-col min-w-0 flex-1"><h1 class="font-headline-sm text-headline-sm text-on-surface truncate leading-tight">Reject Offer</h1><span class="font-caption text-caption text-slate truncate">खरेदीदार कृषी खरेदी • Procurement Flow</span></div></div><div class="flex items-center gap-space-xs shrink-0"><button aria-label="More Options" class="w-11 h-11 flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" type="button"><span class="material-symbols-outlined text-[24px]">more_vert</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-16 bg-canvas min-h-screen"><div class="flex flex-col w-full px-margin pb-safe space-y-space-lg">
+<!-- Lot & Seller Context Card -->
+<div class="bg-surface rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 bg-sand rounded text-tertiary">
+<span class="material-symbols-outlined text-[16px]">inventory_2</span>
+<span class="font-data-xs text-data-xs tracking-tight">MM-FPO-OFR-DEMO-000001</span>
+</div>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 bg-surface-container-high text-primary rounded font-caption text-caption">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+<span>Verified FPO</span>
+</span>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-lg bg-blue-mist flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-clear-blue text-[26px]">agriculture</span>
+</div>
+<div class="flex flex-col min-w-0">
+<h2 class="font-headline-sm text-headline-sm text-on-surface truncate">Nashik Farmer Producer Organization</h2>
+<span class="font-caption text-caption text-slate truncate">नाशिक शेतकरी उत्पादक कंपनी • Lasalgaon Mandi Hub</span>
+</div>
+</div>
+<!-- Commercial Metrics Strip -->
+<div class="grid grid-cols-2 gap-space-sm bg-canvas p-space-sm rounded-lg">
+<div class="flex flex-col">
+<span class="font-caption text-caption text-slate">Offered Produce / प्रमाण</span>
+<div class="flex items-baseline gap-1 mt-0.5">
+<span class="font-data-md text-data-md text-on-surface font-semibold">4,000</span>
+<span class="font-caption text-caption text-on-surface-variant">kg (Red Onion)</span>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="font-caption text-caption text-slate">Agreed Quote / दर</span>
+<div class="flex items-baseline gap-1 mt-0.5">
+<span class="font-data-md text-data-md text-on-surface font-semibold">₹29.20</span>
+<span class="font-caption text-caption text-on-surface-variant">/ kg</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Operational Reason Selector Header -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<h3 class="font-label-lg text-label-lg text-on-surface font-semibold">Reason for Decline</h3>
+<span class="font-caption text-caption text-clay-orange font-medium">आवश्यक • Required</span>
+</div>
+<p class="font-body-md text-body-md text-slate">
+      Please clarify why this offer does not fit your operational schedule (ऑफर नाकारण्याचे प्रमुख कारण निवडा):
+    </p>
+</div>
+<!-- Radio Options Form -->
+<div aria-label="Operational rejection reason" class="flex flex-col gap-space-sm" id="reason-radio-group" role="radiogroup">
+<!-- Option 1: Price -->
+<label class="reason-card relative flex items-start p-space-md bg-surface rounded-xl shadow-sm cursor-pointer select-none transition-all" data-radio-id="price">
+<input checked="" class="sr-only" name="rejection_reason" type="radio" value="price"/>
+<div class="radio-indicator w-5 h-5 rounded-full bg-clear-blue flex items-center justify-center shrink-0 mt-0.5 transition-colors">
+<div class="w-2 h-2 rounded-full bg-surface"></div>
+</div>
+<div class="ml-space-md flex flex-col flex-1">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Price not suitable</span>
+<span class="font-caption text-caption text-slate mt-0.5">दर परवडत नाही / चालू बाजारापेक्षा जास्त भाव</span>
+<div class="mt-1 flex items-center gap-1 text-slate font-caption text-caption">
+<span class="material-symbols-outlined text-[14px]">trending_down</span>
+<span>Market avg: ₹26.50 - ₹28.00/kg</span>
+</div>
+</div>
+</label>
+<!-- Option 2: Quantity -->
+<label class="reason-card relative flex items-start p-space-md bg-surface rounded-xl shadow-sm cursor-pointer select-none transition-all opacity-85" data-radio-id="quantity">
+<input class="sr-only" name="rejection_reason" type="radio" value="quantity"/>
+<div class="radio-indicator w-5 h-5 rounded-full bg-surface-variant flex items-center justify-center shrink-0 mt-0.5 transition-colors">
+<div class="w-2 h-2 rounded-full bg-surface hidden"></div>
+</div>
+<div class="ml-space-md flex flex-col flex-1">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Quantity not suitable</span>
+<span class="font-caption text-caption text-slate mt-0.5">प्रमाण किंवा लॉट आकार अनुकूल नाही (Lot size misfit)</span>
+</div>
+</label>
+<!-- Option 3: Quality Requirements -->
+<label class="reason-card relative flex items-start p-space-md bg-surface rounded-xl shadow-sm cursor-pointer select-none transition-all opacity-85" data-radio-id="quality">
+<input class="sr-only" name="rejection_reason" type="radio" value="quality"/>
+<div class="radio-indicator w-5 h-5 rounded-full bg-surface-variant flex items-center justify-center shrink-0 mt-0.5 transition-colors">
+<div class="w-2 h-2 rounded-full bg-surface hidden"></div>
+</div>
+<div class="ml-space-md flex flex-col flex-1">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Quality requirement not met</span>
+<span class="font-caption text-caption text-slate mt-0.5">प्रतवारी किंवा आकारमान निकष जुळत नाही (Moisture/Grade)</span>
+</div>
+</label>
+<!-- Option 4: Delivery Terms -->
+<label class="reason-card relative flex items-start p-space-md bg-surface rounded-xl shadow-sm cursor-pointer select-none transition-all opacity-85" data-radio-id="delivery">
+<input class="sr-only" name="rejection_reason" type="radio" value="delivery"/>
+<div class="radio-indicator w-5 h-5 rounded-full bg-surface-variant flex items-center justify-center shrink-0 mt-0.5 transition-colors">
+<div class="w-2 h-2 rounded-full bg-surface hidden"></div>
+</div>
+<div class="ml-space-md flex flex-col flex-1">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Delivery terms not suitable</span>
+<span class="font-caption text-caption text-slate mt-0.5">डिलिव्हरी जागा किंवा वेळ गैरसोयीची (Transit window/Hub)</span>
+</div>
+</label>
+<!-- Option 5: Other -->
+<label class="reason-card relative flex items-start p-space-md bg-surface rounded-xl shadow-sm cursor-pointer select-none transition-all opacity-85" data-radio-id="other">
+<input class="sr-only" name="rejection_reason" type="radio" value="other"/>
+<div class="radio-indicator w-5 h-5 rounded-full bg-surface-variant flex items-center justify-center shrink-0 mt-0.5 transition-colors">
+<div class="w-2 h-2 rounded-full bg-surface hidden"></div>
+</div>
+<div class="ml-space-md flex flex-col flex-1">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Other operational constraint</span>
+<span class="font-caption text-caption text-slate mt-0.5">इतर व्यावसायिक किंवा साठवणूक मर्यादा</span>
+</div>
+</label>
+</div>
+<!-- Optional Text Feedback Section -->
+<div class="flex flex-col gap-1.5 pt-1">
+<div class="flex justify-between items-center">
+<label class="font-label-md text-label-md text-on-surface font-medium" for="seller-feedback">
+        Additional feedback for seller <span class="text-slate font-caption text-caption">(ऐच्छिक शेरा)</span>
+</label>
+<span class="font-data-xs text-data-xs text-slate" id="char-counter">0/300</span>
+</div>
+<div class="relative bg-surface rounded-xl shadow-sm overflow-hidden p-space-sm focus-within:bg-blue-mist/20 transition-colors">
+<textarea class="w-full bg-transparent font-body-md text-body-md text-on-surface placeholder:text-mist-text focus:outline-none resize-none min-h-[72px]" id="seller-feedback" maxlength="300" placeholder="e.g. Could consider if delivered directly to Vashi warehouse, or if price aligns near ₹27.50/kg..." rows="3"></textarea>
+</div>
+</div>
+<!-- Non-Punitive Legal & Operational Assurance Notice -->
+<div class="bg-sand/80 rounded-xl p-space-md shadow-sm flex items-start gap-space-md">
+<div class="w-8 h-8 rounded-full bg-tertiary-fixed flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-tertiary text-[18px]">gavel</span>
+</div>
+<div class="flex flex-col gap-1">
+<h4 class="font-label-md text-label-md text-on-surface font-semibold">
+        Non-Punitive Operational Choice
+      </h4>
+<p class="font-body-md text-body-md text-on-surface-variant leading-snug">
+        Declining an offer is an operational choice. It does <strong class="font-semibold text-on-surface">NOT</strong> delete the lot, does <strong class="font-semibold text-on-surface">NOT</strong> create penalties, and does <strong class="font-semibold text-on-surface">NOT</strong> affect the seller or buyer rating.
+      </p>
+<p class="font-caption text-caption text-slate mt-1">
+        ऑफर नाकारल्यामुळे लॉट रद्द होत नाही आणि शेतकरी किंवा खरेदीदाराच्या मूल्यांकनावर कोणताही परिणाम होत नाही.
+      </p>
+</div>
+</div>
+<!-- Action CTA Group -->
+<div class="flex flex-col gap-space-sm pt-2 pb-space-lg">
+<!-- Primary CTA: Confirm Rejection -->
+<button class="w-full min-h-[56px] py-4 px-space-lg rounded-xl bg-danger text-on-error font-label-lg text-label-lg font-semibold flex items-center justify-center gap-2 shadow-sm active:scale-[0.99] transition-transform" id="confirm-reject-btn" type="button">
+<span class="material-symbols-outlined text-[20px]">block</span>
+<span>Confirm Rejection (ऑफर नाकारण्याची पुष्टी करा)</span>
+</button>
+<!-- Secondary CTA: Cancel & Return -->
+<button class="w-full min-h-[56px] py-4 px-space-lg rounded-xl bg-surface text-clear-blue font-label-lg text-label-lg font-medium flex items-center justify-center gap-2 shadow-sm active:bg-canvas transition-colors" onclick="history.back()" type="button">
+<span class="material-symbols-outlined text-[20px]">undo</span>
+<span>Cancel &amp; Return to Offer (रद्द करा व परत जा)</span>
+</button>
+</div>
+</div>
+<script>
+  (function() {
+    const radioCards = document.querySelectorAll('.reason-card');
+    const textarea = document.getElementById('seller-feedback');
+    const counter = document.getElementById('char-counter');
+    const rejectBtn = document.getElementById('confirm-reject-btn');
+
+    // Radio selection toggle micro-interaction
+    radioCards.forEach(card => {
+      card.addEventListener('click', () => {
+        radioCards.forEach(c => {
+          c.classList.remove('bg-blue-mist/40', 'opacity-100');
+          c.classList.add('bg-surface', 'opacity-85');
+          const indicator = c.querySelector('.radio-indicator');
+          const dot = indicator.querySelector('div');
+          indicator.classList.remove('bg-clear-blue');
+          indicator.classList.add('bg-surface-variant');
+          dot.classList.add('hidden');
+          const radio = c.querySelector('input[type="radio"]');
+          radio.checked = false;
+        });
+
+        card.classList.remove('bg-surface', 'opacity-85');
+        card.classList.add('bg-blue-mist/40', 'opacity-100');
+        const activeIndicator = card.querySelector('.radio-indicator');
+        const activeDot = activeIndicator.querySelector('div');
+        activeIndicator.classList.remove('bg-surface-variant');
+        activeIndicator.classList.add('bg-clear-blue');
+        activeDot.classList.remove('hidden');
+        const activeRadio = card.querySelector('input[type="radio"]');
+        activeRadio.checked = true;
+      });
+    });
+
+    // Character counter for optional notes
+    if (textarea && counter) {
+      textarea.addEventListener('input', (e) => {
+        const len = e.target.value.length;
+        counter.textContent = `${len}/300`;
+        if (len >= 280) {
+          counter.classList.add('text-danger');
+          counter.classList.remove('text-slate');
+        } else {
+          counter.classList.remove('text-danger');
+          counter.classList.add('text-slate');
+        }
+      });
+    }
+
+    // Interactive button feedback
+    if (rejectBtn) {
+      rejectBtn.addEventListener('click', () => {
+        const checkedReason = document.querySelector('input[name="rejection_reason"]:checked')?.value || 'unspecified';
+        rejectBtn.disabled = true;
+        rejectBtn.classList.add('opacity-75');
+        rejectBtn.innerHTML = `
+          <span class="material-symbols-outlined animate-spin text-[20px]">progress_activity</span>
+          <span>Processing Rejection...</span>
+        `;
+        setTimeout(() => {
+          window.location.href = '#rejected-success';
+        }, 600);
+      });
+    }
+  })();
+</script></main></body></html>

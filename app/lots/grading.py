@@ -1,5 +1,5 @@
 from dataclasses import dataclass, field
-from decimal import Decimal, ROUND_HALF_UP
+from decimal import ROUND_HALF_UP, Decimal
 
 
 @dataclass(frozen=True)
@@ -184,11 +184,11 @@ def evaluate_crop_quality(
     """Evaluates crop quality and assigns AGMARK / e-NAM certified quality grades."""
     standard = resolve_standard(commodity)
 
-    fm = foreign_matter_percent if foreign_matter_percent is not None else Decimal("0")
+    fm = foreign_matter_percent if foreign_matter_percent is not None else Decimal(0)
     moist = moisture_percent if moisture_percent is not None else standard.optimum_moisture
-    dam = damaged_percent if damaged_percent is not None else Decimal("0")
-    imm = immature_percent if immature_percent is not None else Decimal("0")
-    weev = weevilled_percent if weevilled_percent is not None else Decimal("0")
+    dam = damaged_percent if damaged_percent is not None else Decimal(0)
+    imm = immature_percent if immature_percent is not None else Decimal(0)
+    weev = weevilled_percent if weevilled_percent is not None else Decimal(0)
 
     breakdown: list[str] = []
 
@@ -250,7 +250,7 @@ def evaluate_crop_quality(
         breakdown.append(f"Weevil infested kernels: {weev}%.")
 
     # 2. Defect Penalty and Quality Score Calculation (0-100)
-    penalty = Decimal("0")
+    penalty = Decimal(0)
     if moist > standard.optimum_moisture:
         penalty += (moist - standard.optimum_moisture) * Decimal("2.0")
     penalty += fm * Decimal("4.0")

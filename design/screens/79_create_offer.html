@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface-container": "#d6f2ff", "inverse-surface": "#17343e", "canvas": "#F4FAFC", "inverse-primary": "#65d5f2", "background": "#f2fbff", "on-tertiary-fixed-variant": "#604100", "primary": "#00687b", "surface": "#FFFFFF", "surface-container-high": "#cfedfa", "clear-blue": "#147F9E", "on-secondary-fixed-variant": "#7c2e0c", "inverse-on-surface": "#ddf5ff", "primary-fixed": "#aeecff", "surface-tint": "#00687b", "secondary-fixed": "#ffdbcf", "on-primary-container": "#003e4a", "secondary-container": "#fd9168", "mist-text": "#8FA1A7", "clay-orange": "#A95135", "surface-container-low": "#e4f7ff", "error-container": "#ffdad6", "secondary": "#9a4522", "primary-container": "#36afcb", "surface-dim": "#c1dfec", "slate": "#607780", "tertiary": "#7e5700", "surface-container-highest": "#c9e7f4", "tertiary-fixed-dim": "#f9bc51", "on-tertiary-container": "#4c3300", "on-secondary-fixed": "#380d00", "on-secondary": "#ffffff", "outline": "#6d797d", "on-tertiary-fixed": "#281900", "blue-mist": "#E2F3F8", "sand": "#FFF3DF", "on-surface-variant": "#3d494c", "surface-container-lowest": "#ffffff", "line": "#D7E7EB", "on-tertiary": "#ffffff", "on-secondary-container": "#742907", "blue-soft": "#C7E8F0", "on-error": "#ffffff", "on-primary": "#ffffff", "on-primary-fixed": "#001f26", "danger": "#C64F48", "tertiary-fixed": "#ffdeac", "tertiary-container": "#cf972f", "on-error-container": "#93000a", "secondary-fixed-dim": "#ffb59a", "primary-fixed-dim": "#65d5f2", "surface-variant": "#c9e7f4", "on-primary-fixed-variant": "#004e5d", "surface-bright": "#f2fbff", "error": "#ba1a1a", "on-background": "#001f28", "on-surface": "#001f28", "outline-variant": "#bdc8cd" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "gutter": "12px", "margin": "16px", "space-xl": "24px", "space-sm": "8px", "space-md": "12px", "space-lg": "16px", "space-xs": "4px" }, fontFamily: { "headline-lg-mobile": ["Fraunces"], "headline-sm": ["Fraunces"], "display-data": ["IBM Plex Mono"], "data-sm": ["IBM Plex Mono"], "data-md": ["IBM Plex Mono"], "caption": ["Inter"], "data-lg": ["IBM Plex Mono"], "headline-md": ["Fraunces"], "data-xs": ["IBM Plex Mono"], "label-lg": ["Inter"], "label-md": ["Inter"], "headline-lg": ["Fraunces"], "body-lg": ["Inter"], "body-md": ["Inter"] }, fontSize: { "headline-lg-mobile": ["24px", { lineHeight: "32px", fontWeight: "600" }], "headline-sm": ["18px", { lineHeight: "24px", fontWeight: "500" }], "display-data": ["32px", { lineHeight: "40px", letterSpacing: "-0.5px", fontWeight: "500" }], "data-sm": ["14px", { lineHeight: "20px", fontWeight: "500" }], "data-md": ["16px", { lineHeight: "24px", fontWeight: "500" }], "caption": ["12px", { lineHeight: "16px", fontWeight: "400" }], "data-lg": ["22px", { lineHeight: "28px", fontWeight: "500" }], "headline-md": ["20px", { lineHeight: "28px", fontWeight: "600" }], "data-xs": ["12px", { lineHeight: "16px", fontWeight: "500" }], "label-lg": ["16px", { lineHeight: "24px", fontWeight: "600" }], "label-md": ["14px", { lineHeight: "20px", fontWeight: "500" }], "headline-lg": ["28px", { lineHeight: "36px", fontWeight: "600" }], "body-lg": ["16px", { lineHeight: "24px", fontWeight: "400" }], "body-md": ["14px", { lineHeight: "20px", fontWeight: "400" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-canvas text-on-surface font-body-md text-body-md min-h-screen flex flex-col antialiased selection:bg-primary-container selection:text-on-primary-container"><header class="fixed top-0 inset-x-0 z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe"><div class="h-20 px-margin flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0 flex-1"><button aria-label="Navigate back" class="min-w-[48px] min-h-[48px] w-12 h-12 flex items-center justify-center rounded-lg text-primary hover:bg-blue-mist transition-colors" onclick="history.back()" type="button"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><div class="flex flex-col min-w-0 flex-1"><h1 class="font-headline-sm text-headline-sm text-on-surface truncate">Create Offer</h1><p class="font-data-xs text-data-xs text-slate truncate tracking-tight">Chana (Bengal Gram) • Lot #MM-8842-DL</p></div></div><div class="flex items-center gap-space-xs"><button aria-label="More options" class="min-w-[48px] min-h-[48px] w-12 h-12 flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-blue-mist transition-colors" type="button"><span class="material-symbols-outlined text-[24px]">more_vert</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0 ml-1"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-20 bg-canvas min-h-screen"><div class="flex flex-col w-full pb-32 max-w-[600px] mx-auto px-margin space-y-4">
+<!-- Connectivity & Demo Mode Ambient Banner -->
+<div class="rounded-xl bg-sand/80 px-space-md py- space-sm flex items-start gap-space-sm shadow-sm mt-2">
+<span class="material-symbols-outlined text-clay-orange text-[20px] flex-shrink-0 mt-0.5" style="font-variation-settings: 'FILL' 1;">wifi_off</span>
+<div class="min-w-0 flex-1">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="font-data-xs text-data-xs text-on-surface-variant font-medium">ऑफलाईन / प्रोटोटाइप मोड</span>
+<span class="px-1.5 py-0.5 rounded bg-secondary-container/20 text-on-secondary-container font-data-xs text-[10px]">DEMO RUN</span>
+</div>
+<p class="font-body-md text-caption text-slate leading-tight mt-0.5">
+        Live offer dispatch unavailable • Showing demo/prototype offer creation • <span class="font-data-xs" id="demoTimestamp">2026-03-30 14:32 IST</span>
+</p>
+</div>
+</div>
+<!-- Buyer & Lot Context Header Card -->
+<div class="rounded-xl bg-surface p-space-md shadow-sm space-y-space-md relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-clear-blue rounded-l"></div>
+<!-- Buyer Details -->
+<div class="flex items-start justify-between gap-2 pl-1">
+<div class="min-w-0">
+<div class="flex items-center gap-1.5 mb-1">
+<span class="px-2 py-0.5 rounded-full bg-blue-mist text-clear-blue font-data-xs text-data-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">verified</span> थेट खरेदीदार
+          </span>
+<span class="font-data-xs text-data-xs text-slate truncate">REQ-DEMO-2026-08</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">सह्याद्री फार्म्स ॲग्रो</h2>
+<p class="font-body-md text-caption text-slate">Sahyadri Agro Traders • Wholesaler &amp; Aggregator</p>
+</div>
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-primary text-[28px]">storefront</span>
+</div>
+</div>
+<!-- Buyer Requirement Specs Grid -->
+<div class="grid grid-cols-2 gap-space-xs bg-canvas p-space-sm rounded-lg">
+<div class="p-1">
+<span class="font-caption text-caption text-mist-text block">अपेक्षित प्रत / Commodity</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold block">कांदा (Nashik Red)</span>
+<span class="font-data-xs text-data-xs text-clear-blue">Grade A • 50kg Bags</span>
+</div>
+<div class="p-1">
+<span class="font-caption text-caption text-mist-text block">मागणी व अपेक्षित भाव</span>
+<span class="font-data-md text-data-md text-on-surface block">2,000–6,000 kg</span>
+<span class="font-data-xs text-data-xs text-tertiary">₹28.00–₹30.50 /kg</span>
+</div>
+</div>
+<!-- Farmer Linked Inventory -->
+<div class="flex items-center justify-between pt-1 border-t border-line/40 pl-1">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-blue-soft/50 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">inventory_2</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">निवडलेली लॉट: #48201</p>
+<p class="font-caption text-caption text-slate">पिंपळगाव बसवंत • 4,000 kg उपलब्ध साठा</p>
+</div>
+</div>
+<span class="px-2 py-1 rounded bg-blue-mist text-clear-blue font-data-xs text-data-xs font-medium">LOT READY</span>
+</div>
+</div>
+<!-- Farmer Negotiation Input Deck -->
+<div class="space-y-space-md">
+<!-- Input 1: Quantity -->
+<div class="bg-surface rounded-xl p-space-md shadow-sm space-y-space-sm">
+<div class="flex items-center justify-between">
+<label class="font-label-lg text-label-lg text-on-surface" for="offeredQty">
+          प्रस्तावित प्रमाण <span class="font-body-md text-slate font-normal">(Offered Qty)</span>
+</label>
+<span class="px-2 py-0.5 rounded bg-blue-mist text-clear-blue font-data-xs text-data-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> मागणीच्या मर्यादेत
+        </span>
+</div>
+<div class="relative flex items-center">
+<input class="w-full h-14 pl-4 pr-16 bg-canvas text-on-surface rounded-lg font-data-lg text-data-lg focus:outline-none focus:bg-surface focus:shadow-[0_0_0_2px_#147F9E] transition-all" id="offeredQty" max="4000" min="100" step="50" type="number" value="4000"/>
+<span class="absolute right-4 font-data-md text-data-md text-slate select-none">kg</span>
+</div>
+<div class="flex items-start gap-1 text-slate font-caption text-caption">
+<span class="material-symbols-outlined text-[16px] text-clear-blue mt-0.5">info</span>
+<span>खरेदीदार मागणी: 2,000–6,000 kg • तुमच्याकडील साठा: 4,000 kg</span>
+</div>
+</div>
+<!-- Input 2: Price per kg -->
+<div class="bg-surface rounded-xl p-space-md shadow-sm space-y-space-sm">
+<div class="flex items-center justify-between">
+<label class="font-label-lg text-label-lg text-on-surface" for="offeredPrice">
+          प्रस्तावित दर <span class="font-body-md text-slate font-normal">(Offered Rate / kg)</span>
+</label>
+<span class="font-data-xs text-data-xs text-tertiary bg-sand px-2 py-0.5 rounded">
+          स्वेच्छिक ऑफर
+        </span>
+</div>
+<div class="relative flex items-center">
+<input class="w-full h-14 pl-4 pr-20 bg-canvas text-on-surface rounded-lg font-data-lg text-data-lg focus:outline-none focus:bg-surface focus:shadow-[0_0_0_2px_#147F9E] transition-all" id="offeredPrice" min="1.00" step="0.25" type="number" value="30.00"/>
+<span class="absolute right-4 font-data-md text-data-md text-slate select-none">₹ / kg</span>
+</div>
+<!-- Live Benchmarks Pill Selection -->
+<div class="pt-1">
+<p class="font-caption text-caption text-mist-text mb-1.5">सध्याचे संदर्भ बाजारभाव (Reference Benchmarks):</p>
+<div class="flex items-center gap-2 overflow-x-auto pb-1">
+<button class="px-2.5 py-1.5 rounded-lg bg-canvas hover:bg-blue-mist text-left transition-colors flex-shrink-0" onclick="setPrice(28.50)" type="button">
+<span class="font-caption text-caption text-slate block leading-none">APMC सरासरी</span>
+<span class="font-data-sm text-data-sm text-on-surface font-semibold">₹28.50/kg</span>
+</button>
+<button class="px-2.5 py-1.5 rounded-lg bg-blue-mist text-clear-blue text-left ring-1 ring-clear-blue flex-shrink-0" onclick="setPrice(30.00)" type="button">
+<span class="font-caption text-caption text-clear-blue block leading-none">निवडलेला दर</span>
+<span class="font-data-sm text-data-sm font-semibold">₹30.00/kg</span>
+</button>
+<button class="px-2.5 py-1.5 rounded-lg bg-canvas hover:bg-sand text-left transition-colors flex-shrink-0" onclick="setPrice(30.50)" type="button">
+<span class="font-caption text-caption text-tertiary block leading-none">खरेदीदार कमाल</span>
+<span class="font-data-sm text-data-sm text-on-surface font-semibold">₹30.50/kg</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Live Calculation & Transparent Deductions Card (NetRealizationCard Pattern) -->
+<div class="rounded-xl bg-surface p-space-md shadow-sm space-y-space-md">
+<div>
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-md text-label-md text-on-surface font-semibold">आर्थिक पारदर्शकता तपशील</span>
+<span class="font-data-xs text-data-xs px-2 py-0.5 rounded bg-sand text-clay-orange font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">calculate</span> अंदाज (Estimate)
+          </span>
+</div>
+<p class="font-caption text-caption text-slate">Gross Value − Estimated Deductions = Net Realization</p>
+</div>
+<!-- Step-by-Step Economic Breakdown -->
+<div class="space-y-2 bg-canvas p-space-md rounded-lg">
+<div class="flex items-center justify-between text-on-surface">
+<span class="font-body-md text-body-md">एकूण मूल्य (Gross Offer)</span>
+<span class="font-data-md text-data-md font-semibold text-on-surface" id="grossValueDisplay">₹1,20,000</span>
+</div>
+<p class="font-data-xs text-data-xs text-slate">4,000 kg × ₹30.00/kg</p>
+<div class="pt-2 border-t border-line/50 space-y-1.5">
+<div class="flex items-center justify-between text-caption">
+<span class="font-body-md text-slate flex items-center gap-1">
+              वाहतूक खर्च (Farm Pickup Freight)
+              <span class="material-symbols-outlined text-[14px] text-mist-text">local_shipping</span>
+</span>
+<span class="font-data-sm text-data-sm text-secondary" id="transportCostDisplay">− ₹3,200</span>
+</div>
+<div class="flex items-center justify-between text-caption">
+<span class="font-body-md text-slate flex items-center gap-1">
+              तोलाई व उपकर (Weighing &amp; APMC Cess)
+              <span class="material-symbols-outlined text-[14px] text-mist-text">scale</span>
+</span>
+<span class="font-data-sm text-data-sm text-secondary" id="cessCostDisplay">− ₹1,200</span>
+</div>
+</div>
+<!-- Net Realization Highlight Box -->
+<div class="pt-3 border-t border-line flex items-end justify-between">
+<div>
+<span class="font-label-md text-label-md text-clear-blue block font-semibold">अपेक्षित निव्वळ रक्कम</span>
+<span class="font-caption text-caption text-mist-text block">Net In-hand Realization</span>
+</div>
+<div class="text-right">
+<span class="font-display-data text-display-data text-clear-blue font-bold tracking-tight block" id="netValueDisplay">≈ ₹1,15,600</span>
+<span class="font-data-xs text-data-xs text-slate block" id="netRatePerKgDisplay">(≈ ₹28.90 / kg)</span>
+</div>
+</div>
+</div>
+<!-- Transparency Advisory Disclaimer -->
+<div class="flex items-start gap-2 bg-blue-mist/50 p-2.5 rounded-lg">
+<span class="material-symbols-outlined text-clear-blue text-[18px] flex-shrink-0 mt-0.5">verified_user</span>
+<p class="font-caption text-caption text-slate leading-normal">
+          खर्चाची वजावट ही विश्लेषणात्मक प्रोटोटाइप अंदाज आहे. प्रत्यक्ष हिशेब काट्याचा वजन पावती आणि प्रत्यक्ष गेट पासवर निश्चित होतो. ही हमी उत्पन्न नाही.
+        </p>
+</div>
+</div>
+<!-- Commercial Terms & Handover Selection -->
+<div class="bg-surface rounded-xl p-space-md shadow-sm space-y-space-md">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">व्यापारी अटी व शर्ती</h3>
+<!-- Handover Radio Select -->
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface block">माल हस्तांतरण पर्याय (Handover Preference):</label>
+<!-- Option 1 -->
+<label class="flex items-center gap-3 p-3 rounded-lg bg-canvas cursor-pointer hover:bg-blue-mist/40 transition-colors">
+<input checked="" class="w-5 h-5 accent-clear-blue" name="logisticsPref" onchange="updateLogistics(this.value)" type="radio" value="farmgate"/>
+<div class="min-w-0 flex-1">
+<span class="font-label-md text-label-md text-on-surface block font-medium">खेतखळ्यातून थेट उचल (Farm Gate Pickup)</span>
+<span class="font-caption text-caption text-slate block">खरेदीदाराचे वाहन आपल्या शेतावर येईल</span>
+</div>
+<span class="material-symbols-outlined text-clear-blue text-[20px]">agriculture</span>
+</label>
+<!-- Option 2 -->
+<label class="flex items-center gap-3 p-3 rounded-lg bg-canvas cursor-pointer hover:bg-blue-mist/40 transition-colors">
+<input class="w-5 h-5 accent-clear-blue" name="logisticsPref" onchange="updateLogistics(this.value)" type="radio" value="apmc"/>
+<div class="min-w-0 flex-1">
+<span class="font-label-md text-label-md text-on-surface block font-medium">पिंपळगाव मार्केट यार्ड वितरण (Yard Delivery)</span>
+<span class="font-caption text-caption text-slate block">शेतकऱ्याने स्वतः APMC यार्डात माल पोहोचवणे</span>
+</div>
+<span class="material-symbols-outlined text-slate text-[20px]">local_shipping</span>
+</label>
+</div>
+<!-- Payment & Validity Row -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+<div class="p-3 bg-canvas rounded-lg">
+<span class="font-caption text-caption text-mist-text block">पेमेंट पद्धत</span>
+<span class="font-label-md text-label-md text-on-surface font-medium block">बँक ट्रान्सफर / UPI</span>
+<span class="font-caption text-[11px] text-slate">वजन पावती पडताळणीनंतर थेट खात्यात</span>
+</div>
+<div class="p-3 bg-canvas rounded-lg">
+<span class="font-caption text-caption text-mist-text block">ऑफर वैधता कालावधी</span>
+<span class="font-data-md text-data-md text-on-surface font-semibold block">३ दिवस (3 Days)</span>
+<span class="font-caption text-[11px] text-secondary">प्रतिसाद न दिल्यास आपोआप रद्द</span>
+</div>
+</div>
+<!-- Notes / Specifics Textarea -->
+<div class="space-y-1.5 pt-1">
+<label class="font-label-md text-label-md text-on-surface block" for="farmerNotes">
+          कांद्याची गुणवत्ता व शेरा <span class="font-body-md text-slate font-normal">(Quality Notes)</span>
+</label>
+<textarea class="w-full p-3 bg-canvas rounded-lg text-on-surface font-body-md text-body-md focus:outline-none focus:bg-surface focus:shadow-[0_0_0_2px_#147F9E] transition-all placeholder:text-mist-text" id="farmerNotes" placeholder="उदा. नाशिक लाल कांदा, ५० किलो जाळीदार पोती, चांगल्या प्रतीचा सुका माल..." rows="3">Grade A Nashik Red, sorted and bagged in 50 kg ventilated mesh bags.</textarea>
+<!-- Security Caution Warning -->
+<div class="flex items-start gap-1.5 text-danger font-caption text-[11px] mt-1">
+<span class="material-symbols-outlined text-[14px] flex-shrink-0 mt-0.5">security</span>
+<span>सावधान: येथे बँक पासवर्ड, OTP, आधार नंबर किंवा UPI PIN कधीही टाकू नका.</span>
+</div>
+</div>
+</div>
+<!-- Final Transparency Legal Notice -->
+<div class="bg-blue-mist/60 rounded-xl p-space-md flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[22px] flex-shrink-0 mt-0.5">contract</span>
+<div class="min-w-0 flex-1">
+<h4 class="font-label-md text-label-md text-on-surface font-semibold">ही केवळ ऑफर आहे — अंतिम खरेदी करार नाही</h4>
+<p class="font-body-md text-caption text-slate leading-relaxed mt-0.5">
+          खरेदीदाराला हा व्यापारी प्रस्ताव पाठवल्याने भाव लॉक होत नाही किंवा खरेदीची सक्ती होत नाही. खरेदीदाराने प्रस्ताव स्वीकारल्यावर पुढील डिजिटल करार जनरेट केला जाईल.
+        </p>
+</div>
+</div>
+</div>
+<!-- Bottom Floating Action Bar -->
+<div class="fixed bottom-0 inset-x-0 bg-surface/95 backdrop-blur-md py-3 px-margin pb-safe z-40 shadow-[0_-4px_12px_rgba(0,0,0,0.05)]">
+<div class="max-w-[600px] mx-auto flex items-center gap-3">
+<div class="flex flex-col min-w-0 pr-2">
+<span class="font-caption text-[11px] text-slate leading-none">एकूण प्रस्ताव मूल्य</span>
+<span class="font-data-md text-data-md text-on-surface font-bold mt-1 truncate" id="stickyGrossPrice">₹1,20,000</span>
+</div>
+<button class="flex-1 h-14 bg-secondary-container hover:bg-secondary text-on-secondary font-label-lg text-label-lg rounded-xl flex items-center justify-center gap-2 shadow-sm active:scale-[0.98] transition-all" id="reviewOfferBtn" onclick="handleReviewOffer()" type="button">
+<span>पुढील पायरी: ऑफर तपासा</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Micro-dialog for successful step preview -->
+<div class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-inverse-surface/40 backdrop-blur-sm" id="reviewModal">
+<div class="bg-surface rounded-2xl max-w-sm w-full p-6 shadow-xl space-y-4">
+<div class="w-12 h-12 rounded-full bg-blue-mist flex items-center justify-center text-clear-blue mx-auto">
+<span class="material-symbols-outlined text-[28px]">assignment_turned_in</span>
+</div>
+<div class="text-center">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">ऑफर सारांश तयार आहे</h3>
+<p class="font-body-md text-body-md text-slate mt-1">
+          सह्याद्री फार्म्स ॲग्रो यांच्याकडे ₹<span id="modalGross">1,20,000</span> ची ऑफर पाठवण्यासाठी तयार आहात?
+        </p>
+</div>
+<div class="space-y-2 pt-2">
+<button class="w-full h-12 bg-clear-blue text-on-primary font-label-lg rounded-lg flex items-center justify-center" onclick="closeModal()" type="button">
+          तपासून पुष्टी करा (Confirm &amp; Send)
+        </button>
+<button class="w-full h-12 bg-canvas text-slate font-label-lg rounded-lg flex items-center justify-center" onclick="closeModal()" type="button">
+          बदल करा (Edit)
+        </button>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Dynamic Real-Time Calculations
+  const qtyInput = document.getElementById('offeredQty');
+  const priceInput = document.getElementById('offeredPrice');
+  const grossDisplay = document.getElementById('grossValueDisplay');
+  const netDisplay = document.getElementById('netValueDisplay');
+  const netRateDisplay = document.getElementById('netRatePerKgDisplay');
+  const stickyGross = document.getElementById('stickyGrossPrice');
+  const transportDisplay = document.getElementById('transportCostDisplay');
+  const cessDisplay = document.getElementById('cessCostDisplay');
+  let currentLogistics = 'farmgate';
+
+  function formatINR(val) {
+    return '₹' + Math.round(val).toLocaleString('en-IN');
+  }
+
+  function recalculate() {
+    const qty = parseFloat(qtyInput.value) || 0;
+    const price = parseFloat(priceInput.value) || 0;
+    const gross = qty * price;
+
+    // Transport deduction varies based on mode
+    let transportCost = (currentLogistics === 'farmgate') ? Math.round(qty * 0.80) : Math.round(qty * 0.30);
+    let cessCost = Math.round(gross * 0.01); // 1% APMC & weigh charges
+
+    const totalDeductions = transportCost + cessCost;
+    const netRealization = Math.max(0, gross - totalDeductions);
+    const netPerKg = qty > 0 ? (netRealization / qty).toFixed(2) : '0.00';
+
+    grossDisplay.textContent = formatINR(gross);
+    stickyGross.textContent = formatINR(gross);
+    transportDisplay.textContent = '− ' + formatINR(transportCost);
+    cessDisplay.textContent = '− ' + formatINR(cessCost);
+    netDisplay.textContent = '≈ ' + formatINR(netRealization);
+    netRateDisplay.textContent = '(≈ ₹' + netPerKg + ' / kg)';
+    
+    document.getElementById('modalGross').textContent = formatINR(gross);
+  }
+
+  function setPrice(val) {
+    priceInput.value = val.toFixed(2);
+    recalculate();
+  }
+
+  function updateLogistics(mode) {
+    currentLogistics = mode;
+    recalculate();
+  }
+
+  qtyInput.addEventListener('input', recalculate);
+  priceInput.addEventListener('input', recalculate);
+
+  function handleReviewOffer() {
+    const modal = document.getElementById('reviewModal');
+    modal.classList.remove('hidden');
+  }
+
+  function closeModal() {
+    const modal = document.getElementById('reviewModal');
+    modal.classList.add('hidden');
+  }
+
+  // Update dynamic timestamp
+  const now = new Date();
+  const options = { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false };
+  const timeElem = document.getElementById('demoTimestamp');
+  if (timeElem) {
+    timeElem.textContent = now.toLocaleDateString('en-GB', options).replace(',', '') + ' IST';
+  }
+
+  // Initial Calculation Run
+  recalculate();
+</script></main></body></html>

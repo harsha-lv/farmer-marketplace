@@ -4,12 +4,22 @@ from typing import Annotated
 from fastapi import APIRouter, Depends, Query
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.api.deps import SessionDep, SettingsDep
+from app.api.deps import (
+    SessionDep,
+    SettingsDep,
+    get_current_user,
+    require_org_access,
+    require_roles,
+)
 from app.consent.repository import ConsentRepository
 from app.consent.signing import authorize_profile_fetch
 from app.errors import AppError
 from app.events.repository import EventRepository
-from app.farmers.agristack_card import AgristackCardClient, AgristackCardData, AgristackCardError
+from app.farmers.agristack_card import (
+    AgristackCardClient,
+    AgristackCardData,
+    AgristackCardError,
+)
 from app.farmers.models import Farmer
 from app.farmers.repository import FarmerRepository
 from app.farmers.schemas import (
@@ -25,7 +35,15 @@ from app.farmers.schemas import (
 from app.farmers.ufsi import FarmerProfile, RegistryError, UfsiClient
 from app.farmers.verification import verify_crop_cultivation
 
-router = APIRouter(prefix="/farmers", tags=["farmers"])
+router = APIRouter(
+    prefix="/farmers",
+    tags=["farmers"],
+    dependencies=[
+        Depends(get_current_user),
+        Depends(require_roles("farmer", "fpo_operator", "admin", "regulator", "assayer", "bank")),
+        Depends(require_org_access("fpo_id")),
+    ],
+)
 
 
 def card_response(card: AgristackCardData) -> AgristackCardResponse:

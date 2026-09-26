@@ -1,0 +1,361 @@
+/* =====================================================================
+   MittiMandi Mobile Design System — Reconciled Core Design Tokens
+   Authoritative Source: design/DESIGN.md (Rural Commerce Material Baseline)
+   Project ID: 6127167441810181608
+   Rules:
+     - 0dp Elevation everywhere (strictly zero box-shadows)
+     - Zero decorative green (Brand Sky Blue, Clear Blue, Terracotta, Market Amber, Dark Slate)
+     - Flat fills for hierarchy (Canvas #f4fafc, Surface #ffffff, BlueMist #e2f3f8, Sand #fff3df, Line #d7e7eb)
+     - Danger #c64f48 is reserved strictly for critical errors, NEVER for downward market movements
+     - Primary CTA: 56dp height / 10dp radius / 48dp minimum touch target
+     - Badges: 6dp radius with Actual / Forecast / Estimate / Recommendation provenance
+   ===================================================================== */
+
+@import url('fonts.css');
+
+:root {
+  /* Breakpoint Tokens (360px Mobile First Baseline) */
+  --bp-mobile: 360px;
+  --bp-tablet: 600px;
+  --bp-desktop: 1024px;
+
+  /* Semantic Z-Index Scale */
+  --z-base: 0;
+  --z-card: 1;
+  --z-header: 100;
+  --z-dock: 200;
+  --z-modal-backdrop: 400;
+  --z-modal: 500;
+  --z-toast: 1000;
+  --z-banner: 1100;
+
+  /* Font Weight Tokens */
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  /* Brand Palette (Strictly Zero Decorative Green) */
+  --sky-blue: #36afcb;
+  --primary: #36afcb;
+  --primary-hover: #2ba0bc;
+  --primary-active: #218ba4;
+  --primary-subtle: rgba(54, 175, 203, 0.12);
+
+  --clear-blue: #147f9e;
+  --primary-interactive: #147f9e;
+  --clear-blue-hover: #106c87;
+
+  --terracotta: #c96842;
+  --secondary: #c96842;
+  --secondary-hover: #b85a35;
+  --secondary-subtle: rgba(201, 104, 66, 0.14);
+
+  --market-amber: #d29a32;
+  --tertiary: #d29a32;
+  --tertiary-hover: #be8928;
+  --tertiary-subtle: rgba(210, 154, 50, 0.14);
+
+  --slate-dark: #193640;
+  --neutral: #193640;
+  --neutral-dark: #0f232b;
+  --neutral-light: #254f5d;
+
+  --slate: #607780;
+  --mist-text: #8fa1a7;
+  --line: #d7e7eb;
+
+  /* Flat Surface Fills (0dp Elevation — No Drop Shadows) */
+  --canvas: #f4fafc;
+  --surface: #ffffff;
+  --blue-mist: #e2f3f8;
+  --blue-soft: #c7e8f0;
+  --sand: #fff3df;
+
+  /* Critical Error / Danger (Reserved for System Errors, NEVER Price Drops) */
+  --danger: #c64f48;
+  --danger-light: #c64f48;
+  --danger-solid: #c64f48;
+  --danger-bg: rgba(198, 79, 72, 0.12);
+  --danger-border: rgba(198, 79, 72, 0.35);
+  --danger-text: #c64f48;
+
+  /* Warning & Caution States (Expressed through Market Amber & Sand) */
+  --warning: #d29a32;
+  --warning-light: #d29a32;
+  --warning-bg: #fff3df;
+  --warning-border: #d29a32;
+  --warning-text: #d29a32;
+
+  /* Informational Blue */
+  --info: #147f9e;
+  --info-bg: #e2f3f8;
+
+  /* Verified / Success States (Expressed through Clear Blue & Blue Mist, Strictly Zero Green) */
+  --verified: #147f9e;
+  --verified-bg: #e2f3f8;
+  --verified-border: #d7e7eb;
+  --success: #147f9e;
+  --success-light: #36afcb;
+  --success-bg: #e2f3f8;
+  --success-border: #d7e7eb;
+
+  /* Surface & Canvas Tokens */
+  --bg-app: #0c1a1f;
+  --bg-canvas: #0f2229;
+  --bg-surface: #152d36;
+  --bg-surface-elevated: #1a3843;
+  --bg-surface-overlay: rgba(21, 45, 54, 0.92);
+  --bg-card: #152d36;
+  --bg-card-hover: #1a3843;
+
+  /* Borders & Hairlines */
+  --border-subtle: rgba(54, 175, 203, 0.16);
+  --border-line: #d7e7eb;
+  --border-medium: rgba(54, 175, 203, 0.32);
+  --border-strong: #147f9e;
+  --border-light: rgba(255, 255, 255, 0.08);
+
+  /* Typography Colors */
+  --text-primary: #f2f7f9;
+  --text-secondary: #9cb5be;
+  --text-muted: #64818c;
+  --text-inverse: #0c1a1f;
+  --text-white: #ffffff;
+  --text-black: #000000;
+  --text-accent: #36afcb;
+  --text-terracotta: #c96842;
+  --text-gold: #d29a32;
+
+  /* Font Families */
+  --font-headline: 'Fraunces', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-label: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-data: 'IBM Plex Mono', 'Courier New', monospace;
+
+  /* Spacing Scale (4dp Atomic Grid Baseline) */
+  --space-2xs: 2px;
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-lg: 16px;
+  --space-xl: 24px;
+  --space-2xl: 32px;
+  --space-3xl: 40px;
+  --gutter: 12px;
+  --margin: 16px;
+
+  /* Geometry & Radii */
+  --radius-xs: 4px;
+  --radius-badge: 6px;
+  --radius-sm: 8px;
+  --radius-cta: 10px;
+  --radius-card: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-pill: 9999px;
+
+  /* Interactive Dimensions */
+  --touch-target-min: 48px;
+  --cta-height: 56px;
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 350ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Provenance Badges (Authoritative Rural Commerce Material Baseline) */
+  --badge-actual-bg: #e2f3f8;
+  --badge-actual-text: #147f9e;
+  --badge-actual-border: #d7e7eb;
+
+  --badge-forecast-bg: #fff3df;
+  --badge-forecast-text: #d29a32;
+  --badge-forecast-border: #d29a32;
+
+  --badge-estimate-bg: #fff3df;
+  --badge-estimate-text: #c96842;
+  --badge-estimate-border: rgba(201, 104, 66, 0.3);
+
+  --badge-recommendation-bg: #c7e8f0;
+  --badge-recommendation-text: #193640;
+  --badge-recommendation-border: #147f9e;
+
+  /* Additional Technical Variants */
+  --badge-grade-a-bg: #e2f3f8;
+  --badge-grade-a-text: #147f9e;
+  --badge-grade-a-border: #d7e7eb;
+
+  --badge-grade-b-bg: #fff3df;
+  --badge-grade-b-text: #d29a32;
+  --badge-grade-b-border: rgba(210, 154, 50, 0.3);
+
+  --badge-grade-c-bg: #fff3df;
+  --badge-grade-c-text: #c96842;
+  --badge-grade-c-border: rgba(201, 104, 66, 0.3);
+
+  --badge-source-net-bg: #e2f3f8;
+  --badge-source-net-text: #147f9e;
+  --badge-source-net-border: #d7e7eb;
+
+  --badge-source-int-bg: #fff3df;
+  --badge-source-int-text: #c96842;
+  --badge-source-int-border: rgba(201, 104, 66, 0.3);
+
+  --badge-fallback-rule-bg: #fff3df;
+  --badge-fallback-rule-text: #d29a32;
+  --badge-fallback-rule-border: rgba(210, 154, 50, 0.4);
+
+  --badge-fallback-onnx-bg: #e2f3f8;
+  --badge-fallback-onnx-text: #147f9e;
+  --badge-fallback-onnx-border: #d7e7eb;
+
+  --badge-sync-synced-bg: #e2f3f8;
+  --badge-sync-synced-text: #147f9e;
+  --badge-sync-synced-border: #d7e7eb;
+
+  --badge-sync-outbox-bg: #fff3df;
+  --badge-sync-outbox-text: #d29a32;
+  --badge-sync-outbox-border: rgba(210, 154, 50, 0.4);
+
+  --badge-sync-conflict-bg: rgba(198, 79, 72, 0.14);
+  --badge-sync-conflict-text: #c64f48;
+  --badge-sync-conflict-border: rgba(198, 79, 72, 0.4);
+
+  --badge-sync-offline-bg: #e2f3f8;
+  --badge-sync-offline-text: #607780;
+  --badge-sync-offline-border: #d7e7eb;
+}
+
+/* Light Theme Overrides (Material 3 Baseline) */
+[data-theme="light"] {
+  --bg-app: #f4fafc;
+  --bg-canvas: #f4fafc;
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #ffffff;
+  --bg-surface-overlay: rgba(255, 255, 255, 0.95);
+  --bg-card: #ffffff;
+  --bg-card-hover: #f4fafc;
+
+  --border-subtle: #d7e7eb;
+  --border-line: #d7e7eb;
+  --border-medium: rgba(20, 127, 158, 0.25);
+  --border-strong: #147f9e;
+  --border-light: #e2f3f8;
+
+  --text-primary: #193640;
+  --text-secondary: #607780;
+  --text-muted: #8fa1a7;
+  --text-inverse: #f4fafc;
+}
+
+/* Typography Token Utility Classes */
+.headline-lg {
+  font-family: var(--font-headline);
+  font-size: 28px;
+  font-weight: var(--fw-semibold);
+  line-height: 36px;
+  letter-spacing: -0.3px;
+}
+
+.headline-lg-mobile {
+  font-family: var(--font-headline);
+  font-size: 24px;
+  font-weight: var(--fw-semibold);
+  line-height: 32px;
+}
+
+.headline-md {
+  font-family: var(--font-headline);
+  font-size: 20px;
+  font-weight: var(--fw-semibold);
+  line-height: 28px;
+}
+
+.headline-sm {
+  font-family: var(--font-headline);
+  font-size: 18px;
+  font-weight: var(--fw-medium);
+  line-height: 24px;
+}
+
+.display-data {
+  font-family: var(--font-data);
+  font-size: 32px;
+  font-weight: var(--fw-semibold);
+  line-height: 40px;
+  letter-spacing: -0.5px;
+  font-feature-settings: "tnum";
+  font-variant-numeric: tabular-nums;
+}
+
+.data-lg {
+  font-family: var(--font-data);
+  font-size: 22px;
+  font-weight: var(--fw-semibold);
+  line-height: 28px;
+  font-feature-settings: "tnum";
+  font-variant-numeric: tabular-nums;
+}
+
+.data-md {
+  font-family: var(--font-data);
+  font-size: 16px;
+  font-weight: var(--fw-medium);
+  line-height: 24px;
+  font-feature-settings: "tnum";
+  font-variant-numeric: tabular-nums;
+}
+
+.data-sm {
+  font-family: var(--font-data);
+  font-size: 14px;
+  font-weight: var(--fw-medium);
+  line-height: 20px;
+  font-feature-settings: "tnum";
+  font-variant-numeric: tabular-nums;
+}
+
+.data-xs {
+  font-family: var(--font-data);
+  font-size: 12px;
+  font-weight: var(--fw-medium);
+  line-height: 16px;
+  font-feature-settings: "tnum";
+  font-variant-numeric: tabular-nums;
+}
+
+.body-lg {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: var(--fw-regular);
+  line-height: 24px;
+}
+
+.body-md {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: var(--fw-regular);
+  line-height: 20px;
+}
+
+.label-lg {
+  font-family: var(--font-label);
+  font-size: 16px;
+  font-weight: var(--fw-semibold);
+  line-height: 24px;
+}
+
+.label-md {
+  font-family: var(--font-label);
+  font-size: 14px;
+  font-weight: var(--fw-medium);
+  line-height: 20px;
+}
+
+.caption {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: var(--fw-regular);
+  line-height: 16px;
+}

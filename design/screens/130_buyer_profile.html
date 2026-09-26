@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "sand": "#FFF3DF", "tertiary-fixed-dim": "#f9bc51", "surface-container": "#d6f2ff", "surface": "#FFFFFF", "background": "#f2fbff", "surface-bright": "#f2fbff", "blue-soft": "#C7E8F0", "on-error-container": "#93000a", "on-tertiary-fixed-variant": "#604100", "on-primary": "#ffffff", "on-primary-fixed": "#001f26", "primary-fixed-dim": "#65d5f2", "on-secondary-fixed-variant": "#7c2e0c", "on-tertiary": "#ffffff", "line": "#D7E7EB", "primary": "#00687b", "inverse-surface": "#17343e", "outline-variant": "#bdc8cd", "blue-mist": "#E2F3F8", "surface-tint": "#00687b", "secondary-container": "#fd9168", "surface-container-low": "#e4f7ff", "primary-fixed": "#aeecff", "on-background": "#001f28", "tertiary-container": "#cf972f", "slate": "#607780", "on-tertiary-container": "#4c3300", "danger": "#C64F48", "on-secondary-container": "#742907", "on-primary-fixed-variant": "#004e5d", "on-secondary": "#ffffff", "on-surface": "#001f28", "surface-container-lowest": "#ffffff", "surface-container-high": "#cfedfa", "canvas": "#F4FAFC", "on-error": "#ffffff", "inverse-primary": "#65d5f2", "surface-dim": "#c1dfec", "tertiary": "#7e5700", "mist-text": "#8FA1A7", "error": "#ba1a1a", "on-tertiary-fixed": "#281900", "clay-orange": "#A95135", "clear-blue": "#147F9E", "secondary-fixed": "#ffdbcf", "surface-variant": "#c9e7f4", "secondary-fixed-dim": "#ffb59a", "tertiary-fixed": "#ffdeac", "inverse-on-surface": "#ddf5ff", "error-container": "#ffdad6", "outline": "#6d797d", "surface-container-highest": "#c9e7f4", "on-surface-variant": "#3d494c", "on-secondary-fixed": "#380d00", "on-primary-container": "#003e4a", "primary-container": "#36afcb", "secondary": "#9a4522" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "margin": "16px", "gutter": "12px", "space-xl": "24px", "space-md": "12px", "space-xs": "4px", "space-sm": "8px", "space-lg": "16px" }, fontFamily: { "data-xs": ["IBM Plex Mono"], "headline-sm": ["Fraunces"], "body-md": ["Inter"], "headline-md": ["Fraunces"], "data-sm": ["IBM Plex Mono"], "data-md": ["IBM Plex Mono"], "display-data": ["IBM Plex Mono"], "label-md": ["Inter"], "body-lg": ["Inter"], "headline-lg-mobile": ["Fraunces"], "data-lg": ["IBM Plex Mono"], "headline-lg": ["Fraunces"], "caption": ["Inter"], "label-lg": ["Inter"] }, fontSize: { "data-xs": ["12px", { "lineHeight": "16px", "fontWeight": "500" }], "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "500" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }], "data-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }], "data-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }], "display-data": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.5px", "fontWeight": "500" }], "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }], "data-lg": ["22px", { "lineHeight": "28px", "fontWeight": "500" }], "headline-lg": ["28px", { "lineHeight": "36px", "fontWeight": "600" }], "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "label-lg": ["16px", { "lineHeight": "24px", "fontWeight": "600" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-canvas text-on-surface font-body-md text-body-md flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe"><div class="h-16 px-margin flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0 flex-1"><button aria-label="Go Back" class="w-11 h-11 flex items-center justify-center rounded-lg text-on-surface hover:bg-surface-container-low transition-colors" onclick="history.back()" type="button"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><div class="flex flex-col min-w-0 flex-1"><h1 class="font-headline-sm text-headline-sm text-on-surface truncate leading-tight">Buyer Profile</h1><span class="font-caption text-caption text-slate truncate">खरेदीदार कृषी खरेदी • Procurement Flow</span></div></div><div class="flex items-center gap-space-xs shrink-0"><button aria-label="More Options" class="w-11 h-11 flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" type="button"><span class="material-symbols-outlined text-[24px]">more_vert</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-16 bg-canvas min-h-screen"><div class="flex flex-col w-full px-margin pb-safe space-y-space-lg">
+<!-- Prototype / Anti-Fabrication Notice -->
+<div class="bg-sand rounded-xl p-space-md shadow-sm">
+<div class="flex items-start gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-tertiary-container/30 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-tertiary-container text-[20px]" style="font-variation-settings: 'FILL' 1;">info</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-label-md text-label-md text-on-tertiary-container font-semibold">प्रात्यक्षिक नमुना • Prototype Demo</span>
+<span class="font-data-xs text-data-xs bg-tertiary-fixed text-on-tertiary-fixed px-2 py-0.5 rounded-full uppercase">Notice</span>
+</div>
+<p class="font-caption text-caption text-on-surface-variant mt-1 leading-relaxed">
+          Buyer profile information shown for prototype demonstration. MittiMandi strictly adheres to zero-fabrication: unverified GSTIN, PAN, bank account credentials, or synthetic trust ratings are never displayed.
+        </p>
+</div>
+</div>
+</div>
+<!-- Buyer Identification & Verified Licensee Block -->
+<div class="bg-surface rounded-xl p-space-md shadow-sm space-y-space-md">
+<div class="flex items-center gap-space-md">
+<div class="relative shrink-0">
+<img class="w-16 h-16 rounded-xl object-cover bg-surface-container" data-alt="Close-up professional portrait of a seasoned Indian rural agricultural trader wearing a crisp light cream kurta standing near burlap sacks in a structured mandi market depot under warm natural daylight, soft earthen tones, authentic and high trust visual style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfl3wmO6j2Yi8bg8NzdTwi9EA32-CD2T28dtIyPF0wbkMNlgJsN4etzF2gJmJLwOkNtH67DEDdXjGNHcIZehkrhPaFjja1MB7mYi21Tg0O_P8kPXPQTYLp8fJeljbTiZne5tQLPevLjNJAMA5Qqzybf1-As7HCZ9o58DyPXTqzx_Qep8rxGilqT5aBDeZeijf5P709cujs1Ptvt0Bwynz6RMWdd48rMUq-sGcyRAb8jVptxqWEgfPM"/>
+<div class="absolute -bottom-1 -right-1 bg-clear-blue text-surface rounded-full p-0.5 flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-caption text-caption bg-blue-mist text-clear-blue px-2 py-0.5 rounded font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">apartment</span>
+            APMC Reg. #MH-LAS-2024
+          </span>
+<span class="font-caption text-caption bg-surface-container-high text-on-surface-variant px-2 py-0.5 rounded">
+            संस्थात्मक
+          </span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface truncate mt-1">सह्याद्री ॲग्रो ट्रेडर्स</h2>
+<span class="font-body-md text-body-md text-slate truncate">Sahyadri Agro Traders</span>
+</div>
+</div>
+<div class="bg-canvas rounded-lg p-space-sm flex items-center justify-between">
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="material-symbols-outlined text-clear-blue text-[20px] shrink-0">pin_drop</span>
+<span class="font-body-md text-body-md text-on-surface truncate">लासलगाव कृषी उत्पन्न बाजार समिती केंद्र</span>
+</div>
+<span class="font-data-xs text-data-xs text-slate shrink-0 ml-2">Nashik Cluster</span>
+</div>
+</div>
+<!-- Active Primary Demand Highlight -->
+<div class="bg-blue-mist rounded-xl p-space-md shadow-sm space-y-space-sm relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-clear-blue"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-clear-blue font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">campaign</span>
+        सध्याची खरेदी मागणी • Active Spot Demand
+      </span>
+<span class="font-data-xs text-data-xs bg-surface text-clear-blue px-2 py-0.5 rounded shadow-sm">
+        LIVE LOT #772
+      </span>
+</div>
+<div class="flex items-center justify-between pt-1">
+<div>
+<p class="font-headline-sm text-headline-sm text-on-surface">Nashik Red Onion</p>
+<p class="font-caption text-caption text-slate">नाशिक लाल कांदा (मध्यम आकार • 45mm+)</p>
+</div>
+<div class="text-right">
+<span class="font-data-lg text-data-lg text-clear-blue font-semibold">4,000 kg</span>
+<p class="font-caption text-caption text-slate">40 क्विंटल (Quintals)</p>
+</div>
+</div>
+<div class="pt-2">
+<div class="w-full bg-surface rounded-full h-2 overflow-hidden flex">
+<div class="bg-clear-blue h-full rounded-full" style="width: 65%;"></div>
+</div>
+<div class="flex justify-between items-center text-slate font-caption text-caption mt-1">
+<span>प्राप्त ऑफर: 2,600 kg</span>
+<span class="font-data-xs text-data-xs">अजून हवे: 1,400 kg</span>
+</div>
+</div>
+</div>
+<!-- Operational Parameters (Facts & Mechanics) -->
+<div class="bg-surface rounded-xl p-space-md shadow-sm space-y-space-md">
+<div class="flex items-center justify-between pb-1">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">व्यापार मापदंड • Trade Parameters</h3>
+<span class="font-data-xs text-data-xs text-slate">Strict Specs</span>
+</div>
+<div class="grid grid-cols-1 gap-space-sm">
+<!-- Item 1 -->
+<div class="bg-canvas rounded-lg p-space-sm flex items-center justify-between">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-10 h-10 rounded-lg bg-blue-soft/50 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-clear-blue text-[22px]">weight</span>
+</div>
+<div class="min-w-0">
+<p class="font-caption text-caption text-slate truncate">खरेदी क्षमता • Weekly Throughput</p>
+<p class="font-label-md text-label-md text-on-surface font-medium">Procurement Capacity</p>
+</div>
+</div>
+<span class="font-data-md text-data-md text-on-surface font-semibold shrink-0">25 MT / week</span>
+</div>
+<!-- Item 2 -->
+<div class="bg-canvas rounded-lg p-space-sm flex items-center justify-between">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-10 h-10 rounded-lg bg-sand flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-tertiary text-[22px]">account_balance</span>
+</div>
+<div class="min-w-0">
+<p class="font-caption text-caption text-slate truncate">देयक पद्धत • Settlement</p>
+<p class="font-label-md text-label-md text-on-surface font-medium">Direct APMC Bank Escrow</p>
+</div>
+</div>
+<span class="font-data-xs text-data-xs bg-surface text-tertiary px-2 py-1 rounded font-medium shrink-0">T+1 Mandi Wire</span>
+</div>
+<!-- Item 3 -->
+<div class="bg-canvas rounded-lg p-space-sm flex items-center justify-between">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-10 h-10 rounded-lg bg-blue-soft/50 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-clear-blue text-[22px]">domain_verification</span>
+</div>
+<div class="min-w-0">
+<p class="font-caption text-caption text-slate truncate">तपासणी जागा • Quality Terminal</p>
+<p class="font-label-md text-label-md text-on-surface font-medium">Inspection Bay</p>
+</div>
+</div>
+<span class="font-data-sm text-data-sm text-on-surface font-semibold shrink-0">Shed 4, Lasalgaon</span>
+</div>
+</div>
+</div>
+<!-- Primary Crops Handled Grid -->
+<div class="bg-surface rounded-xl p-space-md shadow-sm space-y-space-sm">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">नियमित खरेदी पिके • Procurement Portfolio</h3>
+<span class="font-caption text-caption text-slate">3 Commodities</span>
+</div>
+<div class="grid grid-cols-3 gap-space-xs pt-1">
+<!-- Crop 1 -->
+<div class="bg-canvas rounded-lg p-space-xs flex flex-col items-center text-center space-y-1">
+<img class="w-12 h-12 rounded-full object-cover bg-surface-container" data-alt="Single high-grade red onion with intact dry skin placed on an earthen wooden grain table, warm rustic studio light, clean and realistic agricultural photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDc8WhalcFPRl6XckvG0h-DNEQcKk0Y7kjfNmlG8MztfQGw1aCEwWmK3eSWSBzLXE2voKzndraCj-MF0bJ9kfjdrQYX7_juBLm5W-PPzecK9VijEvST8MVI-BRchyde_Ll1BjKeRIF7VKpZhXCWa26gJSdKAgDS7mrvhJ8pPvPFJ9ftNDh9KhFzsBDFUqq9HiDwTkYhzldphJBQUWYdrFYf768gGup9289NiC0yHzKnXmxNVm3UJifr"/>
+<span class="font-label-md text-label-md text-on-surface font-medium line-clamp-1">कांदा (Red Onion)</span>
+<span class="font-data-xs text-data-xs text-slate">Grade A &amp; B</span>
+</div>
+<!-- Crop 2 -->
+<div class="bg-canvas rounded-lg p-space-xs flex flex-col items-center text-center space-y-1">
+<img class="w-12 h-12 rounded-full object-cover bg-surface-container" data-alt="Fresh ripe firm field tomatoes harvested into a clean traditional cane basket under bright early morning daylight, soft blue sky background, honest farm visual." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEdZdSKgAKr8Zbz4cgJksr-Fyks3y5PjNy0TMbZSeaF0em8h2XDUIp8dPhXC0Ed4XGLvrHefgfueEh8ar9T0ZxA0qFPyyizOnTgjVYXknMakq5SjPnUDSvEdjpj0HMSlXqhfQ8RaoKL0KLk1ECWk6ayzZBxbym3V1dy91AaLRY_rR0WeHgOuNh98BAlqXstjsvlsV0s0axr1TjCeyfzusT-6DqZvCA7PsjXAjhh0wYwDsR6_6GyONl"/>
+<span class="font-label-md text-label-md text-on-surface font-medium line-clamp-1">टोमॅटो (Tomato)</span>
+<span class="font-data-xs text-data-xs text-slate">Table &amp; Semi</span>
+</div>
+<!-- Crop 3 -->
+<div class="bg-canvas rounded-lg p-space-xs flex flex-col items-center text-center space-y-1">
+<img class="w-12 h-12 rounded-full object-cover bg-surface-container" data-alt="Freshly harvested clean dry potatoes arranged on natural jute fabric in a wholesale agricultural godown, neutral warm ambient lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2AcNGKsTBjbpzP54TFPMUVMG0WBcthqaaeEREmtf8LCfUiDW_H6yZDE8D0A7XiwJOrEPUj6lQdUcyMurCbLi-nEcxvIJ2eA7prD6n7bD4olxAiGgqJaBChw_XMHpkIDBJbZ04dYmj6kg66Q7wFsLLeP_y16sObZHZ-Fnro7vJi1Cz9CsCHoZYvb6jdxS-TLVxo45JZr2ZdoQBcLoBlEQ3e1cVON6mJTxfxbsfyZlE5xzATNW6RtFV"/>
+<span class="font-label-md text-label-md text-on-surface font-medium line-clamp-1">बटाटा (Potato)</span>
+<span class="font-data-xs text-data-xs text-slate">Chip &amp; Regular</span>
+</div>
+</div>
+</div>
+<!-- Interactive Action Module -->
+<div class="space-y-space-sm pt-space-xs">
+<!-- Primary CTA (Incoming Offers) -->
+<button class="w-full h-14 bg-clay-orange text-on-secondary rounded-xl font-label-lg text-label-lg font-bold flex items-center justify-center gap-space-sm shadow-sm active:scale-[0.99] transition-transform" onclick="this.classList.add('opacity-90')" type="button">
+<span>View Incoming Offers (आलेल्या ऑफर पाहा)</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+<!-- Secondary CTA (Back to Linkage) -->
+<button class="w-full h-14 bg-transparent text-clear-blue font-label-lg text-label-lg font-medium flex items-center justify-center gap-space-xs active:bg-blue-mist/50 rounded-xl transition-colors" onclick="history.back()" type="button">
+<span class="material-symbols-outlined text-[20px]">west</span>
+<span>Back to Buyer Linkage (मागे जा)</span>
+</button>
+</div>
+</div></main></body></html>

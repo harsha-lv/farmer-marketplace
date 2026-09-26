@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "sand": "#FFF3DF", "tertiary-fixed-dim": "#f9bc51", "surface-container": "#d6f2ff", "surface": "#FFFFFF", "background": "#f2fbff", "surface-bright": "#f2fbff", "blue-soft": "#C7E8F0", "on-error-container": "#93000a", "on-tertiary-fixed-variant": "#604100", "on-primary": "#ffffff", "on-primary-fixed": "#001f26", "primary-fixed-dim": "#65d5f2", "on-secondary-fixed-variant": "#7c2e0c", "on-tertiary": "#ffffff", "line": "#D7E7EB", "primary": "#00687b", "inverse-surface": "#17343e", "outline-variant": "#bdc8cd", "blue-mist": "#E2F3F8", "surface-tint": "#00687b", "secondary-container": "#fd9168", "surface-container-low": "#e4f7ff", "primary-fixed": "#aeecff", "on-background": "#001f28", "tertiary-container": "#cf972f", "slate": "#607780", "on-tertiary-container": "#4c3300", "danger": "#C64F48", "on-secondary-container": "#742907", "on-primary-fixed-variant": "#004e5d", "on-secondary": "#ffffff", "on-surface": "#001f28", "surface-container-lowest": "#ffffff", "surface-container-high": "#cfedfa", "canvas": "#F4FAFC", "on-error": "#ffffff", "inverse-primary": "#65d5f2", "surface-dim": "#c1dfec", "tertiary": "#7e5700", "mist-text": "#8FA1A7", "error": "#ba1a1a", "on-tertiary-fixed": "#281900", "clay-orange": "#A95135", "clear-blue": "#147F9E", "secondary-fixed": "#ffdbcf", "surface-variant": "#c9e7f4", "secondary-fixed-dim": "#ffb59a", "tertiary-fixed": "#ffdeac", "inverse-on-surface": "#ddf5ff", "error-container": "#ffdad6", "outline": "#6d797d", "surface-container-highest": "#c9e7f4", "on-surface-variant": "#3d494c", "on-secondary-fixed": "#380d00", "on-primary-container": "#003e4a", "primary-container": "#36afcb", "secondary": "#9a4522" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "margin": "16px", "gutter": "12px", "space-xl": "24px", "space-md": "12px", "space-xs": "4px", "space-sm": "8px", "space-lg": "16px" }, fontFamily: { "data-xs": ["IBM Plex Mono"], "headline-sm": ["Fraunces"], "body-md": ["Inter"], "headline-md": ["Fraunces"], "data-sm": ["IBM Plex Mono"], "data-md": ["IBM Plex Mono"], "display-data": ["IBM Plex Mono"], "label-md": ["Inter"], "body-lg": ["Inter"], "headline-lg-mobile": ["Fraunces"], "data-lg": ["IBM Plex Mono"], "headline-lg": ["Fraunces"], "caption": ["Inter"], "label-lg": ["Inter"] }, fontSize: { "data-xs": ["12px", { "lineHeight": "16px", "fontWeight": "500" }], "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "500" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }], "data-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }], "data-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }], "display-data": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.5px", "fontWeight": "500" }], "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }], "data-lg": ["22px", { "lineHeight": "28px", "fontWeight": "500" }], "headline-lg": ["28px", { "lineHeight": "36px", "fontWeight": "600" }], "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "label-lg": ["16px", { "lineHeight": "24px", "fontWeight": "600" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-canvas text-on-surface font-body-md text-body-md flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe"><div class="h-16 px-margin flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0 flex-1"><button aria-label="Go Back" class="w-11 h-11 flex items-center justify-center rounded-lg text-on-surface hover:bg-surface-container-low transition-colors" onclick="history.back()" type="button"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><div class="flex flex-col min-w-0 flex-1"><h1 class="font-headline-sm text-headline-sm text-on-surface truncate leading-tight">Accept Offer</h1><span class="font-caption text-caption text-slate truncate">खरेदीदार कृषी खरेदी • Procurement Flow</span></div></div><div class="flex items-center gap-space-xs shrink-0"><button aria-label="More Options" class="w-11 h-11 flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" type="button"><span class="material-symbols-outlined text-[24px]">more_vert</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-16 bg-canvas min-h-screen"><div class="flex flex-col w-full pb-safe">
+<!-- Status Stepper Bar -->
+<div class="px-margin pt-space-md pb-space-sm bg-surface">
+<div class="flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-primary text-on-primary font-data-xs text-data-xs">1</span>
+<span class="font-caption text-caption text-primary font-medium">पुनरावलोकन (Review)</span>
+</div>
+<div class="h-0.5 flex-1 bg-primary/30 rounded-full mx-space-xs"></div>
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-clay-orange text-on-primary font-data-xs text-data-xs">2</span>
+<span class="font-caption text-caption text-clay-orange font-medium">स्वीकृती (Accept)</span>
+</div>
+<div class="h-0.5 flex-1 bg-surface-container-high rounded-full mx-space-xs"></div>
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-surface-container text-slate font-data-xs text-data-xs">3</span>
+<span class="font-caption text-caption text-slate">करार (Contract)</span>
+</div>
+</div>
+</div>
+<div class="px-margin py-space-md flex flex-col gap-space-lg">
+<!-- Notice Banner / Provenance Tag -->
+<div class="p-space-md bg-blue-mist rounded-xl flex items-start gap-space-sm shadow-sm">
+<span class="material-symbols-outlined text-clear-blue shrink-0 text-[22px] mt-0.5">verified_user</span>
+<div class="flex flex-col min-w-0 flex-1">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-label-md text-label-md text-primary font-semibold">निश्चित व्यावसायिक ऑफर (Binding Term Sheet)</span>
+<span class="bg-surface px-space-xs py-0.5 rounded text-primary font-data-xs text-data-xs uppercase tracking-wider">ACTUAL VERIFIED</span>
+</div>
+<p class="font-caption text-caption text-slate mt-0.5 leading-snug">
+          स्वीकृतीनंतर थेट कायदेशीर खरेदी-विक्री कराराची निर्मिती सुरू होईल. (Immediate lock upon buyer affirmation).
+        </p>
+</div>
+</div>
+<!-- Commercial Acceptance Summary Card -->
+<div class="bg-surface rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md relative overflow-hidden">
+<!-- Decorative crop header row -->
+<div class="flex items-start justify-between gap-space-sm pb-space-sm bg-surface-bright p-space-md rounded-lg">
+<div class="flex gap-space-md min-w-0">
+<img class="w-16 h-16 rounded-lg object-cover shrink-0 bg-surface-container" data-alt="Close up fresh agricultural produce high grade Nashik red onions with authentic crisp papery reddish purple skins piled naturally at agricultural market depot in Maharashtra, soft natural daylight, cinematic clarity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpCNHzPlW4Oy0hTf5Lyo3sos-Sq16yw2PcckA8peDdlrbrBURbTVc9tAPa9qJKmZw1OKCbQxgVRSD8bvjVwSD6LZWmz61lajtmDtym0OVxHh7uYwCIILGMP-wjw2xLVCJJ3ZqIW5nxsq-nUTKXDbCgBQEdT5q0K98lOP4S4WZdi8KvFSWyuhkQ-i6ttmwBId_3-wHIOrGyQ3xNToC6luQzgGo4igmBtgeAe3e-v-V1FoDkBxSepemr"/>
+<div class="flex flex-col min-w-0 justify-center">
+<span class="font-headline-sm text-headline-sm text-on-surface truncate">नाशिक लाल कांदा</span>
+<span class="font-body-md text-body-md text-slate">Nashik Red Onion • Grade A Export</span>
+<div class="flex items-center gap-space-xs mt-1">
+<span class="inline-flex items-center gap-1 font-data-xs text-data-xs text-slate bg-surface px-2 py-0.5 rounded">
+<span class="material-symbols-outlined text-[14px]">inventory_2</span>
+                LOT: MM-FPO-LOT-DEMO-000001
+              </span>
+</div>
+</div>
+</div>
+</div>
+<!-- Seller Identity Block -->
+<div class="p-space-md bg-surface-container-low rounded-lg flex flex-col gap-1">
+<span class="font-caption text-caption text-slate uppercase tracking-wider">विक्रेता तपशील (Seller Entity)</span>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">domain</span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Nashik Farmer Producer Org.</span>
+</div>
+<span class="bg-blue-soft text-primary font-data-xs text-data-xs px-2 py-0.5 rounded-full font-medium flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[13px]">check_circle</span> FPO Validated
+          </span>
+</div>
+<span class="font-caption text-caption text-slate">नोंदणीकृत नाशिक शेतकरी गट • Lasalgaon Hub</span>
+</div>
+<!-- Financial Calculation Grid -->
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<div class="flex items-center justify-between py-space-xs">
+<span class="font-body-md text-body-md text-slate">स्वीकृत परिमाण (Quantity)</span>
+<span class="font-data-md text-data-md text-on-surface font-semibold">4,000 kg <span class="font-body-md text-body-md text-slate font-normal">(४० क्विंटल)</span></span>
+</div>
+<div class="flex items-center justify-between py-space-xs">
+<span class="font-body-md text-body-md text-slate">अंतिम मान्य दर (Agreed Rate)</span>
+<span class="font-data-md text-data-md text-primary font-semibold">₹29.20 / kg</span>
+</div>
+<div class="flex items-center justify-between py-space-xs">
+<span class="font-body-md text-body-md text-slate">ऑफर संदर्भ आयडी (Offer Ref ID)</span>
+<span class="font-data-xs text-data-xs text-slate tracking-tight">MM-FPO-OFR-DEMO-000001</span>
+</div>
+<!-- Gross Consideration Highlight Box -->
+<div class="mt-space-xs p-space-md bg-sand rounded-xl flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-caption text-caption text-on-tertiary-container font-semibold uppercase tracking-wider">एकूण मूल्य (Gross Consideration)</span>
+<span class="font-caption text-caption text-slate">Gross − Deductions = Net Realization</span>
+</div>
+<div class="text-right">
+<span class="font-display-data text-display-data text-on-surface font-bold text-clay-orange">₹1,16,800</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Mandi Inspection & Delivery Protocol notice -->
+<div class="bg-surface rounded-xl p-space-lg shadow-sm flex flex-col gap-space-sm relative">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-clay-orange text-[22px]">local_shipping</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">डिलिव्हरी व तपासणी नियम (FPO Protocol)</h2>
+</div>
+<div class="space-y-space-sm mt-1">
+<!-- Bay Location -->
+<div class="flex items-start gap-space-sm p-space-sm bg-surface-bright rounded-lg">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">warehouse</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-medium">Ex-warehouse FPO Bay</span>
+<span class="font-body-md text-body-md text-slate">Lasalgaon APMC Shed No. 4, Warehouse Ramp 2B, Nashik</span>
+</div>
+</div>
+<!-- Weighbridge mandatory rule -->
+<div class="flex items-start gap-space-sm p-space-sm bg-surface-bright rounded-lg">
+<span class="material-symbols-outlined text-clay-orange text-[20px] mt-0.5">scale</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-medium">इलेक्ट्रॉनिक वजन काटा पडताळणी बंधनकारक</span>
+<span class="font-caption text-caption text-slate">
+              Electronic weighbridge slip verification is mandatory prior to truck loading &amp; warehouse clearance.
+            </span>
+</div>
+</div>
+<!-- Transit Insurance & Grade Tolerance -->
+<div class="flex items-start gap-space-sm p-space-sm bg-surface-bright rounded-lg">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">fact_check</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-medium">गुणवत्ता व वजन मर्यादा (Assay Tolerance)</span>
+<span class="font-caption text-caption text-slate">
+              Standard 1.5% moisture variance allowance as per APMC Mandi standard norms.
+            </span>
+</div>
+</div>
+</div>
+</div>
+<!-- Explicit User Confirmation Checkbox Interactive Card -->
+<div class="bg-surface rounded-xl p-space-md shadow-sm">
+<label class="flex items-start gap-space-md cursor-pointer select-none">
+<div class="relative flex items-center justify-center shrink-0 mt-0.5">
+<input class="sr-only peer" id="terms-checkbox" onchange="toggleAcceptanceState(this.checked)" type="checkbox"/>
+<div class="w-7 h-7 rounded bg-surface-container peer-checked:bg-clay-orange flex items-center justify-center transition-all duration-150 shadow-inner">
+<span class="material-symbols-outlined text-on-primary text-[20px] opacity-0 peer-checked:opacity-100 font-bold transition-opacity">check</span>
+</div>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface leading-snug">
+            मी पुष्टी करतो की मी प्रात्यक्षिक ऑफर अटी तपासल्या आहेत आणि कराराच्या तयारीसह पुढे जाण्यास सहमत आहे.
+          </span>
+<span class="font-caption text-caption text-slate mt-1 leading-normal">
+            I confirm that I have reviewed the prototype offer terms and intend to move forward with commercial agreement preparation.
+          </span>
+</div>
+</label>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<!-- Primary CTA: Confirm Acceptance -->
+<button class="w-full h-14 min-h-[56px] rounded-xl bg-clay-orange text-on-primary font-label-lg text-label-lg flex items-center justify-center gap-space-xs font-bold transition-all shadow-md active:scale-[0.99] opacity-40 cursor-not-allowed" disabled="" id="btn-confirm-accept" onclick="triggerAcceptance()" type="button">
+<span>स्वीकृती पुष्टी करा (Confirm Acceptance)</span>
+<span class="material-symbols-outlined text-[22px]">check_circle</span>
+</button>
+<!-- Secondary CTA: Back to Response Options -->
+<button class="w-full h-14 min-h-[56px] rounded-xl bg-surface text-clear-blue font-label-lg text-label-lg flex items-center justify-center gap-space-xs font-semibold shadow-sm active:bg-surface-container-low transition-colors" onclick="history.back()" type="button">
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+<span>पर्यायांकडे परत जा (Back to Response Options)</span>
+</button>
+</div>
+<!-- Microcopy note -->
+<div class="text-center pb-space-lg">
+<span class="font-caption text-caption text-mist-text flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[14px]">lock</span> MittiMandi Multi-Party Secured Escrow Framework
+      </span>
+</div>
+</div>
+<!-- Success Toast Modal Mock (Hidden initially) -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-margin bg-on-background/40 hidden" id="success-dialog">
+<div class="bg-surface w-full max-w-sm rounded-2xl p-space-lg shadow-2xl flex flex-col items-center text-center gap-space-md animate-bounce-short">
+<div class="w-16 h-16 rounded-full bg-sand flex items-center justify-center text-clay-orange shadow-inner">
+<span class="material-symbols-outlined text-[36px]">verified</span>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="font-headline-md text-headline-md text-on-surface">ऑफर यशस्वीरीत्या स्वीकृत!</h3>
+<p class="font-caption text-caption text-slate">
+          Offer MM-FPO-OFR-DEMO-000001 is now locked. Generating formal Tripartite Agreement for Nashik FPO.
+        </p>
+</div>
+<div class="p-space-sm bg-surface-bright rounded-lg w-full flex items-center justify-between">
+<span class="font-caption text-caption text-slate">एकूण रक्कम:</span>
+<span class="font-data-md text-data-md text-clay-orange font-bold">₹1,16,800</span>
+</div>
+<button class="w-full h-12 rounded-lg bg-clear-blue text-on-primary font-label-md text-label-md flex items-center justify-center" onclick="closeModal()" type="button">
+        कराराकडे जा (Proceed to Contract)
+      </button>
+</div>
+</div>
+</div>
+<script>
+  function toggleAcceptanceState(isChecked) {
+    const btn = document.getElementById('btn-confirm-accept');
+    if (!btn) return;
+    if (isChecked) {
+      btn.removeAttribute('disabled');
+      btn.classList.remove('opacity-40', 'cursor-not-allowed');
+      btn.classList.add('shadow-lg');
+    } else {
+      btn.setAttribute('disabled', 'true');
+      btn.classList.add('opacity-40', 'cursor-not-allowed');
+      btn.classList.remove('shadow-lg');
+    }
+  }
+
+  function triggerAcceptance() {
+    const modal = document.getElementById('success-dialog');
+    if (modal) {
+      modal.classList.remove('hidden');
+    }
+  }
+
+  function closeModal() {
+    const modal = document.getElementById('success-dialog');
+    if (modal) {
+      modal.classList.add('hidden');
+    }
+  }
+</script></main></body></html>

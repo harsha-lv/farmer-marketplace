@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100%;margin:0;padding:0;min-height:100%;background-color:#F4FAFC;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;display:inline-block;vertical-align:middle;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: 'class', theme: { extend: { 'colors': { 'inverse-on-surface': '#ddf5ff', 'error-container': '#ffdad6', 'inverse-surface': '#17343e', 'outline': '#6d797d', 'line': '#D7E7EB', 'secondary-fixed-dim': '#ffb59a', 'mist-text': '#8FA1A7', 'outline-variant': '#bdc8cd', 'on-error-container': '#93000a', 'surface-dim': '#c1dfec', 'on-primary': '#ffffff', 'sand': '#FFF3DF', 'surface-bright': '#f2fbff', 'clay-orange': '#A95135', 'on-secondary-fixed': '#380d00', 'slate': '#607780', 'on-error': '#ffffff', 'background': '#f2fbff', 'blue-mist': '#E2F3F8', 'surface-container-high': '#cfedfa', 'on-tertiary-fixed-variant': '#604100', 'on-primary-container': '#003e4a', 'primary-container': '#36afcb', 'on-secondary': '#ffffff', 'tertiary-fixed': '#ffdeac', 'surface-tint': '#00687b', 'canvas': '#F4FAFC', 'on-primary-fixed-variant': '#004e5d', 'on-background': '#001f28', 'inverse-primary': '#65d5f2', 'clear-blue': '#147F9E', 'surface-container': '#d6f2ff', 'on-primary-fixed': '#001f26', 'on-tertiary-container': '#4c3300', 'surface-container-low': '#e4f7ff', 'on-tertiary-fixed': '#281900', 'primary': '#00687b', 'tertiary-fixed-dim': '#f9bc51', 'blue-soft': '#C7E8F0', 'on-tertiary': '#ffffff', 'on-secondary-fixed-variant': '#7c2e0c', 'on-secondary-container': '#742907', 'secondary-container': '#fd9168', 'primary-fixed': '#aeecff', 'surface': '#FFFFFF', 'danger': '#C64F48', 'error': '#ba1a1a', 'on-surface': '#001f28', 'primary-fixed-dim': '#65d5f2', 'surface-container-lowest': '#ffffff', 'on-surface-variant': '#3d494c', 'secondary': '#9a4522', 'tertiary': '#7e5700', 'secondary-fixed': '#ffdbcf', 'tertiary-container': '#cf972f', 'surface-variant': '#c9e7f4', 'surface-container-highest': '#c9e7f4' }, 'borderRadius': { 'DEFAULT': '0.25rem', 'lg': '0.5rem', 'xl': '0.75rem', 'full': '9999px' }, 'spacing': { 'margin': '16px', 'space-xs': '4px', 'space-md': '12px', 'space-lg': '16px', 'space-xl': '24px', 'gutter': '12px', 'space-sm': '8px' }, 'fontFamily': { 'body-lg': ['Inter'], 'data-sm': ['IBM Plex Mono'], 'headline-md': ['Fraunces'], 'data-lg': ['IBM Plex Mono'], 'data-xs': ['IBM Plex Mono'], 'headline-sm': ['Fraunces'], 'caption': ['Inter'], 'display-data': ['IBM Plex Mono'], 'headline-lg': ['Fraunces'], 'label-lg': ['Inter'], 'data-md': ['IBM Plex Mono'], 'label-md': ['Inter'], 'headline-lg-mobile': ['Fraunces'], 'body-md': ['Inter'] }, 'fontSize': { 'body-lg': ['16px', { 'lineHeight': '24px', 'fontWeight': '400' }], 'data-sm': ['14px', { 'lineHeight': '20px', 'fontWeight': '500' }], 'headline-md': ['20px', { 'lineHeight': '28px', 'fontWeight': '600' }], 'data-lg': ['22px', { 'lineHeight': '28px', 'fontWeight': '500' }], 'data-xs': ['12px', { 'lineHeight': '16px', 'fontWeight': '500' }], 'headline-sm': ['18px', { 'lineHeight': '24px', 'fontWeight': '500' }], 'caption': ['12px', { 'lineHeight': '16px', 'fontWeight': '400' }], 'display-data': ['32px', { 'lineHeight': '40px', 'letterSpacing': '-0.5px', 'fontWeight': '500' }], 'headline-lg': ['28px', { 'lineHeight': '36px', 'fontWeight': '600' }], 'label-lg': ['16px', { 'lineHeight': '24px', 'fontWeight': '600' }], 'data-md': ['16px', { 'lineHeight': '24px', 'fontWeight': '500' }], 'label-md': ['14px', { 'lineHeight': '20px', 'fontWeight': '500' }], 'headline-lg-mobile': ['24px', { 'lineHeight': '32px', 'fontWeight': '600' }], 'body-md': ['14px', { 'lineHeight': '20px', 'fontWeight': '400' }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-canvas text-on-surface antialiased flex flex-col min-h-screen selection:bg-blue-soft selection:text-primary"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe"><div class="h-14 max-w-[600px] mx-auto px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm min-w-0"><button aria-label="Go back" class="w-12 h-12 -ml-space-sm flex items-center justify-center text-on-surface hover:text-primary active:scale-95 transition-all" onclick="window.history.back()"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><h1 class="font-headline-sm text-headline-sm text-on-surface truncate tracking-tight">Completion Confirmation</h1></div><div class="flex items-center gap-space-sm flex-shrink-0"><button aria-label="Receipt options" class="w-12 h-12 flex items-center justify-center text-slate hover:text-on-surface active:scale-95 transition-all"><span class="material-symbols-outlined text-[22px]">more_vert</span></button><div aria-label="User profile" class="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full max-w-[600px] mx-auto pt-14 pb-safe bg-canvas"><div class="flex flex-col w-full pb-8">
+<!-- Interactive Confetti & Atmosphere Scriptable Area -->
+<div class="px-margin pt-space-lg flex flex-col items-center text-center">
+<!-- Success Badge & Ripple Motif (Strict Sky/Clear Blue, No Green) -->
+<div class="relative flex items-center justify-center mb-space-md">
+<div class="w-20 h-20 rounded-full bg-blue-mist flex items-center justify-center text-clear-blue shadow-sm animate-pulse">
+<div class="w-14 h-14 rounded-full bg-primary flex items-center justify-center text-on-primary shadow-md">
+<span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1, 'wght' 600;">verified</span>
+</div>
+</div>
+<div class="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-sand flex items-center justify-center text-clay-orange shadow-sm">
+<span class="material-symbols-outlined text-[16px]">task_alt</span>
+</div>
+</div>
+<!-- Dual Script Headings -->
+<span class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-blue-mist text-clear-blue font-label-md text-label-md mb-space-sm">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+<span>नोंद प्रमाणीकरण • Record Verified</span>
+</span>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface tracking-tight text-balance">
+      Transaction Record Created
+    </h2>
+<p class="font-headline-sm text-headline-sm text-clear-blue mt-0.5 font-medium">
+      व्यवहार नोंद तयार
+    </p>
+<p class="font-body-md text-body-md text-slate mt-space-xs max-w-[340px]">
+      Prototype Commercial Lifecycle Completed
+    </p>
+</div>
+<!-- Key Confirmation Record Card -->
+<div class="px-margin mt-space-lg">
+<div class="bg-surface rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<!-- Status Badge Header -->
+<div class="flex items-center justify-between gap-space-sm pb-space-sm bg-surface-container-low p-space-md rounded-lg">
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="material-symbols-outlined text-clear-blue text-[20px]">assignment_turned_in</span>
+<span class="font-label-md text-label-md text-on-surface truncate">Demo Transaction Record</span>
+</div>
+<span class="shrink-0 px-space-sm py-0.5 rounded-full bg-blue-mist text-clear-blue font-data-xs text-data-xs font-semibold uppercase tracking-wider">
+          COMPLETED
+        </span>
+</div>
+<!-- Financial Highlight: Net Settlement -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg flex flex-col gap-space-xs">
+<div class="flex items-center justify-between text-slate">
+<span class="font-label-md text-label-md">Total Settlement Payout (अंतिम देयक)</span>
+<span class="font-data-xs text-data-xs bg-sand text-clay-orange px-space-xs py-0.5 rounded">
+            ≈ Estimate
+          </span>
+</div>
+<div class="flex items-baseline gap-space-sm">
+<span class="font-display-data text-display-data text-on-surface font-semibold">
+            ₹1,08,432
+          </span>
+<span class="font-data-sm text-data-sm text-slate">
+            (₹27.11 / kg)
+          </span>
+</div>
+<p class="font-caption text-caption text-slate">
+          Calculated for 4,000 kg Grade-A Sharbati Wheat batch (४,००० किलो गहू)
+        </p>
+</div>
+<!-- Visual Entity Connection Graphic -->
+<div class="flex items-center justify-between p-space-md bg-blue-mist/40 rounded-lg">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-10 h-10 rounded-full bg-blue-mist flex items-center justify-center text-clear-blue shrink-0">
+<span class="material-symbols-outlined text-[20px]">agriculture</span>
+</div>
+<div class="min-w-0">
+<p class="font-caption text-caption text-slate uppercase">Farmer (शेतकरी)</p>
+<p class="font-label-md text-label-md text-on-surface truncate font-semibold">Ramesh Patel</p>
+<p class="font-caption text-caption text-slate truncate">Nashik Hub</p>
+</div>
+</div>
+<div class="flex flex-col items-center px-space-xs shrink-0">
+<span class="material-symbols-outlined text-clear-blue text-[20px]">swap_horiz</span>
+<span class="font-data-xs text-data-xs text-clear-blue">Direct</span>
+</div>
+<div class="flex items-center gap-space-sm min-w-0 text-right">
+<div class="min-w-0">
+<p class="font-caption text-caption text-slate uppercase">Buyer (खरेदीदार)</p>
+<p class="font-label-md text-label-md text-on-surface truncate font-semibold">Sahyadri Agro</p>
+<p class="font-caption text-caption text-slate truncate">APMC Yard #4</p>
+</div>
+<div class="w-10 h-10 rounded-full bg-sand flex items-center justify-center text-clay-orange shrink-0">
+<span class="material-symbols-outlined text-[20px]">storefront</span>
+</div>
+</div>
+</div>
+<!-- Reference Ledger Identifiers -->
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<div class="flex items-center justify-between text-on-surface">
+<span class="font-body-md text-body-md text-slate flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px]">receipt_long</span>
+            Receipt Reference
+          </span>
+<div class="flex items-center gap-1.5">
+<span class="font-data-sm text-data-sm font-semibold select-all">MM-RCP-DEMO-000001</span>
+<button aria-label="Copy Receipt ID" class="w-7 h-7 rounded flex items-center justify-center text-slate hover:text-clear-blue active:scale-90 transition-transform" onclick="copyRef('MM-RCP-DEMO-000001', this)">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+</button>
+</div>
+</div>
+<div class="flex items-center justify-between text-on-surface">
+<span class="font-body-md text-body-md text-slate flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px]">tag</span>
+            Linked Order ID
+          </span>
+<div class="flex items-center gap-1.5">
+<span class="font-data-sm text-data-sm text-slate select-all">MM-ORD-DEMO-000001</span>
+<button aria-label="Copy Order ID" class="w-7 h-7 rounded flex items-center justify-center text-slate hover:text-clear-blue active:scale-90 transition-transform" onclick="copyRef('MM-ORD-DEMO-000001', this)">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+</button>
+</div>
+</div>
+<div class="flex items-center justify-between text-on-surface">
+<span class="font-body-md text-body-md text-slate flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px]">account_balance_wallet</span>
+            Settlement Reference
+          </span>
+<div class="flex items-center gap-1.5">
+<span class="font-data-sm text-data-sm text-slate select-all">MM-PAY-DEMO-000001</span>
+<button aria-label="Copy Settlement ID" class="w-7 h-7 rounded flex items-center justify-center text-slate hover:text-clear-blue active:scale-90 transition-transform" onclick="copyRef('MM-PAY-DEMO-000001', this)">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Real-world Image Context: Produce In Gate Entry -->
+<div class="px-margin mt-space-md">
+<div class="relative w-full h-32 rounded-xl overflow-hidden shadow-sm bg-surface">
+<img class="w-full h-full object-cover" data-alt="A clean agricultural warehouse mandi dock in India with neatly stacked burlap sacks of grain under natural daylight, displaying logistical clarity with cool sky blue ambient tones, soft earthen shadows, and precise inspection markings." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1ktaPJYgjKDxv5cBqRMItdpGd6mUTVlEFQdppvPfiaGWuRdUXtsjIfUHxIfK2DxoZQ2r8rbfayUal-ANeGr-mklI2RLGpVh5XszsbQcpj8IlnrMKyCOyToyt8CQ9b_e7GYGdxOPcFJvaA3HeB7Vk5k5ouiG1iN0AsHksmmsBF-VdFz7bx_wt_kgIfxYfFtVJPU4m5KRIlaMPEI6dgUZ1Jt5JFyQHE9Y635BIXAIUl7bTeBPUVPByJ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/80 via-on-surface/20 to-transparent flex items-end p-space-md">
+<div class="flex items-center justify-between w-full text-on-primary">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px]">domain</span>
+<span class="font-label-md text-label-md font-medium">Mandi Receiving Bay 02 • Nashik</span>
+</div>
+<span class="font-data-xs text-data-xs bg-surface/20 backdrop-blur-md px-space-sm py-0.5 rounded text-white">Logged 11:42 AM</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Prominent Anti-Speculative Truthfulness Box (No Green, Solid High Contrast) -->
+<div class="px-margin mt-space-lg">
+<div class="bg-sand rounded-xl p-space-md flex gap-space-md shadow-sm">
+<div class="shrink-0 text-clay-orange pt-0.5">
+<span class="material-symbols-outlined text-[24px]">gshield</span>
+</div>
+<div class="flex flex-col gap-1 min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md text-clay-orange font-semibold">Demo / Prototype Notice</span>
+<span class="font-data-xs text-data-xs bg-clay-orange text-on-primary px-space-xs py-0.2 rounded font-semibold uppercase">Simulation</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface">
+          This record does not confirm real money transfer, bank settlement or government payment. All figures and identifiers are simulation data for product evaluation.
+        </p>
+<p class="font-caption text-caption text-slate mt-1">
+          (प्रात्यक्षिक नमुना — ही नोंद प्रत्यक्ष बँक जमा, प्रत्यक्ष पैशांचे हस्तांतरण किंवा सरकारी पावती सिद्ध करत नाही.)
+        </p>
+</div>
+</div>
+</div>
+<!-- What's in this Record (Quick Navigation Breakdown) -->
+<div class="px-margin mt-space-xl">
+<div class="flex items-center justify-between mb-space-sm">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">
+        Included in Record (नोंदीतील तपशील)
+      </h3>
+<span class="font-data-xs text-data-xs text-clear-blue font-medium">4 Verified Items</span>
+</div>
+<div class="bg-surface rounded-xl p-space-sm shadow-sm flex flex-col gap-1">
+<!-- Item 1: Agreement -->
+<div class="flex items-center justify-between p-space-sm rounded-lg hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-9 h-9 rounded-lg bg-blue-mist text-clear-blue flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">handshake</span>
+</div>
+<div class="min-w-0">
+<p class="font-label-md text-label-md text-on-surface truncate">Locked Trade Agreement</p>
+<p class="font-caption text-caption text-slate truncate">Fixed ₹27.50/kg • 40 Qtls Confirmed</p>
+</div>
+</div>
+<span class="shrink-0 px-space-xs py-0.5 rounded bg-blue-mist text-clear-blue font-data-xs text-data-xs font-semibold">
+          ACTUAL
+        </span>
+</div>
+<!-- Item 2: Transport -->
+<div class="flex items-center justify-between p-space-sm rounded-lg hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-9 h-9 rounded-lg bg-blue-mist text-clear-blue flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">local_shipping</span>
+</div>
+<div class="min-w-0">
+<p class="font-label-md text-label-md text-on-surface truncate">Transport Allocation</p>
+<p class="font-caption text-caption text-slate truncate">Carrier MH-15-EG-8901 Allocated</p>
+</div>
+</div>
+<span class="shrink-0 px-space-xs py-0.5 rounded bg-blue-mist text-clear-blue font-data-xs text-data-xs font-semibold">
+          DISPATCHED
+        </span>
+</div>
+<!-- Item 3: Storage -->
+<div class="flex items-center justify-between p-space-sm rounded-lg hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-9 h-9 rounded-lg bg-sand text-clay-orange flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">warehouse</span>
+</div>
+<div class="min-w-0">
+<p class="font-label-md text-label-md text-on-surface truncate">Storage Allocation</p>
+<p class="font-caption text-caption text-slate truncate">Silo Compartment #B-14 Locked</p>
+</div>
+</div>
+<span class="shrink-0 px-space-xs py-0.5 rounded bg-sand text-clay-orange font-data-xs text-data-xs font-semibold">
+          ALLOCATED
+        </span>
+</div>
+<!-- Item 4: Itemized Settlement Ledger -->
+<div class="flex items-center justify-between p-space-sm rounded-lg hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-9 h-9 rounded-lg bg-blue-mist text-clear-blue flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">calculate</span>
+</div>
+<div class="min-w-0">
+<p class="font-label-md text-label-md text-on-surface truncate">Itemized Settlement Ledger</p>
+<p class="font-caption text-caption text-slate truncate">Gross − Mandi Cess − Loading = Net</p>
+</div>
+</div>
+<span class="shrink-0 px-space-xs py-0.5 rounded bg-blue-mist text-clear-blue font-data-xs text-data-xs font-semibold">
+          CALCULATED
+        </span>
+</div>
+</div>
+</div>
+<!-- Real-world Micro Trust Banner with Visual Context -->
+<div class="px-margin mt-space-md">
+<div class="bg-surface rounded-xl p-space-md shadow-sm flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-lg overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="Official digital weighing scale terminal display at an Indian agricultural market mandi showing tare and net weights in crisp blue digital numerals, utilitarian and high trust." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOzKqpAZXgHfiA9haUkiXsmHYicROVsUUdnp1_3R-rUQRYZ3BJaFNqfxxsMAgjpepQplbZTcaZW3JIgjTnpmxBBEl1Mz7x5_umca226eOef_tjmDVImtJY7ck-et947Cjeg4wph0jEMvCVzeEw-cEQAj51MSwFCX5nF6AvBVk_Hh37yNGfIcjeGNRp7Jsz6vakIbQD6SD18WRR7Bz_1X-E3W6Mp8iO5aaRCbE9QRprQm3c5w4WRYdr"/>
+</div>
+<div class="min-w-0 flex-1">
+<p class="font-label-md text-label-md text-on-surface font-semibold truncate">Weighbridge Data Synced</p>
+<p class="font-caption text-caption text-slate truncate">Automated Slip No. WB-9923 authenticated</p>
+</div>
+<span class="material-symbols-outlined text-clear-blue text-[20px] shrink-0">check_circle</span>
+</div>
+</div>
+<!-- Fixed Action Footer Region (Single Dominant Flow + Secondary) -->
+<div class="px-margin mt-space-xl flex flex-col gap-space-sm">
+<!-- Primary CTA: Burnt Orange Fill, Minimum 56dp height -->
+<button class="w-full min-h-[56px] py-space-md px-space-lg rounded-lg bg-clay-orange text-on-primary font-label-lg text-label-lg flex items-center justify-center gap-space-sm shadow-md active:scale-[0.98] transition-all" onclick="handleViewSummary()">
+<span>View Transaction Summary (व्यवहार सारांश पाहा)</span>
+<span class="material-symbols-outlined text-[22px]">arrow_forward</span>
+</button>
+<!-- Secondary Action: Clear Blue / Slate Outlined, Minimum 56dp height -->
+<button class="w-full min-h-[56px] py-space-md px-space-lg rounded-lg bg-surface text-clear-blue font-label-lg text-label-lg flex items-center justify-center gap-space-sm shadow-sm active:scale-[0.98] transition-all" onclick="window.history.back()">
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+<span>Back to Order (ऑर्डरवर परत जा)</span>
+</button>
+</div>
+<!-- Toast Notification Container for Micro-interaction Feedback -->
+<div class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface px-space-lg py-space-xs rounded-full font-label-md text-label-md shadow-lg opacity-0 pointer-events-none transition-opacity duration-200 flex items-center gap-space-xs z-50" id="copy-toast">
+<span class="material-symbols-outlined text-[18px]">check</span>
+<span id="toast-text">Reference ID Copied</span>
+</div>
+</div>
+<script>
+  function copyRef(text, btnElement) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text);
+    }
+    const toast = document.getElementById('copy-toast');
+    const toastLabel = document.getElementById('toast-text');
+    if (toast && toastLabel) {
+      toastLabel.textContent = text + ' copied';
+      toast.classList.remove('opacity-0', 'pointer-events-none');
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'pointer-events-none');
+      }, 2000);
+    }
+  }
+
+  function handleViewSummary() {
+    const toast = document.getElementById('copy-toast');
+    const toastLabel = document.getElementById('toast-text');
+    if (toast && toastLabel) {
+      toastLabel.textContent = 'Navigating to Ledger Summary...';
+      toast.classList.remove('opacity-0', 'pointer-events-none');
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'pointer-events-none');
+      }, 1500);
+    }
+  }
+</script></main></body></html>

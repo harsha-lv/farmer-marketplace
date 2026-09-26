@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100%;margin:0;padding:0;min-height:100%;background-color:#F4FAFC;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "primary": "#00687b", "clay-orange": "#A95135", "on-secondary-fixed": "#380d00", "on-tertiary-fixed-variant": "#604100", "primary-fixed-dim": "#65d5f2", "blue-soft": "#C7E8F0", "on-background": "#001f28", "tertiary-fixed": "#ffdeac", "surface-tint": "#00687b", "on-surface": "#001f28", "error-container": "#ffdad6", "on-secondary-fixed-variant": "#7c2e0c", "surface": "#FFFFFF", "secondary-fixed": "#ffdbcf", "on-error": "#ffffff", "sand": "#FFF3DF", "outline": "#6d797d", "secondary": "#9a4522", "on-surface-variant": "#3d494c", "surface-variant": "#c9e7f4", "on-secondary": "#ffffff", "tertiary": "#7e5700", "surface-container-lowest": "#ffffff", "danger": "#C64F48", "inverse-on-surface": "#ddf5ff", "error": "#ba1a1a", "on-primary-fixed": "#001f26", "on-error-container": "#93000a", "slate": "#607780", "surface-container-low": "#e4f7ff", "mist-text": "#8FA1A7", "on-secondary-container": "#742907", "outline-variant": "#bdc8cd", "tertiary-fixed-dim": "#f9bc51", "tertiary-container": "#cf972f", "inverse-surface": "#17343e", "canvas": "#F4FAFC", "inverse-primary": "#65d5f2", "surface-dim": "#c1dfec", "on-tertiary-fixed": "#281900", "blue-mist": "#E2F3F8", "on-primary-fixed-variant": "#004e5d", "on-tertiary-container": "#4c3300", "clear-blue": "#147F9E", "surface-container-highest": "#c9e7f4", "surface-container-high": "#cfedfa", "on-primary": "#ffffff", "on-primary-container": "#003e4a", "background": "#f2fbff", "primary-fixed": "#aeecff", "surface-bright": "#f2fbff", "surface-container": "#d6f2ff", "primary-container": "#36afcb", "on-tertiary": "#ffffff", "secondary-fixed-dim": "#ffb59a", "line": "#D7E7EB", "secondary-container": "#fd9168" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-sm": "8px", "space-lg": "16px", "margin": "16px", "space-xl": "24px", "space-xs": "4px", "gutter": "12px", "space-md": "12px" }, "fontFamily": { "data-lg": ["IBM Plex Mono"], "headline-sm": ["Fraunces"], "data-xs": ["IBM Plex Mono"], "display-data": ["IBM Plex Mono"], "caption": ["Inter"], "label-lg": ["Inter"], "data-sm": ["IBM Plex Mono"], "body-lg": ["Inter"], "headline-lg": ["Fraunces"], "label-md": ["Inter"], "headline-md": ["Fraunces"], "headline-lg-mobile": ["Fraunces"], "data-md": ["IBM Plex Mono"], "body-md": ["Inter"] }, "fontSize": { "data-lg": ["22px", {"lineHeight": "28px", "fontWeight": "500"}], "headline-sm": ["18px", {"lineHeight": "24px", "fontWeight": "500"}], "data-xs": ["12px", {"lineHeight": "16px", "fontWeight": "500"}], "display-data": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.5px", "fontWeight": "500"}], "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}], "label-lg": ["16px", {"lineHeight": "24px", "fontWeight": "600"}], "data-sm": ["14px", {"lineHeight": "20px", "fontWeight": "500"}], "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}], "headline-lg": ["28px", {"lineHeight": "36px", "fontWeight": "600"}], "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "500"}], "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}], "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}], "data-md": ["16px", {"lineHeight": "24px", "fontWeight": "500"}], "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-canvas text-on-surface font-body-md text-body-md flex flex-col min-h-screen antialiased selection:bg-blue-soft selection:text-primary"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-margin flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-xs min-w-0 flex-1"><button aria-label="Go Back" class="w-11 h-11 -ml-2 rounded-full flex items-center justify-center text-on-surface hover:bg-canvas transition-colors" onclick="window.history.back()" type="button"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><div class="flex flex-col min-w-0 pr-space-xs"><span class="font-label-lg text-label-lg text-on-surface truncate">Freight Rate Quotations</span><span class="font-data-xs text-data-xs text-slate truncate">MM-ORD-DEMO-000001 • 4,000 kg</span></div></div><div class="flex items-center gap-space-xs flex-shrink-0"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-safe bg-canvas max-w-[600px] mx-auto"><div class="flex flex-col w-full px-margin pb-28 pt-2">
+<!-- Top Milestone Stepper / Micro-badge -->
+<div class="flex items-center justify-between py-space-sm mb-space-md bg-blue-mist rounded-xl px-space-md">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Final Transport Verification</span>
+<span class="font-caption text-caption text-on-surface-variant">पडताळणी व अंतिम पुष्टीकरण</span>
+</div>
+</div>
+<div class="flex items-center gap-1 bg-surface py-1 px-2.5 rounded-full shadow-sm">
+<span class="w-2 h-2 rounded-full bg-clay-orange animate-pulse"></span>
+<span class="font-data-xs text-data-xs text-clay-orange uppercase font-semibold">Step 6 of 6</span>
+</div>
+</div>
+<!-- Produce Visual Card with Context Ribbon -->
+<div class="bg-surface rounded-xl overflow-hidden shadow-sm mb-space-lg">
+<div class="relative w-full h-36 bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Freshly harvested Nashik red onions in clean jute bags loaded under morning natural light in an open rural aggregation courtyard, earthy textures, agricultural authenticity, clear blue atmospheric tone" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCo-6T0DU7m52lMZIxKHEMr9yeNsdHeNnp74Cke7OmqwJ677Cv8j04kugtRFLPO2fQDD8EL-wyj130GiscITNWN4y-PhsXjekVzH36aUqPyRfnJju1Q4wSUmasLMpfIENeD94lMJE75xPtbweNWJLFD2ySteXRuhFO17dGU8bRsRx5Y9DU7VYBfVfZscm_L96IoZFK9b5BiAxv-E2mY5TlwfSwYwy5nmtMIHEOjy_Ldxt9duD5Fx5om"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-background/80 via-on-background/30 to-transparent flex items-end p-space-md">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-surface">Nashik Red Onion (नाशिक लाल कांदा)</span>
+<span class="font-caption text-caption text-surface-variant">Grade A Export Spec · Lasalgaon Cluster</span>
+</div>
+</div>
+<div class="absolute top-2.5 right-2.5 bg-surface/95 backdrop-blur-sm rounded-lg px-2.5 py-1 flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-primary text-[16px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-data-xs text-data-xs text-primary font-bold">ACTUAL</span>
+</div>
+</div>
+</div>
+<!-- SECTION 1: ORDER SUMMARY -->
+<div class="bg-surface rounded-xl p-space-lg mb-space-lg shadow-sm">
+<div class="flex items-center justify-between pb-space-sm mb-space-md">
+<div class="flex items-center gap-space-xs">
+<div class="w-7 h-7 rounded-lg bg-blue-mist flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">receipt_long</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface">Order Summary</span>
+<span class="font-caption text-caption text-slate">ऑर्डर तपशील (Read-Only)</span>
+</div>
+</div>
+<span class="bg-blue-mist text-primary font-data-xs text-data-xs px-2 py-0.5 rounded">FIRM AGREEMENT</span>
+</div>
+<div class="space-y-space-sm">
+<div class="flex justify-between items-center py-1">
+<span class="font-body-md text-body-md text-on-surface-variant">Order Record ID</span>
+<span class="font-data-sm text-data-sm text-on-surface select-all">MM-ORD-DEMO-000001</span>
+</div>
+<div class="flex justify-between items-center py-1">
+<span class="font-body-md text-body-md text-on-surface-variant">Agreement Origin</span>
+<span class="font-data-sm text-data-sm text-slate">MM-AGR-DEMO-000001</span>
+</div>
+<div class="flex justify-between items-center py-1">
+<span class="font-body-md text-body-md text-on-surface-variant">Contracted Quantity (वजन)</span>
+<span class="font-data-md text-data-md text-on-surface font-semibold">4,000 kg (40 Qnt)</span>
+</div>
+<div class="flex justify-between items-center py-1">
+<span class="font-body-md text-body-md text-on-surface-variant">Agreed Price (हमीभाव)</span>
+<div class="flex items-center gap-1.5">
+<span class="font-data-md text-data-md text-primary font-bold">₹29.20</span>
+<span class="font-caption text-caption text-slate">/ kg</span>
+<span class="material-symbols-outlined text-primary text-[16px]" title="Price Locked">lock</span>
+</div>
+</div>
+<!-- Gross Produce Highlight Sub-Card -->
+<div class="mt-space-md p-space-md bg-canvas rounded-xl flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Gross Produce Value</span>
+<span class="font-caption text-caption text-slate">एकूण शेतमाल मूल्य</span>
+</div>
+<span class="font-data-lg text-data-lg text-primary font-bold">₹1,16,800</span>
+</div>
+</div>
+</div>
+<!-- SECTION 2: TRANSPORT & LOGISTICS -->
+<div class="bg-surface rounded-xl p-space-lg mb-space-lg shadow-sm">
+<div class="flex items-center justify-between pb-space-sm mb-space-md">
+<div class="flex items-center gap-space-xs">
+<div class="w-7 h-7 rounded-lg bg-blue-mist flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">rv_hookup</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface">Transport &amp; Logistics</span>
+<span class="font-caption text-caption text-slate">वाहतूक व्यवस्था व तपशील</span>
+</div>
+</div>
+<span class="bg-sand text-secondary font-data-xs text-data-xs px-2 py-0.5 rounded flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">local_shipping</span>
+        ALLOCATED
+      </span>
+</div>
+<!-- Logistics Details Grid -->
+<div class="space-y-space-md">
+<!-- Carrier Info Card -->
+<div class="p-space-md bg-canvas rounded-xl flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-full bg-blue-soft flex items-center justify-center text-primary flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[22px]">corporate_fare</span>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1">
+<span class="font-label-md text-label-md text-on-surface truncate">Shree Ganesh Logistics</span>
+<span class="font-data-xs text-data-xs text-slate shrink-0">MH-15-Reg</span>
+</div>
+<span class="font-caption text-caption text-slate">Verified Regional Partner · Demo Provider</span>
+<div class="flex items-center gap-space-xs mt-1">
+<span class="font-data-xs text-data-xs bg-surface text-on-surface-variant px-2 py-0.5 rounded shadow-sm">
+              Eicher Pro 2059 (5–7 Ton)
+            </span>
+<span class="font-data-xs text-data-xs text-primary">Medium Truck</span>
+</div>
+</div>
+</div>
+<!-- Schedule Block -->
+<div class="p-space-md bg-canvas rounded-xl flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-lg bg-sand flex items-center justify-center text-clay-orange">
+<span class="material-symbols-outlined text-[20px]">calendar_clock</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Pickup Schedule (उचल वेळ)</span>
+<span class="font-caption text-caption text-slate">19 October 2026 · 08:30 AM IST</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-clay-orange text-[20px]">alarm_on</span>
+</div>
+<!-- Route Visual Timeline -->
+<div class="p-space-md bg-surface-container-low rounded-xl">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-md text-label-md text-on-surface">Route &amp; Transit (रस्ता अंतर)</span>
+<span class="font-data-sm text-data-sm text-primary font-semibold">28 km Transit</span>
+</div>
+<div class="relative pl-6 space-y-space-md">
+<!-- Origin Node -->
+<div class="relative">
+<div class="absolute -left-6 top-1 w-3.5 h-3.5 rounded-full bg-primary flex items-center justify-center">
+<span class="w-1.5 h-1.5 rounded-full bg-surface"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Ramesh Patel Farm (पिकअप)</span>
+<span class="font-caption text-caption text-slate">Pimpalgaon Baswant, Nashik Rural</span>
+</div>
+</div>
+<!-- Transit Connector Line SVG -->
+<div class="absolute left-[-19px] top-4.5 w-0.5 h-7 bg-primary-container"></div>
+<!-- Destination Node -->
+<div class="relative pt-1">
+<div class="absolute -left-6 top-2 w-3.5 h-3.5 rounded-full bg-clay-orange flex items-center justify-center">
+<span class="w-1.5 h-1.5 rounded-full bg-surface"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Sahyadri Agro Godown (वितरण)</span>
+<span class="font-caption text-caption text-slate">Lasalgaon APMC Sub-Yard, Gate #3</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Route Map Static Location Visualizer -->
+<div class="w-full h-28 rounded-xl bg-surface-container overflow-hidden relative shadow-sm" data-location="Lasalgaon APMC Yard, Nashik, Maharashtra" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD0UQ9BQNUOt_uksxsKZl5lcHtXhei1T48kBwJMO7NJKi7ip0gRtinoGcW1FxR2DhC0VCwK_j4LugakTSdG4hKqxKb_OuTkzEnPprQIKG1Y_zguw2ru6e1WozgmTL6kMeY8mqOPKm4aJCyC85QKK48Wx67kjLLWfgtWkgb1IKH5iOhQXH5bkDnjw6UMS5rftlGLYC2BogKR1pqq94hPhQkKcmMnbXfS-JVZPfj6TBL1VCAgmOsz5NUH')">
+<div class="absolute inset-0 bg-on-background/20"></div>
+<div class="absolute bottom-2 left-2 bg-surface/90 backdrop-blur-sm px-2.5 py-1 rounded text-on-surface font-caption text-caption flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-primary text-[14px]">near_me</span>
+<span>Route: NH 848A Corridor · 45 mins</span>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION 3: FREIGHT COST & SETTLEMENT RESPONSIBILITY -->
+<div class="bg-surface rounded-xl p-space-lg mb-space-lg shadow-sm">
+<div class="flex items-center justify-between pb-space-sm mb-space-md">
+<div class="flex items-center gap-space-xs">
+<div class="w-7 h-7 rounded-lg bg-sand flex items-center justify-center text-clay-orange">
+<span class="material-symbols-outlined text-[18px]">balance</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface">Freight &amp; Realization</span>
+<span class="font-caption text-caption text-slate">भाडे व खर्च जबाबदारी विभागणी</span>
+</div>
+</div>
+<span class="bg-sand text-secondary font-data-xs text-data-xs px-2 py-0.5 rounded flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">calculate</span>
+        ESTIMATE
+      </span>
+</div>
+<!-- Allocation Split Meter -->
+<div class="p-space-md bg-canvas rounded-xl mb-space-md">
+<div class="flex justify-between items-center mb-1.5">
+<span class="font-label-md text-label-md text-on-surface">Total Freight Cost (एकूण भाडे)</span>
+<span class="font-data-md text-data-md text-on-surface font-semibold">₹4,800</span>
+</div>
+<!-- Visual Ratio Bar -->
+<div class="w-full h-3 bg-surface-container rounded-full overflow-hidden flex my-2 shadow-inner">
+<div class="h-full bg-clay-orange" style="width: 50%;"></div>
+<div class="h-full bg-primary" style="width: 50%;"></div>
+</div>
+<div class="flex justify-between items-center pt-1 text-on-surface-variant font-caption text-caption">
+<div class="flex items-center gap-1">
+<span class="w-2.5 h-2.5 rounded-full bg-clay-orange"></span>
+<span>Farmer Share (50%): <strong class="font-data-xs text-data-xs text-on-surface">₹2,400</strong></span>
+</div>
+<div class="flex items-center gap-1">
+<span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+<span>Buyer Share (50%): <strong class="font-data-xs text-data-xs text-on-surface">₹2,400</strong></span>
+</div>
+</div>
+</div>
+<!-- Ledger Deductions Table -->
+<div class="space-y-space-sm pt-1">
+<div class="flex justify-between items-center py-1">
+<span class="font-body-md text-body-md text-on-surface-variant">Contract Gross Value</span>
+<span class="font-data-md text-data-md text-on-surface">₹1,16,800</span>
+</div>
+<div class="flex justify-between items-center py-1">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-danger">Farmer Freight Obligation (भाडे)</span>
+<span class="font-caption text-caption text-slate">Direct deduction at payout</span>
+</div>
+<span class="font-data-md text-data-md text-danger">− ₹2,400</span>
+</div>
+<div class="flex justify-between items-center py-1">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-danger">Mandi Cess &amp; Market Levy (सेस)</span>
+<span class="font-caption text-caption text-slate">APMC statutory fee (3.74%)</span>
+</div>
+<span class="font-data-md text-data-md text-danger">− ₹4,368</span>
+</div>
+<!-- Net Realization Focus Box -->
+<div class="mt-space-md p-space-md bg-blue-mist rounded-xl flex items-center justify-between">
+<div class="flex flex-col">
+<div class="flex items-center gap-1">
+<span class="font-label-lg text-label-lg text-primary">Net Farmer Realization</span>
+<span class="font-caption text-caption text-slate">≈</span>
+</div>
+<span class="font-caption text-caption text-slate">शेतकऱ्यास मिळणारी निव्वळ रक्कम</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-display-data text-display-data text-primary font-bold">₹1,10,032</span>
+<span class="font-data-xs text-data-xs text-slate">₹27.51 effective / kg</span>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION 4: CONFIRMATION DISCLOSURE -->
+<div class="bg-sand/80 rounded-xl p-space-md mb-space-xl flex items-start gap-space-md shadow-sm">
+<div class="w-8 h-8 rounded-full bg-sand flex items-center justify-center text-clay-orange flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[20px]">info</span>
+</div>
+<div class="flex flex-col space-y-1">
+<span class="font-label-md text-label-md text-on-secondary-container">Statutory Verification Notice (माहिती व सूचना)</span>
+<p class="font-caption text-caption text-on-surface-variant leading-relaxed">
+        Review all transport details before confirming. Confirming creates an authorized demo transport booking record for pickup coordination. Physical dispatch and live GPS tracking are not implemented in this prototype.
+      </p>
+</div>
+</div>
+<!-- SECTION 5: STICKY BOTTOM ACTION BAR -->
+<div class="fixed bottom-0 left-0 right-0 max-w-[600px] mx-auto bg-surface/95 backdrop-blur-md p-space-md pb-safe shadow-[0_-4px_16px_rgba(0,0,0,0.06)] z-40">
+<div class="flex flex-col gap-space-sm">
+<button class="w-full h-14 bg-secondary text-on-secondary rounded-lg font-label-lg text-label-lg font-semibold flex items-center justify-center gap-space-sm hover:brightness-105 active:scale-[0.99] transition-all shadow-sm" id="confirm-booking-btn" onclick="triggerConfirmationAnimation()" type="button">
+<span>Confirm Transport Booking (वाहतूक बुकिंग निश्चित करा)</span>
+<span class="material-symbols-outlined text-[22px]">check_circle</span>
+</button>
+<button class="w-full h-12 bg-transparent text-primary rounded-lg font-label-md text-label-md flex items-center justify-center gap-space-xs hover:bg-canvas active:scale-[0.99] transition-all" onclick="window.history.back()" type="button">
+<span class="material-symbols-outlined text-[18px]">edit_note</span>
+<span>Edit Details (तपशील बदला)</span>
+</button>
+</div>
+</div>
+<!-- Modal Dialog Simulation for Completion Confirmation -->
+<div class="hidden fixed inset-0 z-50 flex items-center justify-center p-space-lg bg-on-background/40 backdrop-blur-sm" id="booking-modal">
+<div class="bg-surface w-full max-w-sm rounded-xl p-space-xl shadow-xl flex flex-col items-center text-center animate-in fade-in zoom-in duration-200">
+<div class="w-16 h-16 rounded-full bg-blue-mist flex items-center justify-center text-primary mb-space-md">
+<span class="material-symbols-outlined text-[36px]" style="font-variation-settings: 'FILL' 1;">done_all</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-surface mb-1">Booking Record Generated!</span>
+<span class="font-body-md text-body-md text-on-surface-variant mb-space-md">वाहतूक बुकिंग नोंदणी यशस्वी झाली आहे.</span>
+<div class="w-full bg-canvas rounded-lg p-space-sm mb-space-lg font-data-sm text-data-sm text-slate select-all">
+        TRN-BKG-2026-00084
+      </div>
+<p class="font-caption text-caption text-slate mb-space-lg">
+        Driver partner assigned: Ashok Shinde (MH-15-EG-4412). SMS update triggered to farmer Ramesh Patel.
+      </p>
+<button class="w-full h-12 bg-primary text-on-primary rounded-lg font-label-md text-label-md" onclick="closeConfirmationModal()" type="button">
+        Done (पूर्ण झाले)
+      </button>
+</div>
+</div>
+</div>
+<script>
+  function triggerConfirmationAnimation() {
+    const btn = document.getElementById('confirm-booking-btn');
+    const modal = document.getElementById('booking-modal');
+    if (!btn || !modal) return;
+    
+    // Quick micro-state feedback
+    btn.disabled = true;
+    btn.classList.add('opacity-80');
+    btn.innerHTML = `
+      <span class="material-symbols-outlined animate-spin text-[22px]">progress_activity</span>
+      <span>Generating Record...</span>
+    `;
+
+    setTimeout(() => {
+      btn.disabled = false;
+      btn.classList.remove('opacity-80');
+      btn.innerHTML = `
+        <span>Confirm Transport Booking (वाहतूक बुकिंग निश्चित करा)</span>
+        <span class="material-symbols-outlined text-[22px]">check_circle</span>
+      `;
+      modal.classList.remove('hidden');
+    }, 600);
+  }
+
+  function closeConfirmationModal() {
+    const modal = document.getElementById('booking-modal');
+    if (modal) modal.classList.add('hidden');
+  }
+</script></main></body></html>

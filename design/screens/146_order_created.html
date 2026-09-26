@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;600&amp;family=Inter:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#F4FAFC;}body{overscroll-behavior:none;font-family:'Inter',sans-serif;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: 'class', theme: { extend: { colors: { 'background': '#f2fbff', 'primary-fixed': '#aeecff', 'on-error': '#ffffff', 'surface-tint': '#00687b', 'on-secondary-fixed-variant': '#7c2e0c', 'on-background': '#001f28', 'error-container': '#ffdad6', 'secondary': '#9a4522', 'tertiary-container': '#cf972f', 'inverse-surface': '#17343e', 'on-secondary': '#ffffff', 'secondary-container': '#fd9168', 'inverse-on-surface': '#ddf5ff', 'error': '#ba1a1a', 'outline': '#6d797d', 'secondary-fixed-dim': '#ffb59a', 'surface-bright': '#f2fbff', 'blue-mist': '#E2F3F8', 'tertiary-fixed-dim': '#f9bc51', 'slate': '#607780', 'surface-container-lowest': '#ffffff', 'surface': '#FFFFFF', 'on-tertiary-container': '#4c3300', 'on-surface-variant': '#3d494c', 'on-tertiary': '#ffffff', 'surface-container-high': '#cfedfa', 'primary': '#00687b', 'danger': '#C64F48', 'on-surface': '#001f28', 'mist-text': '#8FA1A7', 'blue-soft': '#C7E8F0', 'surface-dim': '#c1dfec', 'on-tertiary-fixed-variant': '#604100', 'outline-variant': '#bdc8cd', 'surface-container-highest': '#c9e7f4', 'primary-fixed-dim': '#65d5f2', 'tertiary-fixed': '#ffdeac', 'on-error-container': '#93000a', 'on-primary-container': '#003e4a', 'on-primary-fixed-variant': '#004e5d', 'surface-container-low': '#e4f7ff', 'on-primary-fixed': '#001f26', 'secondary-fixed': '#ffdbcf', 'on-tertiary-fixed': '#281900', 'tertiary': '#7e5700', 'surface-variant': '#c9e7f4', 'on-secondary-container': '#742907', 'clear-blue': '#147F9E', 'surface-container': '#d6f2ff', 'sand': '#FFF3DF', 'on-secondary-fixed': '#380d00', 'canvas': '#F4FAFC', 'inverse-primary': '#65d5f2', 'clay-orange': '#A95135', 'primary-container': '#36afcb', 'line': '#D7E7EB', 'on-primary': '#ffffff' }, borderRadius: { 'DEFAULT': '0.25rem', 'lg': '0.5rem', 'xl': '0.75rem', 'full': '9999px' }, spacing: { 'space-xl': '24px', 'space-md': '12px', 'space-sm': '8px', 'space-xs': '4px', 'margin': '16px', 'space-lg': '16px', 'gutter': '12px' }, fontFamily: { 'headline-lg': ['Fraunces'], 'data-sm': ['IBM Plex Mono'], 'data-md': ['IBM Plex Mono'], 'body-md': ['Inter'], 'label-md': ['Inter'], 'caption': ['Inter'], 'headline-md': ['Fraunces'], 'data-lg': ['IBM Plex Mono'], 'label-lg': ['Inter'], 'display-data': ['IBM Plex Mono'], 'headline-sm': ['Fraunces'], 'data-xs': ['IBM Plex Mono'], 'body-lg': ['Inter'], 'headline-lg-mobile': ['Fraunces'] }, fontSize: { 'headline-lg': ['28px', { lineHeight: '36px', fontWeight: '600' }], 'data-sm': ['14px', { lineHeight: '20px', fontWeight: '500' }], 'data-md': ['16px', { lineHeight: '24px', fontWeight: '500' }], 'body-md': ['14px', { lineHeight: '20px', fontWeight: '400' }], 'label-md': ['14px', { lineHeight: '20px', fontWeight: '500' }], 'caption': ['12px', { lineHeight: '16px', fontWeight: '400' }], 'headline-md': ['20px', { lineHeight: '28px', fontWeight: '600' }], 'data-lg': ['22px', { lineHeight: '28px', fontWeight: '500' }], 'label-lg': ['16px', { lineHeight: '24px', fontWeight: '600' }], 'display-data': ['32px', { lineHeight: '40px', letterSpacing: '-0.5px', fontWeight: '500' }], 'headline-sm': ['18px', { lineHeight: '24px', fontWeight: '500' }], 'data-xs': ['12px', { lineHeight: '16px', fontWeight: '500' }], 'body-lg': ['16px', { lineHeight: '24px', fontWeight: '400' }], 'headline-lg-mobile': ['24px', { lineHeight: '32px', fontWeight: '600' }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-canvas text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe"><div class="h-16 px-space-md flex items-center justify-between gap-space-sm max-w-[600px] mx-auto"><div class="flex items-center gap-space-xs min-w-0"><button aria-label="Go back" class="min-w-[48px] min-h-[48px] flex items-center justify-center text-on-surface hover:text-clear-blue rounded-full active:bg-blue-mist transition-colors" onclick="history.back()"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><h1 class="font-headline-sm text-headline-sm text-on-surface truncate">Order Confirmation</h1></div><div class="flex items-center gap-space-xs"><button aria-label="Support or Help" class="min-w-[48px] min-h-[48px] flex items-center justify-center text-slate hover:text-on-surface rounded-full active:bg-blue-mist transition-colors"><span class="material-symbols-outlined text-[24px]">contact_support</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-16 pb-safe bg-canvas max-w-[600px] mx-auto flex-1"><div class="flex flex-col w-full px-margin pb-space-xl gap-space-lg">
+<!-- Confetti / Particle Micro-interaction Canvas Layer -->
+<div class="relative flex flex-col items-center text-center pt-space-md">
+<!-- Animated Subtle Burst Rings (No Green, pure Sky Blue & Amber) -->
+<div class="relative w-24 h-24 mb-space-sm flex items-center justify-center">
+<div class="absolute inset-0 rounded-full bg-blue-mist animate-ping opacity-30"></div>
+<div class="relative w-20 h-20 rounded-full bg-surface-container flex items-center justify-center shadow-md shadow-primary/10">
+<div class="w-14 h-14 rounded-full bg-clear-blue flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-[36px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+</div>
+<!-- Marathi & English Bilingual Headline -->
+<div class="inline-flex items-center gap-space-xs px-space-md py-1 rounded-full bg-blue-mist text-clear-blue mb-space-xs">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+<span class="font-label-md text-label-md font-semibold tracking-wide uppercase">Order Created · अधिकृत नोंद</span>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">
+      ऑर्डर तयार झाली
+    </h2>
+<p class="font-body-md text-body-md text-slate mt-0.5">
+      Order Created Successfully
+    </p>
+<!-- Order Record Tag -->
+<div class="mt-space-md w-full bg-surface p-space-md rounded-xl shadow-sm flex flex-col items-center justify-center gap-1">
+<span class="font-caption text-caption text-slate uppercase tracking-wider">
+        अधिकृत व्यापारी ऑर्डर नोंद क्रमांक (Order Record ID)
+      </span>
+<div class="flex items-center gap-space-xs">
+<span class="font-data-md text-data-md text-clear-blue font-bold tracking-tight">
+          MM-ORD-DEMO-000001
+        </span>
+<button aria-label="Copy Order ID" class="w-8 h-8 rounded-full flex items-center justify-center text-slate hover:text-on-surface active:bg-blue-mist transition-colors" onclick="navigator.clipboard &amp;&amp; navigator.clipboard.writeText('MM-ORD-DEMO-000001'); this.innerHTML='&lt;span class=\'material-symbols-outlined text-[18px] text-clear-blue\'&gt;done&lt;/span&gt;'; setTimeout(() =&gt; this.innerHTML='&lt;span class=\'material-symbols-outlined text-[18px]\'&gt;content_copy&lt;/span&gt;', 2000)">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Traceability Provenance Banner -->
+<div class="bg-blue-mist text-on-surface p-space-md rounded-xl shadow-sm flex items-start gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-blue-soft flex items-center justify-center shrink-0 text-clear-blue mt-0.5">
+<span class="material-symbols-outlined text-[20px]">link</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1 flex-wrap">
+<span class="font-label-md text-label-md font-semibold text-on-surface">करार संदर्भ (Agreement Origin):</span>
+<span class="font-data-xs text-data-xs bg-surface text-clear-blue px-2 py-0.5 rounded font-bold">MM-AGR-DEMO-000001</span>
+</div>
+<p class="font-caption text-caption text-slate mt-1 leading-snug">
+        Bilateral locks &amp; biometric/face attestations active. कायदेशीर बंधने सुरक्षितरीत्या जोडली गेली आहेत.
+      </p>
+</div>
+</div>
+<!-- Visual Commodity Thumbnail & Snapshot Strip -->
+<div class="bg-surface rounded-xl p-space-md shadow-sm flex items-center gap-space-md">
+<div class="w-20 h-20 rounded-lg overflow-hidden shrink-0 bg-canvas">
+<img class="w-full h-full object-cover" data-alt="High quality fresh Nashik red onions sorted in clean mesh crates under soft morning rural sunlight, earthy rust red tones, crisp macro photography, authentic Indian agricultural produce, no green background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4526w3XBNRHFlLrGh63MrfMsNUaXRQQPgMSPWjHJm9-PgObvUnwQP_NUei2MJRlTLXtqya8A4ZHums3ACnH4yUMpFKEfRm3asT3vXvw1_ecA3LyQrjLBF3DpN_smnKnwz6EuvaEYtrbwE4viHOWH5wm0wYNpQ4TNDbn4M9TUoTKiLYtG2BeBdg0DBjC8xniHopGcyEp1wEZADX7H_YJh1claNcCvN_tT3S5jhRKI3POFGqgvGtTEG"/>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<div class="flex items-center justify-between gap-1">
+<span class="font-label-lg text-label-lg font-bold text-on-surface truncate">नाशिक लाल कांदा</span>
+<span class="font-data-xs text-data-xs bg-sand text-secondary px-2 py-0.5 rounded font-medium shrink-0">Grade A</span>
+</div>
+<span class="font-caption text-caption text-slate">Nashik Red Onion · खरीप हंगाम</span>
+<div class="flex items-center gap-2 mt-2">
+<span class="material-symbols-outlined text-[16px] text-clear-blue">scale</span>
+<span class="font-data-md text-data-md font-bold text-on-surface">४,००० kg</span>
+<span class="font-caption text-caption text-mist-text">(40 क्विंटल)</span>
+</div>
+</div>
+</div>
+<!-- Economic Breakdown Card (Absolute Zero-Speculation Structure) -->
+<div class="bg-surface rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[20px] text-clear-blue">receipt_long</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">आर्थिक सारांश</h3>
+</div>
+<span class="font-data-xs text-data-xs px-2 py-0.5 rounded bg-blue-mist text-clear-blue font-semibold">ACTUAL LOCK</span>
+</div>
+<!-- Line items -->
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<div class="flex items-center justify-between text-on-surface">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-slate">निश्चित केलेला दर (Locked Rate)</span>
+<span class="font-caption text-caption text-mist-text">Per kg bilaterally locked</span>
+</div>
+<span class="font-data-md text-data-md text-on-surface font-semibold">₹29.20 / kg</span>
+</div>
+<div class="flex items-center justify-between text-on-surface">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-slate">एकूण रक्कम (Gross Value)</span>
+<span class="font-caption text-caption text-mist-text">४,००० kg × ₹२९.२०</span>
+</div>
+<span class="font-data-md text-data-md text-on-surface font-semibold">₹1,16,800.00</span>
+</div>
+<div class="flex items-center justify-between text-on-surface">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-slate">अंदाजित खर्च (Est. Deductions)</span>
+<span class="font-caption text-caption text-mist-text">मंडी उपकर, हमाली व तोलाई</span>
+</div>
+<span class="font-data-md text-data-md text-secondary font-medium">− ₹4,368.00</span>
+</div>
+</div>
+<!-- Net Realization Distinct Block -->
+<div class="bg-canvas p-space-md rounded-lg flex flex-col gap-1 mt-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px] text-clay-orange">calculate</span>
+<span class="font-label-md text-label-md text-on-surface font-bold">शेतकऱ्यास देय अंदाजित रक्कम:</span>
+</div>
+<span class="font-data-xs text-data-xs bg-sand text-secondary px-2 py-0.5 rounded font-semibold">ESTIMATE</span>
+</div>
+<div class="flex items-baseline justify-between mt-1">
+<span class="font-caption text-caption text-slate">Net Farmer Realization (At Gate)</span>
+<span class="font-display-data text-display-data text-clay-orange font-bold tracking-tight">
+          ≈ ₹1,12,432.00
+        </span>
+</div>
+<p class="font-caption text-caption text-mist-text mt-1">
+        अंतिम वजन आणि प्रतवारीनंतर खात्यात जमा होणारी अधिकृत रक्कम.
+      </p>
+</div>
+</div>
+<!-- Verified Counterparties Summary -->
+<div class="bg-surface rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm">
+<span class="font-caption text-caption uppercase text-slate tracking-wider font-semibold">
+      प्रमाणित पक्षकार (Verified Participants)
+    </span>
+<div class="grid grid-cols-1 gap-space-sm">
+<!-- Farmer Profile Mini -->
+<div class="flex items-center justify-between p-space-sm bg-canvas rounded-lg">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-10 h-10 rounded-full bg-blue-mist flex items-center justify-center shrink-0 text-clear-blue">
+<span class="material-symbols-outlined text-[20px]">agriculture</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1">
+<span class="font-label-md text-label-md font-semibold text-on-surface truncate">रमेश विठ्ठल पाटील</span>
+</div>
+<span class="font-caption text-caption text-slate">शेतकरी · Farmer (Yeola, Nashik)</span>
+</div>
+</div>
+<div class="flex items-center gap-1 bg-surface-container px-2 py-1 rounded text-clear-blue shrink-0">
+<span class="material-symbols-outlined text-[16px]">verified_user</span>
+<span class="font-data-xs text-data-xs font-semibold">आधार सत्य</span>
+</div>
+</div>
+<!-- Buyer Profile Mini -->
+<div class="flex items-center justify-between p-space-sm bg-canvas rounded-lg">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-10 h-10 rounded-full bg-sand flex items-center justify-center shrink-0 text-clay-orange">
+<span class="material-symbols-outlined text-[20px]">storefront</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1">
+<span class="font-label-md text-label-md font-semibold text-on-surface truncate">सह्याद्री अ‍ॅग्रो ट्रेडर्स</span>
+</div>
+<span class="font-caption text-caption text-slate">अधिकृत व्यापारी · APMC Lic. 4882</span>
+</div>
+</div>
+<div class="flex items-center gap-1 bg-surface-container px-2 py-1 rounded text-clear-blue shrink-0">
+<span class="material-symbols-outlined text-[16px]">verified_user</span>
+<span class="font-data-xs text-data-xs font-semibold">APMC मान्य</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Mandatory Crucial Task Boundary Notice (High-Trust Rural Protocol) -->
+<div class="bg-sand rounded-xl p-space-md shadow-sm flex items-start gap-space-sm">
+<div class="w-9 h-9 rounded-full bg-tertiary-fixed flex items-center justify-center shrink-0 text-tertiary mt-0.5">
+<span class="material-symbols-outlined text-[22px]">info</span>
+</div>
+<div class="flex flex-col min-w-0">
+<h4 class="font-label-lg text-label-lg font-bold text-on-tertiary-container">
+        महत्त्वाची कायदेशीर सूचना (Task Boundary Notice)
+      </h4>
+<p class="font-body-md text-body-md text-on-tertiary-container mt-1 leading-relaxed">
+        ऑर्डर तयार झाली याचा अर्थ <strong>वाहतूक सुरू झाली अथवा बँकेत पैसे जमा झाले असा नाही</strong>. हा केवळ खरेदी-विक्रीचा कायदेशीर करार नोंदणी टप्पा आहे.
+      </p>
+<p class="font-caption text-caption text-secondary mt-1 font-medium">
+        Order Created does NOT mean payment completed, transport assigned, or final payout disbursed.
+      </p>
+</div>
+</div>
+<!-- Next Phase Indicator Card -->
+<div class="bg-surface rounded-xl p-space-md shadow-sm flex items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-11 h-11 rounded-xl bg-blue-mist flex items-center justify-center shrink-0 text-clear-blue">
+<span class="material-symbols-outlined text-[24px]">local_shipping</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-caption text-caption text-slate uppercase font-semibold">पुढील टप्पा (Next Step)</span>
+<span class="font-label-md text-label-md font-bold text-on-surface truncate">वाहतूक व्यवस्था व गेट पास</span>
+<span class="font-caption text-caption text-clear-blue">Transport Booking &amp; Gate Dispatch Pass</span>
+</div>
+</div>
+<div class="w-8 h-8 rounded-full bg-canvas flex items-center justify-center shrink-0 text-slate">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</div>
+</div>
+<!-- Decisive Action CTAs -->
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<!-- Primary CTA: 56dp tall with Clear Blue (#147F9E) -->
+<button class="w-full min-h-[56px] h-14 bg-clear-blue text-on-primary rounded-xl font-label-lg text-label-lg font-bold shadow-md shadow-primary/20 flex items-center justify-center gap-space-xs active:scale-[0.99] transition-transform" type="button">
+<span>ऑर्डर तपशील पाहा (View Details)</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+<!-- Secondary CTA: Return to Dashboard -->
+<button class="w-full min-h-[56px] h-14 bg-transparent text-clear-blue rounded-xl font-label-lg text-label-lg font-semibold flex items-center justify-center gap-space-xs active:bg-blue-mist transition-colors" onclick="history.back()" type="button">
+<span class="material-symbols-outlined text-[20px]">home</span>
+<span>मुख्यपृष्ठावर जा (Farmer Dashboard)</span>
+</button>
+</div>
+</div>
+<script>
+  // Micro-delight: Haptic-like subtle tap feedback for Android hardware users
+  document.querySelectorAll('button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if ('vibrate' in navigator) {
+        navigator.vibrate(24);
+      }
+    });
+  });
+</script></main></body></html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"secondary-container":"#fd9168","error-container":"#ffdad6","danger":"#C64F48","blue-mist":"#E2F3F8","surface-variant":"#c9e7f4","primary-fixed":"#aeecff","on-surface":"#001f28","mist-text":"#8FA1A7","surface-container-lowest":"#ffffff","on-tertiary-container":"#4c3300","on-secondary-fixed-variant":"#7c2e0c","surface-container":"#d6f2ff","secondary-fixed-dim":"#ffb59a","inverse-primary":"#65d5f2","on-tertiary-fixed-variant":"#604100","inverse-surface":"#17343e","on-tertiary-fixed":"#281900","on-secondary":"#ffffff","sand":"#FFF3DF","background":"#f2fbff","outline-variant":"#bdc8cd","inverse-on-surface":"#ddf5ff","slate":"#607780","on-error":"#ffffff","tertiary-container":"#cf972f","on-primary-fixed":"#001f26","surface":"#FFFFFF","on-tertiary":"#ffffff","canvas":"#F4FAFC","clay-orange":"#A95135","secondary-fixed":"#ffdbcf","outline":"#6d797d","on-primary-fixed-variant":"#004e5d","on-secondary-fixed":"#380d00","surface-tint":"#00687b","surface-container-high":"#cfedfa","clear-blue":"#147F9E","primary-container":"#36afcb","surface-dim":"#c1dfec","tertiary":"#7e5700","tertiary-fixed-dim":"#f9bc51","primary-fixed-dim":"#65d5f2","surface-container-highest":"#c9e7f4","primary":"#00687b","on-primary-container":"#003e4a","surface-bright":"#f2fbff","surface-container-low":"#e4f7ff","on-background":"#001f28","on-error-container":"#93000a","error":"#ba1a1a","on-secondary-container":"#742907","on-surface-variant":"#3d494c","blue-soft":"#C7E8F0","tertiary-fixed":"#ffdeac","on-primary":"#ffffff","line":"#D7E7EB","secondary":"#9a4522"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"gutter":"12px","margin":"16px","space-md":"12px","space-sm":"8px","space-xs":"4px","space-xl":"24px","space-lg":"16px"},fontFamily:{"data-lg":["IBM Plex Mono"],"caption":["Inter"],"headline-lg-mobile":["Fraunces"],"body-md":["Inter"],"headline-sm":["Fraunces"],"label-md":["Inter"],"headline-md":["Fraunces"],"headline-lg":["Fraunces"],"data-sm":["IBM Plex Mono"],"body-lg":["Inter"],"data-md":["IBM Plex Mono"],"data-xs":["IBM Plex Mono"],"label-lg":["Inter"],"display-data":["IBM Plex Mono"]},fontSize:{"data-lg":["22px",{lineHeight:"28px",fontWeight:"500"}],"caption":["12px",{lineHeight:"16px",fontWeight:"400"}],"headline-lg-mobile":["24px",{lineHeight:"32px",fontWeight:"600"}],"body-md":["14px",{lineHeight:"20px",fontWeight:"400"}],"headline-sm":["18px",{lineHeight:"24px",fontWeight:"500"}],"label-md":["14px",{lineHeight:"20px",fontWeight:"500"}],"headline-md":["20px",{lineHeight:"28px",fontWeight:"600"}],"headline-lg":["28px",{lineHeight:"36px",fontWeight:"600"}],"data-sm":["14px",{lineHeight:"20px",fontWeight:"500"}],"body-lg":["16px",{lineHeight:"24px",fontWeight:"400"}],"data-md":["16px",{lineHeight:"24px",fontWeight:"500"}],"data-xs":["12px",{lineHeight:"16px",fontWeight:"500"}],"label-lg":["16px",{lineHeight:"24px",fontWeight:"600"}],"display-data":["32px",{lineHeight:"40px",letterSpacing:"-0.5px",fontWeight:"500"}]}}}}</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-canvas text-on-surface font-body-md flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 px-margin flex items-center justify-between"><div class="flex flex-col justify-center min-w-0 pr-space-sm"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-primary text-[18px]">verified</span><span class="font-data-xs text-data-xs text-primary tracking-wider uppercase truncate">Auth Admin • प्रात्यक्षिक</span></div><h1 class="font-headline-sm text-headline-sm text-on-surface truncate leading-tight">MittiMandi Ops</h1><p class="font-caption text-caption text-slate truncate leading-none">Overview</p></div><div class="flex items-center gap-space-sm flex-shrink-0"><button class="w-11 h-11 rounded-full flex items-center justify-center text-slate hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[22px]">tune</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-20 pb-24 bg-canvas"><div class="flex flex-col w-full px-margin pb-space-xl space-y-space-lg">
+<!-- Dataset & Access Notice Banner -->
+<section class="w-full bg-sand text-on-surface rounded-xl p-space-md shadow-sm">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-clay-orange text-[20px] flex-shrink-0 mt-0.5" style="font-variation-settings: 'FILL' 1;">info</span>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-data-xs text-data-xs text-clay-orange uppercase tracking-wide">Prototype Dataset</span>
+<span class="w-1 h-1 rounded-full bg-clay-orange"></span>
+<span class="font-caption text-caption text-slate">Demo Mode</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface mt-space-xs leading-snug">
+          Prototype dataset — not live platform statistics.
+        </p>
+<p class="font-caption text-caption text-slate leading-tight">
+          प्रात्यक्षिक माहिती — थेट व्यासपीठ आकडेवारी नाही.
+        </p>
+</div>
+</div>
+</section>
+<!-- Live Pulse & Context Indicator -->
+<section class="w-full bg-surface rounded-xl p-space-md shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="relative flex items-center justify-center w-8 h-8 rounded-full bg-blue-mist">
+<span class="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-clear-blue opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-clear-blue"></span>
+</div>
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md text-on-surface">System Health: Operational</span>
+</div>
+<p class="font-caption text-caption text-slate">Nashik &amp; Pune Hub Nodes Syncing</p>
+</div>
+</div>
+<span class="font-data-xs text-data-xs px-space-sm py-1 rounded bg-blue-mist text-clear-blue font-semibold">ACTUAL</span>
+</section>
+<!-- Operational Metrics Bento Grid -->
+<section class="w-full space-y-space-sm">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Operational Overview</h2>
+<span class="font-caption text-caption text-slate">24h Cycle</span>
+</div>
+<div class="grid grid-cols-2 gap-space-md">
+<!-- Metric 1: Verification Requests -->
+<div class="bg-surface rounded-xl p-space-md shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-clear-blue text-[20px]">how_to_reg</span>
+<span class="font-data-xs text-data-xs px-1.5 py-0.5 rounded bg-blue-mist text-clear-blue">Queue</span>
+</div>
+<div class="mt-space-md">
+<div class="font-display-data text-display-data text-on-surface leading-none">3</div>
+<p class="font-label-md text-label-md text-on-surface mt-1 truncate">Verification</p>
+<p class="font-caption text-caption text-slate truncate">पडताळणी प्रलंबित</p>
+</div>
+</div>
+<!-- Metric 2: Active Offers -->
+<div class="bg-surface rounded-xl p-space-md shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-tertiary-container text-[20px]">local_offer</span>
+<span class="font-data-xs text-data-xs px-1.5 py-0.5 rounded bg-sand text-tertiary">Active</span>
+</div>
+<div class="mt-space-md">
+<div class="font-display-data text-display-data text-on-surface leading-none">1</div>
+<p class="font-label-md text-label-md text-on-surface mt-1 truncate">Active Offers</p>
+<p class="font-caption text-caption text-slate truncate">सक्रिय ऑफर</p>
+</div>
+</div>
+<!-- Metric 3: Open Grievances -->
+<div class="bg-surface rounded-xl p-space-md shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-clay-orange text-[20px]">report_problem</span>
+<span class="font-data-xs text-data-xs px-1.5 py-0.5 rounded bg-error-container text-on-error-container">Urgent</span>
+</div>
+<div class="mt-space-md">
+<div class="font-display-data text-display-data text-on-surface leading-none">1</div>
+<p class="font-label-md text-label-md text-on-surface mt-1 truncate">Open Grievance</p>
+<p class="font-caption text-caption text-slate truncate">प्रलंबित तक्रारी</p>
+</div>
+</div>
+<!-- Metric 4: Transactions Under Review -->
+<div class="bg-surface rounded-xl p-space-md shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-slate text-[20px]">find_in_page</span>
+<span class="font-data-xs text-data-xs px-1.5 py-0.5 rounded bg-surface-variant text-on-surface-variant">Review</span>
+</div>
+<div class="mt-space-md">
+<div class="font-display-data text-display-data text-on-surface leading-none">1</div>
+<p class="font-label-md text-label-md text-on-surface mt-1 truncate">Under Review</p>
+<p class="font-caption text-caption text-slate truncate">तपासणीखालील व्यवहार</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Primary Conversion Target -->
+<section class="w-full">
+<button class="w-full min-h-[56px] rounded-xl bg-clear-blue text-on-primary font-label-lg text-label-lg px-space-md py-space-sm flex items-center justify-between shadow-md active:scale-[0.99] transition-all" id="btn-verification-queue">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[24px]">verified</span>
+<div class="text-left">
+<div class="leading-tight">Go to Verification Queue</div>
+<div class="font-caption text-caption text-blue-mist font-normal">पडताळणी यादीकडे जा</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</section>
+<!-- Quick Actions Section -->
+<section class="w-full space-y-space-sm">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Quick Actions</h2>
+<span class="font-caption text-caption text-slate">व्यवस्थापन कृती</span>
+</div>
+<div class="flex flex-col space-y-space-sm">
+<!-- QA 1: Review Verification -->
+<div class="w-full bg-surface rounded-xl p-space-md shadow-sm flex items-center justify-between min-h-[64px] active:bg-blue-mist transition-colors cursor-pointer" role="button" tabindex="0">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-10 h-10 rounded-lg bg-blue-mist flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-clear-blue text-[22px]">badge</span>
+</div>
+<div class="min-w-0">
+<p class="font-label-md text-label-md text-on-surface truncate">Review Verification</p>
+<p class="font-caption text-caption text-slate truncate">पडताळणी पुनरावलोकन</p>
+</div>
+</div>
+<div class="flex items-center gap-space-xs flex-shrink-0">
+<span class="font-data-xs text-data-xs px-2 py-0.5 rounded bg-blue-mist text-clear-blue font-semibold">3 pending</span>
+<span class="material-symbols-outlined text-slate text-[18px]">chevron_right</span>
+</div>
+</div>
+<!-- QA 2: Monitor Offers -->
+<div class="w-full bg-surface rounded-xl p-space-md shadow-sm flex items-center justify-between min-h-[64px] active:bg-sand transition-colors cursor-pointer" role="button" tabindex="0">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-10 h-10 rounded-lg bg-sand flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-clay-orange text-[22px]">storefront</span>
+</div>
+<div class="min-w-0">
+<p class="font-label-md text-label-md text-on-surface truncate">Monitor Offers</p>
+<p class="font-caption text-caption text-slate truncate">ऑफर निरीक्षण</p>
+</div>
+</div>
+<div class="flex items-center gap-space-xs flex-shrink-0">
+<span class="font-data-xs text-data-xs px-2 py-0.5 rounded bg-sand text-tertiary font-semibold">1 active</span>
+<span class="material-symbols-outlined text-slate text-[18px]">chevron_right</span>
+</div>
+</div>
+<!-- QA 3: Review Grievances -->
+<div class="w-full bg-surface rounded-xl p-space-md shadow-sm flex items-center justify-between min-h-[64px] active:bg-error-container transition-colors cursor-pointer" role="button" tabindex="0">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-10 h-10 rounded-lg bg-error-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-danger text-[22px]">contact_support</span>
+</div>
+<div class="min-w-0">
+<p class="font-label-md text-label-md text-on-surface truncate">Review Grievances</p>
+<p class="font-caption text-caption text-slate truncate">तक्रारी पाहा</p>
+</div>
+</div>
+<div class="flex items-center gap-space-xs flex-shrink-0">
+<span class="font-data-xs text-data-xs px-2 py-0.5 rounded bg-error-container text-on-error-container font-semibold">1 open</span>
+<span class="material-symbols-outlined text-slate text-[18px]">chevron_right</span>
+</div>
+</div>
+<!-- QA 4: Activity Log -->
+<div class="w-full bg-surface rounded-xl p-space-md shadow-sm flex items-center justify-between min-h-[64px] active:bg-surface-variant transition-colors cursor-pointer" role="button" tabindex="0">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-primary text-[22px]">history</span>
+</div>
+<div class="min-w-0">
+<p class="font-label-md text-label-md text-on-surface truncate">Activity Log</p>
+<p class="font-caption text-caption text-slate truncate">ऑडिट व कृती नोंद</p>
+</div>
+</div>
+<div class="flex items-center gap-space-xs flex-shrink-0">
+<span class="font-data-xs text-data-xs text-slate">View audit trail</span>
+<span class="material-symbols-outlined text-slate text-[18px]">chevron_right</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Visual Regional Mandi Snapshot (Rich Photo Element) -->
+<section class="w-full bg-surface rounded-xl overflow-hidden shadow-sm">
+<div class="relative w-full h-32 bg-cover bg-center" data-alt="Vibrant rural agricultural market mandi in Maharashtra India, showing farmers examining fresh red onions and grains stored in burlap sacks under soft daylight, rich rustic colors, clay orange tones, authentic documentary atmosphere." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBJADMtdrnSvfkK35m23F2_vKDVLt3uPtdBnBCN60BDhyoQUaXSeqmFVgz2npTOuNdUl_s-8MPt2JEJxcYcMmhWVGBR_jDnH1i0z5rNVSDILyQU6giW6ZD5_5rwlZxujFPpzNE6BNLRMb7Lz8x8d3YJsJi0hCuNN8s_xzEx-vQgpW5WT588-0BkXZx6icU5tshUTv1vRQ2Y5IMmGwDSUX4HJ5uTN9XFsXpvsTkMWYWYOegrsCNRGpL_')">
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/80 via-on-surface/20 to-transparent"></div>
+<div class="absolute bottom-2 left-3 right-3 flex items-center justify-between text-on-primary">
+<div>
+<span class="font-data-xs text-data-xs text-secondary-fixed uppercase">Nashik Hub Central</span>
+<p class="font-headline-sm text-headline-sm leading-tight text-surface">Weekly Mandi Inflow Active</p>
+</div>
+<span class="font-data-xs text-data-xs px-2 py-0.5 bg-surface/20 backdrop-blur rounded text-surface">2,450 Qtl</span>
+</div>
+</div>
+</section>
+<!-- Recent System Activity Feed -->
+<section class="w-full space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-clear-blue text-[18px]">schedule</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Recent System Activity</h2>
+</div>
+<span class="font-data-xs text-data-xs text-slate">Live Stream</span>
+</div>
+<div class="bg-surface rounded-xl p-space-md shadow-sm space-y-space-md">
+<!-- Item 1 (09:25) -->
+<div class="flex items-start gap-space-md">
+<span class="font-data-xs text-data-xs text-slate pt-0.5 w-12 flex-shrink-0">09:25</span>
+<div class="w-2 h-2 rounded-full bg-clear-blue mt-1.5 flex-shrink-0"></div>
+<div class="flex-1 min-w-0">
+<p class="font-label-md text-label-md text-on-surface leading-tight">Farmer KYC Submitted</p>
+<p class="font-caption text-caption text-slate truncate">Ganesh Shinde • 7/12 Land Record uploaded (Dindori Hub)</p>
+<div class="mt-1 flex items-center gap-space-xs">
+<span class="font-data-xs text-data-xs px-1.5 py-0.5 rounded bg-blue-mist text-clear-blue">KYC_REQ_4091</span>
+<span class="font-caption text-caption text-slate">• Pending Review</span>
+</div>
+</div>
+</div>
+<!-- Subtle line spacer -->
+<div class="w-full h-px bg-blue-mist"></div>
+<!-- Item 2 (09:10) -->
+<div class="flex items-start gap-space-md">
+<span class="font-data-xs text-data-xs text-slate pt-0.5 w-12 flex-shrink-0">09:10</span>
+<div class="w-2 h-2 rounded-full bg-clay-orange mt-1.5 flex-shrink-0"></div>
+<div class="flex-1 min-w-0">
+<p class="font-label-md text-label-md text-on-surface leading-tight">Price Lock Counter Offer Logged</p>
+<p class="font-caption text-caption text-slate truncate">Onion Grade-A • ₹1,820/Qtl (Pimpalgaon APMC benchmark)</p>
+<div class="mt-1 flex items-center gap-space-xs">
+<span class="font-data-xs text-data-xs px-1.5 py-0.5 rounded bg-sand text-tertiary">OFFER_7822</span>
+<span class="font-caption text-caption text-slate">• Buyer Confirmation Awaited</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Demo Feedback Toast / Trigger -->
+<div class="hidden w-full p-space-sm bg-inverse-surface text-inverse-on-surface rounded-lg shadow-md items-center justify-between transition-all" id="demo-feedback-toast">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary-fixed text-[18px]">check_circle</span>
+<span class="font-caption text-caption">Redirecting to Verification Queue...</span>
+</div>
+<span class="font-data-xs text-data-xs text-surface-variant">DEMO READY</span>
+</div>
+</div>
+<script>
+  (function() {
+    const queueBtn = document.getElementById('btn-verification-queue');
+    const toast = document.getElementById('demo-feedback-toast');
+    if (queueBtn && toast) {
+      queueBtn.addEventListener('click', function() {
+        toast.classList.remove('hidden');
+        toast.classList.add('flex');
+        setTimeout(function() {
+          toast.classList.add('hidden');
+          toast.classList.remove('flex');
+        }, 2600);
+      });
+    }
+  })();
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-1px_8px_rgba(0,0,0,0.04)]" data-active-classes="text-clear-blue font-label-md"><div class="flex items-center justify-around h-16 px-space-xs"><a aria-current="page" class="flex flex-col items-center justify-center w-16 h-12 transition-colors text-clear-blue font-label-md" data-path="overview" href="#"><span class="material-symbols-outlined text-[24px]">dashboard</span><span class="font-caption text-caption mt-0.5">Overview</span></a><a class="flex flex-col items-center justify-center w-16 h-12 text-slate hover:text-on-surface transition-colors" data-path="verification" href="#"><span class="material-symbols-outlined text-[24px]">verified_user</span><span class="font-caption text-caption mt-0.5">Verify</span></a><a class="flex flex-col items-center justify-center w-16 h-12 text-slate hover:text-on-surface transition-colors" data-path="monitor" href="#"><span class="material-symbols-outlined text-[24px]">receipt_long</span><span class="font-caption text-caption mt-0.5">Monitor</span></a><a class="flex flex-col items-center justify-center w-16 h-12 text-slate hover:text-on-surface transition-colors" data-path="grievances" href="#"><span class="material-symbols-outlined text-[24px]">support_agent</span><span class="font-caption text-caption mt-0.5">Grievance</span></a></div></nav></body></html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+
+<html lang="mr"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "primary-fixed": "#aeecff", "on-error": "#ffffff", "tertiary": "#7e5700", "primary-container": "#36afcb", "clay-orange": "#A95135", "on-primary-fixed-variant": "#004e5d", "on-tertiary": "#ffffff", "error": "#ba1a1a", "surface": "#FFFFFF", "danger": "#C64F48", "secondary": "#9a4522", "surface-container": "#d6f2ff", "on-secondary": "#ffffff", "on-primary": "#ffffff", "surface-container-high": "#cfedfa", "slate": "#607780", "tertiary-fixed": "#ffdeac", "secondary-container": "#fd9168", "primary": "#00687b", "on-tertiary-fixed": "#281900", "surface-container-highest": "#c9e7f4", "on-primary-container": "#003e4a", "surface-dim": "#c1dfec", "canvas": "#F4FAFC", "secondary-fixed-dim": "#ffb59a", "on-secondary-fixed-variant": "#7c2e0c", "surface-tint": "#00687b", "surface-container-low": "#e4f7ff", "surface-bright": "#f2fbff", "clear-blue": "#147F9E", "on-tertiary-fixed-variant": "#604100", "secondary-fixed": "#ffdbcf", "inverse-on-surface": "#ddf5ff", "outline": "#6d797d", "blue-soft": "#C7E8F0", "mist-text": "#8FA1A7", "error-container": "#ffdad6", "surface-variant": "#c9e7f4", "outline-variant": "#bdc8cd", "line": "#D7E7EB", "on-primary-fixed": "#001f26", "on-background": "#001f28", "on-error-container": "#93000a", "on-surface-variant": "#3d494c", "primary-fixed-dim": "#65d5f2", "on-surface": "#001f28", "on-secondary-fixed": "#380d00", "on-tertiary-container": "#4c3300", "inverse-surface": "#17343e", "on-secondary-container": "#742907", "surface-container-lowest": "#ffffff", "sand": "#FFF3DF", "inverse-primary": "#65d5f2", "tertiary-container": "#cf972f", "tertiary-fixed-dim": "#f9bc51", "background": "#f2fbff", "blue-mist": "#E2F3F8" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "space-md": "12px", "space-xs": "4px", "space-lg": "16px", "gutter": "12px", "space-xl": "24px", "margin": "16px", "space-sm": "8px" }, fontFamily: { "headline-lg-mobile": ["Fraunces"], "body-md": ["Inter"], "body-lg": ["Inter"], "display-data": ["IBM Plex Mono"], "headline-sm": ["Fraunces"], "headline-lg": ["Fraunces"], "headline-md": ["Fraunces"], "label-lg": ["Inter"], "data-md": ["IBM Plex Mono"], "caption": ["Inter"], "data-sm": ["IBM Plex Mono"], "data-lg": ["IBM Plex Mono"], "data-xs": ["IBM Plex Mono"], "label-md": ["Inter"] }, fontSize: { "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "display-data": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.5px", "fontWeight": "500" }], "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "500" }], "headline-lg": ["28px", { "lineHeight": "36px", "fontWeight": "600" }], "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }], "label-lg": ["16px", { "lineHeight": "24px", "fontWeight": "600" }], "data-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }], "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "data-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }], "data-lg": ["22px", { "lineHeight": "28px", "fontWeight": "500" }], "data-xs": ["12px", { "lineHeight": "16px", "fontWeight": "500" }], "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-canvas font-body-md text-body-md text-on-surface min-h-screen flex flex-col antialiased"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-margin flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0 flex-1"><button aria-label="मागे जा / Back" class="w-12 h-12 -ml-2 rounded-full flex items-center justify-center text-on-surface hover:bg-surface-container-low transition-colors" onclick="history.back()" type="button"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><div class="flex flex-col min-w-0 pr-space-xs"><h1 class="font-headline-sm text-headline-sm text-on-surface truncate leading-tight tracking-tight">Agreement &amp; Locks</h1><span class="font-caption text-caption text-slate truncate">करार आणि किंमत-वजन लॉक</span></div></div><div class="flex items-center gap-space-xs shrink-0"><button aria-label="पर्याय / Actions overflow menu" class="w-12 h-12 rounded-full flex items-center justify-center text-on-surface hover:bg-surface-container-low transition-colors" type="button"><span class="material-symbols-outlined text-[24px]">more_vert</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0 ml-1"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 bg-canvas pb-safe"><div class="flex flex-col w-full">
+<!-- Notification & Status Banner -->
+<div class="px-margin pt-space-md">
+<div class="bg-blue-mist text-primary p-space-md rounded-xl shadow-sm flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-semibold tracking-wide">करार मसुदा (Agreement Draft)</span>
+<span class="bg-surface text-primary font-data-xs text-data-xs px-2 py-0.5 rounded-full shadow-sm font-medium">v1.0 (आवृत्ती १.०)</span>
+</div>
+<div class="flex items-center gap-1.5 text-slate">
+<span class="material-symbols-outlined text-[16px]">fingerprint</span>
+<span class="font-data-xs text-data-xs">ID: MM-AGR-DEMO-000001</span>
+</div>
+<div class="mt-1 flex items-start gap-2 bg-sand text-secondary p-space-sm rounded-lg">
+<span class="material-symbols-outlined text-[18px] shrink-0 mt-0.5">lock_open</span>
+<p class="font-caption text-caption leading-relaxed">
+<strong>महत्त्वाचे:</strong> हा मसुदा स्वीकारलेल्या ऑफर <span class="font-data-xs font-semibold">MM-OFR-DEMO-000001</span> वरून तयार झाला आहे. जोपर्यंत दोन्ही बाजू पुष्टी करत नाहीत आणि किंमत-वजन लॉक होत नाही, तोपर्यंत अटी बदलू शकतात.
+        </p>
+</div>
+</div>
+</div>
+<!-- Hero Visual Framing: Harvest Authenticity -->
+<div class="px-margin mt-space-md">
+<div class="relative w-full h-32 rounded-xl overflow-hidden shadow-sm">
+<img class="w-full h-full object-cover" data-alt="High quality fresh Nashik red onions sorted in traditional jute bags under natural morning sunlight in Maharashtra rural farm, cinematic warm tones, rustic clarity, clean agricultural harvest aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmMFqmnsWwYrZ3JgYNwIYCwphtZuJhVMc6EQTWITuXLp3tdCV-qd4-Kx_63FYSABG2ylBfRovOmhKGSsfabClPPWh6QpvU_rJokvIEFVOcQ37Y2Sgrg1QPVYBTIamUO1ZRGitf8Qiys2KUUWcAjmmrv1_POKepIiWY8dmF-YzM_i57nLT225wwjY5vdNmJ6lGtixYZoi0bFod25cWHbnV-TLeRQxBj3Es3nF-yzMv3MFFMTaVmgaOH"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/80 via-on-surface/30 to-transparent flex flex-col justify-end p-space-md">
+<div class="flex items-center justify-between">
+<div class="text-surface">
+<p class="font-caption text-caption text-blue-mist">उत्पादन आणि प्रतवारी</p>
+<h2 class="font-headline-sm text-headline-sm font-semibold">नाशिक लाल कांदा (Grade A Export)</h2>
+</div>
+<span class="bg-surface text-primary font-data-xs text-data-xs px-2.5 py-1 rounded-full shadow-sm">प्रत: ४५-६० मिमी</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 1: Commercial Ledger Specification -->
+<div class="px-margin mt-space-lg flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5 text-on-surface">
+<span class="material-symbols-outlined text-[20px] text-clear-blue">receipt_long</span>
+<h3 class="font-label-lg text-label-lg font-bold">व्यावसायिक हिशोब तपशील (Ledger)</h3>
+</div>
+<span class="bg-sand text-secondary font-data-xs text-data-xs px-2 py-0.5 rounded-full flex items-center gap-1 font-medium">
+<span class="material-symbols-outlined text-[14px]">calculate</span>
+        अंदाजित / Estimate
+      </span>
+</div>
+<!-- Main Metric Bento -->
+<div class="grid grid-cols-2 gap-gutter">
+<!-- Quantity Tile -->
+<div class="bg-surface p-space-md rounded-xl shadow-sm flex flex-col justify-between">
+<div>
+<span class="font-caption text-caption text-slate">अंतिम मान्य वजन</span>
+<p class="font-display-data text-display-data text-on-surface mt-1">४,००० <span class="font-body-md text-body-md text-slate">kg</span></p>
+</div>
+<div class="mt-space-sm pt-space-xs flex flex-col gap-1">
+<span class="font-caption text-caption text-slate leading-tight">मूळ ऑफर: ४,००० kg · बदल नाही</span>
+<div class="inline-flex items-center gap-1 bg-surface-container-low text-primary px-2 py-1 rounded-md text-[11px] font-medium mt-1">
+<span class="material-symbols-outlined text-[13px]">pending</span>
+<span>वजन लॉक नाही</span>
+</div>
+</div>
+</div>
+<!-- Unit Price Tile -->
+<div class="bg-surface p-space-md rounded-xl shadow-sm flex flex-col justify-between">
+<div>
+<span class="font-caption text-caption text-slate">मान्य युनिट दर</span>
+<p class="font-display-data text-display-data text-clear-blue mt-1">₹२९.२० <span class="font-body-md text-body-md text-slate">/kg</span></p>
+</div>
+<div class="mt-space-sm pt-space-xs flex flex-col gap-1">
+<span class="font-caption text-caption text-slate leading-tight">मूळ: ₹३०.०० · काऊंटर #१ मान्य</span>
+<div class="inline-flex items-center gap-1 bg-surface-container-low text-primary px-2 py-1 rounded-md text-[11px] font-medium mt-1">
+<span class="material-symbols-outlined text-[13px]">pending</span>
+<span>किंमत लॉक नाही</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Formula Breakdown Panel -->
+<div class="bg-surface p-space-md rounded-xl shadow-sm flex flex-col gap-space-sm">
+<div class="bg-canvas p-space-sm rounded-lg flex items-center justify-between">
+<span class="font-caption text-caption text-slate">एकूण करार मूल्य (Gross Value)</span>
+<span class="font-data-md text-data-md text-on-surface font-semibold">₹१,१६,८००</span>
+</div>
+<div class="flex items-center justify-center py-1">
+<span class="font-data-xs text-data-xs text-slate">४,००० kg × ₹२९.२० / kg = ₹१,१६,८००</span>
+</div>
+<!-- Cost Responsibilities (Recessed) -->
+<div class="bg-blue-mist/50 p-space-sm rounded-lg flex flex-col gap-2">
+<div class="flex items-center justify-between text-caption font-caption text-slate">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">local_shipping</span>
+            स्थानिक वाहतूक (Buyer Collection)
+          </span>
+<span class="font-data-sm text-data-sm text-secondary font-medium">−₹३,२००</span>
+</div>
+<div class="flex items-center justify-between text-caption font-caption text-slate">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">scale</span>
+            मंडी सेस व वजन पावती खर्च
+          </span>
+<span class="font-data-sm text-data-sm text-secondary font-medium">−₹१,१६८</span>
+</div>
+</div>
+<!-- Net Realization Highlight -->
+<div class="bg-sand p-space-md rounded-xl flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-secondary font-semibold">अंदाजित निव्वळ रक्कम (Net Realization)</span>
+<span class="font-caption text-caption text-slate">कपातीनंतर शेतकऱ्याला मिळणारा प्रत्यक्ष परतावा</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-headline-md text-headline-md text-clay-orange font-bold">≈ ₹१,१२,४३२</span>
+<span class="font-data-xs text-data-xs text-secondary font-medium">≈ ₹२८.११ / kg</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 2: Commercial Clauses & Handover Details -->
+<div class="px-margin mt-space-lg flex flex-col gap-space-sm">
+<div class="flex items-center gap-1.5 text-on-surface">
+<span class="material-symbols-outlined text-[20px] text-clear-blue">handshake</span>
+<h3 class="font-label-lg text-label-lg font-bold">व्यापारी व ताबा अटी (Clauses &amp; Handover)</h3>
+</div>
+<div class="bg-surface p-space-md rounded-xl shadow-sm flex flex-col gap-space-md">
+<!-- Buyer Profile Callout -->
+<div class="flex items-start gap-space-sm">
+<div class="w-12 h-12 rounded-xl bg-blue-soft flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-clear-blue text-[24px]">storefront</span>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<div class="flex items-center gap-2">
+<h4 class="font-label-lg text-label-lg font-semibold truncate text-on-surface">सह्याद्री फार्म्स ॲग्रो</h4>
+<span class="bg-blue-mist text-clear-blue font-data-xs text-data-xs px-2 py-0.5 rounded-full font-medium">Verified Partner</span>
+</div>
+<span class="font-caption text-caption text-slate">Sahyadri Agro Traders Ltd. · Nashik APMC</span>
+</div>
+</div>
+<!-- Schedule Details Grid -->
+<div class="bg-canvas p-space-sm rounded-lg flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-clear-blue text-[18px]">event</span>
+<span class="font-caption text-caption text-slate">ताबा वेळ:</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">१९ ऑक्टोबर २०२६, सकाळी ०८:३०</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-clear-blue text-[18px]">warehouse</span>
+<span class="font-caption text-caption text-slate">पद्धत:</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Farm Gate Pickup (खेतखळ्यातून थेट उचल)</span>
+</div>
+</div>
+<!-- Terms Clauses List -->
+<div class="flex flex-col gap-2">
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-clear-blue text-[18px] shrink-0 mt-0.5">verified</span>
+<p class="font-body-md text-body-md text-on-surface">
+<strong>गुणवत्ता निकष:</strong> Grade A Export Quality, Nashik Red, 45-60mm, कमाल ५% डाग/दोष सहनशीलता (max 5% defect tolerance).
+          </p>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-clear-blue text-[18px] shrink-0 mt-0.5">payments</span>
+<p class="font-body-md text-body-md text-on-surface">
+<strong>पेमेंट नियम:</strong> प्रमाणित धर्मकाटा वजन पावती (Weighbridge slip) मिळाल्यानंतर २ तासांत बँक ट्रान्सफर / UPI द्वारे संपूर्ण रक्कम.
+          </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 3: Change Before Lock Rules -->
+<div class="px-margin mt-space-lg">
+<div class="bg-sand p-space-md rounded-xl shadow-sm flex items-start gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary text-[22px]">update</span>
+</div>
+<div class="flex flex-col gap-1">
+<h4 class="font-label-lg text-label-lg font-bold text-secondary">बदल नियम (Change Before Lock)</h4>
+<p class="font-body-md text-body-md text-secondary leading-snug">
+          दोन्हीपैकी कोणत्याही बाजूने दर किंवा वजनात बदल सुचवल्यास नवा करार मसुदा (v2.0) तयार होईल. एकदा 'Price &amp; Quantity Lock' झाल्यानंतर नेहमीच्या प्रक्रियेतून बदल करता येणार नाहीत.
+        </p>
+</div>
+</div>
+</div>
+<!-- Section 4: Party Confirmation Checklist -->
+<div class="px-margin mt-space-lg flex flex-col gap-space-sm">
+<h3 class="font-label-lg text-label-lg font-bold text-on-surface">करार पुष्टी सद्यस्थिती (Status)</h3>
+<div class="bg-surface p-space-md rounded-xl shadow-sm flex flex-col gap-space-sm">
+<!-- Farmer Checklist Item -->
+<div class="flex items-center justify-between p-space-sm bg-canvas rounded-lg">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-blue-soft flex items-center justify-center">
+<span class="material-symbols-outlined text-clear-blue text-[18px]">person</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-semibold text-on-surface">शेतकरी पुष्टी (आपण)</span>
+<span class="font-caption text-caption text-slate">Farmer Confirmation</span>
+</div>
+</div>
+<span class="bg-sand text-secondary font-data-xs text-data-xs px-2.5 py-1 rounded-full font-medium flex items-center gap-1" id="farmer-status-pill">
+<span class="material-symbols-outlined text-[14px]">hourglass_empty</span>
+          प्रलंबित (Pending)
+        </span>
+</div>
+<!-- Buyer Checklist Item -->
+<div class="flex items-center justify-between p-space-sm bg-canvas rounded-lg">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[18px]">apartment</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-semibold text-on-surface">खरेदीदार पुष्टी</span>
+<span class="font-caption text-caption text-slate">Buyer: सह्याद्री फार्म्स</span>
+</div>
+</div>
+<span class="bg-sand text-secondary font-data-xs text-data-xs px-2.5 py-1 rounded-full font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">hourglass_empty</span>
+          प्रलंबित (Pending)
+        </span>
+</div>
+</div>
+</div>
+<!-- Interactive Trust Pledge Checkbox -->
+<div class="px-margin mt-space-md">
+<label class="flex items-start gap-space-sm cursor-pointer select-none bg-surface p-space-md rounded-xl shadow-sm">
+<input class="mt-1 w-5 h-5 rounded text-clear-blue focus:ring-0 cursor-pointer" id="terms-agree" onchange="toggleConfirmButton()" type="checkbox"/>
+<span class="font-caption text-caption text-slate leading-relaxed">
+        मी वरील सर्व व्यावसायिक अटी, गुणवत्ता निकष (Nashik Red Export), हिशोब आणि पेमेंट नियम पूर्णपणे वाचून मान्य केले आहेत. पुष्टीनंतर हा मसुदा लॉकिंग प्रक्रियेसाठी पुढे पाठवला जाईल.
+      </span>
+</label>
+</div>
+<!-- Action CTAs -->
+<div class="px-margin mt-space-lg mb-space-xl flex flex-col gap-space-sm">
+<!-- Primary CTA Button -->
+<button class="w-full h-14 bg-clear-blue text-on-primary font-label-lg text-label-lg rounded-xl flex items-center justify-center gap-2 shadow-sm transition-all opacity-50 cursor-not-allowed" disabled="" id="btn-confirm-draft" onclick="handleDraftConfirmation()" type="button">
+<span>शेतकरी करार पुष्टी करा (Farmer: Confirm Terms)</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+<!-- Secondary CTA Button -->
+<button class="w-full h-14 bg-surface-container-low text-clear-blue font-label-lg text-label-lg rounded-xl flex items-center justify-center gap-2 shadow-sm active:bg-blue-mist transition-colors" onclick="handleRequestChange()" type="button">
+<span class="material-symbols-outlined text-[20px]">edit_note</span>
+<span>बदल सुचवा (Request Change Before Lock)</span>
+</button>
+<!-- Tertiary Cancellation Button -->
+<button class="w-full h-12 bg-transparent text-danger font-label-md text-label-md rounded-xl flex items-center justify-center gap-1.5 hover:bg-error-container/20 transition-colors" onclick="handleCancelDraft()" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+<span>करार मसुदा रद्द करा (Cancel Draft)</span>
+</button>
+</div>
+<!-- Inline Micro-interaction Script -->
+<script>
+    function toggleConfirmButton() {
+      const checkbox = document.getElementById('terms-agree');
+      const btn = document.getElementById('btn-confirm-draft');
+      if (checkbox.checked) {
+        btn.removeAttribute('disabled');
+        btn.classList.remove('opacity-50', 'cursor-not-allowed');
+        btn.classList.add('active:scale-[0.99]');
+      } else {
+        btn.setAttribute('disabled', 'true');
+        btn.classList.add('opacity-50', 'cursor-not-allowed');
+        btn.classList.remove('active:scale-[0.99]');
+      }
+    }
+
+    function handleDraftConfirmation() {
+      const statusPill = document.getElementById('farmer-status-pill');
+      const btn = document.getElementById('btn-confirm-draft');
+      
+      btn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[20px]">progress_activity</span> <span>नोंदणी होत आहे...</span>';
+      
+      setTimeout(() => {
+        statusPill.className = 'bg-blue-mist text-primary font-data-xs text-data-xs px-2.5 py-1 rounded-full font-medium flex items-center gap-1';
+        statusPill.innerHTML = '<span class="material-symbols-outlined text-[14px]">check_circle</span> पुष्टी झाली (Confirmed)';
+        
+        btn.innerHTML = '<span class="material-symbols-outlined text-[20px]">task_alt</span> <span>पुष्टी नोंदवली गेली!</span>';
+        btn.classList.replace('bg-clear-blue', 'bg-primary-container');
+        
+        const banner = document.createElement('div');
+        banner.className = 'fixed bottom-4 left-4 right-4 bg-primary text-on-primary p-space-md rounded-xl shadow-lg flex items-center justify-between z-50 animate-bounce';
+        banner.innerHTML = '<div class="flex items-center gap-2"><span class="material-symbols-outlined">lock_clock</span><span class="font-body-md text-body-md">किंमत व वजन लॉक प्रक्रियेकडे जात आहे...</span></div>';
+        document.body.appendChild(banner);
+      }, 700);
+    }
+
+    function handleRequestChange() {
+      alert("बदल विनंती: आवृत्ती २.० (Draft v2.0) तयार करण्यासाठी नवीन वाटाघाटी स्क्रीन उघडेल.");
+    }
+
+    function handleCancelDraft() {
+      if (confirm("तुम्हाला खात्री आहे की हा करार मसुदा (MM-AGR-DEMO-000001) रद्द करायचा आहे?")) {
+        history.back();
+      }
+    }
+  </script>
+</div></main></body></html>

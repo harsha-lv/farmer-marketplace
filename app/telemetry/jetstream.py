@@ -1,10 +1,10 @@
 import asyncio
-from dataclasses import dataclass, field
-from datetime import UTC, datetime, timedelta
 import json
 import logging
-from typing import Any
 import uuid
+from dataclasses import dataclass, field
+from datetime import UTC, datetime
+from typing import Any
 
 from app.telemetry.schemas import FpoStreamInfo
 
@@ -21,6 +21,8 @@ class JetStreamStreamConfig:
     max_age_seconds: int = 604_800
     duplicate_window_seconds: int = 120
     created_at: datetime = field(default_factory=lambda: datetime.now(UTC))
+    retention: str = "limits"
+    max_deliver: int = 5
 
 
 @dataclass
@@ -35,12 +37,45 @@ class JetStreamMessage:
     acked: bool = False
     nacked: bool = False
     terminated: bool = False
+    delivery_count: int = 0
+    max_deliver: int = 5
+    engine: Any = None
 
     def ack(self) -> None:
         self.acked = True
 
     def nak(self) -> None:
         self.nacked = True
+        self.delivery_count += 1
+        if self.delivery_count >= self.max_deliver:
+            self.terminated = True
+            # Route poison pill to DLQ stream if DLQ stream is provisioned
+            if self.engine is not None:
+                dlq_stream = f"{self.stream}_DLQ"
+                if dlq_stream in self.engine._streams:
+                    clean_subject = self.subject
+                    if ".dlq." not in clean_subject:
+                        parts = clean_subject.split(".")
+                        if len(parts) >= 2:
+                            dlq_subj = f"{parts[0]}.{parts[1]}.dlq.{'.'.join(parts[2:]) if len(parts) > 2 else 'messages'}"
+                        else:
+                            dlq_subj = f"{clean_subject}.dlq"
+                    else:
+                        dlq_subj = clean_subject
+
+                    asyncio.create_task(
+                        self.engine.publish(
+                            subject=dlq_subj,
+                            payload=self.payload,
+                            headers={
+                                **self.headers,
+                                "x-dlq-reason": "max_deliver_exceeded",
+                                "x-original-stream": self.stream,
+                                "x-delivery-count": str(self.delivery_count),
+                            },
+                            msg_id=f"dlq_{self.msg_id}",
+                        )
+                    )
 
     def term(self) -> None:
         self.terminated = True
@@ -53,22 +88,42 @@ class JetStreamConsumer:
         stream_name: str,
         subject_filter: str,
         engine: "NatsJetStreamEngine",
+        ack_wait_seconds: float = 30.0,
+        max_deliver: int = 5,
+        max_ack_pending: int = 100,
+        flow_control: bool = True,
+        inactive_threshold_seconds: float = 86400.0,
     ) -> None:
         self.durable_name = durable_name
         self.stream_name = stream_name
         self.subject_filter = subject_filter
         self.engine = engine
+        self.ack_wait_seconds = ack_wait_seconds
+        self.max_deliver = max_deliver
+        self.max_ack_pending = max_ack_pending
+        self.flow_control = flow_control
+        self.inactive_threshold_seconds = inactive_threshold_seconds
         self.cursor_seq = 0
 
     def fetch(self, batch_size: int = 10) -> list[JetStreamMessage]:
+        effective_batch = min(batch_size, self.max_ack_pending)
         messages = self.engine.get_messages_for_consumer(
             stream_name=self.stream_name,
             subject_filter=self.subject_filter,
             start_seq=self.cursor_seq + 1,
-            limit=batch_size,
+            limit=effective_batch,
         )
+        for msg in messages:
+            msg.engine = self.engine
+            msg.max_deliver = self.max_deliver
         if messages:
             self.cursor_seq = messages[-1].seq
+        try:
+            from app.telemetry.metrics import track_nats_ack_pending
+            pending = sum(1 for m in self.engine._messages.get(self.stream_name, []) if not m.acked and not m.terminated)
+            track_nats_ack_pending(stream=self.stream_name, consumer=self.durable_name, pending=pending)
+        except Exception:
+            pass
         return messages
 
 
@@ -129,14 +184,27 @@ class NatsJetStreamEngine:
             return config
 
     def _match_stream_for_subject(self, subject: str) -> JetStreamStreamConfig | None:
-        # Subject pattern fpo.<fpo_id>.<subtopic>
         parts = subject.split(".")
+        # 1. Multi-tenant subject pattern: agri.<tenant_id>.<subtopic>
+        if len(parts) >= 2 and parts[0] == "agri":
+            tenant_id = parts[1]
+            base_name = f"AGRI_{tenant_id.upper().replace('-', '_').replace('.', '_')}"
+            # Check if this is targeting the DLQ stream
+            if len(parts) >= 3 and parts[2] == "dlq":
+                dlq_name = f"{base_name}_DLQ"
+                if dlq_name in self._streams:
+                    return self._streams[dlq_name]
+            if base_name in self._streams:
+                return self._streams[base_name]
+
+        # 2. Legacy Subject pattern fpo.<fpo_id>.<subtopic>
         if len(parts) >= 2 and parts[0] == "fpo":
             fpo_id = parts[1]
             stream_name = self._normalize_stream_name(fpo_id)
             if stream_name in self._streams:
                 return self._streams[stream_name]
-        # Fallback check registered subjects
+
+        # 3. Fallback check registered subjects with wildcard matching
         for config in self._streams.values():
             for s in config.subjects:
                 prefix = s.rstrip(".>")

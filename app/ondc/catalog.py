@@ -77,9 +77,18 @@ def build_catalog(lots: list, bpp_name: str) -> dict:
 
 def response_context(request_context: dict, *, action: str, bpp_id: str, bpp_uri: str) -> dict:
     return {
+        "@context": request_context.get(
+            "@context",
+            {
+                "@vocab": "https://becknprotocol.io/schema/v2",
+                "ondc": "https://ondc.org/schema/v2",
+                "agr": "https://ondc.org/schema/agr/v2",
+            },
+        ),
         "domain": request_context.get("domain", "ONDC:AGR10"),
         "action": action,
         "version": request_context.get("version", "2.0.0"),
+        "core_version": request_context.get("core_version", "2.0.0"),
         "bap_id": request_context.get("bap_id", ""),
         "bap_uri": request_context.get("bap_uri", ""),
         "bpp_id": bpp_id,

@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: agri-platform
+  labels:
+    app.kubernetes.io/name: agri-platform
+    app.kubernetes.io/part-of: farmer-marketplace
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: agri-platform-sa
+  namespace: agri-platform

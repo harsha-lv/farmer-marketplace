@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"secondary-container":"#fd9168","error-container":"#ffdad6","danger":"#C64F48","blue-mist":"#E2F3F8","surface-variant":"#c9e7f4","primary-fixed":"#aeecff","on-surface":"#001f28","mist-text":"#8FA1A7","surface-container-lowest":"#ffffff","on-tertiary-container":"#4c3300","on-secondary-fixed-variant":"#7c2e0c","surface-container":"#d6f2ff","secondary-fixed-dim":"#ffb59a","inverse-primary":"#65d5f2","on-tertiary-fixed-variant":"#604100","inverse-surface":"#17343e","on-tertiary-fixed":"#281900","on-secondary":"#ffffff","sand":"#FFF3DF","background":"#f2fbff","outline-variant":"#bdc8cd","inverse-on-surface":"#ddf5ff","slate":"#607780","on-error":"#ffffff","tertiary-container":"#cf972f","on-primary-fixed":"#001f26","surface":"#FFFFFF","on-tertiary":"#ffffff","canvas":"#F4FAFC","clay-orange":"#A95135","secondary-fixed":"#ffdbcf","outline":"#6d797d","on-primary-fixed-variant":"#004e5d","on-secondary-fixed":"#380d00","surface-tint":"#00687b","surface-container-high":"#cfedfa","clear-blue":"#147F9E","primary-container":"#36afcb","surface-dim":"#c1dfec","tertiary":"#7e5700","tertiary-fixed-dim":"#f9bc51","primary-fixed-dim":"#65d5f2","surface-container-highest":"#c9e7f4","primary":"#00687b","on-primary-container":"#003e4a","surface-bright":"#f2fbff","surface-container-low":"#e4f7ff","on-background":"#001f28","on-error-container":"#93000a","error":"#ba1a1a","on-secondary-container":"#742907","on-surface-variant":"#3d494c","blue-soft":"#C7E8F0","tertiary-fixed":"#ffdeac","on-primary":"#ffffff","line":"#D7E7EB","secondary":"#9a4522"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"gutter":"12px","margin":"16px","space-md":"12px","space-sm":"8px","space-xs":"4px","space-xl":"24px","space-lg":"16px"},fontFamily:{"data-lg":["IBM Plex Mono"],"caption":["Inter"],"headline-lg-mobile":["Fraunces"],"body-md":["Inter"],"headline-sm":["Fraunces"],"label-md":["Inter"],"headline-md":["Fraunces"],"headline-lg":["Fraunces"],"data-sm":["IBM Plex Mono"],"body-lg":["Inter"],"data-md":["IBM Plex Mono"],"data-xs":["IBM Plex Mono"],"label-lg":["Inter"],"display-data":["IBM Plex Mono"]},fontSize:{"data-lg":["22px",{lineHeight:"28px",fontWeight:"500"}],"caption":["12px",{lineHeight:"16px",fontWeight:"400"}],"headline-lg-mobile":["24px",{lineHeight:"32px",fontWeight:"600"}],"body-md":["14px",{lineHeight:"20px",fontWeight:"400"}],"headline-sm":["18px",{lineHeight:"24px",fontWeight:"500"}],"label-md":["14px",{lineHeight:"20px",fontWeight:"500"}],"headline-md":["20px",{lineHeight:"28px",fontWeight:"600"}],"headline-lg":["28px",{lineHeight:"36px",fontWeight:"600"}],"data-sm":["14px",{lineHeight:"20px",fontWeight:"500"}],"body-lg":["16px",{lineHeight:"24px",fontWeight:"400"}],"data-md":["16px",{lineHeight:"24px",fontWeight:"500"}],"data-xs":["12px",{lineHeight:"16px",fontWeight:"500"}],"label-lg":["16px",{lineHeight:"24px",fontWeight:"600"}],"display-data":["32px",{lineHeight:"40px",letterSpacing:"-0.5px",fontWeight:"500"}]}}}}</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-canvas text-on-surface font-body-md flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 px-margin flex items-center justify-between"><div class="flex flex-col justify-center min-w-0 pr-space-sm"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-primary text-[18px]">verified</span><span class="font-data-xs text-data-xs text-primary tracking-wider uppercase truncate">Auth Admin • प्रात्यक्षिक</span></div><h1 class="font-headline-sm text-headline-sm text-on-surface truncate leading-tight">MittiMandi Ops</h1><p class="font-caption text-caption text-slate truncate leading-none">Verification</p></div><div class="flex items-center gap-space-sm flex-shrink-0"><button class="w-11 h-11 rounded-full flex items-center justify-center text-slate hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[22px]">tune</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-20 pb-24 bg-canvas"><div class="flex flex-col w-full px-margin pb-space-xl gap-space-lg">
+<!-- Regulatory / Prototype Disclaimer Banner -->
+<section class="bg-sand text-on-surface rounded-xl p-space-lg flex items-start gap-space-md shadow-sm">
+<div class="w-10 h-10 rounded-full bg-surface flex items-center justify-center flex-shrink-0 text-clay-orange shadow-sm">
+<span class="material-symbols-outlined text-[22px]">gavel</span>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<div class="flex items-center gap-space-xs">
+<span class="font-data-xs text-data-xs text-clay-orange uppercase tracking-wider font-semibold">Simulated Environment • प्रात्यक्षिक</span>
+</div>
+<p class="font-caption text-caption text-on-surface-variant mt-0.5 leading-relaxed">
+        These are prototype records. No government registry, Aadhaar, PAN, GSTIN, or banking databases are queried. (हे प्रात्यक्षिक रेकॉर्ड्स आहेत. कोणत्याही शासकीय डेटाबेसची तपासणी केलेली नाही.)
+      </p>
+</div>
+</section>
+<!-- Section Header & Tally -->
+<header class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface">
+        Pending Participant Profile Review
+      </span>
+<span class="bg-blue-mist text-clear-blue px-2.5 py-1 rounded-full font-data-xs text-data-xs font-semibold">
+        3 Active
+      </span>
+</div>
+<p class="font-body-md text-body-md text-slate">
+      सहभागी पडताळणी रांग • Verification Queue
+    </p>
+</header>
+<!-- Filter Chips (Horizontally scrollable, 48dp touch minimum) -->
+<div class="flex items-center gap-space-sm overflow-x-auto no-scrollbar py-0.5" id="filter-container">
+<button class="filter-chip h-12 px-space-lg rounded-full bg-clear-blue text-on-primary font-label-md text-label-md flex items-center justify-center gap-space-xs flex-shrink-0 shadow-sm transition-all duration-200" data-filter="all" type="button">
+<span>All (सर्व)</span>
+<span class="bg-on-primary/20 px-1.5 py-0.5 rounded-full font-data-xs text-data-xs">3</span>
+</button>
+<button class="filter-chip h-12 px-space-lg rounded-full bg-surface text-slate font-label-md text-label-md flex items-center justify-center gap-space-xs flex-shrink-0 shadow-sm hover:text-on-surface transition-all duration-200" data-filter="buyer" type="button">
+<span>Buyers (खरेदीदार)</span>
+<span class="bg-blue-mist text-clear-blue px-1.5 py-0.5 rounded-full font-data-xs text-data-xs">1</span>
+</button>
+<button class="filter-chip h-12 px-space-lg rounded-full bg-surface text-slate font-label-md text-label-md flex items-center justify-center gap-space-xs flex-shrink-0 shadow-sm hover:text-on-surface transition-all duration-200" data-filter="fpo" type="button">
+<span>FPOs (संस्था)</span>
+<span class="bg-blue-mist text-clear-blue px-1.5 py-0.5 rounded-full font-data-xs text-data-xs">1</span>
+</button>
+<button class="filter-chip h-12 px-space-lg rounded-full bg-surface text-slate font-label-md text-label-md flex items-center justify-center gap-space-xs flex-shrink-0 shadow-sm hover:text-on-surface transition-all duration-200" data-filter="farmer" type="button">
+<span>Farmers (शेतकरी)</span>
+<span class="bg-blue-mist text-clear-blue px-1.5 py-0.5 rounded-full font-data-xs text-data-xs">1</span>
+</button>
+</div>
+<!-- Queue Cards List -->
+<div class="flex flex-col gap-space-md" id="queue-list">
+<!-- Card 1: Buyer (Sahyadri Agro Traders) -->
+<article class="queue-card bg-surface rounded-xl p-space-lg flex flex-col gap-space-md shadow-sm transition-all" data-category="buyer">
+<div class="flex items-start gap-space-md">
+<div class="w-12 h-12 rounded-xl overflow-hidden flex-shrink-0 bg-blue-mist relative">
+<img class="w-full h-full object-cover" data-alt="A candid profile photo of an Indian wholesale agricultural commodity merchant at Lasalgaon onion APMC market, soft outdoor daylight with terracotta market sheds blurred softly in the background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD35dlWaq2OYjxigbhg68udx5OlL35x7gwe4S8vvdlEh10ErAx41S-JlG_-6b0Puw_6edHCuN2QfieXms9nRi9h7Qv3UrX3IXz52XUeHqBonOmn-Wja2dt92Upzh8UKcErADTmHOSx2TSYlH4bxU7jvLWANM9njYKk1hD5L9flKzagrwjItojyZTBPqPpLFlqbi7uYf8p7xIXg47gANW9dy1adZM_gp6knB1WbEqTXB6uCIM6MxrEYF"/>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<div class="flex items-center justify-between gap-space-xs">
+<h2 class="font-label-lg text-label-lg text-on-surface truncate">Sahyadri Agro Traders</h2>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-sand text-clay-orange font-data-xs text-data-xs font-medium flex-shrink-0">
+<span class="material-symbols-outlined text-[14px]">hourglass_top</span>
+<span>Pending</span>
+</span>
+</div>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="bg-blue-mist text-clear-blue px-1.5 py-0.2 rounded font-data-xs text-data-xs">Buyer • खरेदीदार</span>
+<span class="text-slate font-caption text-caption truncate flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">pin_drop</span> Lasalgaon / Nashik
+            </span>
+</div>
+</div>
+</div>
+<!-- Detail callout block -->
+<div class="bg-canvas rounded-lg p-space-md flex flex-col gap-space-xs">
+<span class="font-data-xs text-data-xs text-slate uppercase tracking-wider">Submission Payload (नोंद तपशील)</span>
+<p class="font-body-md text-body-md text-on-surface font-medium flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-clear-blue">storefront</span>
+<span class="truncate">Business Identity &amp; Profile • Mandi Yard Shed 4</span>
+</p>
+<div class="flex items-center justify-between mt-1 pt-1 font-caption text-caption text-mist-text">
+<span class="font-data-xs text-data-xs">ID: MKT-LSG-0841</span>
+<span>Recvd: 14 mins ago</span>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex items-center gap-space-sm pt-0.5">
+<button class="h-12 w-12 rounded-lg bg-canvas text-slate flex items-center justify-center flex-shrink-0 hover:text-danger hover:bg-error-container/30 transition-colors" title="Flag or Reject" type="button">
+<span class="material-symbols-outlined text-[20px]">flag</span>
+</button>
+<button class="review-btn h-12 flex-1 rounded-lg bg-clear-blue text-on-primary font-label-md text-label-md flex items-center justify-center gap-space-xs shadow-sm hover:bg-primary transition-colors" type="button">
+<span>Review (तपासा)</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Card 2: FPO (Nashik Farmer Producer Organization) -->
+<article class="queue-card bg-surface rounded-xl p-space-lg flex flex-col gap-space-md shadow-sm transition-all" data-category="fpo">
+<div class="flex items-start gap-space-md">
+<div class="w-12 h-12 rounded-xl overflow-hidden flex-shrink-0 bg-blue-mist relative">
+<img class="w-full h-full object-cover" data-alt="A group portrait of rural Indian farmer cooperative committee leaders gathered outside an agricultural office in Maharashtra, natural afternoon sunlight with subtle earth tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtT3J4DOHILBLI1MDKpRdAYpRTM5jq_tkS_sdbd4G3nWfZ1aw9xwPB1nbH1025fqwU1M3rmqR1szp4U9DNlvOxVj_QJIW9m1QtlKyw71UhkZDgsISHcRhzL-O9TuGVKzKBL8vEvCu6S0NWP7MEP-8E7TpTJpFtS2jyXGErtFKGvYYCO9Z3KYHmT8oGUMm3xgm6yT1jfK7GgXdiuArUU7l3eeT6cHE7xgGNUv58TcjDha-kFBOpEb4y"/>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<div class="flex items-center justify-between gap-space-xs">
+<h2 class="font-label-lg text-label-lg text-on-surface truncate">Nashik Farmer Producer Org</h2>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-sand text-clay-orange font-data-xs text-data-xs font-medium flex-shrink-0">
+<span class="material-symbols-outlined text-[14px]">hourglass_top</span>
+<span>Pending</span>
+</span>
+</div>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="bg-blue-mist text-clear-blue px-1.5 py-0.2 rounded font-data-xs text-data-xs">FPO • शेतकरी संस्था</span>
+<span class="text-slate font-caption text-caption truncate flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">pin_drop</span> Niphad / Nashik
+            </span>
+</div>
+</div>
+</div>
+<!-- Detail callout block -->
+<div class="bg-canvas rounded-lg p-space-md flex flex-col gap-space-xs">
+<span class="font-data-xs text-data-xs text-slate uppercase tracking-wider">Submission Payload (नोंद तपशील)</span>
+<p class="font-body-md text-body-md text-on-surface font-medium flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-clear-blue">groups</span>
+<span class="truncate">FPO Board &amp; Member Pool (48 Farmers)</span>
+</p>
+<div class="flex items-center justify-between mt-1 pt-1 font-caption text-caption text-mist-text">
+<span class="font-data-xs text-data-xs">ID: FPO-NPH-9920</span>
+<span>Recvd: 1 hr ago</span>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex items-center gap-space-sm pt-0.5">
+<button class="h-12 w-12 rounded-lg bg-canvas text-slate flex items-center justify-center flex-shrink-0 hover:text-danger hover:bg-error-container/30 transition-colors" title="Flag or Reject" type="button">
+<span class="material-symbols-outlined text-[20px]">flag</span>
+</button>
+<button class="review-btn h-12 flex-1 rounded-lg bg-clear-blue text-on-primary font-label-md text-label-md flex items-center justify-center gap-space-xs shadow-sm hover:bg-primary transition-colors" type="button">
+<span>Review (तपासा)</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Card 3: Farmer (Ramesh Patel) -->
+<article class="queue-card bg-surface rounded-xl p-space-lg flex flex-col gap-space-md shadow-sm transition-all" data-category="farmer">
+<div class="flex items-start gap-space-md">
+<div class="w-12 h-12 rounded-xl overflow-hidden flex-shrink-0 bg-blue-mist relative">
+<img class="w-full h-full object-cover" data-alt="Close up profile portrait of a confident middle-aged Indian farmer in Dindori, wearing a light cotton kurta, warm golden hour ambient lighting, backdrop of tilled agricultural soil." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6yzD_XL4ZOd8yrzI1kF3FQEqIcVeJ4ed8dJa-AuDrU0ifSowKSdWMgrloJojbxk_3nZRfG4-_P6vYu2bCYIjNljDjp7kjyxFAIBBVA27xI8Z4UI5T8VYd4-B9UUQqY6If4YxKyxGLYQF1TNtUudgq4JrZU2JrxDKbqtl80GmVBPMG5WnXXJT2FVcZPdoOSzyQTEOuSeFFvC7fVs-d4VM0J8zQ7r88feRbF8p6dmjKKPWWCu-frpaB"/>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<div class="flex items-center justify-between gap-space-xs">
+<h2 class="font-label-lg text-label-lg text-on-surface truncate">Ramesh Patel</h2>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-sand text-clay-orange font-data-xs text-data-xs font-medium flex-shrink-0">
+<span class="material-symbols-outlined text-[14px]">hourglass_top</span>
+<span>Pending</span>
+</span>
+</div>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="bg-blue-mist text-clear-blue px-1.5 py-0.2 rounded font-data-xs text-data-xs">Farmer • शेतकरी</span>
+<span class="text-slate font-caption text-caption truncate flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">pin_drop</span> Dindori, Nashik
+            </span>
+</div>
+</div>
+</div>
+<!-- Detail callout block -->
+<div class="bg-canvas rounded-lg p-space-md flex flex-col gap-space-xs">
+<span class="font-data-xs text-data-xs text-slate uppercase tracking-wider">Submission Payload (नोंद तपशील)</span>
+<p class="font-body-md text-body-md text-on-surface font-medium flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-clear-blue">agriculture</span>
+<span class="truncate">Farm Plot &amp; Land Declaration (6.5 acres)</span>
+</p>
+<div class="flex items-center justify-between mt-1 pt-1 font-caption text-caption text-mist-text">
+<span class="font-data-xs text-data-xs">ID: FAR-DND-3412</span>
+<span>Recvd: 3 hrs ago</span>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex items-center gap-space-sm pt-0.5">
+<button class="h-12 w-12 rounded-lg bg-canvas text-slate flex items-center justify-center flex-shrink-0 hover:text-danger hover:bg-error-container/30 transition-colors" title="Flag or Reject" type="button">
+<span class="material-symbols-outlined text-[20px]">flag</span>
+</button>
+<button class="review-btn h-12 flex-1 rounded-lg bg-clear-blue text-on-primary font-label-md text-label-md flex items-center justify-center gap-space-xs shadow-sm hover:bg-primary transition-colors" type="button">
+<span>Review (तपासा)</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</article>
+</div>
+<!-- Micro-interaction Quick Modal for Review Action -->
+<div class="fixed inset-0 z-50 flex items-end justify-center bg-inverse-surface/40 backdrop-blur-xs transition-opacity duration-200 hidden opacity-0" id="review-modal">
+<div class="bg-surface w-full max-w-[600px] rounded-t-2xl p-space-lg flex flex-col gap-space-md shadow-xl transition-transform duration-200 translate-y-full" id="review-sheet">
+<div class="w-12 h-1.5 bg-line rounded-full mx-auto"></div>
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-data-xs text-data-xs text-clear-blue uppercase tracking-wider font-semibold">Simulated Verification</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-0.5" id="modal-title">Review Participant</h3>
+</div>
+<button class="w-10 h-10 rounded-full bg-canvas flex items-center justify-center text-slate" id="close-modal" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+        Confirm validation of submitted documents against local APMC registry benchmarks (Manual Protocol #APMC-71).
+      </p>
+<div class="bg-blue-mist/60 rounded-xl p-space-md flex flex-col gap-space-xs">
+<div class="flex justify-between items-center text-slate font-caption text-caption">
+<span>Benchmark Quality Check:</span>
+<span class="font-semibold text-on-surface">Standard Passed</span>
+</div>
+<div class="flex justify-between items-center text-slate font-caption text-caption">
+<span>Mandi Yard Compliance:</span>
+<span class="font-semibold text-on-surface">Verified (प्रमाणित)</span>
+</div>
+</div>
+<div class="flex gap-space-sm pt-space-xs">
+<button class="h-14 flex-1 rounded-xl bg-canvas text-clay-orange font-label-md text-label-md flex items-center justify-center" id="btn-escalate" type="button">
+          Escalate
+        </button>
+<button class="h-14 flex-[2] rounded-xl bg-clay-orange text-on-secondary font-label-lg text-label-lg flex items-center justify-center shadow-sm" id="btn-approve" type="button">
+          Approve (मंजूर करा)
+        </button>
+</div>
+</div>
+</div>
+<script>
+    (function() {
+      // Filter logic
+      const chips = document.querySelectorAll('.filter-chip');
+      const cards = document.querySelectorAll('.queue-card');
+      
+      chips.forEach(chip => {
+        chip.addEventListener('click', () => {
+          // Update visual states
+          chips.forEach(c => {
+            c.classList.remove('bg-clear-blue', 'text-on-primary');
+            c.classList.add('bg-surface', 'text-slate');
+          });
+          chip.classList.remove('bg-surface', 'text-slate');
+          chip.classList.add('bg-clear-blue', 'text-on-primary');
+
+          const filter = chip.getAttribute('data-filter');
+          cards.forEach(card => {
+            if (filter === 'all' || card.getAttribute('data-category') === filter) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // Quick Review Sheet Modal
+      const modal = document.getElementById('review-modal');
+      const sheet = document.getElementById('review-sheet');
+      const modalTitle = document.getElementById('modal-title');
+      const closeBtn = document.getElementById('close-modal');
+      const approveBtn = document.getElementById('btn-approve');
+      const escalateBtn = document.getElementById('btn-escalate');
+
+      function openModal(name) {
+        modalTitle.textContent = name;
+        modal.classList.remove('hidden');
+        setTimeout(() => {
+          modal.classList.remove('opacity-0');
+          sheet.classList.remove('translate-y-full');
+        }, 10);
+      }
+
+      function closeModal() {
+        sheet.classList.add('translate-y-full');
+        modal.classList.add('opacity-0');
+        setTimeout(() => {
+          modal.classList.add('hidden');
+        }, 200);
+      }
+
+      document.querySelectorAll('.review-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const card = e.target.closest('.queue-card');
+          const title = card ? card.querySelector('h2').textContent : 'Review Participant';
+          openModal(title);
+        });
+      });
+
+      closeBtn.addEventListener('click', closeModal);
+      approveBtn.addEventListener('click', closeModal);
+      escalateBtn.addEventListener('click', closeModal);
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+      });
+    })();
+  </script>
+</div></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-1px_8px_rgba(0,0,0,0.04)]" data-active-classes="text-clear-blue font-label-md"><div class="flex items-center justify-around h-16 px-space-xs"><a class="flex flex-col items-center justify-center w-16 h-12 text-slate hover:text-on-surface transition-colors" data-path="overview" href="#"><span class="material-symbols-outlined text-[24px]">dashboard</span><span class="font-caption text-caption mt-0.5">Overview</span></a><a aria-current="page" class="flex flex-col items-center justify-center w-16 h-12 transition-colors text-clear-blue font-label-md" data-path="verification" href="#"><span class="material-symbols-outlined text-[24px]">verified_user</span><span class="font-caption text-caption mt-0.5">Verify</span></a><a class="flex flex-col items-center justify-center w-16 h-12 text-slate hover:text-on-surface transition-colors" data-path="monitor" href="#"><span class="material-symbols-outlined text-[24px]">receipt_long</span><span class="font-caption text-caption mt-0.5">Monitor</span></a><a class="flex flex-col items-center justify-center w-16 h-12 text-slate hover:text-on-surface transition-colors" data-path="grievances" href="#"><span class="material-symbols-outlined text-[24px]">support_agent</span><span class="font-caption text-caption mt-0.5">Grievance</span></a></div></nav></body></html>

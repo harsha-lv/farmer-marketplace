@@ -4,7 +4,13 @@ from typing import Annotated
 from fastapi import APIRouter, Depends, Query
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.api.deps import SessionDep, SettingsDep
+from app.api.deps import (
+    SessionDep,
+    SettingsDep,
+    get_current_user,
+    require_org_access,
+    require_roles,
+)
 from app.consent.repository import ConsentRepository
 from app.consent.signing import authorize_profile_fetch
 from app.errors import AppError
@@ -21,12 +27,20 @@ from app.lots.schemas import (
     AssayUpdateRequest,
     EnamRegistrationRequest,
     LotCreateRequest,
-    WarehouseReceiptRequest,
     LotListResponse,
     LotResponse,
+    WarehouseReceiptRequest,
 )
 
-router = APIRouter(prefix="/lots", tags=["lots"])
+router = APIRouter(
+    prefix="/lots",
+    tags=["lots"],
+    dependencies=[
+        Depends(get_current_user),
+        Depends(require_roles("farmer", "fpo_operator", "assayer", "buyer", "bank", "logistics", "admin", "regulator")),
+        Depends(require_org_access("fpo_id")),
+    ],
+)
 
 
 def lot_response(lot: Lot) -> LotResponse:
@@ -295,7 +309,10 @@ async def read_lot(lot_code: str, service: LotServiceDep) -> LotResponse:
     return await service.read(lot_code)
 
 
-@router.post("/{lot_code}/reassay")
+@router.post(
+    "/{lot_code}/reassay",
+    dependencies=[Depends(require_roles("assayer", "fpo_operator", "admin"))],
+)
 async def reassay_lot(
     lot_code: str,
     body: AssayUpdateRequest,

@@ -8,19 +8,21 @@ from app.api.deps import SessionDep, SettingsDep
 from app.errors import AppError
 from app.prices.consumer import ContinuousIngestionConsumer
 from app.prices.feed import FeedError, MandiFeed
+from app.prices.inference import global_inference_engine
 from app.prices.ingest import IngestCounts, store_quotes
 from app.prices.repository import PriceRepository
 from app.prices.sale_window import recommend_sale_window
 from app.prices.schemas import (
+    HorizonRecommendationSchema,
     IngestJobStatusResponse,
     IngestJobTrigger,
     IngestResponse,
     MandiVolatilityResponse,
+    MlForecastResponse,
     MonthlyRollupResponse,
     PageMeta,
     PriceFilter,
     PriceListResponse,
-    PriceRollupPoint,
     SaleWindowResponse,
     TftForecastResponse,
     TftHorizonPoint,
@@ -303,6 +305,69 @@ async def tft_forecast(
             for h in forecast.horizons
         ],
         attention_weights=forecast.attention_weights,
+    )
+
+
+@router.get("/prices/forecast/ml")
+async def ml_price_forecast(
+    session: SessionDep,
+    commodity: Annotated[str, Query(min_length=1, max_length=128)],
+    market: Annotated[str, Query(min_length=1, max_length=128)],
+    lookback_days: Annotated[int, Query(ge=7, le=365)] = 30,
+    storage_cost_per_quintal_per_day: Annotated[float | None, Query(ge=0.0)] = None,
+    capital_interest_rate_bps: Annotated[int, Query(ge=0, le=5000)] = 700,
+    facility_available: Annotated[bool, Query()] = True,
+) -> MlForecastResponse:
+    """Multi-horizon probabilistic price forecast with hot-reload, shadow-mode, and STORE/SELL/HEDGE plan."""
+    commodity_name = commodity.strip()
+    market_name = market.strip()
+    if not commodity_name or not market_name:
+        raise AppError(422, "Invalid request", "commodity and market are required")
+
+    res = await global_inference_engine.predict_with_fallbacks(
+        session=session,
+        commodity=commodity_name,
+        market=market_name,
+        lookback_days=lookback_days,
+        storage_cost_per_day=storage_cost_per_quintal_per_day,
+        capital_interest_rate_bps=capital_interest_rate_bps,
+        facility_available=facility_available,
+    )
+
+    plan = res.recommendations
+    return MlForecastResponse(
+        commodity=res.commodity,
+        market=res.market,
+        as_of_date=res.as_of_date,
+        current_modal_price_inr=res.current_modal_price_inr,
+        model_version=res.model_version,
+        model_architecture=res.model_architecture,
+        model_status=res.model_status,
+        fallback_used=res.fallback_used,
+        storage_type=plan.storage_type,
+        facility_available=plan.facility_available,
+        overall_recommendation=plan.overall_recommendation,
+        primary_horizon_days=plan.primary_horizon_days,
+        horizons=[
+            HorizonRecommendationSchema(
+                horizon_days=h.horizon_days,
+                target_date=h.target_date,
+                p10_price_inr=h.p10_price_inr,
+                p50_price_inr=h.p50_price_inr,
+                p90_price_inr=h.p90_price_inr,
+                storage_cost_inr=h.storage_cost_inr,
+                capital_cost_inr=h.capital_cost_inr,
+                spoilage_cost_inr=h.spoilage_cost_inr,
+                total_holding_cost_inr=h.total_holding_cost_inr,
+                expected_net_gain_inr=h.expected_net_gain_inr,
+                downside_risk_inr=h.downside_risk_inr,
+                recommendation=h.recommendation,
+                rationale=h.rationale,
+                facility_available=h.facility_available,
+            )
+            for h in plan.horizons
+        ],
+        shadow_evaluation=res.to_dict().get("shadow_evaluation"),
     )
 
 

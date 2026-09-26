@@ -1,7 +1,7 @@
-from collections import defaultdict
-from datetime import date, timedelta
 import math
-from typing import Sequence
+from collections import defaultdict
+from collections.abc import Sequence
+from datetime import date, timedelta
 
 from app.prices.schemas import (
     MandiVolatilityResponse,

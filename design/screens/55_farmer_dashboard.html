@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><title>MittiMandi</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@100..900&family=IBM+Plex+Mono:wght@100..900&family=Inter:wght@100..900&display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "error-container": "#ffdad6", "primary": "#00687b", "surface-tint": "#00687b", "slate": "#607780", "secondary-container": "#fd9168", "surface-container-low": "#e4f7ff", "inverse-primary": "#65d5f2", "surface-container-lowest": "#ffffff", "on-tertiary-fixed": "#281900", "surface-container-highest": "#c9e7f4", "surface-container": "#d6f2ff", "canvas": "#F4FAFC", "error": "#ba1a1a", "on-error-container": "#93000a", "secondary-fixed-dim": "#ffb59a", "on-error": "#ffffff", "surface": "#FFFFFF", "clay-orange": "#A95135", "on-secondary-container": "#742907", "primary-fixed-dim": "#65d5f2", "mist-text": "#8FA1A7", "on-primary-fixed": "#001f26", "surface-container-high": "#cfedfa", "on-tertiary-fixed-variant": "#604100", "blue-mist": "#E2F3F8", "secondary-fixed": "#ffdbcf", "clear-blue": "#147F9E", "blue-soft": "#C7E8F0", "on-primary": "#ffffff", "on-tertiary": "#ffffff", "tertiary": "#7e5700", "on-secondary-fixed-variant": "#7c2e0c", "on-primary-fixed-variant": "#004e5d", "tertiary-container": "#cf972f", "primary-container": "#36afcb", "danger": "#C64F48", "on-secondary": "#ffffff", "on-primary-container": "#003e4a", "surface-variant": "#c9e7f4", "outline": "#6d797d", "inverse-surface": "#17343e", "line": "#D7E7EB", "primary-fixed": "#aeecff", "tertiary-fixed": "#ffdeac", "on-secondary-fixed": "#380d00", "on-surface-variant": "#3d494c", "surface-dim": "#c1dfec", "on-surface": "#001f28", "on-tertiary-container": "#4c3300", "outline-variant": "#bdc8cd", "background": "#f2fbff", "sand": "#FFF3DF", "inverse-on-surface": "#ddf5ff", "secondary": "#9a4522", "tertiary-fixed-dim": "#f9bc51", "on-background": "#001f28", "surface-bright": "#f2fbff" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "space-sm": "8px", "space-md": "12px", "space-xl": "24px", "space-xs": "4px", "gutter": "12px", "space-lg": "16px", "margin": "16px" }, fontFamily: { "label-lg": ["Inter"], "headline-lg-mobile": ["Fraunces"], "label-md": ["Inter"], "headline-md": ["Fraunces"], "data-sm": ["IBM Plex Mono"], "headline-lg": ["Fraunces"], "data-lg": ["IBM Plex Mono"], "data-md": ["IBM Plex Mono"], "body-lg": ["Inter"], "body-md": ["Inter"], "caption": ["Inter"], "display-data": ["IBM Plex Mono"], "data-xs": ["IBM Plex Mono"], "headline-sm": ["Fraunces"] }, fontSize: { "label-lg": ["16px", { "lineHeight": "24px", "fontWeight": "600" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }], "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }], "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }], "data-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }], "headline-lg": ["28px", { "lineHeight": "36px", "fontWeight": "600" }], "data-lg": ["22px", { "lineHeight": "28px", "fontWeight": "500" }], "data-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "display-data": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.5px", "fontWeight": "500" }], "data-xs": ["12px", { "lineHeight": "16px", "fontWeight": "500" }], "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "500" }] } } } };</script><style>@layer base{html,body{width:100vw;min-height:100vh;margin:0;padding:0;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-canvas text-on-surface font-body-md text-body-md antialiased flex flex-col selection:bg-blue-soft selection:text-on-surface"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe"><div class="h-28 px-margin flex flex-col justify-center max-w-[600px] mx-auto"><div class="flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm"><span class="font-headline-md text-headline-md text-primary tracking-tight">MittiMandi</span><div class="flex items-center gap-1 px-2 py-0.5 rounded-full bg-blue-mist text-clear-blue text-data-xs font-data-xs"><span class="w-1.5 h-1.5 rounded-full bg-clear-blue"></span><span>LIVE SYNC</span></div></div><div class="flex items-center gap-space-sm"><button aria-label="Toggle Language" class="h-9 px-2.5 rounded-lg bg-surface-container-low text-primary font-label-md text-label-md flex items-center justify-center min-w-[48px] min-h-[48px]"><span class="tracking-wide">मराठी</span><span class="text-mist-text mx-1">/</span><span class="font-semibold">EN</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div><div class="flex items-center justify-between pt-1 text-slate"><div class="flex items-center gap-1.5 truncate"><span class="font-label-md text-label-md text-on-surface font-semibold truncate">Ramesh Patil</span><span class="text-mist-text">•</span><span class="text-caption font-caption text-slate truncate">Pimpalgaon Baswant, Nashik</span></div><span class="text-data-xs font-data-xs text-clear-blue bg-blue-mist/60 px-1.5 py-0.5 rounded">MM-FRM-48201</span></div></div></header><main class="flex-1 flex flex-col relative w-full pt-28 pb-24 bg-canvas max-w-[600px] mx-auto"><div class="flex flex-col w-full px-margin space-y-space-lg pb-space-xl">
+<!-- Connectivity & Sync State Pill (Interactive Toggle for Prototype) -->
+<section class="w-full">
+<div class="w-full bg-sand rounded-xl p-space-md flex items-start gap-space-sm transition-colors" id="offline-banner">
+<span class="material-symbols-outlined text-clay-orange text-[20px] shrink-0 mt-0.5" id="sync-icon">cloud_off</span>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1 flex-wrap">
+<div class="flex items-center gap-1.5">
+<span class="font-label-md text-label-md text-clay-orange font-semibold" id="sync-headline">Offline · स्थानिक प्रत (Saved)</span>
+<span class="text-caption font-caption text-clay-orange/80">• 0 रांगेत (Pending)</span>
+</div>
+<button aria-label="Toggle network simulation" class="text-data-xs font-data-xs px-2 py-1 bg-surface rounded text-primary font-medium min-h-[32px] flex items-center active:bg-blue-soft" id="sync-toggle-btn">
+            Recheck / तपासा
+          </button>
+</div>
+<p class="font-caption text-caption text-on-surface-variant mt-0.5">
+          शेवटचे अद्यतन: आज स. १०:३० (Stale Cache) · दर माहिती जुनी असू शकते
+        </p>
+</div>
+</div>
+</section>
+<!-- Welcome & Profile Summary -->
+<section class="w-full bg-surface rounded-xl p-space-lg flex flex-col space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="text-caption font-caption text-slate">शेतकरी प्रोफाईल · Farmer Account</span>
+<span class="font-data-xs text-data-xs text-clear-blue bg-blue-mist px-2 py-0.5 rounded font-medium">MM-FRM-48201</span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary tracking-tight">
+      शुभ सकाळ, रमेश पाटील
+    </h1>
+<div class="flex items-center gap-1 text-slate pt-0.5">
+<span class="material-symbols-outlined text-[18px] shrink-0">location_on</span>
+<p class="font-body-md text-body-md truncate">पिंपळगाव बसवंत, ता. निफाड, नाशिक</p>
+</div>
+</section>
+<!-- Weather Alert Strip (Amber Tint / Precautionary) -->
+<aside class="w-full bg-sand rounded-xl p-space-md flex items-start gap-space-sm" role="alert">
+<div class="w-8 h-8 rounded-lg bg-surface flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-clay-orange text-[20px]">thunderstorm</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="text-data-xs font-data-xs text-clay-orange font-semibold uppercase tracking-wider">हवामान इशारा · Weather Alert</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface mt-0.5">
+        उद्या दुपारी निफाड व नाशिक परिसरात जोरदार पावसाचा अंदाज. खुल्या आवारातील कांदा झाकून सुरक्षित ठेवावा.
+      </p>
+<p class="font-caption text-caption text-slate mt-1">
+        Forecast: Heavy rain in Niphad/Nashik tomorrow afternoon. Protect harvested produce.
+      </p>
+</div>
+</aside>
+<!-- Needs Your Action (Strictly bounded to urgent transactional requests) -->
+<section class="w-full flex flex-col space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-clay-orange"></span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">कारवाई आवश्यक (Action Needed)</h2>
+</div>
+<span class="font-data-xs text-data-xs text-clay-orange bg-sand px-2 py-0.5 rounded">१ प्रलंबित (1 Pending)</span>
+</div>
+<!-- Urgent Offer Card -->
+<div class="w-full bg-surface rounded-xl p-space-lg flex flex-col space-y-space-md">
+<div class="flex items-start justify-between gap-space-sm">
+<div>
+<span class="text-data-xs font-data-xs text-slate uppercase">थेट खरेदीदार मागणी · Direct Offer</span>
+<h3 class="font-label-lg text-label-lg text-primary mt-0.5">Shree Agro Foods, Nashik</h3>
+<p class="font-caption text-caption text-slate">पडताळणी क्रमांक: MS-NSK-0921 · Pimpalgaon Hub Delivery</p>
+</div>
+<span class="px-2 py-1 rounded bg-sand text-clay-orange font-label-md text-caption font-semibold shrink-0">
+          प्रलंबित पुनरावलोकन
+        </span>
+</div>
+<div class="bg-canvas rounded-lg p-space-md grid grid-cols-2 gap-space-sm">
+<div>
+<span class="text-caption font-caption text-slate">मागणी पीक (Crop)</span>
+<p class="font-label-lg text-label-lg text-on-surface mt-0.5">उन्हाळी कांदा (Nashik Red)</p>
+<span class="font-data-sm text-data-sm text-slate">४,००० किलो (4,000 kg)</span>
+</div>
+<div class="text-right">
+<span class="text-caption font-caption text-slate">प्रस्तावित दर (Offered Rate)</span>
+<p class="font-data-lg text-data-lg text-primary mt-0.5">₹२,९०० <span class="text-caption font-caption text-slate">/क्विंटल</span></p>
+<span class="font-data-xs text-data-xs text-slate">₹२९.०० / किलो</span>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row gap-space-sm pt-1">
+<button class="flex-1 min-h-[48px] px-space-md rounded-lg bg-clay-orange text-on-primary font-label-lg text-label-lg flex items-center justify-center gap-1 active:opacity-90">
+<span>ऑफर तपासा (Review Offer)</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+<button class="min-h-[48px] px-space-md rounded-lg bg-canvas text-slate font-label-md text-label-md flex items-center justify-center active:bg-blue-mist">
+<span>नंतर पहा</span>
+</button>
+</div>
+</div>
+</section>
+<!-- My Registered Produce -->
+<section class="w-full flex flex-col space-y-space-sm">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">नोंदणीकृत शेतमाल (My Produce)</h2>
+<a class="font-label-md text-label-md text-clear-blue flex items-center gap-0.5" href="#">
+<span>सर्व पहा</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</a>
+</div>
+<!-- Commodity Card 1: Onion -->
+<div class="w-full bg-surface rounded-xl p-space-lg flex flex-col space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-blue-mist flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">inventory_2</span>
+</div>
+<div>
+<h3 class="font-label-lg text-label-lg text-on-surface">उन्हाळी लाल कांदा (Onion)</h3>
+<span class="text-caption font-caption text-slate">नोंदणी लॉट: LOT-NSK-441</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-blue-mist text-clear-blue font-data-xs text-data-xs font-medium">
+          सक्रिय लॉट
+        </span>
+</div>
+<div class="grid grid-cols-2 gap-space-md pt-2">
+<div class="bg-canvas p-space-sm rounded-lg">
+<span class="text-caption font-caption text-slate">एकूण उपलब्ध साठा</span>
+<p class="font-data-md text-data-md text-on-surface font-semibold">४,००० किलो</p>
+<span class="text-caption font-caption text-slate">४० क्विंटल (Grade-A)</span>
+</div>
+<div class="bg-canvas p-space-sm rounded-lg">
+<span class="text-caption font-caption text-slate">स्थान / गोदामाची जागा</span>
+<p class="font-body-md text-body-md text-on-surface truncate">पिंपळगाव खळा</p>
+<span class="text-caption font-caption text-slate">तयार शेतमाल</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="text-caption font-caption text-slate">स्थिती: खुल्या वाटाघाटीसाठी उपलब्ध</span>
+<span class="font-label-md text-label-md text-clear-blue font-medium">तपशील पहा →</span>
+</div>
+</div>
+<!-- Commodity Card 2: Tomato (Pending registration) -->
+<div class="w-full bg-surface rounded-xl p-space-lg flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-sand flex items-center justify-center text-clay-orange">
+<span class="material-symbols-outlined text-[24px]">pending_actions</span>
+</div>
+<div>
+<h3 class="font-label-lg text-label-lg text-on-surface">टोमॅटो (Tomato - Hybrid)</h3>
+<span class="text-caption font-caption text-clay-orange">लॉट नोंदणी अपूर्ण (Secondary Crop)</span>
+</div>
+</div>
+<button class="min-h-[44px] px-3 py-1 bg-surface-container-low rounded-lg text-primary font-label-md text-label-md active:bg-blue-soft">
+        पूर्ण करा
+      </button>
+</div>
+<!-- Add New Lot Button -->
+<button class="w-full min-h-[48px] rounded-xl bg-surface-container-low text-primary font-label-lg text-label-lg flex items-center justify-center gap-2 active:bg-blue-mist">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+<span>नवीन शेतमाल नोंदवा (+ Add Harvest Lot)</span>
+</button>
+</section>
+<!-- Market Signal: Reference Benchmark Card -->
+<section class="w-full bg-surface rounded-xl p-space-lg flex flex-col space-y-space-md">
+<div class="flex items-start justify-between gap-2">
+<div>
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="text-data-xs font-data-xs text-clear-blue bg-blue-mist px-2 py-0.5 rounded font-semibold">
+            [वास्तविक संदर्भ · Actual Benchmark]
+          </span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface mt-1">
+          बाजारभाव संदर्भ · Market Signal
+        </h2>
+<span class="text-caption font-caption text-slate">स्थानिक नोंदणीकृत गावावर आधारित (Calculated for Pimpalgaon Yard)</span>
+</div>
+</div>
+<div class="bg-canvas rounded-lg p-space-md flex flex-col space-y-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-body-md text-body-md text-slate">पिंपळगाव APMC बाजार समिती</span>
+<span class="font-data-xs text-data-xs text-slate">आजची आवक: १,४०,००० किलो</span>
+</div>
+<div class="flex items-baseline justify-between pt-1">
+<div>
+<span class="font-display-data text-display-data text-primary font-bold">₹२,८५०</span>
+<span class="font-data-sm text-data-sm text-slate">/ १०० किलो</span>
+</div>
+<div class="text-right">
+<span class="font-data-md text-data-md text-on-surface font-semibold">₹२८.५०</span>
+<span class="text-caption font-caption text-slate">/ प्रति किलो सरासरी</span>
+</div>
+</div>
+</div>
+<div class="flex items-start gap-1.5 text-slate pt-0.5">
+<span class="material-symbols-outlined text-[16px] shrink-0 mt-0.5">info</span>
+<p class="font-caption text-caption">
+        माहिती स्रोत: AGMARKNET Reference Feed · १०:३० वाजताचे संकलित दर. ही केवळ संदर्भ किंमत असून खरेदीची हमी नाही.
+      </p>
+</div>
+</section>
+<!-- Net Realization Calculator (Truthful Ledger Breakdown) -->
+<section class="w-full bg-surface rounded-xl p-space-lg flex flex-col space-y-space-md">
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-1.5">
+<span class="text-data-xs font-data-xs text-clay-orange bg-sand px-2 py-0.5 rounded font-semibold">
+            [अंदाज · Estimate]
+          </span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface mt-1">
+          शेतकरी निव्वळ प्राप्ती (Net Realization)
+        </h2>
+<p class="font-caption text-caption text-slate">कापणी पश्चात सर्व वैध वजावटी व हिशेब</p>
+</div>
+<div class="w-8 h-8 rounded-full bg-canvas flex items-center justify-center text-slate">
+<span class="material-symbols-outlined text-[18px]">calculate</span>
+</div>
+</div>
+<!-- Ledger Table -->
+<div class="w-full bg-canvas rounded-lg p-space-md flex flex-col space-y-space-sm font-data-sm text-data-sm">
+<div class="flex justify-between items-center text-on-surface">
+<span class="font-body-md text-body-md">एकूण विक्री मूल्य (४,००० किलो × ₹२८.५०)</span>
+<span class="font-semibold text-primary">₹१,१४,०००.००</span>
+</div>
+<div class="flex justify-between items-center text-slate">
+<div class="flex items-center gap-1">
+<span>− वाहतूक खर्च (पिकअप ते पिंपळगाव यार्ड)</span>
+</div>
+<span class="text-clay-orange">−₹३,२००.००</span>
+</div>
+<div class="flex justify-between items-center text-slate">
+<div class="flex items-center gap-1">
+<span>− हमाली व तोलाई (Mandi Cess & Weighing)</span>
+</div>
+<span class="text-clay-orange">−₹१,१४०.००</span>
+</div>
+<div class="flex justify-between items-center text-slate">
+<div class="flex items-center gap-1">
+<span>− साठवणूक / अनलोडिंग (थेट डिस्पॅच)</span>
+</div>
+<span class="text-slate">₹०.००</span>
+</div>
+<div class="w-full h-px bg-blue-soft my-1"></div>
+<!-- Net Total Row -->
+<div class="flex justify-between items-baseline pt-1">
+<div>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">अंदाजे हातात येणारी रक्कम</span>
+<p class="font-caption text-caption text-slate">Estimated Net In-hand</p>
+</div>
+<div class="text-right">
+<span class="font-data-lg text-data-lg text-primary font-bold">≈ ₹१,०९,६६०</span>
+<p class="font-data-xs text-data-xs text-slate">≈ ₹२७.४२ प्रति किलो निव्वळ</p>
+</div>
+</div>
+</div>
+<p class="font-caption text-caption text-slate">
+      टीप: हा प्राथमिक हिशेब संदर्भ खर्चांवर आधारित आहे. प्रत्यक्ष तोलाई व खरेदीदार पावती झाल्यावरच अंतिम रक्कम निश्चित होते.
+    </p>
+</section>
+<!-- Farmer Decision Bar (Decision Strip) -->
+<section class="w-full flex flex-col space-y-space-sm">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">पुढील निर्णय घ्या (Quick Actions)</h2>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-sm">
+<button class="min-h-[52px] bg-surface rounded-xl p-space-md flex items-center justify-between active:bg-blue-mist text-left">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-lg bg-canvas flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">compare_arrows</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface">३ नजीकच्या मंड्यांची तुलना</span>
+</div>
+<span class="material-symbols-outlined text-slate text-[18px]">chevron_right</span>
+</button>
+<button class="min-h-[52px] bg-surface rounded-xl p-space-md flex items-center justify-between active:bg-blue-mist text-left">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-lg bg-canvas flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">verified_user</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface">पडताळलेले खरेदीदार शोधा</span>
+</div>
+<span class="material-symbols-outlined text-slate text-[18px]">chevron_right</span>
+</button>
+<button class="min-h-[52px] bg-surface rounded-xl p-space-md flex items-center justify-between active:bg-blue-mist text-left">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-lg bg-canvas flex items-center justify-center text-clay-orange">
+<span class="material-symbols-outlined text-[20px]">warehouse</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface">साठवणूक vs आत्ता विक्री</span>
+</div>
+<span class="material-symbols-outlined text-slate text-[18px]">chevron_right</span>
+</button>
+</div>
+</section>
+<!-- Market Pulse (Multi-Mandi Reference Grid) -->
+<section class="w-full bg-surface rounded-xl p-space-lg flex flex-col space-y-space-md">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">परिसरातील बाजार भाव (Market Pulse)</h2>
+<span class="text-caption font-caption text-slate">कांदा दर · आजचे संकलित संदर्भ भाव</span>
+</div>
+<span class="font-data-xs text-data-xs text-slate bg-canvas px-2 py-1 rounded">नाशिक विभाग</span>
+</div>
+<!-- Mandi 1: Pimpalgaon -->
+<div class="bg-canvas rounded-lg p-space-md flex items-center justify-between">
+<div class="min-w-0 flex-1">
+<div class="flex items-center gap-2">
+<h3 class="font-label-md text-label-md text-on-surface font-semibold truncate">पिंपळगाव बसवंत APMC</h3>
+<span class="font-data-xs text-data-xs text-clear-blue bg-blue-mist px-1.5 py-0.2 rounded shrink-0">स्थानिक</span>
+</div>
+<p class="font-caption text-caption text-slate mt-0.5">आवक: १,४०,००० किलो · Stale cached</p>
+</div>
+<div class="text-right shrink-0">
+<p class="font-data-md text-data-md text-primary font-bold">₹२,८५०</p>
+<span class="font-data-xs text-data-xs text-slate">/ १०० किलो</span>
+</div>
+</div>
+<!-- Mandi 2: Nashik Central -->
+<div class="bg-canvas rounded-lg p-space-md flex items-center justify-between">
+<div class="min-w-0 flex-1">
+<div class="flex items-center gap-2">
+<h3 class="font-label-md text-label-md text-on-surface font-semibold truncate">नाशिक मुख्य बाजार (Nashik Central)</h3>
+</div>
+<p class="font-caption text-caption text-slate mt-0.5">आवक: ९५,००० किलो · Stale cached</p>
+</div>
+<div class="text-right shrink-0">
+<p class="font-data-md text-data-md text-primary font-bold">₹२,९२०</p>
+<span class="font-data-xs text-data-xs text-slate">/ १०० किलो</span>
+</div>
+</div>
+<!-- Mandi 3: Lasalgaon -->
+<div class="bg-canvas rounded-lg p-space-md flex items-center justify-between">
+<div class="min-w-0 flex-1">
+<div class="flex items-center gap-2">
+<h3 class="font-label-md text-label-md text-on-surface font-semibold truncate">लासलगाव APMC (Lasalgaon)</h3>
+</div>
+<p class="font-caption text-caption text-slate mt-0.5">आवक: २,१०,००० किलो · Stale cached</p>
+</div>
+<div class="text-right shrink-0">
+<p class="font-data-md text-data-md text-primary font-bold">₹२,८८०</p>
+<span class="font-data-xs text-data-xs text-slate">/ १०० किलो</span>
+</div>
+</div>
+<div class="p-space-sm bg-sand rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-clay-orange text-[18px] shrink-0">sync_problem</span>
+<p class="font-caption text-caption text-on-surface">
+        सर्व दरांचे अद्यतन इंटरनेट जोडणी झाल्यावर स्वयंचलितरित्या होईल.
+      </p>
+</div>
+</section>
+<!-- Quick Utility Grid -->
+<section class="w-full">
+<div class="grid grid-cols-2 gap-space-sm">
+<a class="min-h-[56px] bg-surface rounded-xl p-space-md flex items-center gap-space-sm active:bg-blue-mist" href="#">
+<div class="w-10 h-10 rounded-lg bg-canvas flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[20px]">trending_up</span>
+</div>
+<div class="min-w-0">
+<span class="font-label-md text-label-md text-on-surface block truncate">बाजारभाव</span>
+<span class="font-caption text-caption text-slate truncate">Market Prices</span>
+</div>
+</a>
+<a class="min-h-[56px] bg-surface rounded-xl p-space-md flex items-center gap-space-sm active:bg-blue-mist" href="#">
+<div class="w-10 h-10 rounded-lg bg-canvas flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[20px]">store</span>
+</div>
+<div class="min-w-0">
+<span class="font-label-md text-label-md text-on-surface block truncate">मंडी तुलना</span>
+<span class="font-caption text-caption text-slate truncate">Compare Mandis</span>
+</div>
+</a>
+<a class="min-h-[56px] bg-surface rounded-xl p-space-md flex items-center gap-space-sm active:bg-blue-mist" href="#">
+<div class="w-10 h-10 rounded-lg bg-canvas flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[20px]">badge</span>
+</div>
+<div class="min-w-0">
+<span class="font-label-md text-label-md text-on-surface block truncate">व्यापारी सूची</span>
+<span class="font-caption text-caption text-slate truncate">Buyer Directory</span>
+</div>
+</a>
+<a class="min-h-[56px] bg-surface rounded-xl p-space-md flex items-center gap-space-sm active:bg-blue-mist" href="#">
+<div class="w-10 h-10 rounded-lg bg-canvas flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[20px]">account_balance_wallet</span>
+</div>
+<div class="min-w-0">
+<span class="font-label-md text-label-md text-on-surface block truncate">खतावणी</span>
+<span class="font-caption text-caption text-slate truncate">Farmer Ledger</span>
+</div>
+</a>
+</div>
+</section>
+</div>
+<script>
+  // Prototype Micro-interaction: Connectivity Simulation Toggle
+  (function() {
+    const toggleBtn = document.getElementById('sync-toggle-btn');
+    const banner = document.getElementById('offline-banner');
+    const headline = document.getElementById('sync-headline');
+    const icon = document.getElementById('sync-icon');
+    let isOnline = false;
+
+    if (toggleBtn && banner && headline && icon) {
+      toggleBtn.addEventListener('click', function() {
+        isOnline = !isOnline;
+        if (isOnline) {
+          banner.className = 'w-full bg-blue-mist rounded-xl p-space-md flex items-start gap-space-sm transition-colors';
+          icon.className = 'material-symbols-outlined text-clear-blue text-[20px] shrink-0 mt-0.5';
+          icon.textContent = 'cloud_done';
+          headline.className = 'font-label-md text-label-md text-clear-blue font-semibold';
+          headline.textContent = 'Online · थेट जोडणी सुरू (Synced)';
+          toggleBtn.textContent = 'Simulate Offline';
+        } else {
+          banner.className = 'w-full bg-sand rounded-xl p-space-md flex items-start gap-space-sm transition-colors';
+          icon.className = 'material-symbols-outlined text-clay-orange text-[20px] shrink-0 mt-0.5';
+          icon.textContent = 'cloud_off';
+          headline.className = 'font-label-md text-label-md text-clay-orange font-semibold';
+          headline.textContent = 'Offline · स्थानिक प्रत (Saved)';
+          toggleBtn.textContent = 'Recheck / तपासा';
+        }
+      });
+    }
+  })();
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/95 backdrop-blur-xl shadow-[0_-2px_12px_rgba(0,0,0,0.04)]" data-active-classes="text-clear-blue font-semibold scale-105"><div class="flex justify-between items-center h-20 px-2 max-w-[600px] mx-auto"><a aria-current="page" class="flex flex-col items-center justify-center flex-1 h-full min-w-[48px] min-h-[48px] transition-all text-clear-blue font-semibold scale-105" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[24px]">dashboard</span><span class="text-caption font-caption mt-0.5">Home</span></a><a class="flex flex-col items-center justify-center flex-1 h-full min-w-[48px] min-h-[48px] text-slate transition-all" data-path="my-crops" href="#"><span class="material-symbols-outlined text-[24px]">potted_plant</span><span class="text-caption font-caption mt-0.5">My Crops</span></a><a class="flex flex-col items-center justify-center flex-1 h-full min-w-[48px] min-h-[48px] text-slate transition-all" data-path="mandi-market" href="#"><span class="material-symbols-outlined text-[24px]">storefront</span><span class="text-caption font-caption mt-0.5">Market</span></a><a class="flex flex-col items-center justify-center flex-1 h-full min-w-[48px] min-h-[48px] text-slate transition-all" data-path="verified-buyers" href="#"><span class="material-symbols-outlined text-[24px]">group</span><span class="text-caption font-caption mt-0.5">Buyers</span></a><a class="flex flex-col items-center justify-center flex-1 h-full min-w-[48px] min-h-[48px] text-slate transition-all" data-path="offers-and-deals" href="#"><span class="material-symbols-outlined text-[24px]">receipt_long</span><span class="text-caption font-caption mt-0.5">Deals</span></a></div></nav></body></html>

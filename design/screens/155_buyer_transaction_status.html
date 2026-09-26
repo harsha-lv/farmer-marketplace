@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "sand": "#FFF3DF", "tertiary-fixed-dim": "#f9bc51", "surface-container": "#d6f2ff", "surface": "#FFFFFF", "background": "#f2fbff", "surface-bright": "#f2fbff", "blue-soft": "#C7E8F0", "on-error-container": "#93000a", "on-tertiary-fixed-variant": "#604100", "on-primary": "#ffffff", "on-primary-fixed": "#001f26", "primary-fixed-dim": "#65d5f2", "on-secondary-fixed-variant": "#7c2e0c", "on-tertiary": "#ffffff", "line": "#D7E7EB", "primary": "#00687b", "inverse-surface": "#17343e", "outline-variant": "#bdc8cd", "blue-mist": "#E2F3F8", "surface-tint": "#00687b", "secondary-container": "#fd9168", "surface-container-low": "#e4f7ff", "primary-fixed": "#aeecff", "on-background": "#001f28", "tertiary-container": "#cf972f", "slate": "#607780", "on-tertiary-container": "#4c3300", "danger": "#C64F48", "on-secondary-container": "#742907", "on-primary-fixed-variant": "#004e5d", "on-secondary": "#ffffff", "on-surface": "#001f28", "surface-container-lowest": "#ffffff", "surface-container-high": "#cfedfa", "canvas": "#F4FAFC", "on-error": "#ffffff", "inverse-primary": "#65d5f2", "surface-dim": "#c1dfec", "tertiary": "#7e5700", "mist-text": "#8FA1A7", "error": "#ba1a1a", "on-tertiary-fixed": "#281900", "clay-orange": "#A95135", "clear-blue": "#147F9E", "secondary-fixed": "#ffdbcf", "surface-variant": "#c9e7f4", "secondary-fixed-dim": "#ffb59a", "tertiary-fixed": "#ffdeac", "inverse-on-surface": "#ddf5ff", "error-container": "#ffdad6", "outline": "#6d797d", "surface-container-highest": "#c9e7f4", "on-surface-variant": "#3d494c", "on-secondary-fixed": "#380d00", "on-primary-container": "#003e4a", "primary-container": "#36afcb", "secondary": "#9a4522" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "margin": "16px", "gutter": "12px", "space-xl": "24px", "space-md": "12px", "space-xs": "4px", "space-sm": "8px", "space-lg": "16px" }, fontFamily: { "data-xs": ["IBM Plex Mono"], "headline-sm": ["Fraunces"], "body-md": ["Inter"], "headline-md": ["Fraunces"], "data-sm": ["IBM Plex Mono"], "data-md": ["IBM Plex Mono"], "display-data": ["IBM Plex Mono"], "label-md": ["Inter"], "body-lg": ["Inter"], "headline-lg-mobile": ["Fraunces"], "data-lg": ["IBM Plex Mono"], "headline-lg": ["Fraunces"], "caption": ["Inter"], "label-lg": ["Inter"] }, fontSize: { "data-xs": ["12px", { "lineHeight": "16px", "fontWeight": "500" }], "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "500" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }], "data-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }], "data-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }], "display-data": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.5px", "fontWeight": "500" }], "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }], "data-lg": ["22px", { "lineHeight": "28px", "fontWeight": "500" }], "headline-lg": ["28px", { "lineHeight": "36px", "fontWeight": "600" }], "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "label-lg": ["16px", { "lineHeight": "24px", "fontWeight": "600" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-canvas text-on-surface font-body-md text-body-md flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe"><div class="h-16 px-margin flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0 flex-1"><button aria-label="Go Back" class="w-11 h-11 flex items-center justify-center rounded-lg text-on-surface hover:bg-surface-container-low transition-colors" onclick="history.back()" type="button"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><div class="flex flex-col min-w-0 flex-1"><h1 class="font-headline-sm text-headline-sm text-on-surface truncate leading-tight">Buyer Transaction Status</h1><span class="font-caption text-caption text-slate truncate">खरेदीदार कृषी खरेदी • Procurement Flow</span></div></div><div class="flex items-center gap-space-xs shrink-0"><button aria-label="More Options" class="w-11 h-11 flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" type="button"><span class="material-symbols-outlined text-[24px]">more_vert</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-16 bg-canvas min-h-screen"><div class="flex flex-col w-full pb-safe">
+<div class="w-full max-w-[600px] mx-auto px-margin pt-space-md space-y-space-lg">
+<!-- Top Provenance Pill Bar -->
+<div class="flex items-center justify-between gap-space-xs bg-blue-mist p-space-xs px-space-md rounded-lg">
+<div class="flex items-center gap-space-xs text-clear-blue">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span class="font-label-md text-label-md text-clear-blue font-medium">Verified Contract Ledger</span>
+</div>
+<div class="flex items-center gap-1 bg-surface px-space-sm py-0.5 rounded">
+<span class="w-2 h-2 rounded-full bg-clay-orange animate-pulse"></span>
+<span class="font-data-xs text-data-xs text-clay-orange uppercase font-semibold">Stage 05 / 12</span>
+</div>
+</div>
+<!-- Transaction Header Card -->
+<div class="bg-surface rounded-xl p-space-lg shadow-sm space-y-space-md">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex flex-col min-w-0">
+<span class="font-caption text-caption text-slate uppercase tracking-wider">Order Pre-draft Ref</span>
+<span class="font-data-sm text-data-sm text-on-surface truncate">MM-FPO-OFR-DEMO-000001</span>
+</div>
+<div class="bg-sand text-secondary px-space-sm py-1 rounded text-right shrink-0">
+<span class="font-data-xs text-data-xs font-semibold">DEMO RECORD</span>
+</div>
+</div>
+<!-- Trade Parties Block -->
+<div class="grid grid-cols-2 gap-gutter bg-canvas p-space-md rounded-lg">
+<div class="flex flex-col min-w-0">
+<span class="font-caption text-caption text-slate">Buyer (खरेदीदार)</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Sahyadri Agro</span>
+<span class="font-caption text-caption text-slate truncate">Traders Consortium</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-caption text-caption text-slate">Seller (विक्रेता शेतकरी गट)</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Nashik FPO</span>
+<span class="font-caption text-caption text-slate truncate">Producer Org Ltd.</span>
+</div>
+</div>
+<!-- Produce & Quality Snapshot -->
+<div class="flex items-center gap-space-md pt-space-xs">
+<div class="w-16 h-16 rounded-lg bg-surface-container-high shrink-0 overflow-hidden flex items-center justify-center">
+<img class="w-full h-full object-cover" data-alt="High resolution commercial photograph of fresh Nashik Red Onions arranged neatly in breathable jute bags, natural daylight, warm terracotta hues, agricultural market texture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtsV63PX61DH2sLWc7r1EajBC2g21zi3TzfAMMYcPHpa7Cidw5m0zqNT48Y9sIIZaolow42wsyLLkP_Xo3ELr-ISuPaWH3Kl5RJ4CYlQ5lQ2wIhynCwjw_24fbxvB4d8KWCJlPzjncptYo0ZmCJkq2VxvhgdlrD7BXTnLcVsva2NbbOrLRhSAAMrQhzZU1FNtykBP185OoF6fE6OoEL9q2SLngiZpnDqABOoM6WTezBXMYsx2s3b8S"/>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<span class="font-headline-sm text-headline-sm text-on-surface truncate">Nashik Red Onion</span>
+<span class="font-body-md text-body-md text-slate">नाशिक लाल कांदा • Grade A Mandi Batch</span>
+<div class="flex items-center gap-space-xs mt-1">
+<span class="font-data-sm text-data-sm text-clear-blue font-medium">4,000 kg</span>
+<span class="font-caption text-caption text-slate">@</span>
+<span class="font-data-sm text-data-sm text-on-surface font-semibold">₹29.20/kg</span>
+</div>
+</div>
+</div>
+<!-- Financial Reconciliation Strip -->
+<div class="bg-surface-container-low p-space-md rounded-lg flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-caption text-caption text-slate">Gross Contract Value (एकूण मूल्य)</span>
+<span class="font-caption text-caption text-clear-blue">Zero hidden mandi cess / Free dockage</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-display-data text-[24px] leading-tight text-on-surface font-semibold">₹1,16,800</span>
+<span class="font-data-xs text-data-xs text-slate">Guaranteed escrow basis</span>
+</div>
+</div>
+<!-- Current Milestone Spotlight -->
+<div class="bg-sand p-space-md rounded-lg flex items-start gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">description</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-tertiary-container font-semibold">Agreement Preparation Recorded</span>
+<p class="font-body-md text-body-md text-secondary mt-0.5">
+            कायदेशीर खरेदी करार मसुदा तयार करण्यात आला आहे. Both parties have verified terms. Escrow custody setup initiated.
+          </p>
+</div>
+</div>
+</div>
+<!-- 12-Step Lifecycle Stepper Module -->
+<div class="bg-surface rounded-xl p-space-lg shadow-sm space-y-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex flex-col">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">12-Stage Lifecycle Tracker</h2>
+<span class="font-caption text-caption text-slate">व्यवहार प्रगती ट्रॅकर • Real-time legal flow</span>
+</div>
+<button class="h-8 px-space-sm rounded bg-surface-container-high text-clear-blue font-label-md text-caption flex items-center gap-1 active:scale-95 transition-transform" id="toggleAuditBtn" type="button">
+<span class="material-symbols-outlined text-[16px]">receipt_long</span>
+<span>Ledger Hash</span>
+</button>
+</div>
+<div class="hidden p-space-sm bg-canvas rounded-lg text-slate font-data-xs text-data-xs break-all" id="auditHashBox">
+        BLOCK: #TX-90218-NAS-ONION • BLAKE3: a94f2c019d883bbf598a69e4ce1
+      </div>
+<!-- Timeline Sequence -->
+<div class="relative pl-6 space-y-space-md pt-2">
+<!-- Vertical guide lines -->
+<div class="absolute left-[11px] top-4 bottom-4 w-0.5 bg-line"></div>
+<!-- 1. Offer Received (Done) -->
+<div class="relative flex items-start gap-space-md">
+<div class="absolute -left-6 w-6 h-6 rounded-full bg-clear-blue text-on-primary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</div>
+<div class="flex-1 flex items-center justify-between min-w-0 pt-0.5">
+<div>
+<p class="font-label-md text-label-md text-on-surface font-medium">1. Offer Received</p>
+<p class="font-caption text-caption text-slate">प्रस्ताव प्राप्त झाला • Verified mandi lot</p>
+</div>
+<span class="font-data-xs text-data-xs text-clear-blue">COMPLETED</span>
+</div>
+</div>
+<!-- 2. Offer Reviewed (Done) -->
+<div class="relative flex items-start gap-space-md">
+<div class="absolute -left-6 w-6 h-6 rounded-full bg-clear-blue text-on-primary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</div>
+<div class="flex-1 flex items-center justify-between min-w-0 pt-0.5">
+<div>
+<p class="font-label-md text-label-md text-on-surface font-medium">2. Offer Reviewed</p>
+<p class="font-caption text-caption text-slate">तपासणी पूर्ण • Moisture &amp; sort checked</p>
+</div>
+<span class="font-data-xs text-data-xs text-clear-blue">COMPLETED</span>
+</div>
+</div>
+<!-- 3. Buyer Response (Done) -->
+<div class="relative flex items-start gap-space-md">
+<div class="absolute -left-6 w-6 h-6 rounded-full bg-clear-blue text-on-primary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</div>
+<div class="flex-1 flex items-center justify-between min-w-0 pt-0.5">
+<div>
+<p class="font-label-md text-label-md text-on-surface font-medium">3. Buyer Response</p>
+<p class="font-caption text-caption text-slate">प्रतिसाद नोंदवला • Terms approved</p>
+</div>
+<span class="font-data-xs text-data-xs text-clear-blue">COMPLETED</span>
+</div>
+</div>
+<!-- 4. Acceptance Recorded (Done) -->
+<div class="relative flex items-start gap-space-md">
+<div class="absolute -left-6 w-6 h-6 rounded-full bg-clear-blue text-on-primary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</div>
+<div class="flex-1 flex items-center justify-between min-w-0 pt-0.5">
+<div>
+<p class="font-label-md text-label-md text-on-surface font-medium">4. Acceptance Recorded</p>
+<p class="font-caption text-caption text-slate">स्वीकृती अधिकृत • Mutual digital intent</p>
+</div>
+<span class="font-data-xs text-data-xs text-clear-blue">COMPLETED</span>
+</div>
+</div>
+<!-- 5. Agreement Preparation (Done / Active Recorded) -->
+<div class="relative flex items-start gap-space-md bg-blue-mist/60 p-space-xs rounded-lg -ml-1">
+<div class="absolute -left-6 w-6 h-6 rounded-full bg-clear-blue text-on-primary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[14px]">done_all</span>
+</div>
+<div class="flex-1 flex items-center justify-between min-w-0">
+<div>
+<p class="font-label-md text-label-md text-clear-blue font-semibold">5. Agreement Preparation</p>
+<p class="font-caption text-caption text-on-surface-variant">करार मसुदा तयार • E-stamp queued</p>
+</div>
+<span class="font-data-xs text-data-xs bg-clear-blue text-on-primary px-1.5 py-0.5 rounded font-medium">RECORDED</span>
+</div>
+</div>
+<!-- 6. Price Lock (Pending hourglass) -->
+<div class="relative flex items-start gap-space-md">
+<div class="absolute -left-6 w-6 h-6 rounded-full bg-sand text-clay-orange flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[14px] animate-spin" style="animation-duration: 4s;">hourglass_top</span>
+</div>
+<div class="flex-1 flex items-center justify-between min-w-0 pt-0.5">
+<div>
+<p class="font-label-md text-label-md text-on-surface font-medium">6. Price Lock</p>
+<p class="font-caption text-caption text-slate">दर निश्चिती • ₹29.20/kg freeze awaiting OTP</p>
+</div>
+<span class="font-data-xs text-data-xs text-clay-orange font-medium bg-sand px-1.5 py-0.5 rounded">PENDING</span>
+</div>
+</div>
+<!-- 7. Quantity Lock (Pending hourglass) -->
+<div class="relative flex items-start gap-space-md">
+<div class="absolute -left-6 w-6 h-6 rounded-full bg-sand text-clay-orange flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[14px]">hourglass_bottom</span>
+</div>
+<div class="flex-1 flex items-center justify-between min-w-0 pt-0.5">
+<div>
+<p class="font-label-md text-label-md text-on-surface font-medium">7. Quantity Lock</p>
+<p class="font-caption text-caption text-slate">प्रमाण निश्चिती • 4,000 kg lot reservation</p>
+</div>
+<span class="font-data-xs text-data-xs text-clay-orange font-medium bg-sand px-1.5 py-0.5 rounded">PENDING</span>
+</div>
+</div>
+<!-- 8. Transport (Locked) -->
+<div class="relative flex items-start gap-space-md opacity-60">
+<div class="absolute -left-6 w-6 h-6 rounded-full bg-surface-container-high text-slate flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px]">lock</span>
+</div>
+<div class="flex-1 flex items-center justify-between min-w-0 pt-0.5">
+<div>
+<p class="font-label-md text-label-md text-on-surface">8. Transport</p>
+<p class="font-caption text-caption text-slate">वाहतूक • Direct dispatch from Lasalgaon</p>
+</div>
+<span class="font-data-xs text-data-xs text-slate">LOCKED</span>
+</div>
+</div>
+<!-- 9. Storage (Locked) -->
+<div class="relative flex items-start gap-space-md opacity-60">
+<div class="absolute -left-6 w-6 h-6 rounded-full bg-surface-container-high text-slate flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px]">lock</span>
+</div>
+<div class="flex-1 flex items-center justify-between min-w-0 pt-0.5">
+<div>
+<p class="font-label-md text-label-md text-on-surface">9. Storage</p>
+<p class="font-caption text-caption text-slate">गोदाम पावती • Cold/ambient intake check</p>
+</div>
+<span class="font-data-xs text-data-xs text-slate">LOCKED</span>
+</div>
+</div>
+<!-- 10. Settlement (Locked) -->
+<div class="relative flex items-start gap-space-md opacity-60">
+<div class="absolute -left-6 w-6 h-6 rounded-full bg-surface-container-high text-slate flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px]">lock</span>
+</div>
+<div class="flex-1 flex items-center justify-between min-w-0 pt-0.5">
+<div>
+<p class="font-label-md text-label-md text-on-surface">10. Settlement</p>
+<p class="font-caption text-caption text-slate">अंतिम देयक • Auto-clearing escrow disbursement</p>
+</div>
+<span class="font-data-xs text-data-xs text-slate">LOCKED</span>
+</div>
+</div>
+<!-- 11. Receipt (Locked) -->
+<div class="relative flex items-start gap-space-md opacity-60">
+<div class="absolute -left-6 w-6 h-6 rounded-full bg-surface-container-high text-slate flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px]">lock</span>
+</div>
+<div class="flex-1 flex items-center justify-between min-w-0 pt-0.5">
+<div>
+<p class="font-label-md text-label-md text-on-surface">11. Receipt</p>
+<p class="font-caption text-caption text-slate">अधिकृत पावती • Form 13 tax invoice</p>
+</div>
+<span class="font-data-xs text-data-xs text-slate">LOCKED</span>
+</div>
+</div>
+<!-- 12. Rating (Locked) -->
+<div class="relative flex items-start gap-space-md opacity-60">
+<div class="absolute -left-6 w-6 h-6 rounded-full bg-surface-container-high text-slate flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px]">lock</span>
+</div>
+<div class="flex-1 flex items-center justify-between min-w-0 pt-0.5">
+<div>
+<p class="font-label-md text-label-md text-on-surface">12. Rating</p>
+<p class="font-caption text-caption text-slate">मूल्यमापन • FPO fulfillment score feedback</p>
+</div>
+<span class="font-data-xs text-data-xs text-slate">LOCKED</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Important Transaction Boundary Notice -->
+<div class="bg-surface-container-high/60 rounded-xl p-space-md flex items-start gap-space-md shadow-sm">
+<div class="w-10 h-10 rounded-full bg-clear-blue text-on-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[22px]">gavel</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Important Transaction Boundary Notice</span>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1 leading-snug">
+          Next transaction stages require their respective workflow and verification.
+        </p>
+<p class="font-body-md text-body-md text-slate mt-1 italic">
+          (पुढील टप्पे त्यांच्या स्वतंत्र कार्यप्रवाह आणि पडताळणीनुसार सुरू होतील.)
+        </p>
+</div>
+</div>
+<!-- Summary Modal Preview Component (Interactive expansion) -->
+<div class="hidden bg-surface rounded-xl p-space-md space-y-space-sm shadow-md" id="procurementSheet">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-xs text-on-surface">
+<span class="material-symbols-outlined text-clear-blue">inventory_2</span>
+<span class="font-headline-sm text-headline-sm">खरेदी सारांश (Procurement Summary)</span>
+</div>
+<button class="w-8 h-8 rounded-full bg-canvas flex items-center justify-center text-slate" id="closeSummaryBtn" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="space-y-space-xs font-body-md text-body-md">
+<div class="flex justify-between py-1 bg-canvas px-2 rounded">
+<span class="text-slate">Mandated Escrow Reserve</span>
+<span class="font-data-sm text-data-sm font-semibold">₹1,16,800.00</span>
+</div>
+<div class="flex justify-between py-1 px-2">
+<span class="text-slate">FPO Handling Charge (0%)</span>
+<span class="font-data-sm text-data-sm text-clear-blue">Waived</span>
+</div>
+<div class="flex justify-between py-1 bg-canvas px-2 rounded">
+<span class="text-slate">Target Dispatch Window</span>
+<span class="font-data-sm text-data-sm">Within 48 Hours</span>
+</div>
+<div class="flex justify-between py-1 px-2">
+<span class="text-slate">Delivery Location</span>
+<span class="font-body-md text-body-md text-right font-medium">Sahyadri Hub, Nashik Yard-4</span>
+</div>
+</div>
+</div>
+<!-- Action Section -->
+<div class="space-y-space-sm pt-space-xs pb-space-xl">
+<!-- Primary CTA: Back to Buyer Dashboard -->
+<button class="w-full min-h-[56px] bg-clay-orange text-on-secondary font-label-lg text-label-lg font-bold rounded-lg shadow-sm flex items-center justify-center gap-space-sm active:opacity-95 transition-opacity px-space-md" onclick="window.history.back()" type="button">
+<span>Back to Buyer Dashboard</span>
+<span class="font-caption text-caption opacity-90">(खरेदीदार डॅशबोर्डवर परत जा)</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+<!-- Secondary Action: View Procurement Summary -->
+<button class="w-full min-h-[56px] bg-surface text-clear-blue font-label-lg text-label-lg font-semibold rounded-lg shadow-sm flex items-center justify-center gap-space-sm active:bg-surface-container-low transition-colors px-space-md" id="viewSummaryBtn" type="button">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+<span>View Procurement Summary (खरेदी सारांश पाहा)</span>
+</button>
+</div>
+</div>
+</div>
+<script>
+  (function initStatusMicroInteractions() {
+    const toggleAuditBtn = document.getElementById('toggleAuditBtn');
+    const auditHashBox = document.getElementById('auditHashBox');
+    const viewSummaryBtn = document.getElementById('viewSummaryBtn');
+    const closeSummaryBtn = document.getElementById('closeSummaryBtn');
+    const procurementSheet = document.getElementById('procurementSheet');
+
+    if (toggleAuditBtn && auditHashBox) {
+      toggleAuditBtn.addEventListener('click', function() {
+        const isHidden = auditHashBox.classList.contains('hidden');
+        if (isHidden) {
+          auditHashBox.classList.remove('hidden');
+        } else {
+          auditHashBox.classList.add('hidden');
+        }
+      });
+    }
+
+    if (viewSummaryBtn && procurementSheet) {
+      viewSummaryBtn.addEventListener('click', function() {
+        procurementSheet.classList.remove('hidden');
+        procurementSheet.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+    }
+
+    if (closeSummaryBtn && procurementSheet) {
+      closeSummaryBtn.addEventListener('click', function() {
+        procurementSheet.classList.add('hidden');
+      });
+    }
+  })();
+</script></main></body></html>

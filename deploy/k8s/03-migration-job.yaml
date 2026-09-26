@@ -1,0 +1,47 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: agri-db-migration-job
+  namespace: agri-platform
+  labels:
+    app.kubernetes.io/name: agri-db-migration
+    app.kubernetes.io/part-of: farmer-marketplace
+spec:
+  backoffLimit: 3
+  ttlSecondsAfterFinished: 600
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: agri-db-migration
+        app.kubernetes.io/part-of: farmer-marketplace
+    spec:
+      serviceAccountName: agri-platform-sa
+      restartPolicy: OnFailure
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+        runAsGroup: 10001
+        fsGroup: 10001
+      containers:
+        - name: alembic-migrator
+          image: agri-platform-backend:latest
+          imagePullPolicy: IfNotPresent
+          command: ["alembic", "upgrade", "head"]
+          envFrom:
+            - configMapRef:
+                name: agri-platform-config
+            - secretRef:
+                name: agri-platform-secrets
+          resources:
+            requests:
+              cpu: 100m
+              memory: 256Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop:
+                - ALL

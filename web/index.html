@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>MittiMandi — Agricultural Trade & Mandi Intelligence Platform</title>
+  <meta name="description" content="Production-grade mobile design system for Indian agricultural marketplace, AI grain inspection, mandi forecasts, and ONDC trade enablement.">
+  
+  <!-- Single Master Stylesheet Entry Point -->
+  <link rel="stylesheet" href="styles/index.css">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'self' http://127.0.0.1:8000">
+  <link rel="icon" href="data:,">
+</head>
+<body>
+
+  <div id="workspace">
+    <!-- Top Flow Navigator & Design System Switcher -->
+    <header class="top-toolbar">
+      <div class="brand-badge">
+        <div class="brand-logo-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2L3 9v11h6v-7h6v7h6V9z"/>
+          </svg>
+        </div>
+        <div>
+          <span class="brand-title">MittiMandi</span>
+          <span class="brand-subtitle">Mobile Design System</span>
+        </div>
+      </div>
+
+      <!-- Quick Flow Navigation Ribbon -->
+      <nav class="flow-selector-group">
+        <button class="flow-btn active" data-screen="splash" data-action="nav">01 Splash</button>
+        <button class="flow-btn" data-screen="auth-language" data-action="nav">02 Language</button>
+        <button class="flow-btn" data-screen="auth-login" data-action="nav">03 Login</button>
+        <button class="flow-btn" data-screen="auth-otp" data-action="nav">04 OTP</button>
+        <button class="flow-btn" data-screen="onboarding" data-action="nav">05 Onboarding</button>
+        <button class="flow-btn" data-screen="dashboard" data-action="nav">06 Dashboard</button>
+        <button class="flow-btn" data-screen="lots-create" data-action="nav">07 AI Grain Assay</button>
+        <button class="flow-btn" data-screen="lots-list" data-action="nav">08 Produce Lots</button>
+        <button class="flow-btn" data-screen="market-intel" data-action="nav">09 Mandi Forecast</button>
+        <button class="flow-btn" data-screen="trades-negotiate" data-action="nav">10 Trade Negotiation</button>
+        <button class="flow-btn" data-screen="agreement-cert" data-action="nav">11 Agreement</button>
+        <button class="flow-btn" data-screen="transport" data-action="nav">12 ONDC Logistics</button>
+        <button class="flow-btn" data-screen="storage" data-action="nav">13 Cold Storage</button>
+        <button class="flow-btn" data-screen="finance" data-action="nav">14 Escrow Payout</button>
+        <button class="flow-btn" data-screen="offline-sync" data-action="nav">15 Offline Sync</button>
+        <button class="flow-btn" data-screen="consent" data-action="nav">16 DPDP Privacy</button>
+        <button class="flow-btn" data-screen="grievances" data-action="nav">17 Claims & IGM</button>
+      </nav>
+
+      <!-- Right Action Controls -->
+      <div class="toolbar-controls">
+        <button class="tool-icon-btn" id="toggle-frame-btn" data-action="toggle-frame">
+          <span>🖥️ Fullscreen View</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Stage Workspace -->
+    <main class="stage-container">
+      <!-- Simulated Mobile Phone Device Frame -->
+      <div class="device-frame" id="device-frame">
+        <!-- Physical Speaker / Camera Notch -->
+        <div class="status-notch">
+          <div class="notch-camera"></div>
+        </div>
+
+        <!-- Phone Mobile Status Bar -->
+        <div class="status-bar">
+          <span class="status-time" id="status-time-clock">03:30</span>
+          <div class="status-icons">
+            <span class="network-type">5G</span>
+            <span>📶</span>
+            <span>🔋 100%</span>
+          </div>
+        </div>
+
+        <!-- Dynamic Screen Header (Hidden on splash) -->
+        <header class="app-top-header hidden" id="app-header">
+          <div class="header-left">
+            <button class="icon-btn hidden" id="header-back-btn" data-action="back" title="Go Back">
+              <span>←</span>
+            </button>
+            <div class="header-title-box">
+              <span class="header-screen-title" id="header-title">MittiMandi</span>
+              <span class="header-subtitle" id="header-subtitle">Direct Agri Network</span>
+            </div>
+          </div>
+          <div class="header-right">
+            <button class="icon-btn" data-action="nav" data-screen="offline-sync" title="Network Status">
+              <span class="header-icon" id="header-net-icon">📶</span>
+            </button>
+            <button class="icon-btn" data-action="nav" data-screen="dashboard" title="Home">
+              <span class="header-icon">🏠</span>
+            </button>
+          </div>
+        </header>
+
+        <!-- Active Screen Viewport -->
+        <div class="app-viewport" id="screen-container">
+          <!-- Screens dynamically mounted here -->
+        </div>
+
+        <!-- Mobile Bottom Navigation Dock -->
+        <nav class="bottom-dock hidden" id="bottom-dock">
+          <!-- Dock items rendered by router -->
+        </nav>
+
+        <!-- Home Bar Indicator -->
+        <div class="home-indicator">
+          <div class="home-bar"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Main Application Script (ES Module) -->
+  <script type="module" src="scripts/app.js"></script>
+</body>
+</html>

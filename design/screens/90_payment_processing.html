@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-primary-fixed-variant":"#004e5d","tertiary-fixed":"#ffdeac","on-error":"#ffffff","secondary-container":"#fd9168","inverse-primary":"#65d5f2","on-tertiary-fixed":"#281900","inverse-on-surface":"#ddf5ff","surface-container-high":"#cfedfa","on-secondary-fixed-variant":"#7c2e0c","blue-mist":"#E2F3F8","on-primary-container":"#003e4a","error-container":"#ffdad6","on-primary":"#ffffff","tertiary-container":"#cf972f","tertiary-fixed-dim":"#f9bc51","on-secondary-container":"#742907","tertiary":"#7e5700","surface-container-low":"#e4f7ff","surface-dim":"#c1dfec","outline-variant":"#bdc8cd","on-secondary-fixed":"#380d00","surface-container":"#d6f2ff","primary-fixed":"#aeecff","slate":"#607780","surface-bright":"#f2fbff","on-surface-variant":"#3d494c","primary":"#00687b","outline":"#6d797d","on-surface":"#001f28","on-background":"#001f28","surface":"#FFFFFF","surface-tint":"#00687b","inverse-surface":"#17343e","on-tertiary":"#ffffff","surface-container-lowest":"#ffffff","primary-fixed-dim":"#65d5f2","error":"#ba1a1a","danger":"#C64F48","on-tertiary-container":"#4c3300","line":"#D7E7EB","sand":"#FFF3DF","secondary-fixed":"#ffdbcf","surface-container-highest":"#c9e7f4","on-primary-fixed":"#001f26","canvas":"#F4FAFC","on-error-container":"#93000a","blue-soft":"#C7E8F0","clay-orange":"#A95135","secondary-fixed-dim":"#ffb59a","clear-blue":"#147F9E","on-secondary":"#ffffff","surface-variant":"#c9e7f4","mist-text":"#8FA1A7","primary-container":"#36afcb","secondary":"#9a4522","on-tertiary-fixed-variant":"#604100","background":"#f2fbff"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{margin:"16px","space-sm":"8px","space-xs":"4px",gutter:"12px","space-xl":"24px","space-lg":"16px","space-md":"12px"},fontFamily:{"headline-lg":["Fraunces"],"headline-sm":["Fraunces"],"display-data":["IBM Plex Mono"],"headline-md":["Fraunces"],caption:["Inter"],"body-md":["Inter"],"data-lg":["IBM Plex Mono"],"data-md":["IBM Plex Mono"],"data-xs":["IBM Plex Mono"],"data-sm":["IBM Plex Mono"],"label-md":["Inter"],"body-lg":["Inter"],"label-lg":["Inter"],"headline-lg-mobile":["Fraunces"]},fontSize:{"headline-lg":["28px",{lineHeight:"36px",fontWeight:"600"}],"headline-sm":["18px",{lineHeight:"24px",fontWeight:"500"}],"display-data":["32px",{lineHeight:"40px",letterSpacing:"-0.5px",fontWeight:"500"}],"headline-md":["20px",{lineHeight:"28px",fontWeight:"600"}],caption:["12px",{lineHeight:"16px",fontWeight:"400"}],"body-md":["14px",{lineHeight:"20px",fontWeight:"400"}],"data-lg":["22px",{lineHeight:"28px",fontWeight:"500"}],"data-md":["16px",{lineHeight:"24px",fontWeight:"500"}],"data-xs":["12px",{lineHeight:"16px",fontWeight:"500"}],"data-sm":["14px",{lineHeight:"20px",fontWeight:"500"}],"label-md":["14px",{lineHeight:"20px",fontWeight:"500"}],"body-lg":["16px",{lineHeight:"24px",fontWeight:"400"}],"label-lg":["16px",{lineHeight:"24px",fontWeight:"600"}],"headline-lg-mobile":["24px",{lineHeight:"32px",fontWeight:"600"}]}}};</script><style>@layer base{html,body{width:100%;margin:0;padding:0;background-color:#F4FAFC;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-canvas text-on-surface font-body-md text-body-md min-h-screen flex flex-col antialiased"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe"><div class="h-16 px-margin flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0"><button aria-label="Go back" class="w-11 h-11 flex items-center justify-center rounded-lg text-on-surface hover:bg-surface-container active:bg-blue-mist transition-colors shrink-0" onclick="history.back()"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><div class="flex flex-col min-w-0 justify-center"><h1 class="font-headline-sm text-headline-sm text-on-surface tracking-tight truncate leading-tight">Settlement Overview</h1><div class="flex items-center gap-space-xs"><span class="font-caption text-caption text-slate leading-none">Ref:</span><span class="font-data-xs text-data-xs text-clear-blue font-medium tracking-tight truncate leading-none">MM-ORD-DEMO-000001</span></div></div></div><div class="flex items-center gap-space-sm shrink-0"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-16 pb-safe bg-canvas min-h-screen"><div class="flex flex-col w-full pb-safe">
+<!-- Subtle Ambient Glow Backdrop Decor -->
+<div class="px-margin pt-space-md flex flex-col gap-space-lg max-w-[600px] mx-auto w-full">
+<!-- Processing Status Hero Card -->
+<div class="bg-surface rounded-xl p-space-lg shadow-sm flex flex-col items-center text-center relative overflow-hidden">
+<!-- Decorative Atmospheric Glow behind spinner -->
+<div class="absolute -top-12 left-1/2 -translate-x-1/2 w-48 h-48 bg-primary-container/15 rounded-full blur-2xl pointer-events-none"></div>
+<!-- Animated Graphic Dial -->
+<div class="relative w-28 h-28 my-space-md flex items-center justify-center">
+<!-- Pulse Echo Ring -->
+<span class="absolute inset-0 rounded-full bg-blue-mist animate-ping opacity-60"></span>
+<!-- Rotating SVG Gauge -->
+<svg class="w-28 h-28 animate-spin text-primary-container" style="animation-duration: 3s;" viewbox="0 0 100 100">
+<circle class="text-surface-container" cx="50" cy="50" fill="none" r="42" stroke="currentColor" stroke-width="7"></circle>
+<circle class="text-clear-blue" cx="50" cy="50" fill="none" r="42" stroke="currentColor" stroke-dasharray="190" stroke-dashoffset="65" stroke-linecap="round" stroke-width="7"></circle>
+</svg>
+<!-- Inner Amber Satellite Accent Dial -->
+<div class="absolute inset-2 flex items-center justify-center">
+<div class="w-16 h-16 rounded-full bg-sand/80 flex items-center justify-center shadow-inner">
+<span class="material-symbols-outlined text-tertiary-container text-[30px] animate-pulse">sync_saved_locally</span>
+</div>
+</div>
+</div>
+<!-- Hero Header & Bilingual Subtitle -->
+<div class="flex flex-col items-center gap-space-xs max-w-sm mt-space-xs z-10">
+<div class="inline-flex items-center gap-space-xs px-space-md py-1 rounded-full bg-sand text-tertiary">
+<span class="w-2 h-2 rounded-full bg-tertiary-container animate-ping"></span>
+<span class="font-data-xs text-data-xs font-medium uppercase tracking-wider">Protocol Pipeline Active</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface mt-space-xs">
+          Processing Demo Settlement…
+        </h2>
+<p class="font-label-md text-label-md text-clear-blue font-medium">
+          प्रात्यक्षिक व्यवहार नोंदणी सुरू आहे...
+        </p>
+<p class="font-caption text-caption text-slate mt-1 leading-relaxed">
+          Please do not close or minimize the application while clearing protocol runs.
+        </p>
+</div>
+<!-- Simulated Amount Token Card -->
+<div class="w-full mt-space-md pt-space-md bg-canvas rounded-lg p-space-md flex flex-col items-center justify-center">
+<span class="font-caption text-caption text-slate uppercase tracking-wider">Simulated Settlement Realization</span>
+<div class="flex items-baseline gap-space-xs mt-0.5">
+<span class="font-caption text-caption text-clay-orange font-medium">≈</span>
+<span class="font-display-data text-display-data text-on-surface">₹1,08,432</span>
+</div>
+<span class="font-data-xs text-data-xs text-mist-text mt-0.5">Order Ref: MM-ORD-DEMO-000001</span>
+</div>
+</div>
+<!-- Live Contextual Visual Pipeline / Stepper Card -->
+<div class="bg-surface rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-clear-blue text-[20px]">fact_check</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Verification Pipeline</h3>
+</div>
+<span class="font-data-xs text-data-xs px-2 py-0.5 rounded-full bg-blue-mist text-clear-blue font-medium">Step 4 of 5</span>
+</div>
+<div class="flex flex-col gap-0 relative">
+<!-- Connecting Vertical Line -->
+<div class="absolute left-[15px] top-4 bottom-6 w-0.5 bg-blue-mist z-0"></div>
+<!-- Step 1: Complete -->
+<div class="relative z-10 flex items-start gap-space-md py-space-xs">
+<div class="w-8 h-8 rounded-full bg-blue-mist flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-clear-blue text-[18px]" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div class="flex flex-col min-w-0 pt-1">
+<span class="font-label-md text-label-md text-on-surface font-medium leading-snug">Settlement details verified</span>
+<span class="font-caption text-caption text-slate leading-tight">हिशोब तपशील पडताळणी पूर्ण</span>
+</div>
+</div>
+<!-- Step 2: Complete -->
+<div class="relative z-10 flex items-start gap-space-md py-space-xs">
+<div class="w-8 h-8 rounded-full bg-blue-mist flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-clear-blue text-[18px]" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div class="flex flex-col min-w-0 pt-1">
+<span class="font-label-md text-label-md text-on-surface font-medium leading-snug">Order details matched</span>
+<span class="font-caption text-caption text-slate leading-tight">ऑर्डर संदर्भ जुळवणी पूर्ण</span>
+</div>
+</div>
+<!-- Step 3: Complete -->
+<div class="relative z-10 flex items-start gap-space-md py-space-xs">
+<div class="w-8 h-8 rounded-full bg-blue-mist flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-clear-blue text-[18px]" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div class="flex flex-col min-w-0 pt-1">
+<span class="font-label-md text-label-md text-on-surface font-medium leading-snug">Cost responsibilities confirmed</span>
+<span class="font-caption text-caption text-slate leading-tight">खर्च जबाबदारी वाटप निश्चित</span>
+</div>
+</div>
+<!-- Step 4: Active Pulse -->
+<div class="relative z-10 flex items-start gap-space-md py-space-xs bg-blue-mist/40 rounded-lg -mx-2 px-2 transition-all">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center shrink-0 shadow-sm animate-pulse">
+<span class="material-symbols-outlined text-on-primary text-[18px] animate-spin" style="animation-duration: 2s;">progress_activity</span>
+</div>
+<div class="flex flex-col min-w-0 pt-0.5">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold leading-snug">Payment processing</span>
+<span class="w-2 h-2 rounded-full bg-clear-blue animate-ping"></span>
+</div>
+<span class="font-label-md text-label-md text-clear-blue font-medium leading-tight">पेमेंट ट्रान्सफर प्रक्रिया सुरू</span>
+</div>
+</div>
+<!-- Step 5: Pending -->
+<div class="relative z-10 flex items-start gap-space-md py-space-xs opacity-60">
+<div class="w-8 h-8 rounded-full bg-canvas flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-slate text-[18px]">radio_button_unchecked</span>
+</div>
+<div class="flex flex-col min-w-0 pt-1">
+<span class="font-label-md text-label-md text-slate leading-snug">Settlement confirmation</span>
+<span class="font-caption text-caption text-mist-text leading-tight">व्यवहार अंतिम नोंद</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Visual Storytelling: Mandi Dispatch Batch Node -->
+<div class="bg-surface rounded-xl p-space-md shadow-sm flex items-center gap-space-md">
+<div class="w-16 h-16 rounded-lg overflow-hidden shrink-0 bg-canvas">
+<img class="w-full h-full object-cover" data-alt="High quality close up photo of Indian golden wheat grains inside a clean rustic jute sack at agricultural trade terminal, warm sunlit ambient daylight, earth tones and clarity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPDa9eQj5I4-3KkDHRVgo1PhpTUINkI3tq4_MWZcllEGMrz9C8E3zCZKpbZECptcyNxEUJR644Fia15iC_xmDn4OQyzAkK4AJFcRxrgtT7TsYwCrl9eDrP4kxda5sVPxsgQCdvko3yHoc_rYzPASjWhTIEDclzVH972_ltjOSVv2iXAgJ3VIkfHvs_erop4c6Mck2NLGvjBKKCvSD_k332zcJHG0-EgUtd-fEXxayzvc9b0kM9pPMG"/>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<div class="flex items-center gap-space-xs">
+<span class="font-caption text-caption uppercase px-1.5 py-0.5 rounded bg-blue-mist text-clear-blue font-medium">Batch 48-Q</span>
+<span class="font-caption text-caption text-slate">Lokwan Grade-A</span>
+</div>
+<span class="font-body-md text-body-md font-medium text-on-surface truncate mt-0.5">Lasalgaon Mandi Yard Lot</span>
+<span class="font-data-xs text-data-xs text-mist-text">Weight: 42.50 Quintal verified</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-canvas flex items-center justify-center text-slate">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+</div>
+</div>
+<!-- Mandatory Simulation Safeguard Notice -->
+<div class="bg-sand rounded-xl p-space-md flex gap-space-sm items-start shadow-sm">
+<span class="material-symbols-outlined text-clay-orange text-[22px] shrink-0 mt-0.5">info</span>
+<div class="flex flex-col gap-0.5">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Demo / Prototype Environment</span>
+<p class="font-caption text-caption text-on-surface-variant leading-relaxed">
+          No real money is transferred. This screen demonstrates the settlement state transition and verification pipeline within the application.
+        </p>
+</div>
+</div>
+<!-- Transaction Hash & Latency Telemetry Panel -->
+<div class="bg-surface rounded-xl p-space-md shadow-sm flex flex-col gap-space-xs mb-space-xl">
+<div class="flex items-center justify-between text-slate">
+<span class="font-caption text-caption">Telemetry &amp; Routing</span>
+<span class="flex items-center gap-1 font-data-xs text-data-xs text-clear-blue">
+<span class="w-1.5 h-1.5 rounded-full bg-clear-blue animate-pulse"></span>
+          Node Synchronized
+        </span>
+</div>
+<div class="bg-canvas p-space-sm rounded-lg flex flex-col gap-1 font-data-xs text-data-xs text-on-surface-variant">
+<div class="flex justify-between items-center">
+<span class="text-slate">Protocol Ref:</span>
+<span class="font-data-xs text-clear-blue font-medium select-all">MM-SETTLE-SIM-9921</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-slate">Clearing Gateway:</span>
+<span class="text-on-surface font-medium">Server South-1 (Mumbai Cluster)</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-slate">Network Roundtrip:</span>
+<span class="text-clay-orange font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">bolt</span> 320ms
+          </span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Micro-interaction simulation to update telemetry ping latency dynamically
+  (function initTelemetryPing() {
+    const latencies = ['312ms', '320ms', '308ms', '325ms', '298ms'];
+    let idx = 0;
+    setInterval(() => {
+      idx = (idx + 1) % latencies.length;
+      const target = document.querySelector('.text-clay-orange.font-medium');
+      if (target) {
+        target.innerHTML = `<span class="material-symbols-outlined text-[14px]">bolt</span> ${latencies[idx]}`;
+      }
+    }, 2800);
+  })();
+</script></main></body></html>

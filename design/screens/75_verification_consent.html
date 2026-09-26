@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;600&amp;family=Inter:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#F4FAFC;}body{overscroll-behavior:none;font-family:'Inter',sans-serif;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: 'class', theme: { extend: { colors: { 'background': '#f2fbff', 'primary-fixed': '#aeecff', 'on-error': '#ffffff', 'surface-tint': '#00687b', 'on-secondary-fixed-variant': '#7c2e0c', 'on-background': '#001f28', 'error-container': '#ffdad6', 'secondary': '#9a4522', 'tertiary-container': '#cf972f', 'inverse-surface': '#17343e', 'on-secondary': '#ffffff', 'secondary-container': '#fd9168', 'inverse-on-surface': '#ddf5ff', 'error': '#ba1a1a', 'outline': '#6d797d', 'secondary-fixed-dim': '#ffb59a', 'surface-bright': '#f2fbff', 'blue-mist': '#E2F3F8', 'tertiary-fixed-dim': '#f9bc51', 'slate': '#607780', 'surface-container-lowest': '#ffffff', 'surface': '#FFFFFF', 'on-tertiary-container': '#4c3300', 'on-surface-variant': '#3d494c', 'on-tertiary': '#ffffff', 'surface-container-high': '#cfedfa', 'primary': '#00687b', 'danger': '#C64F48', 'on-surface': '#001f28', 'mist-text': '#8FA1A7', 'blue-soft': '#C7E8F0', 'surface-dim': '#c1dfec', 'on-tertiary-fixed-variant': '#604100', 'outline-variant': '#bdc8cd', 'surface-container-highest': '#c9e7f4', 'primary-fixed-dim': '#65d5f2', 'tertiary-fixed': '#ffdeac', 'on-error-container': '#93000a', 'on-primary-container': '#003e4a', 'on-primary-fixed-variant': '#004e5d', 'surface-container-low': '#e4f7ff', 'on-primary-fixed': '#001f26', 'secondary-fixed': '#ffdbcf', 'on-tertiary-fixed': '#281900', 'tertiary': '#7e5700', 'surface-variant': '#c9e7f4', 'on-secondary-container': '#742907', 'clear-blue': '#147F9E', 'surface-container': '#d6f2ff', 'sand': '#FFF3DF', 'on-secondary-fixed': '#380d00', 'canvas': '#F4FAFC', 'inverse-primary': '#65d5f2', 'clay-orange': '#A95135', 'primary-container': '#36afcb', 'line': '#D7E7EB', 'on-primary': '#ffffff' }, borderRadius: { 'DEFAULT': '0.25rem', 'lg': '0.5rem', 'xl': '0.75rem', 'full': '9999px' }, spacing: { 'space-xl': '24px', 'space-md': '12px', 'space-sm': '8px', 'space-xs': '4px', 'margin': '16px', 'space-lg': '16px', 'gutter': '12px' }, fontFamily: { 'headline-lg': ['Fraunces'], 'data-sm': ['IBM Plex Mono'], 'data-md': ['IBM Plex Mono'], 'body-md': ['Inter'], 'label-md': ['Inter'], 'caption': ['Inter'], 'headline-md': ['Fraunces'], 'data-lg': ['IBM Plex Mono'], 'label-lg': ['Inter'], 'display-data': ['IBM Plex Mono'], 'headline-sm': ['Fraunces'], 'data-xs': ['IBM Plex Mono'], 'body-lg': ['Inter'], 'headline-lg-mobile': ['Fraunces'] }, fontSize: { 'headline-lg': ['28px', { lineHeight: '36px', fontWeight: '600' }], 'data-sm': ['14px', { lineHeight: '20px', fontWeight: '500' }], 'data-md': ['16px', { lineHeight: '24px', fontWeight: '500' }], 'body-md': ['14px', { lineHeight: '20px', fontWeight: '400' }], 'label-md': ['14px', { lineHeight: '20px', fontWeight: '500' }], 'caption': ['12px', { lineHeight: '16px', fontWeight: '400' }], 'headline-md': ['20px', { lineHeight: '28px', fontWeight: '600' }], 'data-lg': ['22px', { lineHeight: '28px', fontWeight: '500' }], 'label-lg': ['16px', { lineHeight: '24px', fontWeight: '600' }], 'display-data': ['32px', { lineHeight: '40px', letterSpacing: '-0.5px', fontWeight: '500' }], 'headline-sm': ['18px', { lineHeight: '24px', fontWeight: '500' }], 'data-xs': ['12px', { lineHeight: '16px', fontWeight: '500' }], 'body-lg': ['16px', { lineHeight: '24px', fontWeight: '400' }], 'headline-lg-mobile': ['24px', { lineHeight: '32px', fontWeight: '600' }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-canvas text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe"><div class="h-16 px-space-md flex items-center justify-between gap-space-sm max-w-[600px] mx-auto"><div class="flex items-center gap-space-xs min-w-0"><button aria-label="Go back" class="min-w-[48px] min-h-[48px] flex items-center justify-center text-on-surface hover:text-clear-blue rounded-full active:bg-blue-mist transition-colors" onclick="history.back()"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><h1 class="font-headline-sm text-headline-sm text-on-surface truncate">Face Verification</h1></div><div class="flex items-center gap-space-xs"><button aria-label="Support or Help" class="min-w-[48px] min-h-[48px] flex items-center justify-center text-slate hover:text-on-surface rounded-full active:bg-blue-mist transition-colors"><span class="material-symbols-outlined text-[24px]">contact_support</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-16 pb-safe bg-canvas max-w-[600px] mx-auto flex-1"><div class="flex flex-col w-full pb-space-xl">
+<!-- Agreement Context Pill Strip -->
+<div class="px-margin pt-space-md pb-space-xs">
+<div class="bg-surface rounded-xl p-space-md shadow-sm flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-data-xs text-data-xs bg-blue-mist text-clear-blue px-space-sm py-0.5 rounded-full font-medium">
+          MM-AGR-DEMO-000001
+        </span>
+<span class="font-label-md text-label-md text-slate flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">verified_user</span>
+          Farmer Identity Check
+        </span>
+</div>
+<div class="flex items-baseline justify-between mt-1">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Nashik Red Onion (नाशिक लाल कांदा)</h2>
+<p class="font-body-md text-body-md text-slate">Farmer: Ramesh Patel (रामेश पटेल)</p>
+</div>
+<div class="text-right">
+<p class="font-data-md text-data-md text-on-surface font-semibold">4,000 kg</p>
+<p class="font-data-sm text-data-sm text-clay-orange">@ ₹29.20/kg</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Top Banner: Security & Privacy Protocol -->
+<div class="px-margin mt-space-md">
+<div class="bg-blue-mist rounded-xl p-space-md flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-full bg-clear-blue text-on-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[24px]">gavel</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1.5 flex-wrap">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Security &amp; Privacy Protocol</h3>
+<span class="font-data-xs text-data-xs bg-surface px-1.5 py-0.5 rounded text-clear-blue font-medium">ACTUAL</span>
+</div>
+<p class="font-body-md text-body-md text-slate mt-0.5">
+          सुरक्षा व गोपनीयता प्रोटोकॉल · Regulated Trust Framework
+        </p>
+</div>
+</div>
+</div>
+<!-- Detailed Consent Explanations -->
+<div class="px-margin mt-space-lg flex flex-col gap-space-md">
+<!-- Card 1: Purpose -->
+<div class="bg-surface rounded-xl p-space-md shadow-sm">
+<div class="flex items-start gap-space-md">
+<div class="w-8 h-8 rounded-lg bg-blue-soft text-clear-blue flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[20px]">photo_camera_front</span>
+</div>
+<div class="flex-1">
+<h4 class="font-label-lg text-label-lg text-on-surface font-semibold">
+            Why is camera access required?
+          </h4>
+<p class="font-caption text-caption text-slate mb-1">
+            कॅमेरा परवानगी कशासाठी आवश्यक आहे?
+          </p>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            Camera preview is used solely to capture a frontal facial reference to verify the legitimate farmer transacting this trade order.
+          </p>
+</div>
+</div>
+</div>
+<!-- Card 2: Evaluation -->
+<div class="bg-surface rounded-xl p-space-md shadow-sm">
+<div class="flex items-start gap-space-md">
+<div class="w-8 h-8 rounded-lg bg-blue-soft text-clear-blue flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[20px]">fact_check</span>
+</div>
+<div class="flex-1">
+<h4 class="font-label-lg text-label-lg text-on-surface font-semibold">
+            How is verification evaluated?
+          </h4>
+<p class="font-caption text-caption text-slate mb-1">
+            पडताळणी कशी होते?
+          </p>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            Live capture is encrypted and evaluated against authorized backend registered identity records. The application never performs opaque local automated scoring.
+          </p>
+</div>
+</div>
+</div>
+<!-- Visual Storytelling Placeholders -->
+<div class="grid grid-cols-2 gap-space-md">
+<div class="bg-surface rounded-xl overflow-hidden shadow-sm flex flex-col">
+<img class="w-full h-24 object-cover" data-alt="A portrait shot of an Indian farmer looking directly at a digital verification device, clean daylight, warm earthy farm surroundings, high visual clarity, calm and authentic tone, no green tinted filters." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVED8YHUvOMBxhi7G53cGxveMQ2hEfYJ8XcUQz9THr0I6ak2X9jlUWjA_qAzDn8PKqpZvVXXk4Z0eld4hVBtoHiBc7wxOnQDPfE4cA4XyvXZuIv9BrDJWwMgWjbAAwIYNvPJdTVdYMyPxHXTQRS4K-3_mvEHQlyJRLcVMb-XMwdKtsyDl02WIrRDrb_32aIW9IpO3XbS09MlZ2qYp9LV-2AsJWTAeghZRx6Ys3WTQCkX50DOKtxJoW"/>
+<div class="p-space-sm bg-surface">
+<span class="font-caption text-caption text-slate block truncate">Frontal Lighting</span>
+<span class="font-label-md text-label-md text-on-surface">स्पष्ट चेहरा</span>
+</div>
+</div>
+<div class="bg-surface rounded-xl overflow-hidden shadow-sm flex flex-col">
+<img class="w-full h-24 object-cover" data-alt="Close up view of agricultural trade documentation on a rustic wooden desk with stamped verification markings and Clear Blue digital watermark overlays, authentic rural commerce aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDObD-etOEvnE7B2HcJzHiTfBPsPu-9V7AFE8h1idaqYO6trDg8PHczQ0O-xVmDQ6af1YAL_9qbhhNYYRIlg2JL0TgS1pEW9NjXuLaTWEqqH_Tvj2DS17Rn86YFa_WXovofDk4WOETw-nrWlAGZta68B47_IQ6An1R1W2Ir-TxvPLVFnA1W8svI-dA_CHzx-E1LdkBJ73ltaG-d9DVOJYKcRv4APWLiqjqvpxgiS3jXrqJtsPXQ-En2"/>
+<div class="p-space-sm bg-surface">
+<span class="font-caption text-caption text-slate block truncate">Gated Trade Slip</span>
+<span class="font-label-md text-label-md text-on-surface">करार सुरिक्षत</span>
+</div>
+</div>
+</div>
+<!-- Card 3: Privacy Boundaries -->
+<div class="bg-surface rounded-xl p-space-md shadow-sm">
+<div class="flex items-start gap-space-md">
+<div class="w-8 h-8 rounded-lg bg-sand text-tertiary-container flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[20px]">no_encryption_gmailerrorred</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-1.5">
+<h4 class="font-label-lg text-label-lg text-on-surface font-semibold">
+              No Sensitive Data Exposure
+            </h4>
+<span class="font-data-xs text-data-xs text-clay-orange font-medium">PROTECTED</span>
+</div>
+<p class="font-caption text-caption text-slate mb-1">
+            कोणतीही संवेदनशील माहिती साठवली जात नाही
+          </p>
+<ul class="font-body-md text-body-md text-on-surface-variant flex flex-col gap-1 mt-1.5">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-clay-orange">check_small</span>
+<span>Strictly zero Aadhaar numbers collected or exposed</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-clay-orange">check_small</span>
+<span>No government biometric database sync</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-clay-orange">check_small</span>
+<span>No permanent raw biometric scans stored on handset</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Card 4: Voluntary Scope -->
+<div class="bg-surface rounded-xl p-space-md shadow-sm">
+<div class="flex items-start gap-space-md">
+<div class="w-8 h-8 rounded-lg bg-blue-mist text-clear-blue flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[20px]">lock_clock</span>
+</div>
+<div class="flex-1">
+<h4 class="font-label-lg text-label-lg text-on-surface font-semibold">
+            Voluntary &amp; Transaction Gated
+          </h4>
+<p class="font-caption text-caption text-slate mb-1">
+            ऐच्छिक आणि केवळ चालू व्यवहारापुरते मर्यादित
+          </p>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Identity verification is mandatory only before final order dispatch authorization. You remain free to cancel or renegotiate agreement terms at any stage.
+          </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Android System Dialog Simulation Visual -->
+<div class="px-margin mt-space-lg">
+<div class="bg-surface-container-high rounded-xl p-space-md shadow-sm">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-data-xs text-data-xs uppercase tracking-wider text-slate">Android System Prompt Preview</span>
+<span class="material-symbols-outlined text-slate text-[18px]">android</span>
+</div>
+<div class="bg-surface rounded-lg p-space-md shadow-sm">
+<div class="flex items-center gap-space-sm mb-space-sm">
+<div class="w-9 h-9 rounded-full bg-blue-mist flex items-center justify-center text-clear-blue shrink-0">
+<span class="material-symbols-outlined text-[22px]">videocam</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface font-semibold leading-tight">
+              Allow MittiMandi to take pictures and record video?
+            </p>
+<p class="font-caption text-caption text-slate">
+              MittiMandi ला फोटो आणि व्हिडिओ घेण्याची परवानगी द्यायची का?
+            </p>
+</div>
+</div>
+<div class="flex flex-col gap-1.5 mt-space-md">
+<div class="w-full py-2.5 px-space-md rounded-lg bg-blue-mist text-clear-blue font-label-md text-label-md font-semibold flex items-center justify-between">
+<span>While using the app (अ‍ॅप वापरताना)</span>
+<span class="material-symbols-outlined text-[18px]">radio_button_checked</span>
+</div>
+<div class="w-full py-2.5 px-space-md rounded-lg bg-surface-bright text-slate font-label-md text-label-md flex items-center justify-between">
+<span>Only this time (फक्त यावेळी)</span>
+<span class="material-symbols-outlined text-[18px]">radio_button_unchecked</span>
+</div>
+<div class="w-full py-2.5 px-space-md rounded-lg bg-surface-bright text-slate font-label-md text-label-md flex items-center justify-between">
+<span>Don't allow (परवानगी नाकारा)</span>
+<span class="material-symbols-outlined text-[18px]">radio_button_unchecked</span>
+</div>
+</div>
+</div>
+<!-- Denied State Guidance -->
+<div class="mt-space-md bg-sand rounded-lg p-space-sm flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-clay-orange text-[20px] shrink-0 mt-0.5">info</span>
+<div class="flex-1">
+<p class="font-caption text-caption text-on-surface leading-tight">
+            If permission was previously denied, tap <strong class="text-clay-orange">Open App Settings</strong> to grant camera access manually. Active internet required.
+          </p>
+<p class="font-caption text-caption text-slate mt-0.5">
+            परवानगी नाकारली असल्यास, कृपया सेटिंग्जमध्ये जाऊन कॅमेरा सक्षम करा.
+          </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive Checkbox Section -->
+<div class="px-margin mt-space-lg">
+<label class="cursor-pointer select-none bg-surface rounded-xl p-space-md shadow-sm flex items-start gap-space-md active:bg-blue-mist/50 transition-colors" id="consent-container">
+<input class="sr-only" id="consent-toggle" type="checkbox"/>
+<div class="w-6 h-6 rounded bg-surface-variant flex items-center justify-center shrink-0 mt-0.5 transition-colors" id="custom-checkbox">
+<span class="material-symbols-outlined text-[18px] text-on-primary opacity-0 transition-opacity" id="checkbox-icon">check</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-label-md text-label-md text-on-surface font-semibold">
+          I understand and consent to facial identity verification for Order creation under agreement MM-AGR-DEMO-000001.
+        </p>
+<p class="font-caption text-caption text-slate mt-1">
+          मी करार क्र. MM-AGR-DEMO-000001 अंतर्गत ऑर्डर प्रमाणीकरणासाठी चेहरा पडताळणीस संमती देतो.
+        </p>
+</div>
+</label>
+</div>
+<!-- Actions -->
+<div class="px-margin mt-space-lg flex flex-col gap-space-sm">
+<button class="w-full h-14 min-h-[56px] rounded-lg bg-clear-blue text-on-primary font-label-lg text-label-lg flex items-center justify-center gap-space-sm shadow-sm active:opacity-90 transition-opacity" id="primary-consent-btn" type="button">
+<span>I Agree &amp; Allow Camera</span>
+<span class="font-normal opacity-90 text-sm">(संमती द्या व कॅमेरा सुरू करा)</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+<button class="w-full h-14 min-h-[56px] rounded-lg bg-surface text-slate hover:text-on-surface font-label-lg text-label-lg flex items-center justify-center gap-space-xs active:bg-blue-mist transition-colors shadow-sm" onclick="history.back()" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+<span>Cancel (रद्द करा / मागे जा)</span>
+</button>
+</div>
+<!-- Footer Confidence Stamp -->
+<div class="px-margin mt-space-lg text-center">
+<p class="font-data-xs text-data-xs text-slate">
+      Secured with MittiMandi Direct APMC Verification Engine · ISO 27001 Compliant
+    </p>
+</div>
+</div>
+<script>
+  (function() {
+    const toggle = document.getElementById('consent-toggle');
+    const customCheckbox = document.getElementById('custom-checkbox');
+    const checkboxIcon = document.getElementById('checkbox-icon');
+    const consentContainer = document.getElementById('consent-container');
+    const primaryBtn = document.getElementById('primary-consent-btn');
+
+    let isChecked = true;
+    toggle.checked = isChecked;
+    updateCheckbox();
+
+    consentContainer.addEventListener('click', function(e) {
+      e.preventDefault();
+      isChecked = !isChecked;
+      toggle.checked = isChecked;
+      updateCheckbox();
+    });
+
+    function updateCheckbox() {
+      if (isChecked) {
+        customCheckbox.classList.remove('bg-surface-variant');
+        customCheckbox.classList.add('bg-clear-blue');
+        checkboxIcon.classList.remove('opacity-0');
+        checkboxIcon.classList.add('opacity-100');
+        primaryBtn.classList.remove('opacity-60', 'cursor-not-allowed');
+        primaryBtn.removeAttribute('disabled');
+      } else {
+        customCheckbox.classList.add('bg-surface-variant');
+        customCheckbox.classList.remove('bg-clear-blue');
+        checkboxIcon.classList.add('opacity-0');
+        checkboxIcon.classList.remove('opacity-100');
+        primaryBtn.classList.add('opacity-60', 'cursor-not-allowed');
+        primaryBtn.setAttribute('disabled', 'true');
+      }
+    }
+
+    primaryBtn.addEventListener('click', function() {
+      if (!isChecked) {
+        alert('कृपया पुढे जाण्यापूर्वी संमती चौकटीवर खूण करा (Please accept the consent checkbox).');
+        return;
+      }
+      
+      const originalText = primaryBtn.innerHTML;
+      primaryBtn.innerHTML = `
+        <span class="material-symbols-outlined animate-spin text-[20px]">progress_activity</span>
+        <span>Requesting Camera... (कॅमेरा उघडत आहे)</span>
+      `;
+      primaryBtn.setAttribute('disabled', 'true');
+
+      setTimeout(() => {
+        alert('Camera Permission Granted. Routing to Live Facial Verification Preview.');
+        primaryBtn.innerHTML = originalText;
+        primaryBtn.removeAttribute('disabled');
+      }, 1000);
+    });
+  })();
+</script></main></body></html>

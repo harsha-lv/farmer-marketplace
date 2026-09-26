@@ -1,8 +1,7 @@
 import math
-from typing import Sequence
+from collections.abc import Sequence
 
 from app.logistics.schemas import (
-    Coordinates,
     FacilityAllocationRequest,
     FacilityAllocationResponse,
     FacilityPoint,

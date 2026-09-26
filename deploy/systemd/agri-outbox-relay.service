@@ -1,0 +1,37 @@
+[Unit]
+Description=Agri-Market Platform - Transactional Outbox Kafka Relay Worker
+Documentation=https://github.com/harsha-lv/farmer-marketplace
+After=network.target postgresql.service kafka.service
+Wants=kafka.service postgresql.service
+
+[Service]
+Type=simple
+User=agriapp
+Group=agriapp
+WorkingDirectory=/opt/agri-platform
+EnvironmentFile=-/etc/default/agri-platform
+Environment="PYTHONUNBUFFERED=1"
+Environment="APP_ENVIRONMENT=production"
+
+ExecStart=/opt/agri-platform/.venv/bin/python -m app.workers.outbox_relay
+
+# Graceful drain configuration
+KillSignal=SIGTERM
+TimeoutStopSec=30s
+Restart=always
+RestartSec=5s
+
+# Security Hardening
+NoNewPrivileges=true
+ProtectSystem=full
+ProtectHome=true
+PrivateTmp=true
+LimitNOFILE=65536
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=agri-outbox-relay
+
+[Install]
+WantedBy=multi-user.target

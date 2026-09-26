@@ -1,18 +1,22 @@
+import uuid
 from datetime import UTC, datetime, timedelta
 from decimal import Decimal
-import uuid
 
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends
 
-from app.api.deps import SessionDep, SettingsDep
+from app.api.deps import (
+    SessionDep,
+    SettingsDep,
+    get_current_user,
+    require_org_access,
+    require_roles,
+)
 from app.errors import AppError
 from app.events.repository import EventRepository
 from app.finance.calculator import (
-    calculate_accrued_interest,
     calculate_pledge_eligibility,
     calculate_total_payoff,
 )
-from app.finance.models import PledgeLoan
 from app.finance.repository import PledgeFinanceRepository
 from app.finance.schemas import (
     PledgeEligibilityRequest,
@@ -27,7 +31,15 @@ from app.lots.repository import LotRepository
 from app.prices.repository import PriceRepository
 from app.prices.schemas import PriceFilter
 
-router = APIRouter(prefix="/finance", tags=["finance"])
+router = APIRouter(
+    prefix="/finance",
+    tags=["finance"],
+    dependencies=[
+        Depends(get_current_user),
+        Depends(require_roles("farmer", "fpo_operator", "bank", "admin")),
+        Depends(require_org_access("fpo_id")),
+    ],
+)
 
 DEFAULT_FALLBACK_PRICE_PER_MT = 25000  # Rs 2,500/quintal default
 
@@ -182,7 +194,11 @@ async def apply_pledge_loan(
     return PledgeLoanResponse.from_model(loan)
 
 
-@router.post("/pledge/{loan_id}/disburse", response_model=PledgeLoanResponse)
+@router.post(
+    "/pledge/{loan_id}/disburse",
+    response_model=PledgeLoanResponse,
+    dependencies=[Depends(require_roles("bank", "admin"))],
+)
 async def disburse_pledge_loan(
     loan_id: str,
     request: PledgeLoanDisburseRequest,

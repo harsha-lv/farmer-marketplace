@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "inverse-surface": "#17343e", "on-primary-fixed-variant": "#004e5d", "on-error-container": "#93000a", "outline": "#6d797d", "on-secondary": "#ffffff", "primary-fixed-dim": "#65d5f2", "on-primary": "#ffffff", "on-background": "#001f28", "surface-container": "#d6f2ff", "on-primary-fixed": "#001f26", "on-secondary-fixed": "#380d00", "surface-container-low": "#e4f7ff", "on-surface-variant": "#3d494c", "primary-fixed": "#aeecff", "surface": "#FFFFFF", "inverse-primary": "#65d5f2", "blue-soft": "#C7E8F0", "on-tertiary": "#ffffff", "clay-orange": "#A95135", "secondary-container": "#fd9168", "surface-variant": "#c9e7f4", "on-primary-container": "#003e4a", "on-tertiary-fixed": "#281900", "surface-tint": "#00687b", "sand": "#FFF3DF", "primary-container": "#36afcb", "secondary-fixed": "#ffdbcf", "danger": "#C64F48", "secondary": "#9a4522", "secondary-fixed-dim": "#ffb59a", "outline-variant": "#bdc8cd", "error": "#ba1a1a", "surface-container-lowest": "#ffffff", "tertiary-container": "#cf972f", "on-surface": "#001f28", "on-error": "#ffffff", "tertiary": "#7e5700", "blue-mist": "#E2F3F8", "on-secondary-fixed-variant": "#7c2e0c", "slate": "#607780", "surface-dim": "#c1dfec", "surface-container-high": "#cfedfa", "tertiary-fixed": "#ffdeac", "on-secondary-container": "#742907", "error-container": "#ffdad6", "primary": "#00687b", "canvas": "#F4FAFC", "line": "#D7E7EB", "background": "#f2fbff", "inverse-on-surface": "#ddf5ff", "surface-container-highest": "#c9e7f4", "on-tertiary-fixed-variant": "#604100", "on-tertiary-container": "#4c3300", "surface-bright": "#f2fbff", "tertiary-fixed-dim": "#f9bc51", "clear-blue": "#147F9E", "mist-text": "#8FA1A7" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "space-lg": "16px", "space-md": "12px", "space-sm": "8px", "gutter": "12px", "space-xs": "4px", "space-xl": "24px", "margin": "16px" }, fontFamily: { "data-md": ["IBM Plex Mono"], "caption": ["Inter"], "display-data": ["IBM Plex Mono"], "headline-lg-mobile": ["Fraunces"], "headline-md": ["Fraunces"], "data-lg": ["IBM Plex Mono"], "body-lg": ["Inter"], "headline-sm": ["Fraunces"], "data-xs": ["IBM Plex Mono"], "headline-lg": ["Fraunces"], "body-md": ["Inter"], "label-lg": ["Inter"], "label-md": ["Inter"], "data-sm": ["IBM Plex Mono"] }, fontSize: { "data-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }], "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "display-data": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.5px", "fontWeight": "500" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }], "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }], "data-lg": ["22px", { "lineHeight": "28px", "fontWeight": "500" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "500" }], "data-xs": ["12px", { "lineHeight": "16px", "fontWeight": "500" }], "headline-lg": ["28px", { "lineHeight": "36px", "fontWeight": "600" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "label-lg": ["16px", { "lineHeight": "24px", "fontWeight": "600" }], "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }], "data-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-canvas font-body-md text-body-md text-on-surface flex flex-col min-h-screen antialiased"><header class="fixed top-0 inset-x-0 z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe"><div class="h-16 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm min-w-0"><button aria-label="Go back" class="w-12 h-12 -ml-space-sm flex items-center justify-center text-on-surface hover:text-primary transition-colors" onclick="history.back()"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><h1 class="font-headline-sm text-headline-sm text-on-surface truncate">Review Details</h1></div><div class="flex items-center gap-space-xs shrink-0"><button aria-label="More options" class="w-12 h-12 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[24px]">more_vert</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-16 pb-safe bg-canvas min-h-screen"><div class="flex flex-col w-full">
+<div class="w-full max-w-[600px] mx-auto px-margin pt-space-md pb-space-xl flex flex-col gap-space-lg">
+<!-- Success Hero Section -->
+<div class="flex flex-col items-center text-center pt-space-md pb-space-xs">
+<div class="relative flex items-center justify-center w-20 h-20 rounded-full bg-blue-mist shadow-sm mb-space-md">
+<div class="w-14 h-14 rounded-full bg-primary-container flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-on-primary text-[32px]" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div class="absolute -bottom-1 -right-1 w-7 h-7 rounded-full bg-surface flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-clear-blue text-[18px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-space-xs">
+        Feedback Submitted
+      </h2>
+<p class="font-body-md text-body-md text-slate mb-space-xs font-medium">
+        अभिप्राय यशस्वी नोंदवला
+      </p>
+<div class="inline-flex items-center gap-space-xs bg-blue-mist px-space-md py-1 rounded-full mt-space-xs">
+<span class="material-symbols-outlined text-clear-blue text-[16px]">receipt_long</span>
+<span class="font-data-xs text-data-xs text-on-surface-variant">Order #MM-ORD-DEMO-000001</span>
+</div>
+</div>
+<!-- Submitted Record Summary Card -->
+<div class="bg-surface rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between gap-space-sm pb-space-xs">
+<div class="flex flex-col min-w-0">
+<span class="font-caption text-caption text-slate uppercase tracking-wider">Rating ID</span>
+<span class="font-data-sm text-data-sm text-on-surface select-all">MM-RAT-DEMO-000001</span>
+</div>
+<div class="shrink-0 flex items-center gap-1 bg-blue-mist px-space-sm py-1 rounded-lg">
+<span class="material-symbols-outlined text-clear-blue text-[14px]">task_alt</span>
+<span class="font-data-xs text-data-xs text-clear-blue font-semibold">Verified Log</span>
+</div>
+</div>
+<!-- Counterparty Entity -->
+<div class="bg-canvas rounded-lg p-space-md flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-full bg-blue-soft flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-clear-blue text-[22px]">storefront</span>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<span class="font-caption text-caption text-slate">Rated Counterparty (खरेदीदार)</span>
+<span class="font-label-lg text-label-lg text-on-surface truncate">Sahyadri Agro Traders</span>
+<span class="font-caption text-caption text-slate">APMC Yard Licensee • Pune Hub</span>
+</div>
+</div>
+<!-- Score Rating Display -->
+<div class="flex items-center justify-between bg-sand/60 rounded-lg p-space-md">
+<div class="flex flex-col">
+<span class="font-caption text-caption text-tertiary">Bilateral Rating</span>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-clay-orange text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-clay-orange text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-clay-orange text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-clay-orange text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-slate text-[20px]">star</span>
+<span class="font-data-md text-data-md text-on-surface ml-1 font-bold">4.0</span>
+</div>
+</div>
+<div class="px-space-md py-1 rounded-full bg-sand text-tertiary font-label-md text-label-md">
+          Good (चांगले)
+        </div>
+</div>
+<!-- Review Quote -->
+<div class="flex flex-col gap-1.5 pt-space-xs">
+<span class="font-caption text-caption text-slate flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">rate_review</span>
+          Submitted Comments (नोंदवलेले शेरे)
+        </span>
+<div class="bg-canvas rounded-lg p-space-md text-on-surface font-body-md text-body-md leading-relaxed italic relative">
+<span class="absolute top-2 left-2 text-line font-headline-lg select-none">“</span>
+<p class="relative z-10 pl-2">
+            खरेदीदाराने ठरलेल्या भावात (₹29.20/kg) वेळेत तोलाई पूर्ण केली. वजन पावती ताबडतोब उपलब्ध करून दिली. व्यवहार अतिशय पारदर्शक झाला.
+          </p>
+</div>
+</div>
+<!-- Verification Specs / Timestamp -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs pt-space-xs text-slate">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-slate">schedule</span>
+<span class="font-caption text-caption">19 Oct 2026, 01:45 PM IST</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-slate">fingerprint</span>
+<span class="font-data-xs text-data-xs">SHA-256 Verified Ledger</span>
+</div>
+</div>
+</div>
+<!-- Anti-Gamification / Truthfulness Statement Box -->
+<div class="bg-blue-mist rounded-xl p-space-lg shadow-sm flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-full bg-blue-soft flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-clear-blue text-[24px]">verified_user</span>
+</div>
+<div class="flex flex-col min-w-0">
+<h3 class="font-label-lg text-label-lg text-on-surface mb-1">
+          Zero-Speculation Guarantee
+        </h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-normal mb-space-xs">
+          Your feedback has been recorded for this completed transaction. MittiMandi does not calculate synthetic “Trust Scores”, public leaderboard ranks, or vanity badges from ratings.
+        </p>
+<p class="font-caption text-caption text-slate leading-normal">
+          हे गुणांकन केवळ दोन्ही बाजूंमधील थेट व्यावसायिक अभिप्राय म्हणून नोंदवले गेले आहे. कोणतीही खोटी श्रेणी दिली जात नाही.
+        </p>
+</div>
+</div>
+<!-- Duplicate Protection Status Card -->
+<div class="bg-surface rounded-xl p-space-md shadow-sm flex items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-8 h-8 rounded-full bg-canvas flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-clear-blue text-[20px]">lock_reset</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface truncate">
+            Duplicate Protection Active
+          </span>
+<span class="font-caption text-caption text-slate truncate">
+            One rating per counterparty completed. Duplicate rating blocked.
+          </span>
+</div>
+</div>
+<div class="shrink-0 bg-blue-mist p-1 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-clear-blue text-[18px]">check_circle</span>
+</div>
+</div>
+<!-- Visual Grounding: Market Inspection Receipt Imagery -->
+<div class="bg-surface rounded-xl p-space-md shadow-sm flex items-center gap-space-md">
+<img class="w-16 h-16 rounded-lg object-cover shrink-0" data-alt="A macro detail shot of physical agricultural weighment slip and APMC documentation in rural Maharashtra, resting on clean polished wooden surface under warm natural daylight, earth tones with Clear Blue stationery accents, quiet authenticity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdIHh-ZXRxwk9ItIlE3rjmZTwzn9mOgWxwdWQX-ZFu2Tdxv1frxox2Om0enlz331IFSE0gdba_4xgdE4x6nf8dcZ2_2Cpo-HVTqyS4ETWmPwp84Gb7GBItQ0obRczcokRy7taaSOqemer3oW_2EG-ZDpvbTai0iA9ENhLYvQP1LgP_GK6iFGR0dJrY8_2ZwKJxXgn01pDyihbWrgNmc8Qp5sdxUiXKO0EDPUF6AYu_-wGm8Y1yji7J"/>
+<div class="flex flex-col min-w-0 flex-1">
+<span class="font-label-md text-label-md text-on-surface">Weight Certificate #44192</span>
+<span class="font-caption text-caption text-slate">Archived with Sahyadri Traders transaction bundle</span>
+<span class="font-data-xs text-data-xs text-clear-blue mt-0.5">Matched with Mandi Gate Pass</span>
+</div>
+<span class="material-symbols-outlined text-slate text-[20px]">inventory_2</span>
+</div>
+<!-- Sticky Bottom Action Footer -->
+<div class="sticky bottom-0 inset-x-0 bg-canvas/95 backdrop-blur-md pt-space-sm pb-space-lg flex flex-col gap-space-sm">
+<button class="w-full h-14 rounded-lg bg-clay-orange text-on-tertiary font-label-lg text-label-lg flex items-center justify-center gap-space-xs shadow-sm active:scale-[0.99] transition-transform" type="button">
+<span>View Rating Details (गुणांकन तपशील पाहा)</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+<button class="w-full h-14 rounded-lg bg-surface text-clear-blue font-label-lg text-label-lg flex items-center justify-center gap-space-xs shadow-sm active:scale-[0.99] transition-transform" type="button">
+<span class="material-symbols-outlined text-[20px]">undo</span>
+<span>Back to Transaction (व्यवहारावर परत जा)</span>
+</button>
+</div>
+</div>
+</div></main></body></html>

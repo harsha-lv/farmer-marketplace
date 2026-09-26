@@ -1,8 +1,10 @@
+from collections.abc import AsyncIterator
+from contextlib import asynccontextmanager
 from datetime import date
 
 from sqlalchemy import func, select
 from sqlalchemy.dialects.postgresql import insert
-from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker
 
 from app.prices.models import Commodity, Market, PriceObservation
 from app.prices.schemas import PriceFilter, PriceRecord
@@ -280,3 +282,124 @@ class PriceRepository:
             },
         )
         await self.session.execute(statement)
+
+
+class PriceObservationRepository:
+    """Async repository wrapping PriceRepository and implementing PriceSink."""
+
+    def __init__(
+        self,
+        session_or_factory: AsyncSession | async_sessionmaker[AsyncSession],
+    ) -> None:
+        self.session_or_factory = session_or_factory
+
+    @asynccontextmanager
+    async def _get_session(self) -> AsyncIterator[AsyncSession]:
+        if isinstance(self.session_or_factory, AsyncSession):
+            yield self.session_or_factory
+        else:
+            async with self.session_or_factory() as session:
+                yield session
+                await session.commit()
+
+    async def upsert_market(
+        self,
+        *,
+        state_name: str,
+        state_lgd_code: str | None,
+        district_name: str,
+        market_name: str,
+    ) -> int:
+        async with self._get_session() as session:
+            repo = PriceRepository(session)
+            return await repo.upsert_market(
+                state_name=state_name,
+                state_lgd_code=state_lgd_code,
+                district_name=district_name,
+                market_name=market_name,
+            )
+
+    async def upsert_commodity(self, *, name: str, group_name: str | None) -> int:
+        async with self._get_session() as session:
+            repo = PriceRepository(session)
+            return await repo.upsert_commodity(name=name, group_name=group_name)
+
+    async def upsert_observation(
+        self,
+        *,
+        arrival_date: date,
+        market_id: int,
+        commodity_id: int,
+        variety: str,
+        grade: str,
+        min_price: int,
+        max_price: int,
+        modal_price: int,
+    ) -> None:
+        async with self._get_session() as session:
+            repo = PriceRepository(session)
+            await repo.upsert_observation(
+                arrival_date=arrival_date,
+                market_id=market_id,
+                commodity_id=commodity_id,
+                variety=variety,
+                grade=grade,
+                min_price=min_price,
+                max_price=max_price,
+                modal_price=modal_price,
+            )
+
+    async def insert(self, record: dict) -> None:
+        from app.prices.ingest import _store_quote, parse_quote
+
+        quote = parse_quote(record)
+        await _store_quote(self, quote)
+
+    async def bulk_insert(self, records: list[dict]):
+        from app.prices.ingest import store_quotes
+
+        return await store_quotes(records, self)
+
+    async def latest_for_market(
+        self, market_id: int, commodity_id: int | None = None
+    ) -> PriceRecord | None:
+        async with self._get_session() as session:
+            stmt = (
+                select(
+                    PriceObservation.arrival_date.label("arrival_date"),
+                    Market.state_name.label("state"),
+                    Market.state_lgd_code.label("state_lgd_code"),
+                    Market.district_name.label("district"),
+                    Market.district_lgd_code.label("district_lgd_code"),
+                    Market.market_name.label("market"),
+                    Commodity.name.label("commodity"),
+                    Commodity.group_name.label("commodity_group"),
+                    PriceObservation.variety.label("variety"),
+                    PriceObservation.grade.label("grade"),
+                    PriceObservation.min_price_inr_per_quintal.label("min_price_inr_per_quintal"),
+                    PriceObservation.max_price_inr_per_quintal.label("max_price_inr_per_quintal"),
+                    PriceObservation.modal_price_inr_per_quintal.label("modal_price_inr_per_quintal"),
+                    PriceObservation.arrivals_quintal.label("arrivals_quintal"),
+                )
+                .join(Market, PriceObservation.market_id == Market.id)
+                .join(Commodity, PriceObservation.commodity_id == Commodity.id)
+                .where(PriceObservation.market_id == market_id)
+            )
+            if commodity_id is not None:
+                stmt = stmt.where(PriceObservation.commodity_id == commodity_id)
+            stmt = stmt.order_by(PriceObservation.arrival_date.desc()).limit(1)
+            row = (await session.execute(stmt)).mappings().first()
+            if row:
+                return PriceRecord.model_validate(row)
+            return None
+
+    async def recent(
+        self, query: PriceFilter | None = None, limit: int = 50
+    ) -> list[PriceRecord]:
+        async with self._get_session() as session:
+            q = query or PriceFilter()
+            q.limit = limit
+            repo = PriceRepository(session)
+            page = await repo.list_prices(q)
+            return page.records
+

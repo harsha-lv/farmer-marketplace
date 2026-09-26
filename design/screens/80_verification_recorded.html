@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"secondary-container":"#fd9168","error-container":"#ffdad6","danger":"#C64F48","blue-mist":"#E2F3F8","surface-variant":"#c9e7f4","primary-fixed":"#aeecff","on-surface":"#001f28","mist-text":"#8FA1A7","surface-container-lowest":"#ffffff","on-tertiary-container":"#4c3300","on-secondary-fixed-variant":"#7c2e0c","surface-container":"#d6f2ff","secondary-fixed-dim":"#ffb59a","inverse-primary":"#65d5f2","on-tertiary-fixed-variant":"#604100","inverse-surface":"#17343e","on-tertiary-fixed":"#281900","on-secondary":"#ffffff","sand":"#FFF3DF","background":"#f2fbff","outline-variant":"#bdc8cd","inverse-on-surface":"#ddf5ff","slate":"#607780","on-error":"#ffffff","tertiary-container":"#cf972f","on-primary-fixed":"#001f26","surface":"#FFFFFF","on-tertiary":"#ffffff","canvas":"#F4FAFC","clay-orange":"#A95135","secondary-fixed":"#ffdbcf","outline":"#6d797d","on-primary-fixed-variant":"#004e5d","on-secondary-fixed":"#380d00","surface-tint":"#00687b","surface-container-high":"#cfedfa","clear-blue":"#147F9E","primary-container":"#36afcb","surface-dim":"#c1dfec","tertiary":"#7e5700","tertiary-fixed-dim":"#f9bc51","primary-fixed-dim":"#65d5f2","surface-container-highest":"#c9e7f4","primary":"#00687b","on-primary-container":"#003e4a","surface-bright":"#f2fbff","surface-container-low":"#e4f7ff","on-background":"#001f28","on-error-container":"#93000a","error":"#ba1a1a","on-secondary-container":"#742907","on-surface-variant":"#3d494c","blue-soft":"#C7E8F0","tertiary-fixed":"#ffdeac","on-primary":"#ffffff","line":"#D7E7EB","secondary":"#9a4522"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"gutter":"12px","margin":"16px","space-md":"12px","space-sm":"8px","space-xs":"4px","space-xl":"24px","space-lg":"16px"},fontFamily:{"data-lg":["IBM Plex Mono"],"caption":["Inter"],"headline-lg-mobile":["Fraunces"],"body-md":["Inter"],"headline-sm":["Fraunces"],"label-md":["Inter"],"headline-md":["Fraunces"],"headline-lg":["Fraunces"],"data-sm":["IBM Plex Mono"],"body-lg":["Inter"],"data-md":["IBM Plex Mono"],"data-xs":["IBM Plex Mono"],"label-lg":["Inter"],"display-data":["IBM Plex Mono"]},fontSize:{"data-lg":["22px",{lineHeight:"28px",fontWeight:"500"}],"caption":["12px",{lineHeight:"16px",fontWeight:"400"}],"headline-lg-mobile":["24px",{lineHeight:"32px",fontWeight:"600"}],"body-md":["14px",{lineHeight:"20px",fontWeight:"400"}],"headline-sm":["18px",{lineHeight:"24px",fontWeight:"500"}],"label-md":["14px",{lineHeight:"20px",fontWeight:"500"}],"headline-md":["20px",{lineHeight:"28px",fontWeight:"600"}],"headline-lg":["28px",{lineHeight:"36px",fontWeight:"600"}],"data-sm":["14px",{lineHeight:"20px",fontWeight:"500"}],"body-lg":["16px",{lineHeight:"24px",fontWeight:"400"}],"data-md":["16px",{lineHeight:"24px",fontWeight:"500"}],"data-xs":["12px",{lineHeight:"16px",fontWeight:"500"}],"label-lg":["16px",{lineHeight:"24px",fontWeight:"600"}],"display-data":["32px",{lineHeight:"40px",letterSpacing:"-0.5px",fontWeight:"500"}]}}}}</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-canvas text-on-surface font-body-md flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm min-w-0"><button class="w-11 h-11 -ml-2 rounded-full flex items-center justify-center text-on-surface hover:bg-surface-variant/30 transition-colors" onclick="history.back()"><span class="material-symbols-outlined text-[22px]">arrow_back</span></button><div class="flex flex-col min-w-0"><span class="font-data-xs text-data-xs text-primary leading-none uppercase truncate">Ops Workflow</span><h1 class="font-headline-sm text-headline-sm text-on-surface truncate leading-tight">Lot Inspection Detail</h1></div></div><div class="flex items-center gap-space-sm flex-shrink-0"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-safe bg-canvas"><div class="flex flex-col w-full px-margin pb-space-xl space-y-space-lg">
+<!-- Floating Confetti Canvas Micro-interaction Container -->
+<div class="relative overflow-hidden w-full flex flex-col items-center pt-space-lg text-center" id="confetti-container">
+<!-- Success Badge with Animated Pulse Ambient Ring -->
+<div class="relative flex items-center justify-center mb-space-md">
+<div class="absolute w-24 h-24 rounded-full bg-surface-container animate-ping opacity-25"></div>
+<div class="relative w-20 h-20 rounded-full bg-blue-mist flex items-center justify-center shadow-md">
+<div class="w-14 h-14 rounded-full bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-[36px]" style="font-variation-settings: 'FILL' 1;">
+            verified
+          </span>
+</div>
+</div>
+<span class="absolute -bottom-1 -right-1 flex h-6 w-6">
+<span class="relative inline-flex rounded-full h-6 w-6 bg-tertiary-container items-center justify-center text-on-tertiary-container">
+<span class="material-symbols-outlined text-[16px]">done_all</span>
+</span>
+</span>
+</div>
+<!-- Title & Dual Script Status -->
+<div class="flex flex-col items-center space-y-space-xs max-w-[340px]">
+<div class="inline-flex items-center gap-space-xs px-space-sm py-0.5 rounded-full bg-sand text-secondary">
+<span class="material-symbols-outlined text-[14px]">science</span>
+<span class="font-data-xs text-data-xs tracking-wider uppercase font-semibold">Verified — Prototype (सत्यापित — प्रात्यक्षिक)</span>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface leading-snug tracking-tight">
+        Verification Recorded
+      </h2>
+<p class="font-label-md text-label-md text-slate">
+        पडताळणी यशस्वीपणे नोंदवली गेली
+      </p>
+</div>
+<!-- Verified Entity Identification Card -->
+<div class="mt-space-md w-full bg-surface rounded-xl p-space-md shadow-sm flex flex-col items-center space-y-space-xs">
+<span class="font-caption text-caption text-slate uppercase tracking-wide">Registered Entity / व्यापारी संस्था</span>
+<span class="font-headline-md text-headline-md text-on-surface font-semibold">Sahyadri Agro Traders</span>
+<div class="flex items-center gap-space-xs px-space-sm py-1 rounded bg-canvas text-primary">
+<span class="material-symbols-outlined text-[15px]">tag</span>
+<span class="font-data-sm text-data-sm font-semibold tracking-wide select-all">MM-VER-DEMO-000001</span>
+<button aria-label="Copy Ref" class="w-7 h-7 flex items-center justify-center rounded-full hover:bg-surface-variant/40 active:scale-95 transition-all text-slate" id="copy-btn" onclick="navigator.clipboard?.writeText('MM-VER-DEMO-000001'); this.innerHTML='&lt;span class=\'material-symbols-outlined text-[14px]\'&gt;check&lt;/span&gt;'; setTimeout(()=&gt;this.innerHTML='&lt;span class=\'material-symbols-outlined text-[14px]\'&gt;content_copy&lt;/span&gt;', 1600)">
+<span class="material-symbols-outlined text-[14px]">content_copy</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Physical / Grounded Entity Snippet Visual Placeholders -->
+<div class="grid grid-cols-2 gap-gutter w-full">
+<div class="relative h-28 rounded-lg overflow-hidden bg-surface-container flex flex-col justify-end p-space-xs shadow-sm">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="Close up photograph of regional Indian agricultural produce sample bags filled with harvested lentils and grain grains stamped with inspection tags on clean wooden market table, authentic documentary style, soft daylight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXluq7ExC0ZRB1rJBAHhWxo5TSkcCR_xIDE_HcHCBW3R5FHAvfII5tZ7LDeDRUv7EivlAjPsOFBMRz6mvQN6wK7gGSSlGRAard4nDzXQLVu1JP_ZLO5WdfpxZ6fKB90H6bRDbLZsP4Mm23D6BkIvAGFwgHqownUmU0wz1jwaZczmtKfwGDqL-ooFGmf55thxWqpnUKTUWWILBxlOj-59sanea-30yTv0t3NqvrD1Wi5P9wLNwwDG-J"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/80 via-transparent to-transparent"></div>
+<span class="relative font-caption text-caption text-surface font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">inventory_2</span> Sample Lot Batch #12
+      </span>
+</div>
+<div class="relative h-28 rounded-lg overflow-hidden bg-surface-container flex flex-col justify-end p-space-xs shadow-sm">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="Documentary photo of rural market transaction counter in Maharashtra with physical verification registry ledger and rubber stamp under warm natural ceiling light, clear focused details" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDf0dsaDbRkXa4q_ZMWKV4chaLym3iieQeyF65rJAwlCSLvG5k2WSdwZDEpZlbLuf70OvFqFElLywv8bMsmlBSQ_9M32__PkdGVtSPIFp1GGVh_Q0wfmOcSQPH9b-ct6erjiYrqyHsoVu42-0T7Zi5lT25Bm3n9AxhI_qeWFehRZHtcRidnN-F_JIVRBULUZvJipqlH2c1xshMg9PArpgWVxxYCakypBU2W4w_aMggPZQYK58GH1iP9"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/80 via-transparent to-transparent"></div>
+<span class="relative font-caption text-caption text-surface font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">store</span> Mandi Premises #04
+      </span>
+</div>
+</div>
+<!-- Strict Regulatory & Non-Speculative Boundary Notice -->
+<div class="w-full bg-sand rounded-xl p-space-md shadow-sm relative overflow-hidden">
+<div class="flex items-start gap-space-sm">
+<div class="w-7 h-7 rounded-full bg-clay-orange flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-surface text-[16px]">info</span>
+</div>
+<div class="flex flex-col space-y-1">
+<span class="font-label-md text-label-md text-on-surface font-bold">Important Boundary Notice (वैधानिक सूचना)</span>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+          This badge means only: <span class="font-semibold text-on-surface">MittiMandi prototype profile verification</span>. It must <span class="font-semibold text-danger underline">NOT</span> mean: Government Verified, GST Verified, Aadhaar Verified, Bank Verified, or APMC Verified.
+        </p>
+<p class="font-caption text-caption text-clay-orange pt-0.5">
+          हा बॅज केवळ अंतर्गत प्रात्यक्षिक पडताळणी दर्शवतो. कोणत्याही शासकीय, बँक किंवा कर पडताळणीचा दावा करत नाही.
+        </p>
+</div>
+</div>
+</div>
+<!-- Summary Audit Ledger Card -->
+<div class="w-full bg-surface rounded-xl p-space-md shadow-sm flex flex-col space-y-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">fact_check</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Audit Summary</h3>
+</div>
+<span class="inline-flex items-center gap-1 px-space-xs py-0.5 rounded bg-blue-mist text-clear-blue font-data-xs text-data-xs font-semibold">
+<span class="material-symbols-outlined text-[13px]">lock</span> IMMUTABLE
+      </span>
+</div>
+<!-- Metric Rows -->
+<div class="flex flex-col space-y-space-sm text-left">
+<!-- Row 1 -->
+<div class="flex items-start justify-between py-1 bg-canvas px-space-sm rounded-lg">
+<div class="flex items-center gap-space-xs text-slate">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span class="font-body-md text-body-md">Verification Timestamp</span>
+</div>
+<span class="font-data-sm text-data-sm text-on-surface font-medium text-right">Today, 10:15 AM IST</span>
+</div>
+<!-- Row 2 -->
+<div class="flex items-start justify-between py-1 bg-canvas px-space-sm rounded-lg">
+<div class="flex items-center gap-space-xs text-slate">
+<span class="material-symbols-outlined text-[16px]">terminal</span>
+<span class="font-body-md text-body-md">Authorized Operator</span>
+</div>
+<span class="font-data-sm text-data-sm text-on-surface font-medium text-right">Admin Terminal #402</span>
+</div>
+<!-- Row 3 -->
+<div class="flex flex-col space-y-1 py-1.5 bg-canvas px-space-sm rounded-lg">
+<div class="flex items-center gap-space-xs text-slate">
+<span class="material-symbols-outlined text-[16px]">task_alt</span>
+<span class="font-body-md text-body-md font-medium text-on-surface">Permitted Actions</span>
+</div>
+<div class="flex items-center gap-1.5 pl-6">
+<span class="w-1.5 h-1.5 rounded-full bg-clear-blue"></span>
+<span class="font-caption text-caption text-on-surface-variant">Commercial offer submission enabled</span>
+</div>
+<div class="flex items-center gap-1.5 pl-6">
+<span class="w-1.5 h-1.5 rounded-full bg-clear-blue"></span>
+<span class="font-caption text-caption text-on-surface-variant">Direct buyer price negotiation enabled</span>
+</div>
+</div>
+</div>
+<!-- Verification Audit Checkmarks Accordion Toggle -->
+<div class="hidden flex-col space-y-space-xs pt-space-xs" id="audit-details">
+<div class="p-space-sm rounded-lg bg-surface-container-low text-on-surface space-y-1">
+<div class="flex justify-between items-center font-caption text-caption">
+<span class="text-slate">Physical Lot Sample:</span>
+<span class="font-semibold text-clear-blue">Passed Grade A-2</span>
+</div>
+<div class="flex justify-between items-center font-caption text-caption">
+<span class="text-slate">Mandate Form Signature:</span>
+<span class="font-semibold text-clear-blue">Physically Countersigned</span>
+</div>
+<div class="flex justify-between items-center font-caption text-caption">
+<span class="text-slate">Mandi Desk Inspector:</span>
+<span class="font-semibold text-on-surface">D. Jadhav (#088)</span>
+</div>
+</div>
+</div>
+<button class="w-full flex items-center justify-center gap-1 py-1 text-clear-blue font-label-md text-label-md active:scale-98 transition-transform" id="toggle-details-btn" onclick="const el = document.getElementById('audit-details'); el.classList.toggle('hidden'); const isHidden = el.classList.contains('hidden'); this.querySelector('#btn-label').innerText = isHidden ? 'Show full inspection checklist' : 'Hide inspection checklist'; this.querySelector('#btn-icon').style.transform = isHidden ? 'rotate(0deg)' : 'rotate(180deg)';">
+<span id="btn-label">Show full inspection checklist</span>
+<span class="material-symbols-outlined text-[18px] transition-transform duration-200" id="btn-icon">expand_more</span>
+</button>
+</div>
+<!-- Operational Delight Prompt Box -->
+<div class="w-full bg-blue-soft/50 rounded-xl p-space-md flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">forward_to_inbox</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Notification Dispatch</span>
+<span class="font-caption text-caption text-on-surface-variant truncate">SMS receipt pushed to verified trader phone: +91 98••• ••812</span>
+</div>
+</div>
+<!-- Transactional Action CTA Bar -->
+<div class="w-full flex flex-col space-y-space-sm pt-space-xs">
+<!-- Primary Conversion CTA Button (Burnt Orange #C96842) -->
+<button class="w-full h-14 rounded-lg bg-[#C96842] text-surface flex items-center justify-center gap-space-xs shadow-md active:scale-98 transition-all hover:brightness-105" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+<span class="font-label-lg text-label-lg text-white">Back to Verification Queue (पडताळणी यादीकडे परत जा)</span>
+<span class="material-symbols-outlined text-white text-[20px]">arrow_forward</span>
+</button>
+<!-- Secondary Outlined Action CTA -->
+<button class="w-full h-14 rounded-lg bg-surface text-clear-blue flex items-center justify-center gap-space-xs active:bg-blue-mist/50 transition-colors" onclick="document.getElementById('details-modal')?.classList.remove('hidden')">
+<span class="material-symbols-outlined text-clear-blue text-[20px]">description</span>
+<span class="font-label-lg text-label-lg text-clear-blue">View Record Details (नोंद तपशील पाहा)</span>
+</button>
+</div>
+<!-- Simple Modal Sheet Triggered via Secondary CTA -->
+<div class="hidden fixed inset-0 z-50 flex items-end justify-center bg-slate/40 backdrop-blur-sm p-margin" id="details-modal">
+<div class="w-full max-w-[500px] bg-surface rounded-xl p-space-lg flex flex-col space-y-space-md shadow-2xl">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-clear-blue">receipt_long</span>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Digital Record Voucher</h4>
+</div>
+<button class="w-8 h-8 rounded-full flex items-center justify-center bg-canvas text-slate hover:text-on-surface" onclick="document.getElementById('details-modal').classList.add('hidden')">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div class="bg-canvas rounded-lg p-space-md flex flex-col space-y-space-xs font-data-xs text-data-xs text-on-surface">
+<div class="flex justify-between">
+<span class="text-slate">Voucher Hash:</span>
+<span class="font-mono">7b9a4c...e841f</span>
+</div>
+<div class="flex justify-between">
+<span class="text-slate">Batch Class:</span>
+<span>Soybean / Grade II</span>
+</div>
+<div class="flex justify-between">
+<span class="text-slate">Verification Mode:</span>
+<span>Manual Terminal Entry</span>
+</div>
+<div class="flex justify-between">
+<span class="text-slate">Status Tag:</span>
+<span class="text-clear-blue font-bold">ACTIVE_PROTOTYPE</span>
+</div>
+</div>
+<button class="w-full h-12 rounded-lg bg-clear-blue text-surface font-label-md text-label-md" onclick="document.getElementById('details-modal').classList.add('hidden')">
+        Dismiss (बंद करा)
+      </button>
+</div>
+</div>
+</div>
+<script>
+  // Subtle particle joy burst for confirmation micro-moment
+  (function burstConfetti() {
+    const container = document.getElementById('confetti-container');
+    if (!container) return;
+    const colors = ['#147F9E', '#C96842', '#D29A32', '#aeecff'];
+    for (let i = 0; i < 18; i++) {
+      const p = document.createElement('div');
+      const size = Math.floor(Math.random() * 6) + 4;
+      p.className = 'absolute rounded-full pointer-events-none transition-all duration-1000';
+      p.style.width = size + 'px';
+      p.style.height = size + 'px';
+      p.style.backgroundColor = colors[i % colors.length];
+      p.style.left = '50%';
+      p.style.top = '40px';
+      p.style.opacity = '0.9';
+      container.appendChild(p);
+
+      const angle = (i / 18) * 2 * Math.PI;
+      const distance = Math.floor(Math.random() * 90) + 40;
+      const destX = Math.cos(angle) * distance;
+      const destY = Math.sin(angle) * distance;
+
+      requestAnimationFrame(() => {
+        p.style.transform = `translate(${destX}px, ${destY}px) scale(${Math.random() * 0.5 + 0.5})`;
+        p.style.opacity = '0';
+      });
+
+      setTimeout(() => p.remove(), 1200);
+    }
+  })();
+</script></main></body></html>

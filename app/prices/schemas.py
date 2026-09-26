@@ -1,5 +1,6 @@
 from datetime import date, datetime
 from decimal import Decimal
+from typing import Any
 
 from pydantic import BaseModel, Field
 
@@ -173,6 +174,41 @@ class IngestJobStatusResponse(BaseModel):
     completed_at: datetime | None = None
     duration_seconds: float | None = None
     retries: int = 0
+
+
+class HorizonRecommendationSchema(BaseModel):
+    horizon_days: int
+    target_date: date
+    p10_price_inr: float
+    p50_price_inr: float
+    p90_price_inr: float
+    storage_cost_inr: float
+    capital_cost_inr: float
+    spoilage_cost_inr: float
+    total_holding_cost_inr: float
+    expected_net_gain_inr: float
+    downside_risk_inr: float
+    recommendation: str  # STORE, SELL, HEDGE
+    rationale: str
+    facility_available: bool
+
+
+class MlForecastResponse(BaseModel):
+    commodity: str
+    market: str
+    as_of_date: date
+    current_modal_price_inr: float
+    model_version: str
+    model_architecture: str
+    model_status: str
+    fallback_used: str | None = None
+    storage_type: str
+    facility_available: bool
+    overall_recommendation: str
+    primary_horizon_days: int
+    horizons: list[HorizonRecommendationSchema]
+    shadow_evaluation: dict[str, Any] | None = None
+
 
 
 

@@ -2,15 +2,24 @@ from decimal import Decimal
 
 import httpx
 
+from app.common.http_client import SafeAsyncClient
+from app.errors import AppError
+
 
 class EnamError(Exception):
     """The market registry could not register the lot."""
 
 
 class EnamClient:
-    def __init__(self, base_url: str, transport: httpx.AsyncBaseTransport | None = None) -> None:
+    def __init__(
+        self,
+        base_url: str,
+        transport: httpx.AsyncBaseTransport | None = None,
+        allow_private: bool | None = None,
+    ) -> None:
         self.base_url = base_url.rstrip("/")
         self._transport = transport
+        self._allow_private = allow_private if allow_private is not None else (transport is not None)
 
     async def open_gate(
         self,
@@ -92,9 +101,12 @@ class EnamClient:
 
     async def _post(self, path: str, payload: dict) -> dict:
         try:
-            async with httpx.AsyncClient(transport=self._transport, timeout=30.0) as client:
+            async with SafeAsyncClient(
+                transport=self._transport,
+                allow_private=self._allow_private,
+            ) as client:
                 response = await client.post(f"{self.base_url}{path}", json=payload)
-        except httpx.HTTPError as exc:
+        except (httpx.HTTPError, AppError) as exc:
             raise EnamError("market registry request failed") from exc
         if response.status_code >= 400:
             raise EnamError(f"market registry returned {response.status_code}")

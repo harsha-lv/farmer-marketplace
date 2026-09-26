@@ -1,7 +1,7 @@
 import asyncio
-from datetime import UTC, datetime
 import logging
 import uuid
+from datetime import UTC, datetime
 from typing import Any
 
 from app.prices.feed import FeedError, MandiFeed

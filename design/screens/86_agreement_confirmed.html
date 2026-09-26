@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "on-tertiary": "#ffffff", "surface-container-lowest": "#ffffff", "primary-fixed": "#aeecff", "on-secondary-fixed-variant": "#7c2e0c", "background": "#f2fbff", "surface-tint": "#00687b", "outline": "#6d797d", "on-error-container": "#93000a", "on-primary-fixed": "#001f26", "tertiary-fixed-dim": "#f9bc51", "surface-container-low": "#e4f7ff", "on-background": "#001f28", "on-tertiary-fixed-variant": "#604100", "on-tertiary-container": "#4c3300", "on-secondary": "#ffffff", "blue-soft": "#C7E8F0", "secondary-fixed": "#ffdbcf", "on-secondary-fixed": "#380d00", "surface-container-highest": "#c9e7f4", "on-surface": "#001f28", "inverse-surface": "#17343e", "blue-mist": "#E2F3F8", "primary": "#00687b", "primary-container": "#36afcb", "canvas": "#F4FAFC", "tertiary": "#7e5700", "on-secondary-container": "#742907", "error-container": "#ffdad6", "surface-dim": "#c1dfec", "on-primary": "#ffffff", "on-surface-variant": "#3d494c", "line": "#D7E7EB", "tertiary-container": "#cf972f", "surface-container-high": "#cfedfa", "clay-orange": "#A95135", "on-error": "#ffffff", "on-tertiary-fixed": "#281900", "primary-fixed-dim": "#65d5f2", "surface-variant": "#c9e7f4", "secondary": "#9a4522", "danger": "#C64F48", "mist-text": "#8FA1A7", "surface-bright": "#f2fbff", "error": "#ba1a1a", "surface": "#FFFFFF", "sand": "#FFF3DF", "secondary-fixed-dim": "#ffb59a", "outline-variant": "#bdc8cd", "inverse-primary": "#65d5f2", "on-primary-fixed-variant": "#004e5d", "clear-blue": "#147F9E", "inverse-on-surface": "#ddf5ff", "on-primary-container": "#003e4a", "slate": "#607780", "secondary-container": "#fd9168", "tertiary-fixed": "#ffdeac", "surface-container": "#d6f2ff" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "margin": "16px", "gutter": "12px", "space-lg": "16px", "space-sm": "8px", "space-xs": "4px", "space-md": "12px", "space-xl": "24px" }, fontFamily: { "label-md": ["Inter"], "display-data": ["IBM Plex Mono"], "headline-md": ["Fraunces"], "body-lg": ["Inter"], "data-lg": ["IBM Plex Mono"], "body-md": ["Inter"], "data-sm": ["IBM Plex Mono"], "headline-lg-mobile": ["Fraunces"], "caption": ["Inter"], "headline-sm": ["Fraunces"], "data-md": ["IBM Plex Mono"], "data-xs": ["IBM Plex Mono"], "label-lg": ["Inter"], "headline-lg": ["Fraunces"] }, fontSize: { "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }], "display-data": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.5px", "fontWeight": "500" }], "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "data-lg": ["22px", { "lineHeight": "28px", "fontWeight": "500" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "data-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }], "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "500" }], "data-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }], "data-xs": ["12px", { "lineHeight": "16px", "fontWeight": "500" }], "label-lg": ["16px", { "lineHeight": "24px", "fontWeight": "600" }], "headline-lg": ["28px", { "lineHeight": "36px", "fontWeight": "600" }] } } } };</script><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#F4FAFC;}body{overscroll-behavior:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-canvas text-on-surface font-body-md text-body-md flex flex-col min-h-screen antialiased selection:bg-blue-soft selection:text-on-surface"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 px-margin flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-sm min-w-0 flex-1"><button aria-label="Go back" class="min-w-[48px] min-h-[48px] flex items-center justify-center -ml-space-xs text-on-surface hover:text-clear-blue active:scale-95 transition-transform" onclick="history.back()" type="button"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><div class="flex flex-col min-w-0 flex-1"><h1 class="font-headline-sm text-headline-sm text-on-surface truncate">Lock Confirmation</h1><div class="flex items-center gap-space-xs"><span class="font-data-xs text-data-xs text-slate truncate tracking-tight">MM-AGR-DEMO-000001</span><span class="inline-block px-1.5 py-0.5 rounded bg-blue-mist text-clear-blue font-data-xs text-data-xs">PROTOTYPE</span></div></div></div><div class="flex items-center gap-space-xs"><button aria-label="More actions" class="min-w-[48px] min-h-[48px] flex items-center justify-center text-on-surface hover:text-clear-blue transition-colors" type="button"><span class="material-symbols-outlined text-[24px]">more_vert</span></button><div class="min-w-[44px] min-h-[44px] flex items-center justify-center"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div></header><main class="flex flex-col relative w-full pt-20 pb-safe bg-canvas max-w-[600px] mx-auto min-h-screen"><div class="flex flex-col w-full px-margin pb-space-xl gap-space-lg">
+<!-- Celebration / Confirmation Hero Banner -->
+<section class="bg-surface rounded-xl p-space-lg flex flex-col gap-space-md shadow-sm relative overflow-hidden">
+<div class="flex items-start gap-space-md">
+<div class="w-12 h-12 rounded-full bg-blue-mist flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-clear-blue text-[28px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<div class="flex items-center gap-space-xs mb-space-xs">
+<span class="px-2 py-0.5 rounded bg-blue-soft text-primary font-data-xs text-data-xs">ACTUAL VERIFIED</span>
+<span class="px-2 py-0.5 rounded bg-sand text-clay-orange font-data-xs text-data-xs">DEMO</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">करार अटी पुष्टी पूर्ण</h2>
+<p class="font-body-md text-body-md text-slate">Commercial Terms Confirmed</p>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+      व्यापारी अटी यशस्वीरित्या निश्चित झाल्या आहेत (The commercial terms are confirmed). Both parties have confirmed agreement terms, and backend price and quantity state locks are active.
+    </p>
+<!-- Agreement ID Pill -->
+<div class="bg-blue-mist/60 rounded-lg p-space-sm flex items-center justify-between">
+<span class="font-caption text-caption text-slate">करार ओळख क्रमांक (Agreement ID)</span>
+<span class="font-data-sm text-data-sm text-clear-blue tracking-wide">MM-AGR-DEMO-000001</span>
+</div>
+</section>
+<!-- Four-Pillar Verification Grid -->
+<section class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface">चार-स्तंभ पडताळणी स्थिती</span>
+<span class="font-caption text-caption text-slate">4-Pillar Validation Complete</span>
+</div>
+<div class="grid grid-cols-2 gap-gutter">
+<!-- Pillar 1: Farmer -->
+<div class="bg-surface rounded-lg p-space-md flex flex-col gap-space-xs shadow-sm">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-clear-blue text-[20px]" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span class="w-2 h-2 rounded-full bg-clear-blue"></span>
+</div>
+<span class="font-caption text-caption text-slate mt-1">शेतकरी पुष्टी (Farmer)</span>
+<span class="font-label-md text-label-md text-on-surface">Ramesh Patel</span>
+<span class="font-data-xs text-data-xs text-clear-blue">STATUS: CONFIRMED</span>
+</div>
+<!-- Pillar 2: Buyer -->
+<div class="bg-surface rounded-lg p-space-md flex flex-col gap-space-xs shadow-sm">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-clear-blue text-[20px]" style="font-variation-settings: 'FILL' 1;">storefront</span>
+<span class="w-2 h-2 rounded-full bg-clear-blue"></span>
+</div>
+<span class="font-caption text-caption text-slate mt-1">खरेदीदार पुष्टी (Buyer)</span>
+<span class="font-label-md text-label-md text-on-surface">Sahyadri Agro</span>
+<span class="font-data-xs text-data-xs text-clear-blue">STATUS: CONFIRMED</span>
+</div>
+<!-- Pillar 3: Price Locked -->
+<div class="bg-surface rounded-lg p-space-md flex flex-col gap-space-xs shadow-sm">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-clay-orange text-[20px]">lock</span>
+<span class="font-data-xs text-data-xs text-clay-orange px-1.5 py-0.5 rounded bg-sand">LOCKED</span>
+</div>
+<span class="font-caption text-caption text-slate mt-1">किंमत लॉक (Unit Price)</span>
+<span class="font-data-md text-data-md text-on-surface">₹29.20 <span class="font-body-md text-body-md text-slate">/ kg</span></span>
+<span class="font-data-xs text-data-xs text-slate">Onions (Nashik Red)</span>
+</div>
+<!-- Pillar 4: Quantity Locked -->
+<div class="bg-surface rounded-lg p-space-md flex flex-col gap-space-xs shadow-sm">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-clay-orange text-[20px]">scale</span>
+<span class="font-data-xs text-data-xs text-clay-orange px-1.5 py-0.5 rounded bg-sand">LOCKED</span>
+</div>
+<span class="font-caption text-caption text-slate mt-1">वजन लॉक (Net Weight)</span>
+<span class="font-data-md text-data-md text-on-surface">4,000 <span class="font-body-md text-body-md text-slate">kg</span></span>
+<span class="font-data-xs text-data-xs text-slate">40 Quintals Verified</span>
+</div>
+</div>
+</section>
+<!-- Locked Commercial Summary (Read-Only) -->
+<section class="bg-surface rounded-xl p-space-lg flex flex-col gap-space-md shadow-sm">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-slate text-[20px]">receipt_long</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">निश्चित व्यापारी तपशील</h3>
+</div>
+<span class="px-2 py-0.5 rounded bg-sand text-tertiary-container font-data-xs text-data-xs">READ-ONLY</span>
+</div>
+<div class="flex flex-col gap-space-sm">
+<div class="flex justify-between items-center py-1">
+<span class="font-body-md text-body-md text-slate">एकूण व्यापारी दायित्व (Total Gross Liability)</span>
+<span class="font-data-md text-data-md text-on-surface">₹1,16,800</span>
+</div>
+<div class="flex justify-between items-center py-1">
+<div class="flex items-center gap-space-xs">
+<span class="font-body-md text-body-md text-slate">अंदाजे निव्वळ प्राप्ती (Estimated Net Realization)</span>
+<span class="px-1.5 py-0.2 rounded bg-sand text-clay-orange font-data-xs text-data-xs">≈ ESTIMATE</span>
+</div>
+<span class="font-data-md text-data-md text-clear-blue">≈ ₹1,12,432</span>
+</div>
+<div class="flex justify-between items-center py-1">
+<span class="font-body-md text-body-md text-slate">सुपूर्ती पद्धत (Handover Protocol)</span>
+<span class="font-label-md text-label-md text-on-surface">Farm Gate Pickup</span>
+</div>
+<div class="flex justify-between items-center py-1">
+<span class="font-body-md text-body-md text-slate">कपात अंदाज (Est. Mandi Cess &amp; Weighing)</span>
+<span class="font-data-sm text-data-sm text-slate">≈ ₹4,368</span>
+</div>
+</div>
+<!-- Immutable Note -->
+<div class="bg-canvas rounded-lg p-space-md flex gap-space-sm items-start mt-space-xs">
+<span class="material-symbols-outlined text-slate text-[18px] shrink-0 mt-0.5">info</span>
+<p class="font-caption text-caption text-slate leading-normal">
+        Locked terms cannot be changed through the normal offer or negotiation flow. Any revisions require backend-supported agreement handling and counter-party re-approval.
+      </p>
+</div>
+</section>
+<!-- Explicit Task Boundary Notice -->
+<section class="bg-blue-mist/50 rounded-xl p-space-md flex items-start gap-space-md">
+<span class="material-symbols-outlined text-clear-blue text-[22px] shrink-0 mt-0.5">policy</span>
+<div class="flex flex-col gap-space-xs min-w-0">
+<span class="font-label-md text-label-md text-on-surface">कार्य मर्यादा सूचना (Process Boundary Notice)</span>
+<p class="font-caption text-caption text-slate leading-relaxed">
+        Agreement Confirmed means commercial terms are mutually locked. This state is <strong class="font-medium text-on-surface">NOT</strong> an Order Created, Transport Assigned, Payment Received, or Transaction Completed.
+      </p>
+</div>
+</section>
+<!-- Next Step Flow Card -->
+<section class="bg-surface rounded-xl p-space-lg flex flex-col gap-space-md shadow-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-sand flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-clay-orange text-[18px]">arrow_forward</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface">पुढील टप्पा: ओळख पडताळणी</span>
+<span class="font-caption text-caption text-slate">Next Step: Face Verification Authorization</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-slate">
+      Face Verification will be completed in the next step to formally authorize the order creation and generate the mandi dispatch pass.
+    </p>
+<!-- Action Buttons -->
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<button class="w-full min-h-[56px] rounded-lg bg-clear-blue text-on-primary font-label-lg text-label-lg flex items-center justify-center gap-space-sm active:scale-[0.99] transition-transform" id="btnContinueVerification" type="button">
+<span>पुढील टप्पा: ओळख पडताळणी</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+<button class="w-full min-h-[56px] rounded-lg bg-transparent text-clear-blue font-label-lg text-label-lg flex items-center justify-center gap-space-sm active:bg-blue-mist/30 transition-colors" id="btnViewAgreementDetails" type="button">
+<span class="material-symbols-outlined text-[20px]">description</span>
+<span>करार तपशील पाहा (View Details)</span>
+</button>
+</div>
+</section>
+<!-- Interactive Detail Drawer Container (Hidden State for Demo Micro-interaction) -->
+<div class="hidden bg-surface rounded-xl p-space-lg flex flex-col gap-space-md shadow-sm transition-all duration-200" id="detailsDrawer">
+<div class="flex items-center justify-between">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">करार दस्तऐवज (Agreement Artifacts)</h4>
+<button aria-label="Close details" class="w-10 h-10 flex items-center justify-center text-slate hover:text-on-surface" id="btnCloseDrawer" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="flex flex-col gap-space-xs text-body-md">
+<div class="flex justify-between py-1">
+<span class="text-slate">Farmer ID</span>
+<span class="font-data-sm text-data-sm text-on-surface">MM-FAR-44021</span>
+</div>
+<div class="flex justify-between py-1">
+<span class="text-slate">Buyer APMC License</span>
+<span class="font-data-sm text-data-sm text-on-surface">MH-APMC-NSK-2023-889</span>
+</div>
+<div class="flex justify-between py-1">
+<span class="text-slate">Time of Mutual Lock</span>
+<span class="font-data-sm text-data-sm text-on-surface">14:32 IST, Today</span>
+</div>
+<div class="flex justify-between py-1">
+<span class="text-slate">Security Checksum</span>
+<span class="font-data-xs text-data-xs text-slate">SHA256: 8fbc..39e1</span>
+</div>
+</div>
+</div>
+</div>
+<script>
+  (function() {
+    const viewDetailsBtn = document.getElementById('btnViewAgreementDetails');
+    const drawer = document.getElementById('detailsDrawer');
+    const closeDrawerBtn = document.getElementById('btnCloseDrawer');
+    const continueBtn = document.getElementById('btnContinueVerification');
+
+    if (viewDetailsBtn && drawer && closeDrawerBtn) {
+      viewDetailsBtn.addEventListener('click', function() {
+        drawer.classList.toggle('hidden');
+        if (!drawer.classList.contains('hidden')) {
+          drawer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      });
+
+      closeDrawerBtn.addEventListener('click', function() {
+        drawer.classList.add('hidden');
+      });
+    }
+
+    if (continueBtn) {
+      continueBtn.addEventListener('click', function() {
+        continueBtn.innerHTML = `
+          <span class="material-symbols-outlined animate-spin text-[20px]">progress_activity</span>
+          <span>कॅमेरा सुरू करत आहे (Initializing Camera)...</span>
+        `;
+        setTimeout(() => {
+          continueBtn.innerHTML = `
+            <span>पुढील टप्पा: ओळख पडताळणी</span>
+            <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+          `;
+        }, 1800);
+      });
+    }
+  })();
+</script></main></body></html>

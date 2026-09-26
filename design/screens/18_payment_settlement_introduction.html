@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-primary-fixed-variant":"#004e5d","tertiary-fixed":"#ffdeac","on-error":"#ffffff","secondary-container":"#fd9168","inverse-primary":"#65d5f2","on-tertiary-fixed":"#281900","inverse-on-surface":"#ddf5ff","surface-container-high":"#cfedfa","on-secondary-fixed-variant":"#7c2e0c","blue-mist":"#E2F3F8","on-primary-container":"#003e4a","error-container":"#ffdad6","on-primary":"#ffffff","tertiary-container":"#cf972f","tertiary-fixed-dim":"#f9bc51","on-secondary-container":"#742907","tertiary":"#7e5700","surface-container-low":"#e4f7ff","surface-dim":"#c1dfec","outline-variant":"#bdc8cd","on-secondary-fixed":"#380d00","surface-container":"#d6f2ff","primary-fixed":"#aeecff","slate":"#607780","surface-bright":"#f2fbff","on-surface-variant":"#3d494c","primary":"#00687b","outline":"#6d797d","on-surface":"#001f28","on-background":"#001f28","surface":"#FFFFFF","surface-tint":"#00687b","inverse-surface":"#17343e","on-tertiary":"#ffffff","surface-container-lowest":"#ffffff","primary-fixed-dim":"#65d5f2","error":"#ba1a1a","danger":"#C64F48","on-tertiary-container":"#4c3300","line":"#D7E7EB","sand":"#FFF3DF","secondary-fixed":"#ffdbcf","surface-container-highest":"#c9e7f4","on-primary-fixed":"#001f26","canvas":"#F4FAFC","on-error-container":"#93000a","blue-soft":"#C7E8F0","clay-orange":"#A95135","secondary-fixed-dim":"#ffb59a","clear-blue":"#147F9E","on-secondary":"#ffffff","surface-variant":"#c9e7f4","mist-text":"#8FA1A7","primary-container":"#36afcb","secondary":"#9a4522","on-tertiary-fixed-variant":"#604100","background":"#f2fbff"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{margin:"16px","space-sm":"8px","space-xs":"4px",gutter:"12px","space-xl":"24px","space-lg":"16px","space-md":"12px"},fontFamily:{"headline-lg":["Fraunces"],"headline-sm":["Fraunces"],"display-data":["IBM Plex Mono"],"headline-md":["Fraunces"],caption:["Inter"],"body-md":["Inter"],"data-lg":["IBM Plex Mono"],"data-md":["IBM Plex Mono"],"data-xs":["IBM Plex Mono"],"data-sm":["IBM Plex Mono"],"label-md":["Inter"],"body-lg":["Inter"],"label-lg":["Inter"],"headline-lg-mobile":["Fraunces"]},fontSize:{"headline-lg":["28px",{lineHeight:"36px",fontWeight:"600"}],"headline-sm":["18px",{lineHeight:"24px",fontWeight:"500"}],"display-data":["32px",{lineHeight:"40px",letterSpacing:"-0.5px",fontWeight:"500"}],"headline-md":["20px",{lineHeight:"28px",fontWeight:"600"}],caption:["12px",{lineHeight:"16px",fontWeight:"400"}],"body-md":["14px",{lineHeight:"20px",fontWeight:"400"}],"data-lg":["22px",{lineHeight:"28px",fontWeight:"500"}],"data-md":["16px",{lineHeight:"24px",fontWeight:"500"}],"data-xs":["12px",{lineHeight:"16px",fontWeight:"500"}],"data-sm":["14px",{lineHeight:"20px",fontWeight:"500"}],"label-md":["14px",{lineHeight:"20px",fontWeight:"500"}],"body-lg":["16px",{lineHeight:"24px",fontWeight:"400"}],"label-lg":["16px",{lineHeight:"24px",fontWeight:"600"}],"headline-lg-mobile":["24px",{lineHeight:"32px",fontWeight:"600"}]}}};</script><style>@layer base{html,body{width:100%;margin:0;padding:0;background-color:#F4FAFC;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-canvas text-on-surface font-body-md text-body-md min-h-screen flex flex-col antialiased"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe"><div class="h-16 px-margin flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0"><button aria-label="Go back" class="w-11 h-11 flex items-center justify-center rounded-lg text-on-surface hover:bg-surface-container active:bg-blue-mist transition-colors shrink-0" onclick="history.back()"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><div class="flex flex-col min-w-0 justify-center"><h1 class="font-headline-sm text-headline-sm text-on-surface tracking-tight truncate leading-tight">Settlement Overview</h1><div class="flex items-center gap-space-xs"><span class="font-caption text-caption text-slate leading-none">Ref:</span><span class="font-data-xs text-data-xs text-clear-blue font-medium tracking-tight truncate leading-none">MM-ORD-DEMO-000001</span></div></div></div><div class="flex items-center gap-space-sm shrink-0"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-16 pb-safe bg-canvas min-h-screen"><div class="flex flex-col w-full">
+<div class="w-full max-w-[600px] mx-auto px-margin py-space-md flex flex-col gap-space-lg">
+<div class="w-full rounded-xl bg-sand p-space-md shadow-sm flex items-start gap-space-md">
+<div class="w-9 h-9 rounded-lg bg-tertiary-container text-on-tertiary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">warning</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-label-md text-label-md text-tertiary font-semibold tracking-wide uppercase">
+            DEMO / PROTOTYPE
+          </span>
+<span class="font-caption text-caption text-slate">•</span>
+<span class="font-body-md text-body-md text-tertiary">प्रात्यक्षिक व्यवहार</span>
+</div>
+<p class="font-caption text-caption text-on-surface-variant mt-0.5">
+          This is a prototype demonstration. No real money or bank transfer is executed. (हा केवळ प्रात्यक्षिक डेमो आहे. कोणत्याही प्रत्यक्ष रकमेचे हस्तांतरण होत नाही.)
+        </p>
+</div>
+</div>
+<div class="w-full rounded-xl bg-surface p-space-md shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-16 h-16 rounded-lg overflow-hidden shrink-0 bg-surface-container relative">
+<img class="w-full h-full object-cover" data-alt="Close up shot of fresh cured Nashik red onions with glossy purple-red papery skin stacked in burlap jute gunny sacks in an Indian rural agriculture mandi setting, warm natural sunlight with rich earthy clay tones and crisp harvest textures." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPRtxnGUKZWrltA3ain6FlQX0kgnHIXKQN-UvyaOpl95FgMIZyYFhAq1ktCUB9g5z8a4P6NH5KC0itUHFxJJkEwcoYPZPklbSrBSvzb9PswwJC5FNFedmzIhLLioK24_BhGgzi4URwAZNTdrRFI6Rxyj_WEdJfGi8qguzeUZUBceeTu9lUjCypL3klOBfkilnupcCiNX8n8JdOjU7G0AOqV89cezdcRR5Wg7vvK5B-yXX4_QR8GzsA"/>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<div class="flex items-center justify-between gap-space-xs">
+<span class="font-caption text-caption text-slate uppercase tracking-wider">Commercial Lot</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-blue-mist text-clear-blue font-data-xs text-data-xs">
+<span class="material-symbols-outlined text-[14px]">lock</span>
+              Locked
+            </span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface truncate">
+            Nashik Red Onion
+          </h2>
+<span class="font-body-md text-body-md text-slate">नाशिक लाल कांदा • 4,000 kg (40 Qtl)</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-space-sm pt-space-xs">
+<div class="rounded-lg bg-canvas p-space-sm flex flex-col">
+<span class="font-caption text-caption text-slate">Agreed Frozen Rate</span>
+<span class="font-data-md text-data-md text-on-surface mt-0.5">₹29.20 <span class="font-caption text-caption text-slate">/ kg</span></span>
+</div>
+<div class="rounded-lg bg-canvas p-space-sm flex flex-col">
+<span class="font-caption text-caption text-slate">Gross Agreed Total</span>
+<span class="font-data-md text-data-md text-on-surface mt-0.5">₹1,16,800</span>
+</div>
+</div>
+</div>
+<div class="w-full rounded-xl bg-surface p-space-lg shadow-sm flex flex-col gap-space-md relative overflow-hidden">
+<div class="flex items-center justify-between">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-sand text-clay-orange font-data-xs text-data-xs">
+<span class="material-symbols-outlined text-[14px]">calculate</span>
+<span>ESTIMATE • अंदाजित</span>
+</div>
+<div class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container text-clear-blue font-data-xs text-data-xs">
+<span>Effective: ₹27.11 / kg</span>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="font-caption text-caption text-slate uppercase tracking-wide">
+          अंतिम शेतकरी खात्यात येणारी रक्कम (Net Farmer Realization)
+        </span>
+<div class="flex items-baseline gap-space-xs mt-1">
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-clear-blue font-display-data text-display-data">
+            ≈ ₹1,08,432
+          </span>
+</div>
+</div>
+<div class="rounded-lg bg-blue-mist p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between text-on-surface">
+<span class="font-caption text-caption font-medium">पारदर्शक हिशोब सूत्र (Settlement Ledger Math)</span>
+<span class="material-symbols-outlined text-clear-blue text-[18px]">receipt_long</span>
+</div>
+<div class="flex flex-col gap-1.5 pt-1">
+<div class="flex justify-between items-center text-on-surface">
+<span class="font-body-md text-body-md text-slate">Gross Agreement Total (एकूण रक्कम)</span>
+<span class="font-data-sm text-data-sm">₹1,16,800</span>
+</div>
+<div class="flex justify-between items-center text-danger">
+<span class="font-body-md text-body-md">− Mandi Cess &amp; Weighing (तोल व मंडी कर)</span>
+<span class="font-data-sm text-data-sm">− ₹4,368</span>
+</div>
+<div class="flex justify-between items-center text-danger">
+<span class="font-body-md text-body-md">− Shared Logistics Freight (वाहतूक हिस्सा)</span>
+<span class="font-data-sm text-data-sm">− ₹2,400</span>
+</div>
+<div class="flex justify-between items-center text-danger">
+<span class="font-body-md text-body-md">− Staging &amp; Curing Shed (साठवणूक हिस्सा)</span>
+<span class="font-data-sm text-data-sm">− ₹1,600</span>
+</div>
+<div class="mt-1 pt-2 bg-line h-[1px] w-full opacity-60"></div>
+<div class="flex justify-between items-center text-clear-blue font-semibold">
+<span class="font-label-md text-label-md">Net Farmer Bank Settlement</span>
+<span class="font-data-md text-data-md">≈ ₹1,08,432</span>
+</div>
+</div>
+</div>
+<p class="font-caption text-caption text-slate leading-relaxed">
+        पेमेंट रक्कम निश्चित केलेला करार आणि नोंदवलेल्या वाहतूक व साठवणूक जबाबदारीनुसार अचूक मोजली जाते. कोणताही छुपा खर्च नाही.
+      </p>
+</div>
+<div class="w-full rounded-xl bg-surface p-space-md shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-clear-blue text-[20px]">fact_check</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">पूर्वतयारी पडताळणी (Verified Checklist)</h3>
+</div>
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-canvas">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-clear-blue text-[18px]">check_circle</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Legal Agreement Confirmed</span>
+<span class="font-caption text-caption text-slate">करार अधिकृत पुष्टी</span>
+</div>
+</div>
+<span class="font-data-xs text-data-xs text-clear-blue px-2 py-0.5 rounded bg-blue-mist">Verified</span>
+</div>
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-canvas">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-clear-blue text-[18px]">check_circle</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Price &amp; Quantity Frozen</span>
+<span class="font-caption text-caption text-slate">दर व वजन हमी लॉक</span>
+</div>
+</div>
+<span class="font-data-xs text-data-xs text-clear-blue px-2 py-0.5 rounded bg-blue-mist">40 Qtl Locked</span>
+</div>
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-canvas">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-clear-blue text-[18px]">check_circle</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Transport Carrier Booked</span>
+<span class="font-caption text-caption text-slate">वाहतूक नोंदणी पूर्ण</span>
+</div>
+</div>
+<span class="font-data-xs text-data-xs text-clear-blue px-2 py-0.5 rounded bg-blue-mist">Dispatch Ready</span>
+</div>
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-canvas">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-clear-blue text-[18px]">check_circle</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Storage &amp; Intake Plan</span>
+<span class="font-caption text-caption text-slate">साठवणूक केंद्र निश्चिती</span>
+</div>
+</div>
+<span class="font-data-xs text-data-xs text-clear-blue px-2 py-0.5 rounded bg-blue-mist">Assigned Bay</span>
+</div>
+</div>
+</div>
+<div class="w-full rounded-xl bg-sand p-space-md shadow-sm flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-clay-orange text-[20px] shrink-0 mt-0.5">shield</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-clay-orange font-semibold">Financial Safety Notice</span>
+<p class="font-caption text-caption text-on-surface-variant mt-0.5 leading-normal">
+          All transaction numbers, bank references, and settlement steps in this workflow are demonstration data for validation only. No commercial banking API trigger or debit/credit occurs.
+        </p>
+</div>
+</div>
+<div class="w-full pt-space-sm pb-space-lg flex flex-col gap-space-md">
+<button class="w-full min-h-[56dp] px-space-lg rounded-xl bg-secondary text-on-secondary font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-md active:opacity-90 transition-opacity" id="continueSettlementBtn" type="button">
+<span>Continue to Settlement (हिशोब व पूर्ततेकडे पुढे जा)</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+<button class="w-full min-h-[48dp] text-center font-label-md text-label-md text-clear-blue hover:text-primary transition-colors flex items-center justify-center gap-1.5" onclick="history.back()" type="button">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+<span>Back to Order Details (ऑर्डर तपशीलवर परत जा)</span>
+</button>
+</div>
+</div>
+<script>
+    document.getElementById('continueSettlementBtn')?.addEventListener('click', function() {
+      const btn = this;
+      btn.style.transform = 'scale(0.98)';
+      setTimeout(() => {
+        btn.style.transform = 'scale(1)';
+        alert("Navigating to Screen 2: Settlement Breakdown & Deductions Ledger (तपशीलवार हिशोब)...");
+      }, 150);
+    });
+  </script>
+</div></main></body></html>

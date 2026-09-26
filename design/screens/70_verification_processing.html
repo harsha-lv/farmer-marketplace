@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;600&amp;family=Inter:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#F4FAFC;}body{overscroll-behavior:none;font-family:'Inter',sans-serif;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: 'class', theme: { extend: { colors: { 'background': '#f2fbff', 'primary-fixed': '#aeecff', 'on-error': '#ffffff', 'surface-tint': '#00687b', 'on-secondary-fixed-variant': '#7c2e0c', 'on-background': '#001f28', 'error-container': '#ffdad6', 'secondary': '#9a4522', 'tertiary-container': '#cf972f', 'inverse-surface': '#17343e', 'on-secondary': '#ffffff', 'secondary-container': '#fd9168', 'inverse-on-surface': '#ddf5ff', 'error': '#ba1a1a', 'outline': '#6d797d', 'secondary-fixed-dim': '#ffb59a', 'surface-bright': '#f2fbff', 'blue-mist': '#E2F3F8', 'tertiary-fixed-dim': '#f9bc51', 'slate': '#607780', 'surface-container-lowest': '#ffffff', 'surface': '#FFFFFF', 'on-tertiary-container': '#4c3300', 'on-surface-variant': '#3d494c', 'on-tertiary': '#ffffff', 'surface-container-high': '#cfedfa', 'primary': '#00687b', 'danger': '#C64F48', 'on-surface': '#001f28', 'mist-text': '#8FA1A7', 'blue-soft': '#C7E8F0', 'surface-dim': '#c1dfec', 'on-tertiary-fixed-variant': '#604100', 'outline-variant': '#bdc8cd', 'surface-container-highest': '#c9e7f4', 'primary-fixed-dim': '#65d5f2', 'tertiary-fixed': '#ffdeac', 'on-error-container': '#93000a', 'on-primary-container': '#003e4a', 'on-primary-fixed-variant': '#004e5d', 'surface-container-low': '#e4f7ff', 'on-primary-fixed': '#001f26', 'secondary-fixed': '#ffdbcf', 'on-tertiary-fixed': '#281900', 'tertiary': '#7e5700', 'surface-variant': '#c9e7f4', 'on-secondary-container': '#742907', 'clear-blue': '#147F9E', 'surface-container': '#d6f2ff', 'sand': '#FFF3DF', 'on-secondary-fixed': '#380d00', 'canvas': '#F4FAFC', 'inverse-primary': '#65d5f2', 'clay-orange': '#A95135', 'primary-container': '#36afcb', 'line': '#D7E7EB', 'on-primary': '#ffffff' }, borderRadius: { 'DEFAULT': '0.25rem', 'lg': '0.5rem', 'xl': '0.75rem', 'full': '9999px' }, spacing: { 'space-xl': '24px', 'space-md': '12px', 'space-sm': '8px', 'space-xs': '4px', 'margin': '16px', 'space-lg': '16px', 'gutter': '12px' }, fontFamily: { 'headline-lg': ['Fraunces'], 'data-sm': ['IBM Plex Mono'], 'data-md': ['IBM Plex Mono'], 'body-md': ['Inter'], 'label-md': ['Inter'], 'caption': ['Inter'], 'headline-md': ['Fraunces'], 'data-lg': ['IBM Plex Mono'], 'label-lg': ['Inter'], 'display-data': ['IBM Plex Mono'], 'headline-sm': ['Fraunces'], 'data-xs': ['IBM Plex Mono'], 'body-lg': ['Inter'], 'headline-lg-mobile': ['Fraunces'] }, fontSize: { 'headline-lg': ['28px', { lineHeight: '36px', fontWeight: '600' }], 'data-sm': ['14px', { lineHeight: '20px', fontWeight: '500' }], 'data-md': ['16px', { lineHeight: '24px', fontWeight: '500' }], 'body-md': ['14px', { lineHeight: '20px', fontWeight: '400' }], 'label-md': ['14px', { lineHeight: '20px', fontWeight: '500' }], 'caption': ['12px', { lineHeight: '16px', fontWeight: '400' }], 'headline-md': ['20px', { lineHeight: '28px', fontWeight: '600' }], 'data-lg': ['22px', { lineHeight: '28px', fontWeight: '500' }], 'label-lg': ['16px', { lineHeight: '24px', fontWeight: '600' }], 'display-data': ['32px', { lineHeight: '40px', letterSpacing: '-0.5px', fontWeight: '500' }], 'headline-sm': ['18px', { lineHeight: '24px', fontWeight: '500' }], 'data-xs': ['12px', { lineHeight: '16px', fontWeight: '500' }], 'body-lg': ['16px', { lineHeight: '24px', fontWeight: '400' }], 'headline-lg-mobile': ['24px', { lineHeight: '32px', fontWeight: '600' }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-canvas text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe"><div class="h-16 px-space-md flex items-center justify-between gap-space-sm max-w-[600px] mx-auto"><div class="flex items-center gap-space-xs min-w-0"><button aria-label="Go back" class="min-w-[48px] min-h-[48px] flex items-center justify-center text-on-surface hover:text-clear-blue rounded-full active:bg-blue-mist transition-colors" onclick="history.back()"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><h1 class="font-headline-sm text-headline-sm text-on-surface truncate">Face Verification</h1></div><div class="flex items-center gap-space-xs"><button aria-label="Support or Help" class="min-w-[48px] min-h-[48px] flex items-center justify-center text-slate hover:text-on-surface rounded-full active:bg-blue-mist transition-colors"><span class="material-symbols-outlined text-[24px]">contact_support</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-16 pb-safe bg-canvas max-w-[600px] mx-auto flex-1"><div class="flex flex-col w-full px-margin pb-space-xl">
+<!-- Progress Header & Context Identifier -->
+<div class="flex flex-col gap-space-xs mt-space-sm mb-space-md">
+<div class="flex items-center justify-between">
+<span class="font-data-xs text-data-xs text-slate tracking-wider uppercase">FLOW: STEP 3 OF 4</span>
+<span class="font-data-xs text-data-xs text-clear-blue bg-blue-mist px-space-sm py-0.5 rounded-full">MM-AGR-DEMO-000001</span>
+</div>
+<div class="w-full bg-blue-mist h-1.5 rounded-full overflow-hidden">
+<div class="bg-clear-blue h-full rounded-full transition-all duration-700" style="width: 75%;"></div>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<span class="font-body-md text-body-md text-on-surface">Subject: <strong class="font-label-md text-label-md">Ramesh Patel (रमेश पटेल)</strong></span>
+<button class="font-label-md text-label-md text-slate hover:text-on-surface min-h-[48px] min-w-[48px] flex items-center justify-end active:opacity-70 transition-opacity" type="button">
+<span class="material-symbols-outlined text-[20px] mr-1">close</span>
+<span>Cancel</span>
+</button>
+</div>
+</div>
+<!-- Central Processing Card -->
+<div class="bg-surface rounded-xl p-space-lg shadow-sm flex flex-col items-center text-center relative overflow-hidden">
+<!-- Oval Photo Frame with Signature MittiMandi Amber Scanline -->
+<div class="relative w-44 h-56 rounded-[90px] overflow-hidden bg-sand my-space-xs flex items-center justify-center">
+<img class="w-full h-full object-cover grayscale-[15%]" data-alt="Dignified Indian farmer Ramesh Patel looking directly into camera for authentic rural verification portrait, natural daylight on face, warm earth tone backdrop, high documentary realism with neutral steady expression, no filters." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_7tsWqIc4O9L0hO93mPWOCBS9LXxOb6Zq9bWwxJNFxsu3JLJkLZGimpQJXqYExuFtPkSF6ORk2sdwXXrPNiILuwwDem87e-g_oVEJOKepG2E_cvrf5v0f_ppjDBMKqPJ2ihVYc8pPc_bOFnUI9_1yFR8uWYHFCJennE8-FqpH-e1Tssb_NPFMaKJhauL-nPtdWLsMK9fbFmA_R9W4ABxdGkTkjMhoi-0iM9ZR_qXB_DZTOeN8HT5A"/>
+<!-- Dynamic SVG Overlay for Precision Optical Biometrics -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none" fill="none" viewbox="0 0 176 224">
+<!-- Target Alignment Markers -->
+<path d="M 88 12 L 88 28 M 88 196 L 88 212 M 16 112 L 32 112 M 144 112 L 160 112" stroke="#D29A32" stroke-dasharray="2 2" stroke-linecap="round" stroke-width="2"></path>
+<ellipse cx="88" cy="112" rx="76" ry="100" stroke="#147F9E" stroke-opacity="0.3" stroke-width="2"></ellipse>
+</svg>
+<!-- Animated Wheat/Amber (#D29A32) Scanline -->
+<div class="absolute left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#D29A32] to-transparent pointer-events-none shadow-[0_0_10px_#D29A32]" id="mandi-scanline"></div>
+</div>
+<!-- Status Pulse Pill -->
+<div class="mt-space-md inline-flex items-center gap-space-xs bg-sand text-tertiary px-space-md py-1 rounded-full">
+<span class="material-symbols-outlined text-[16px] animate-spin text-[#D29A32]">progress_activity</span>
+<span class="font-data-xs text-data-xs uppercase tracking-wide">Registry Match In Flight</span>
+</div>
+<!-- Prominent Headings -->
+<h2 class="font-headline-md text-headline-md text-on-surface mt-space-sm">
+      Verification in Progress
+    </h2>
+<span class="font-label-md text-label-md text-slate">
+      पडताळणी प्रक्रिया सुरू आहे
+    </span>
+<!-- Explanatory Trust Copy -->
+<div class="bg-canvas rounded-lg p-space-md mt-space-md w-full text-left">
+<p class="font-body-md text-body-md text-on-surface-variant flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-clear-blue text-[20px] shrink-0 mt-0.5">lock_person</span>
+<span>Cryptographic token is cross-referencing with backend registry. Please do not close or minimize the application.</span>
+</p>
+<p class="font-caption text-caption text-mist-text mt-space-xs pl-7">
+        कृपया ॲप बंद किंवा मिनिमाइझ करू नका. टोकन सुरक्षा तपासणी होत आहे.
+      </p>
+</div>
+</div>
+<!-- Real-time Status Stepper -->
+<div class="bg-surface rounded-xl p-space-lg shadow-sm mt-space-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<h3 class="font-label-lg text-label-lg text-on-surface">Verification Sequence (टप्पे)</h3>
+<span class="font-data-xs text-data-xs text-slate">STEP 3 / 4</span>
+</div>
+<div class="flex flex-col gap-space-sm relative">
+<!-- Continuous spine line -->
+<div class="absolute left-[19px] top-4 bottom-4 w-0.5 bg-blue-mist"></div>
+<!-- Step 1: Camera capture received -->
+<div class="flex items-start gap-space-md relative z-10">
+<div class="w-10 h-10 rounded-full bg-blue-mist text-clear-blue flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="min-w-0 flex-1 pt-1">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface">Camera capture received</span>
+<span class="font-data-xs text-data-xs text-clear-blue bg-blue-mist px-space-xs py-0.5 rounded">✓ Complete</span>
+</div>
+<p class="font-caption text-caption text-slate">प्रतिमा यशस्वीरित्या प्राप्त झाली</p>
+</div>
+</div>
+<!-- Step 2: Quality & lighting check -->
+<div class="flex items-start gap-space-md relative z-10">
+<div class="w-10 h-10 rounded-full bg-blue-mist text-clear-blue flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="min-w-0 flex-1 pt-1">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface">Quality &amp; lighting check</span>
+<span class="font-data-xs text-data-xs text-clear-blue bg-blue-mist px-space-xs py-0.5 rounded">✓ Complete</span>
+</div>
+<p class="font-caption text-caption text-slate">दर्जा आणि प्रकाश तपासणी पूर्ण</p>
+</div>
+</div>
+<!-- Step 3: Backend registry verification (Active) -->
+<div class="flex items-start gap-space-md relative z-10">
+<div class="w-10 h-10 rounded-full bg-sand text-tertiary flex items-center justify-center shrink-0 animate-pulse">
+<span class="material-symbols-outlined text-[20px] animate-spin text-[#D29A32]">sync</span>
+</div>
+<div class="min-w-0 flex-1 pt-1">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Backend registry verification</span>
+<span class="font-data-xs text-data-xs text-tertiary bg-sand px-space-xs py-0.5 rounded">⟳ In progress</span>
+</div>
+<p class="font-caption text-caption text-[#D29A32] font-medium">सर्व्हरवर अधिकृत पडताळणी सुरू आहे...</p>
+</div>
+</div>
+<!-- Step 4: Bilateral agreement authorization (Pending) -->
+<div class="flex items-start gap-space-md relative z-10 opacity-60">
+<div class="w-10 h-10 rounded-full bg-canvas text-slate flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">radio_button_unchecked</span>
+</div>
+<div class="min-w-0 flex-1 pt-1">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-slate">Bilateral agreement authorization</span>
+<span class="font-data-xs text-data-xs text-slate bg-canvas px-space-xs py-0.5 rounded">○ Pending</span>
+</div>
+<p class="font-caption text-caption text-slate">द्विपक्षीय करार संमती प्रलंबित</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Anti-Speculation & Transparency Boundary Card -->
+<div class="bg-blue-mist rounded-xl p-space-md shadow-sm mt-space-md flex flex-col gap-space-sm relative">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-clear-blue text-[22px] shrink-0 mt-0.5">policy</span>
+<div class="flex flex-col gap-1 min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Server Authoritative Integrity</span>
+<p class="font-body-md text-body-md text-on-surface-variant leading-snug">
+          The Android UI does not locally compute facial match scores (<span class="font-medium text-slate">९९% मॅच वगैरे कृत्रिम स्कोअर नसतात</span>). The backend server is strictly authoritative.
+        </p>
+</div>
+</div>
+<!-- Network Stability Flag -->
+<div class="bg-surface rounded-lg p-space-sm flex items-center gap-space-sm text-slate">
+<span class="material-symbols-outlined text-[18px] text-clear-blue">signal_cellular_alt</span>
+<span class="font-caption text-caption text-on-surface">Network notice: Requires stable internet connection to complete (स्थिर इंटरनेट आवश्यक).</span>
+</div>
+</div>
+<!-- Action Footer -->
+<div class="mt-space-lg flex flex-col gap-space-sm">
+<button class="w-full min-h-[56px] rounded-lg bg-surface text-secondary hover:bg-canvas active:bg-sand font-label-lg text-label-lg shadow-sm flex items-center justify-center gap-space-xs transition-colors" id="cancelVerificationBtn" type="button">
+<span class="material-symbols-outlined text-[20px]">cancel</span>
+<span>Cancel Verification (पडताळणी रद्द करा)</span>
+</button>
+<p class="font-caption text-caption text-center text-mist-text">
+      Canceling returns you to Step 2 without modifying signed terms.
+    </p>
+</div>
+</div>
+<script>
+  // Smooth scanline oscillation inside the captured oval frame
+  (function initScanline() {
+    const scanline = document.getElementById('mandi-scanline');
+    if (!scanline) return;
+    let pos = 0;
+    let direction = 1;
+    const max = 220; // 56 * 4 approx 224px height container
+
+    function step() {
+      pos += 1.8 * direction;
+      if (pos >= max) {
+        direction = -1;
+      } else if (pos <= 0) {
+        direction = 1;
+      }
+      scanline.style.transform = `translateY(${pos}px)`;
+      requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+
+    // Cancel interaction feedback
+    const cancelBtn = document.getElementById('cancelVerificationBtn');
+    if (cancelBtn) {
+      cancelBtn.addEventListener('click', () => {
+        if (confirm('Cancel facial verification process? (पडताळणी प्रक्रिया रद्द करायची आहे का?)')) {
+          window.history.back();
+        }
+      });
+    }
+  })();
+</script></main></body></html>

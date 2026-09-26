@@ -1,6 +1,7 @@
-from datetime import datetime
+from datetime import UTC, datetime
+from typing import Any
 
-from pydantic import BaseModel, Field, field_validator
+from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
 
 class ConsentGrantRequest(BaseModel):
@@ -47,20 +48,60 @@ class ConsentResponse(BaseModel):
 
 
 class ConsentWebhookRequest(BaseModel):
-    event_id: str = Field(min_length=4, max_length=128)
-    event_type: str = Field(pattern=r"^(CONSENT_REVOKED|CONSENT_EXPIRED|DATA_ERASURE_REQUEST)$")
-    artifact_id: str = Field(min_length=4, max_length=128)
-    farmer_id: str = Field(min_length=4, max_length=64)
-    timestamp: datetime
-    reason: str | None = Field(default=None, max_length=256)
-    signature: str = Field(pattern=r"^[0-9a-f]{64}$")
+    model_config = ConfigDict(extra="allow", populate_by_name=True)
 
-    @field_validator("timestamp")
+    event_id: str | None = None
+    delivery_id: str | None = None
+    event_type: str | None = None
+    action: str | None = None
+    artifact_id: str | None = None
+    consent_id: str | None = None
+    farmer_id: str
+    purpose: str | None = None
+    timestamp: datetime
+    reason: str | None = None
+    signature: str | None = None
+
+    @model_validator(mode="before")
     @classmethod
-    def timezone_required(cls, value: datetime) -> datetime:
-        if value.tzinfo is None:
-            raise ValueError("timestamp must include a timezone")
+    def normalize_aliases(cls, data: Any) -> Any:
+        if isinstance(data, dict):
+            if "artifact_id" not in data and "consent_id" in data:
+                data["artifact_id"] = data["consent_id"]
+            elif "consent_id" not in data and "artifact_id" in data:
+                data["consent_id"] = data["artifact_id"]
+            
+            if "event_id" not in data and "delivery_id" in data:
+                data["event_id"] = data["delivery_id"]
+            elif "delivery_id" not in data and "event_id" in data:
+                data["delivery_id"] = data["event_id"]
+
+            if "event_type" not in data and "action" in data:
+                act = str(data["action"]).upper()
+                if "REVOK" in act:
+                    data["event_type"] = "CONSENT_REVOKED"
+                else:
+                    data["event_type"] = act
+            elif "action" not in data and "event_type" in data:
+                data["action"] = data["event_type"]
+        return data
+
+    @field_validator("timestamp", mode="before")
+    @classmethod
+    def parse_and_validate_timestamp(cls, value: Any) -> datetime:
+        if isinstance(value, str):
+            value = datetime.fromisoformat(value.replace("Z", "+00:00"))
+        if isinstance(value, datetime) and value.tzinfo is None:
+            value = value.replace(tzinfo=UTC)
         return value
+
+    @property
+    def effective_artifact_id(self) -> str:
+        return self.artifact_id or self.consent_id or ""
+
+    @property
+    def effective_delivery_id(self) -> str:
+        return self.delivery_id or self.event_id or ""
 
 
 class ErasureCertificateResponse(BaseModel):

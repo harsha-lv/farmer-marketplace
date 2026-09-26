@@ -3,6 +3,8 @@ from decimal import Decimal, InvalidOperation
 
 import httpx
 
+from app.common.http_client import SafeAsyncClient
+from app.errors import AppError
 from app.prices.lgd import state_lgd_code
 
 _DATE_FORMATS = ("%d/%m/%Y", "%Y-%m-%d", "%d-%m-%Y")
@@ -130,7 +132,7 @@ class MandiFeed:
     ) -> list[dict]:
         collected: list[dict] = []
         offset = 0
-        async with httpx.AsyncClient(transport=self._transport, timeout=30.0) as client:
+        async with SafeAsyncClient(transport=self._transport) as client:
             while len(collected) < max_records:
                 limit = min(100, max_records - len(collected))
                 params: dict[str, str | int] = {
@@ -145,7 +147,7 @@ class MandiFeed:
                     params["filters[commodity]"] = commodity
                 try:
                     response = await client.get(self.resource_url, params=params)
-                except httpx.HTTPError as exc:
+                except (Exception, AppError) as exc:
                     raise FeedError("price source request failed") from exc
                 if response.status_code >= 400:
                     raise FeedError(f"price source returned {response.status_code}")

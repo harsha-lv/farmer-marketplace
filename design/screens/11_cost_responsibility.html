@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100%;margin:0;padding:0;min-height:100%;background-color:#F4FAFC;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "primary": "#00687b", "clay-orange": "#A95135", "on-secondary-fixed": "#380d00", "on-tertiary-fixed-variant": "#604100", "primary-fixed-dim": "#65d5f2", "blue-soft": "#C7E8F0", "on-background": "#001f28", "tertiary-fixed": "#ffdeac", "surface-tint": "#00687b", "on-surface": "#001f28", "error-container": "#ffdad6", "on-secondary-fixed-variant": "#7c2e0c", "surface": "#FFFFFF", "secondary-fixed": "#ffdbcf", "on-error": "#ffffff", "sand": "#FFF3DF", "outline": "#6d797d", "secondary": "#9a4522", "on-surface-variant": "#3d494c", "surface-variant": "#c9e7f4", "on-secondary": "#ffffff", "tertiary": "#7e5700", "surface-container-lowest": "#ffffff", "danger": "#C64F48", "inverse-on-surface": "#ddf5ff", "error": "#ba1a1a", "on-primary-fixed": "#001f26", "on-error-container": "#93000a", "slate": "#607780", "surface-container-low": "#e4f7ff", "mist-text": "#8FA1A7", "on-secondary-container": "#742907", "outline-variant": "#bdc8cd", "tertiary-fixed-dim": "#f9bc51", "tertiary-container": "#cf972f", "inverse-surface": "#17343e", "canvas": "#F4FAFC", "inverse-primary": "#65d5f2", "surface-dim": "#c1dfec", "on-tertiary-fixed": "#281900", "blue-mist": "#E2F3F8", "on-primary-fixed-variant": "#004e5d", "on-tertiary-container": "#4c3300", "clear-blue": "#147F9E", "surface-container-highest": "#c9e7f4", "surface-container-high": "#cfedfa", "on-primary": "#ffffff", "on-primary-container": "#003e4a", "background": "#f2fbff", "primary-fixed": "#aeecff", "surface-bright": "#f2fbff", "surface-container": "#d6f2ff", "primary-container": "#36afcb", "on-tertiary": "#ffffff", "secondary-fixed-dim": "#ffb59a", "line": "#D7E7EB", "secondary-container": "#fd9168" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-sm": "8px", "space-lg": "16px", "margin": "16px", "space-xl": "24px", "space-xs": "4px", "gutter": "12px", "space-md": "12px" }, "fontFamily": { "data-lg": ["IBM Plex Mono"], "headline-sm": ["Fraunces"], "data-xs": ["IBM Plex Mono"], "display-data": ["IBM Plex Mono"], "caption": ["Inter"], "label-lg": ["Inter"], "data-sm": ["IBM Plex Mono"], "body-lg": ["Inter"], "headline-lg": ["Fraunces"], "label-md": ["Inter"], "headline-md": ["Fraunces"], "headline-lg-mobile": ["Fraunces"], "data-md": ["IBM Plex Mono"], "body-md": ["Inter"] }, "fontSize": { "data-lg": ["22px", {"lineHeight": "28px", "fontWeight": "500"}], "headline-sm": ["18px", {"lineHeight": "24px", "fontWeight": "500"}], "data-xs": ["12px", {"lineHeight": "16px", "fontWeight": "500"}], "display-data": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.5px", "fontWeight": "500"}], "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}], "label-lg": ["16px", {"lineHeight": "24px", "fontWeight": "600"}], "data-sm": ["14px", {"lineHeight": "20px", "fontWeight": "500"}], "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}], "headline-lg": ["28px", {"lineHeight": "36px", "fontWeight": "600"}], "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "500"}], "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}], "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}], "data-md": ["16px", {"lineHeight": "24px", "fontWeight": "500"}], "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-canvas text-on-surface font-body-md text-body-md flex flex-col min-h-screen antialiased selection:bg-blue-soft selection:text-primary"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-margin flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-xs min-w-0 flex-1"><button aria-label="Go Back" class="w-11 h-11 -ml-2 rounded-full flex items-center justify-center text-on-surface hover:bg-canvas transition-colors" onclick="window.history.back()" type="button"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><div class="flex flex-col min-w-0 pr-space-xs"><span class="font-label-lg text-label-lg text-on-surface truncate">Freight Rate Quotations</span><span class="font-data-xs text-data-xs text-slate truncate">MM-ORD-DEMO-000001 • 4,000 kg</span></div></div><div class="flex items-center gap-space-xs flex-shrink-0"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-safe bg-canvas max-w-[600px] mx-auto"><div class="flex flex-col w-full pb-28">
+<!-- Top Visual & Commodity Context Card -->
+<div class="px-margin pt-space-md">
+<div class="rounded-xl bg-surface shadow-sm overflow-hidden">
+<div class="relative h-28 w-full bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Close-up authentic shot of cured Nashik red onions in clean jute mesh sacks at an agricultural yard, natural sunlight, earthy terracotta tones, deep red-purple skins, high clarity, realistic commercial mandi setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB50kMbyEWo0YKJRk5ef2D0UIS2Mx0adPVEMZwbMg4_hLp6z5GPps02RdFPOGebzT2qu2pAK2nWLEeL3gNk42zRENLcntZO6btUQGlvr3Wp42WgSvRfFz9VkmxaWXqiLQckifwhhqPFjuC4FyFeiNaXbgE0mzrrPcs4vv5jJxPr8ZstOF6NVm1PxdUQix_i3ESAZLvn9bAlSryTxbHGMbsEUztgcuj5C4YuYPIcuAZepUgAOMOt6f7S"/>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/85 via-inverse-surface/40 to-transparent flex items-end p-space-md">
+<div class="flex flex-col min-w-0">
+<span class="font-data-xs text-data-xs text-primary-fixed uppercase tracking-wider">Order Reference · MM-ORD-DEMO-000001</span>
+<span class="font-headline-md text-headline-md text-surface font-semibold truncate">Nashik Red Onion (नाशिक लाल कांदा)</span>
+</div>
+</div>
+</div>
+<div class="p-space-md flex items-center justify-between bg-surface">
+<div class="flex flex-col">
+<span class="font-caption text-caption text-slate">वजन व भाव (Weight &amp; Rate)</span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">4,000 kg @ ₹29.20/kg</span>
+</div>
+<div class="text-right flex flex-col">
+<span class="font-caption text-caption text-slate">एकूण मूल्य (Gross Value)</span>
+<span class="font-data-md text-data-md text-clay-orange font-bold">₹1,16,800</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Logistics Provider Info Pill -->
+<div class="px-margin mt-space-md">
+<div class="rounded-xl bg-surface-container-low p-space-md flex items-center justify-between">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-10 h-10 rounded-full bg-blue-soft flex items-center justify-center flex-shrink-0 text-primary">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-caption text-caption text-slate truncate">नेमलेली वाहतूक कंपनी (Assigned Fleet)</span>
+<span class="font-label-md text-label-md text-on-surface truncate font-semibold">Shree Ganesh Logistics</span>
+</div>
+</div>
+<div class="text-right flex flex-col flex-shrink-0 pl-space-xs">
+<span class="font-caption text-caption text-slate">कोटेशन (Quote)</span>
+<span class="font-data-md text-data-md text-primary font-bold">₹4,800</span>
+</div>
+</div>
+</div>
+<!-- Non-speculative Regulatory Notice Banner -->
+<div class="px-margin mt-space-md">
+<div class="rounded-xl bg-sand p-space-md flex gap-space-sm items-start">
+<span class="material-symbols-outlined text-secondary text-[22px] flex-shrink-0 mt-0.5" style="font-variation-settings: 'FILL' 1;">info</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-secondary-container font-semibold">
+          वाहतूक खर्च शेतमालाच्या निश्चित भावापेक्षा वेगळा आहे
+        </span>
+<span class="font-caption text-caption text-on-surface-variant mt-1 leading-relaxed">
+          Transport cost is separate from the locked produce price. Selecting transport responsibility does <strong class="text-on-surface">NOT alter</strong> the locked unit price of ₹29.20/kg or gross value of ₹1,16,800.
+        </span>
+</div>
+</div>
+</div>
+<!-- Selection Title -->
+<div class="px-margin mt-space-lg">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">
+        खर्च जबाबदारी पर्याय (Select Split Option)
+      </span>
+<span class="rounded-full bg-blue-mist text-clear-blue px-2.5 py-0.5 font-data-xs text-data-xs font-semibold">
+        ३ पर्याय उपलब्ध
+      </span>
+</div>
+<span class="font-caption text-caption text-slate mt-0.5 block">
+      Mutual agreement terms apply. Final amount reflected on pickup mandate.
+    </span>
+</div>
+<!-- Interactive Option Cards Container -->
+<div class="px-margin mt-space-md flex flex-col gap-space-md" id="split-options-container">
+<!-- OPTION A: Buyer Pays -->
+<div class="group rounded-xl p-space-md bg-surface shadow-sm cursor-pointer transition-all duration-200 relative overflow-hidden" id="card-buyer" onclick="selectOption('buyer')">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-start gap-space-sm">
+<div class="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center flex-shrink-0 mt-0.5 transition-colors" id="radio-buyer">
+<span class="material-symbols-outlined text-[16px] text-surface hidden" id="check-buyer">check</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-label-lg text-label-lg text-on-surface font-bold">खरेदीदार देईल (Buyer Pays)</span>
+<span class="rounded bg-surface-container px-2 py-0.5 font-data-xs text-data-xs text-slate">फार्म-गेट करार</span>
+</div>
+<span class="font-caption text-caption text-slate mt-0.5">Common for Farm Gate collection when agreed in procurement terms.</span>
+</div>
+</div>
+</div>
+<!-- Breakdown Metric Grid -->
+<div class="mt-space-md pt-space-sm bg-surface-bright rounded-lg p-space-sm flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-caption text-caption text-on-surface-variant">शेतकरी कपात (Farmer Deduction):</span>
+<span class="font-data-sm text-data-sm text-on-surface font-semibold">₹0</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-caption text-caption text-on-surface-variant">खरेदीदार हिस्सा (Buyer Freight Share):</span>
+<span class="font-data-sm text-data-sm text-on-surface font-semibold">₹4,800</span>
+</div>
+<div class="mt-1 pt-1.5 flex items-center justify-between bg-blue-mist/60 rounded px-2 py-1">
+<div class="flex items-center gap-1">
+<span class="font-label-md text-label-md text-clear-blue font-bold">शेतकऱ्यास निव्वळ प्राप्ती (Net Realization):</span>
+<span class="material-symbols-outlined text-[14px] text-clear-blue" title="Calculated Estimate">calculate</span>
+</div>
+<span class="font-data-md text-data-md text-primary font-bold">≈ ₹1,12,432</span>
+</div>
+</div>
+</div>
+<!-- OPTION B: Farmer Pays -->
+<div class="group rounded-xl p-space-md bg-surface shadow-sm cursor-pointer transition-all duration-200 relative overflow-hidden" id="card-farmer" onclick="selectOption('farmer')">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-start gap-space-sm">
+<div class="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center flex-shrink-0 mt-0.5 transition-colors" id="radio-farmer">
+<span class="material-symbols-outlined text-[16px] text-surface hidden" id="check-farmer">check</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-label-lg text-label-lg text-on-surface font-bold">शेतकरी देईल (Farmer Pays)</span>
+<span class="rounded bg-surface-container px-2 py-0.5 font-data-xs text-data-xs text-slate">मंडी पोहोच</span>
+</div>
+<span class="font-caption text-caption text-slate mt-0.5">Freight deducted directly from the final mandi payout slip.</span>
+</div>
+</div>
+</div>
+<!-- Breakdown Metric Grid -->
+<div class="mt-space-md pt-space-sm bg-surface-bright rounded-lg p-space-sm flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-caption text-caption text-on-surface-variant">शेतकरी कपात (Farmer Deduction):</span>
+<span class="font-data-sm text-data-sm text-danger font-semibold">- ₹4,800</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-caption text-caption text-on-surface-variant">खरेदीदार हिस्सा (Buyer Freight Share):</span>
+<span class="font-data-sm text-data-sm text-on-surface font-semibold">₹0</span>
+</div>
+<div class="mt-1 pt-1.5 flex items-center justify-between bg-sand/70 rounded px-2 py-1">
+<div class="flex items-center gap-1">
+<span class="font-label-md text-label-md text-secondary font-bold">शेतकऱ्यास निव्वळ प्राप्ती (Net Realization):</span>
+<span class="material-symbols-outlined text-[14px] text-secondary" title="Calculated Estimate">calculate</span>
+</div>
+<span class="font-data-md text-data-md text-clay-orange font-bold">≈ ₹1,07,632</span>
+</div>
+</div>
+</div>
+<!-- OPTION C: Shared Cost 50/50 (INITIAL SELECTED STATE) -->
+<div class="group rounded-xl p-space-md bg-surface shadow-md cursor-pointer transition-all duration-200 relative overflow-hidden" id="card-shared" onclick="selectOption('shared')">
+<!-- Leading Left Indicator Accent Bar -->
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-clear-blue" id="accent-bar-shared"></div>
+<div class="flex items-start justify-between gap-space-sm pl-1">
+<div class="flex items-start gap-space-sm">
+<div class="w-6 h-6 rounded-full bg-clear-blue flex items-center justify-center flex-shrink-0 mt-0.5 transition-colors" id="radio-shared">
+<span class="material-symbols-outlined text-[16px] text-surface" id="check-shared">check</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-label-lg text-label-lg text-on-surface font-bold">दोघांमध्ये समान ५०/५० विभागणी</span>
+<span class="rounded bg-blue-soft text-primary px-2 py-0.5 font-data-xs text-data-xs font-semibold">शिफारस (Recommended)</span>
+</div>
+<span class="font-caption text-caption text-slate mt-0.5">Both parties split local logistics costs equally (समान वाटणी).</span>
+</div>
+</div>
+</div>
+<!-- Breakdown Visual Split Bar -->
+<div class="mt-space-md pl-1">
+<div class="h-2 w-full rounded-full bg-surface-container flex overflow-hidden">
+<div class="w-1/2 bg-clay-orange"></div>
+<div class="w-1/2 bg-clear-blue"></div>
+</div>
+<div class="flex justify-between items-center mt-1">
+<span class="font-data-xs text-data-xs text-clay-orange font-semibold">शेतकरी ५०% (₹2,400)</span>
+<span class="font-data-xs text-data-xs text-clear-blue font-semibold">खरेदीदार ५०% (₹2,400)</span>
+</div>
+</div>
+<!-- Breakdown Metric Grid -->
+<div class="mt-space-sm pt-space-sm bg-surface-bright rounded-lg p-space-sm flex flex-col gap-space-xs pl-2">
+<div class="flex items-center justify-between">
+<span class="font-caption text-caption text-on-surface-variant">शेतकरी हिस्सा कपात (Farmer Share):</span>
+<span class="font-data-sm text-data-sm text-danger font-semibold">- ₹2,400</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-caption text-caption text-on-surface-variant">खरेदीदार हिस्सा (Buyer Share):</span>
+<span class="font-data-sm text-data-sm text-on-surface font-semibold">₹2,400</span>
+</div>
+<div class="mt-1 pt-1.5 flex items-center justify-between bg-blue-mist rounded px-2 py-1">
+<div class="flex items-center gap-1">
+<span class="font-label-md text-label-md text-clear-blue font-bold">शेतकऱ्यास निव्वळ प्राप्ती (Net Realization):</span>
+<span class="material-symbols-outlined text-[14px] text-clear-blue">calculate</span>
+</div>
+<span class="font-data-md text-data-md text-primary font-bold" id="net-display-shared">≈ ₹1,10,032</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Terms & Mandate Note -->
+<div class="px-margin mt-space-lg">
+<div class="flex items-start gap-space-xs p-space-sm rounded-lg bg-surface-container-low">
+<span class="material-symbols-outlined text-slate text-[18px] flex-shrink-0 mt-0.5">verified_user</span>
+<p class="font-caption text-caption text-slate leading-normal">
+<strong>Mandatory Transaction Policy:</strong> Final responsibility will follow the mutually agreed transaction terms recorded in the booking record. Once confirmed by driver dispatch, this split is locked.
+      </p>
+</div>
+</div>
+<!-- Sticky Bottom Navigation Sheet -->
+<div class="fixed bottom-0 left-0 right-0 z-40 bg-surface/95 backdrop-blur-md shadow-[0_-4px_16px_rgba(0,31,40,0.06)]">
+<div class="max-w-[600px] mx-auto p-margin flex flex-col gap-space-sm">
+<button class="w-full h-14 rounded-xl bg-clear-blue text-surface font-label-lg text-label-lg flex items-center justify-center gap-space-xs active:opacity-90 transition-all shadow-sm" id="continue-cta" onclick="confirmSelection()" type="button">
+<span>Continue to Transport Details (पुढील तपशील)</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+<button class="w-full h-12 rounded-xl bg-transparent text-slate font-label-md text-label-md flex items-center justify-center hover:bg-canvas active:bg-canvas transition-colors" onclick="window.history.back()" type="button">
+<span>Back (मागे जा)</span>
+</button>
+</div>
+</div>
+</div>
+<script>
+  let activeSplit = 'shared';
+
+  function selectOption(choice) {
+    activeSplit = choice;
+    const options = ['buyer', 'farmer', 'shared'];
+
+    options.forEach(opt => {
+      const card = document.getElementById('card-' + opt);
+      const radio = document.getElementById('radio-' + opt);
+      const check = document.getElementById('check-' + opt);
+      const accent = document.getElementById('accent-bar-' + opt);
+
+      if (opt === choice) {
+        card.classList.remove('shadow-sm');
+        card.classList.add('shadow-md');
+        radio.classList.remove('bg-surface-container');
+        radio.classList.add('bg-clear-blue');
+        check.classList.remove('hidden');
+        if (accent) accent.classList.remove('hidden');
+      } else {
+        card.classList.remove('shadow-md');
+        card.classList.add('shadow-sm');
+        radio.classList.remove('bg-clear-blue');
+        radio.classList.add('bg-surface-container');
+        check.classList.add('hidden');
+        if (accent) accent.classList.add('hidden');
+      }
+    });
+  }
+
+  function confirmSelection() {
+    const btn = document.getElementById('continue-cta');
+    btn.classList.add('scale-[0.98]');
+    setTimeout(() => {
+      btn.classList.remove('scale-[0.98]');
+      // Simulated routing progression in prototype
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 150);
+  }
+</script></main></body></html>

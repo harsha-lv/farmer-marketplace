@@ -1,4 +1,4 @@
-from decimal import Decimal, ROUND_HALF_UP
+from decimal import ROUND_HALF_UP, Decimal
 
 
 def calculate_pledge_eligibility(
@@ -14,9 +14,9 @@ def calculate_pledge_eligibility(
     if quantity_mt <= Decimal(0) or modal_price_per_mt <= 0 or ltv_ratio <= Decimal(0):
         return 0, 0
 
-    valuation = (quantity_mt * Decimal(modal_price_per_mt)).quantize(Decimal("1"), rounding=ROUND_HALF_UP)
+    valuation = (quantity_mt * Decimal(modal_price_per_mt)).quantize(Decimal(1), rounding=ROUND_HALF_UP)
     valuation_inr = int(valuation)
-    max_borrowable = (Decimal(valuation_inr) * ltv_ratio).quantize(Decimal("1"), rounding=ROUND_HALF_UP)
+    max_borrowable = (Decimal(valuation_inr) * ltv_ratio).quantize(Decimal(1), rounding=ROUND_HALF_UP)
     return valuation_inr, int(max_borrowable)
 
 
@@ -35,7 +35,7 @@ def calculate_accrued_interest(
     annual_rate = Decimal(interest_rate_bps) / Decimal(10000)
     time_fraction = Decimal(days_elapsed) / Decimal(365)
     accrued = (Decimal(principal_inr) * annual_rate * time_fraction).quantize(
-        Decimal("1"), rounding=ROUND_HALF_UP
+        Decimal(1), rounding=ROUND_HALF_UP
     )
     return int(accrued)
 

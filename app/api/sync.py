@@ -1,125 +1,98 @@
-from datetime import UTC, datetime
-from decimal import Decimal
-from typing import Any
+"""FastAPI endpoints for WatermelonDB offline-first synchronization protocol."""
 
-from fastapi import APIRouter, Query
-from pydantic import BaseModel, Field
+from typing import Annotated
 
-from app.api.deps import SessionDep
-from app.lots.repository import LotRepository
-from app.lots.schemas import LotCreateRequest
+from fastapi import APIRouter, Depends, Query
 
-router = APIRouter(prefix="/sync", tags=["sync"])
+from app.api.deps import SessionDep, get_current_auth
+from app.auth.schemas import UserContext
+from app.sync.schemas import (
+    SyncPullResponse,
+    SyncPushPayload,
+    SyncPushResponse,
+    SyncSchemaResponse,
+)
+from app.sync.service import SyncService
+
+router = APIRouter(
+    prefix="/sync",
+    tags=["sync"],
+    dependencies=[Depends(get_current_auth)],
+)
+
+UserContextDep = Annotated[UserContext, Depends(get_current_auth)]
 
 
-class SyncPushPayload(BaseModel):
-    changes: dict[str, dict[str, list[dict[str, Any]]]] = Field(default_factory=dict)
-    last_pulled_at: int | None = None
+@router.get("/schema", response_model=SyncSchemaResponse)
+async def sync_schema(session: SessionDep) -> SyncSchemaResponse:
+    """Return the exact table and column list the server supports for client diffing."""
+    service = SyncService(session)
+    return service.get_schema()
 
 
-@router.get("")
+@router.get("/pull", response_model=SyncPullResponse)
 async def sync_pull(
     session: SessionDep,
+    user_ctx: UserContextDep,
     last_pulled_at: int | None = Query(None, alias="lastPulledAt"),
-) -> dict[str, Any]:
-    now = datetime.now(UTC)
-    timestamp = int(now.timestamp())
-    since = datetime.fromtimestamp(last_pulled_at, tz=UTC) if last_pulled_at is not None else None
-
-    lot_repo = LotRepository(session)
-    lots = await lot_repo.list_modified_since(since)
-
-    lot_records = [
-        {
-            "id": lot.lot_code,
-            "farmer_id": lot.farmer_id,
-            "commodity": lot.commodity,
-            "variety": lot.variety,
-            "quantity_mt": float(lot.quantity_mt),
-            "status": lot.status,
-            "grade": lot.assay.grade if lot.assay else None,
-            "enam_lot_id": lot.enam_lot_id,
-            "warehouse_receipt_id": lot.warehouse_receipt_id,
-            "created_at": int(lot.created_at.timestamp()),
-        }
-        for lot in lots
-    ]
-
-    return {
-        "changes": {
-            "inventory_lots": {
-                "created": lot_records,
-                "updated": [],
-                "deleted": [],
-            }
-        },
-        "timestamp": timestamp,
-    }
+    migration_version: int | None = Query(1, alias="migrationVersion"),
+    schema_version: int | None = Query(1, alias="schemaVersion"),
+    limit: int = Query(500, alias="limit", ge=1, le=2000),
+    cursor: str | None = Query(None, alias="cursor"),
+) -> SyncPullResponse:
+    """Pull delta changes since lastPulledAt with continuation cursor pagination."""
+    service = SyncService(session)
+    return await service.pull(
+        user_ctx=user_ctx,
+        last_pulled_at=last_pulled_at,
+        limit=limit,
+        cursor=cursor,
+        schema_version=schema_version or 1,
+        migration_version=migration_version or 1,
+    )
 
 
-@router.post("")
+@router.post("/push", response_model=SyncPushResponse)
 async def sync_push(
     payload: SyncPushPayload,
     session: SessionDep,
-) -> dict[str, Any]:
-    lot_repo = LotRepository(session)
-    lot_changes = payload.changes.get("inventory_lots", {})
-    created_list = lot_changes.get("created", [])
-    updated_list = lot_changes.get("updated", [])
-    deleted_list = lot_changes.get("deleted", [])
+    user_ctx: UserContextDep,
+) -> SyncPushResponse:
+    """Push local changes to server with deterministic conflict resolution."""
+    service = SyncService(session)
+    return await service.push(user_ctx=user_ctx, payload=payload)
 
-    created_count = 0
-    updated_count = 0
 
-    for item in created_list:
-        lot_id = str(item.get("id", "")).strip()
-        existing = await lot_repo.get(lot_id) if lot_id else None
-        if existing is not None:
-            # Conflict resolution: record already exists, apply authoritative update
-            if "quantity_mt" in item:
-                existing.quantity_mt = Decimal(str(item["quantity_mt"]))
-            if "variety" in item:
-                existing.variety = str(item["variety"]).strip()
-            updated_count += 1
-        else:
-            farmer_id = str(item.get("farmer_id", "")).strip()
-            consent_id = str(item.get("consent_artifact_id", "default-consent")).strip()
-            commodity = str(item.get("commodity", "")).strip()
-            variety = str(item.get("variety", "")).strip()
-            quantity = Decimal(str(item.get("quantity_mt", "1")))
-            grade = str(item.get("grade", item.get("ai_grade", "FAQ"))).strip()
+# ---------------------------------------------------------------------------
+# Backwards Compatibility Aliases (/api/v1/sync GET and POST)
+# ---------------------------------------------------------------------------
 
-            if farmer_id and commodity:
-                create_req = LotCreateRequest(
-                    farmer_id=farmer_id,
-                    consent_artifact_id=consent_id,
-                    commodity=commodity,
-                    variety=variety,
-                    quantity_mt=quantity,
-                    grade=grade,
-                )
-                lot = await lot_repo.create(create_req)
-                if lot_id and lot_id.startswith("LOT-"):
-                    lot.lot_code = lot_id
-                created_count += 1
 
-    for item in updated_list:
-        lot_id = str(item.get("id", "")).strip()
-        if lot_id:
-            existing = await lot_repo.get(lot_id)
-            if existing is not None:
-                if "quantity_mt" in item:
-                    existing.quantity_mt = Decimal(str(item["quantity_mt"]))
-                if "variety" in item:
-                    existing.variety = str(item["variety"]).strip()
-                updated_count += 1
+@router.get("", response_model=SyncPullResponse, include_in_schema=False)
+async def sync_pull_legacy(
+    session: SessionDep,
+    user_ctx: UserContextDep,
+    last_pulled_at: int | None = Query(None, alias="lastPulledAt"),
+    migration_version: int | None = Query(1, alias="migrationVersion"),
+    schema_version: int | None = Query(1, alias="schemaVersion"),
+    limit: int = Query(500, alias="limit", ge=1, le=2000),
+    cursor: str | None = Query(None, alias="cursor"),
+) -> SyncPullResponse:
+    return await sync_pull(
+        session=session,
+        user_ctx=user_ctx,
+        last_pulled_at=last_pulled_at,
+        migration_version=migration_version,
+        schema_version=schema_version,
+        limit=limit,
+        cursor=cursor,
+    )
 
-    await session.commit()
-    return {
-        "status": "ok",
-        "applied": {
-            "created": created_count,
-            "updated": updated_count,
-            "deleted": len(deleted_list),
-        },
-    }
+
+@router.post("", response_model=SyncPushResponse, include_in_schema=False)
+async def sync_push_legacy(
+    payload: SyncPushPayload,
+    session: SessionDep,
+    user_ctx: UserContextDep,
+) -> SyncPushResponse:
+    return await sync_push(payload=payload, session=session, user_ctx=user_ctx)

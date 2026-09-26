@@ -40,9 +40,7 @@ def reconcile_audit_ledger(
         )
 
     divergences: list[DivergenceItem] = []
-    # Key comparison fields of interest
-    all_keys = set(reconstructed_state.keys()) | set(projection_state.keys())
-
+    # Key comparison fields of interest (reconstructed vs projected)
     # Ignore internal event tracking metadata
     ignored_keys = {"version", "last_modified_at", "last_event_type", "state_hash"}
 

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;600&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base { html, body { width: 100vw; margin: 0; padding: 0; } body { overscroll-behavior: none; } .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); } .pt-safe { padding-top: env(safe-area-inset-top, 0px); } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: 'class', theme: { extend: { colors: { 'error-container': '#ffdad6', 'on-primary': '#ffffff', 'secondary-fixed-dim': '#ffb59a', 'surface-container-lowest': '#ffffff', 'on-tertiary': '#ffffff', 'on-primary-fixed': '#001f26', 'blue-mist': '#E2F3F8', 'primary-fixed-dim': '#65d5f2', 'surface-container-highest': '#c9e7f4', 'on-surface': '#001f28', 'on-tertiary-container': '#4c3300', 'mist-text': '#8FA1A7', 'surface-container': '#d6f2ff', 'on-secondary-fixed-variant': '#7c2e0c', 'on-secondary': '#ffffff', 'on-background': '#001f28', 'secondary-fixed': '#ffdbcf', 'surface-variant': '#c9e7f4', 'slate': '#607780', 'sand': '#FFF3DF', 'inverse-surface': '#17343e', 'surface': '#FFFFFF', 'error': '#ba1a1a', 'on-error-container': '#93000a', 'tertiary-fixed-dim': '#f9bc51', 'surface-tint': '#00687b', 'on-primary-container': '#003e4a', 'surface-dim': '#c1dfec', 'on-error': '#ffffff', 'secondary': '#9a4522', 'on-primary-fixed-variant': '#004e5d', 'primary-fixed': '#aeecff', 'secondary-container': '#fd9168', 'on-tertiary-fixed': '#281900', 'primary-container': '#36afcb', 'on-tertiary-fixed-variant': '#604100', 'tertiary-container': '#cf972f', 'inverse-primary': '#65d5f2', 'surface-bright': '#f2fbff', 'surface-container-low': '#e4f7ff', 'on-secondary-container': '#742907', 'canvas': '#F4FAFC', 'tertiary-fixed': '#ffdeac', 'tertiary': '#7e5700', 'danger': '#C64F48', 'clear-blue': '#147F9E', 'outline': '#6d797d', 'line': '#D7E7EB', 'on-surface-variant': '#3d494c', 'surface-container-high': '#cfedfa', 'inverse-on-surface': '#ddf5ff', 'background': '#f2fbff', 'clay-orange': '#A95135', 'on-secondary-fixed': '#380d00', 'outline-variant': '#bdc8cd', 'primary': '#00687b', 'blue-soft': '#C7E8F0' }, borderRadius: { 'DEFAULT': '0.25rem', 'lg': '0.5rem', 'xl': '0.75rem', 'full': '9999px' }, spacing: { 'gutter': '12px', 'space-xl': '24px', 'space-md': '12px', 'space-sm': '8px', 'space-lg': '16px', 'space-xs': '4px', 'margin': '16px' }, fontFamily: { 'headline-lg-mobile': ['Fraunces'], 'headline-lg': ['Fraunces'], 'body-lg': ['Inter'], 'headline-md': ['Fraunces'], 'caption': ['Inter'], 'label-lg': ['Inter'], 'label-md': ['Inter'], 'data-md': ['IBM Plex Mono'], 'display-data': ['IBM Plex Mono'], 'headline-sm': ['Fraunces'], 'data-xs': ['IBM Plex Mono'], 'body-md': ['Inter'], 'data-sm': ['IBM Plex Mono'], 'data-lg': ['IBM Plex Mono'] }, fontSize: { 'headline-lg-mobile': ['24px', { lineHeight: '32px', fontWeight: '600' }], 'headline-lg': ['28px', { lineHeight: '36px', fontWeight: '600' }], 'body-lg': ['16px', { lineHeight: '24px', fontWeight: '400' }], 'headline-md': ['20px', { lineHeight: '28px', fontWeight: '600' }], 'caption': ['12px', { lineHeight: '16px', fontWeight: '400' }], 'label-lg': ['16px', { lineHeight: '24px', fontWeight: '600' }], 'label-md': ['14px', { lineHeight: '20px', fontWeight: '500' }], 'data-md': ['16px', { lineHeight: '24px', fontWeight: '500' }], 'display-data': ['32px', { lineHeight: '40px', letterSpacing: '-0.5px', fontWeight: '500' }], 'headline-sm': ['18px', { lineHeight: '24px', fontWeight: '500' }], 'data-xs': ['12px', { lineHeight: '16px', fontWeight: '500' }], 'body-md': ['14px', { lineHeight: '20px', fontWeight: '400' }], 'data-sm': ['14px', { lineHeight: '20px', fontWeight: '500' }], 'data-lg': ['22px', { lineHeight: '28px', fontWeight: '500' }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-canvas text-on-surface font-body-md text-body-md flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe"><div class="h-16 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><button aria-label="Go back" class="w-11 h-11 min-w-[44px] min-h-[44px] -ml-2 rounded-full flex items-center justify-center text-on-surface hover:bg-surface-container-high transition-colors" onclick="window.history.back()" type="button"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><div class="flex flex-col justify-center"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-on-surface leading-tight">Storage &amp; Post-Harvest</span></div><div class="flex items-center gap-space-xs"><span class="font-caption text-caption text-slate">ORDER</span><span class="font-data-xs text-data-xs text-primary font-medium tracking-tight">MM-ORD-DEMO-000001</span></div></div></div><div class="flex items-center gap-space-xs"><button aria-label="Farmer Profile" class="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors" type="button"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></button></div></div></header><main class="flex flex-col relative w-full pt-16 pb-safe bg-canvas min-h-screen"><div class="flex flex-col w-full pb-safe">
+<div class="px-margin pt-space-md space-y-space-lg">
+<!-- Header Section with Bilingual Title & Context Badge -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-blue-mist text-clear-blue font-data-xs text-data-xs font-medium">
+<span class="material-symbols-outlined text-[14px]">fact_check</span>
+          ACTUAL ALLOCATION
+        </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-sand text-clay-orange font-data-xs text-data-xs font-medium">
+<span class="material-symbols-outlined text-[14px]">calculate</span>
+          ≈ ESTIMATE READY
+        </span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface tracking-tight">
+        साठवणूक खर्च जबाबदारी
+      </h1>
+<p class="font-label-md text-label-md text-slate">
+        Storage Cost Responsibility &amp; Net Settlement Breakdown
+      </p>
+</div>
+<!-- Facility & Consignment Summary Card -->
+<div class="bg-surface rounded-xl p-margin shadow-sm space-y-space-md">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="space-y-space-xs min-w-0">
+<span class="font-caption text-caption text-slate uppercase tracking-wider block">साठवण केंद्र (Facility)</span>
+<p class="font-label-lg text-label-lg text-on-surface font-semibold truncate">Lasalgaon Agro Onion Chawl</p>
+<p class="font-body-md text-body-md text-slate">Consignment: 4,000 kg Nashik Red Onion</p>
+</div>
+<div class="w-12 h-12 rounded-xl bg-blue-mist flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-clear-blue text-[26px]">warehouse</span>
+</div>
+</div>
+<!-- Facility Metric Pills -->
+<div class="grid grid-cols-2 gap-space-sm pt-space-xs">
+<div class="bg-canvas rounded-lg p-space-sm">
+<span class="font-caption text-caption text-slate block mb-1">कालावधी (Duration)</span>
+<div class="flex items-baseline gap-1">
+<span class="font-data-md text-data-md text-on-surface font-semibold">30 Days</span>
+<span class="font-caption text-caption text-slate">(१ महिना)</span>
+</div>
+</div>
+<div class="bg-canvas rounded-lg p-space-sm">
+<span class="font-caption text-caption text-slate block mb-1">दर (Storage Rate)</span>
+<span class="font-data-md text-data-md text-on-surface font-semibold">₹0.80<span class="font-caption text-caption text-slate">/kg/mo</span></span>
+</div>
+</div>
+<!-- Total Cost Row -->
+<div class="bg-blue-mist/60 rounded-lg p-space-md flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-clear-blue text-[22px]">payments</span>
+<span class="font-label-md text-label-md text-on-surface font-medium">एकूण अंदाजित खर्च (Total Est. Cost)</span>
+</div>
+<span class="font-data-lg text-data-lg text-clear-blue font-bold tracking-tight">₹3,200</span>
+</div>
+</div>
+<!-- Mandatory Price Protection Warning Banner (Market Amber/Sand) -->
+<div class="bg-sand rounded-xl p-margin shadow-sm flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-full bg-tertiary-container/30 flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-tertiary text-[24px]">verified_user</span>
+</div>
+<div class="space-y-space-xs min-w-0 flex-1">
+<p class="font-label-md text-label-md text-tertiary font-bold leading-tight">
+          महत्त्वाची सूचना: साठवणूक खर्च शेतमालाच्या निश्चित भावापेक्षा वेगळा आहे.
+        </p>
+<p class="font-body-md text-body-md text-on-tertiary-container leading-relaxed">
+          Storage cost is separate from the locked produce price. Selecting storage responsibility does <strong class="font-semibold text-tertiary">NOT</strong> alter the locked unit price of <span class="font-data-xs text-data-xs font-semibold">₹29.20/kg</span> or gross contract value of <span class="font-data-xs text-data-xs font-semibold">₹1,16,800</span>.
+        </p>
+</div>
+</div>
+<!-- Option Selector Title -->
+<div class="flex items-center justify-between pt-space-xs">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">
+        खर्च विभागणी पर्याय (Responsibility Split)
+      </h2>
+<span class="font-caption text-caption text-slate">Select 1 of 3</span>
+</div>
+<!-- Storage Responsibility Cards Container -->
+<div aria-label="Storage Cost Responsibility Options" class="space-y-space-md" id="responsibility-options-group" role="radiogroup">
+<!-- Option 1: Farmer Pays -->
+<div class="cursor-pointer bg-surface rounded-xl p-margin shadow-sm transition-all" id="card-option-1" onclick="selectOption('option-1', 3200, 0, 109232)">
+<div class="flex items-start gap-space-md">
+<div class="pt-0.5">
+<div class="w-6 h-6 rounded-full bg-canvas flex items-center justify-center transition-colors" id="radio-option-1">
+<div class="w-2.5 h-2.5 rounded-full bg-slate hidden" id="dot-option-1"></div>
+</div>
+</div>
+<div class="flex-1 min-w-0 space-y-space-sm">
+<div class="flex items-center justify-between gap-space-xs flex-wrap">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Farmer Pays (शेतकरी देईल)</span>
+<span class="font-caption text-caption text-slate">Full Storage Burden</span>
+</div>
+<div class="grid grid-cols-2 gap-space-xs py-space-xs text-body-md">
+<div class="bg-canvas p-space-sm rounded">
+<span class="font-caption text-caption text-slate block">Farmer Share</span>
+<span class="font-data-md text-data-md text-danger font-semibold">−₹3,200</span>
+<span class="font-caption text-caption text-slate block text-[11px] leading-tight mt-0.5">Deducted at settlement</span>
+</div>
+<div class="bg-canvas p-space-sm rounded">
+<span class="font-caption text-caption text-slate block">Buyer Share</span>
+<span class="font-data-md text-data-md text-on-surface font-medium">₹0</span>
+<span class="font-caption text-caption text-slate block text-[11px] leading-tight mt-0.5">Zero direct contribution</span>
+</div>
+</div>
+<div class="bg-canvas rounded-lg px-space-md py-space-sm flex items-center justify-between">
+<span class="font-caption text-caption text-slate uppercase">Net Farmer Realization</span>
+<span class="font-data-md text-data-md text-on-surface font-bold">≈ ₹1,09,232</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Option 2: Buyer Pays -->
+<div class="cursor-pointer bg-surface rounded-xl p-margin shadow-sm transition-all" id="card-option-2" onclick="selectOption('option-2', 0, 3200, 112432)">
+<div class="flex items-start gap-space-md">
+<div class="pt-0.5">
+<div class="w-6 h-6 rounded-full bg-canvas flex items-center justify-center transition-colors" id="radio-option-2">
+<div class="w-2.5 h-2.5 rounded-full bg-slate hidden" id="dot-option-2"></div>
+</div>
+</div>
+<div class="flex-1 min-w-0 space-y-space-sm">
+<div class="flex items-center justify-between gap-space-xs flex-wrap">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Buyer Pays (खरेदीदार देईल)</span>
+<span class="font-caption text-caption text-slate">Buyer Warehouse Direct</span>
+</div>
+<div class="grid grid-cols-2 gap-space-xs py-space-xs text-body-md">
+<div class="bg-canvas p-space-sm rounded">
+<span class="font-caption text-caption text-slate block">Farmer Share</span>
+<span class="font-data-md text-data-md text-clear-blue font-semibold">₹0</span>
+<span class="font-caption text-caption text-slate block text-[11px] leading-tight mt-0.5">No deduction</span>
+</div>
+<div class="bg-canvas p-space-sm rounded">
+<span class="font-caption text-caption text-slate block">Buyer Share</span>
+<span class="font-data-md text-data-md text-on-surface font-medium">₹3,200</span>
+<span class="font-caption text-caption text-slate block text-[11px] leading-tight mt-0.5">Paid directly to depot</span>
+</div>
+</div>
+<div class="bg-canvas rounded-lg px-space-md py-space-sm flex items-center justify-between">
+<span class="font-caption text-caption text-slate uppercase">Net Farmer Realization</span>
+<span class="font-data-md text-data-md text-on-surface font-bold">≈ ₹1,12,432</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Option 3: Shared Cost (Default Selected & Recommended) -->
+<div class="cursor-pointer bg-surface rounded-xl p-margin shadow-sm relative transition-all" id="card-option-3" onclick="selectOption('option-3', 1600, 1600, 110832)">
+<!-- Solid 4dp Leading Recommendation Bar -->
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-clear-blue rounded-l-xl"></div>
+<div class="flex items-start gap-space-md pl-1">
+<div class="pt-0.5">
+<div class="w-6 h-6 rounded-full bg-clear-blue flex items-center justify-center transition-colors" id="radio-option-3">
+<div class="w-2.5 h-2.5 rounded-full bg-surface" id="dot-option-3"></div>
+</div>
+</div>
+<div class="flex-1 min-w-0 space-y-space-sm">
+<div class="flex items-center justify-between gap-space-xs flex-wrap">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-lg text-label-lg text-on-surface font-bold">Shared Cost (५०/५० विभागणी)</span>
+</div>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-blue-soft text-on-surface font-caption text-caption font-semibold">
+<span class="material-symbols-outlined text-[13px] text-clear-blue">handshake</span>
+                शिफारस (Mutual Buffer)
+              </span>
+</div>
+<p class="font-body-md text-body-md text-slate">
+              दोघांमध्ये समान ५०/५० विभागणी — Recommended fair allocation buffer for stored perishables.
+            </p>
+<div class="grid grid-cols-2 gap-space-xs py-space-xs text-body-md">
+<div class="bg-blue-mist/60 p-space-sm rounded">
+<span class="font-caption text-caption text-slate block">Farmer Share (50%)</span>
+<span class="font-data-md text-data-md text-danger font-semibold">−₹1,600</span>
+<span class="font-caption text-caption text-slate block text-[11px] leading-tight mt-0.5">Deducted from balance</span>
+</div>
+<div class="bg-blue-mist/60 p-space-sm rounded">
+<span class="font-caption text-caption text-slate block">Buyer Share (50%)</span>
+<span class="font-data-md text-data-md text-clear-blue font-semibold">₹1,600</span>
+<span class="font-caption text-caption text-slate block text-[11px] leading-tight mt-0.5">Direct buyer deposit</span>
+</div>
+</div>
+<!-- Net Realization Highlight Box -->
+<div class="bg-blue-mist rounded-lg px-space-md py-space-sm flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-caption text-caption text-slate uppercase">Net Farmer Realization</span>
+<span class="font-caption text-caption text-clear-blue font-medium">After Storage Allocation</span>
+</div>
+<div class="text-right">
+<span class="font-data-lg text-data-lg text-on-surface font-bold">≈ ₹1,10,832</span>
+<span class="font-caption text-caption text-slate block">from ₹1,16,800 gross</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Settlement Terms Note Box -->
+<div class="bg-surface rounded-xl p-margin shadow-sm flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-slate text-[20px] shrink-0 mt-0.5">description</span>
+<div class="space-y-space-xs">
+<p class="font-label-md text-label-md text-on-surface font-semibold">अंतिम तोडगा अटी (Settlement Terms)</p>
+<p class="font-body-md text-body-md text-slate">
+          Final allocation will strictly follow mutual agreement terms recorded in the storage plan record. Storage fees are settled directly via Escrow clearing at time of dispatch.
+        </p>
+</div>
+</div>
+<!-- Action Buttons Block -->
+<div class="pt-space-sm pb-space-xl space-y-space-md">
+<!-- Primary Action CTA: Burnt Orange reserved for key conversion -->
+<button class="w-full min-h-[56px] rounded-lg bg-clay-orange hover:bg-secondary active:scale-[0.99] text-on-primary font-label-lg text-label-lg flex items-center justify-center gap-space-sm transition-all shadow-sm" id="btn-confirm-plan" onclick="confirmStorageSelection()" type="button">
+<span>Review Storage Plan (आढावा घ्या)</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+<!-- Secondary Back Link -->
+<button class="w-full min-h-[56px] rounded-lg bg-transparent hover:bg-surface-container-high text-clear-blue font-label-lg text-label-lg flex items-center justify-center gap-space-sm transition-colors" onclick="window.history.back()" type="button">
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+<span>Back to Condition Assessment</span>
+</button>
+</div>
+</div>
+</div>
+<script>
+  let selectedOptionId = 'option-3';
+
+  function selectOption(optId, farmerShare, buyerShare, netRealization) {
+    selectedOptionId = optId;
+    const allOptions = ['option-1', 'option-2', 'option-3'];
+
+    allOptions.forEach(id => {
+      const radio = document.getElementById('radio-' + id);
+      const dot = document.getElementById('dot-' + id);
+      const card = document.getElementById('card-' + id);
+
+      if (id === optId) {
+        radio.classList.remove('bg-canvas');
+        radio.classList.add('bg-clear-blue');
+        dot.classList.remove('hidden', 'bg-slate');
+        dot.classList.add('bg-surface');
+      } else {
+        radio.classList.remove('bg-clear-blue');
+        radio.classList.add('bg-canvas');
+        dot.classList.add('hidden');
+        dot.classList.remove('bg-surface');
+      }
+    });
+  }
+
+  function confirmStorageSelection() {
+    const btn = document.getElementById('btn-confirm-plan');
+    const originalText = btn.innerHTML;
+    btn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[20px]">sync</span><span>नोंद केली जात आहे...</span>';
+    btn.disabled = true;
+
+    setTimeout(() => {
+      btn.innerHTML = originalText;
+      btn.disabled = false;
+      alert('साठवणूक आराखडा यशस्वीरीत्या निवडला गेला (Storage Plan Recorded: ' + selectedOptionId.toUpperCase() + ')');
+    }, 700);
+  }
+</script></main></body></html>

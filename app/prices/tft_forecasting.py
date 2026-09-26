@@ -7,11 +7,12 @@ price spreads, seasonality) to generate probabilistic multi-horizon forecasts
 (p10, p50, p90) and intelligent sale-window recommendations (STORE, SELL, HEDGE).
 """
 
+import math
+from collections.abc import Sequence
 from dataclasses import dataclass
 from datetime import date, timedelta
 from decimal import Decimal
-import math
-from typing import Any, Sequence
+from typing import Any
 
 
 @dataclass(frozen=True)
@@ -187,7 +188,7 @@ def tft_multivariate_forecast(
     annual_rate = Decimal(capital_interest_rate_bps) / Decimal(10000)
     time_fraction = Decimal(horizon_days) / Decimal(365)
     capital_cost_dec = (Decimal(latest_price) * annual_rate * time_fraction).quantize(
-        Decimal("1")
+        Decimal(1)
     )
     capital_cost = int(capital_cost_dec)
     total_holding_cost = storage_cost + capital_cost
@@ -285,7 +286,7 @@ def tft_multivariate_forecast(
 
     # Generate multi-horizon forecasts
     horizons: list[HorizonQuantiles] = []
-    latest_t = t_points[-1]
+    _latest_t = t_points[-1]
 
     for offset in range(1, horizon_days + 1):
         fc_date = latest_date + timedelta(days=offset)

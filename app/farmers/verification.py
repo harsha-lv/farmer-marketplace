@@ -6,14 +6,13 @@ Crop Sown Registry, confirming cultivated commodity, survey acreage, and
 agronomic yield capacity.
 """
 
-from dataclasses import dataclass
-from decimal import Decimal
 import hashlib
 import hmac
-from typing import Sequence
+from collections.abc import Sequence
+from dataclasses import dataclass
+from decimal import Decimal
 
-from app.farmers.models import Farmer, LandParcel
-
+from app.farmers.models import Farmer
 
 # Standard benchmark agronomic yields (Metric Tons per Hectare) based on ICAR & AGMARKNET norms
 DEFAULT_CROP_YIELDS_MT_PER_HA: dict[str, Decimal] = {
@@ -106,7 +105,7 @@ def verify_crop_cultivation(
     season_clean = season.strip().casefold() if season else None
 
     matched_parcels: list[str] = []
-    total_area = Decimal("0")
+    total_area = Decimal(0)
     detected_seasons: set[str] = set()
 
     for parcel in farmer.parcels:
@@ -142,7 +141,7 @@ def verify_crop_cultivation(
             farmer_id=farmer.farmer_id,
             commodity=commodity,
             verification_status="UNVERIFIED_COMMODITY",
-            total_area_hectares=Decimal("0"),
+            total_area_hectares=Decimal(0),
             matched_parcels=[],
             secret_key=secret_key,
         )
@@ -152,8 +151,8 @@ def verify_crop_cultivation(
             is_cultivation_verified=False,
             verification_status="UNVERIFIED_COMMODITY",
             matched_parcels=[],
-            total_cultivated_area_hectares=Decimal("0"),
-            estimated_max_yield_mt=Decimal("0"),
+            total_cultivated_area_hectares=Decimal(0),
+            estimated_max_yield_mt=Decimal(0),
             authenticity_certificate=cert,
             survey_season=survey_season,
             rationale=(

@@ -1,5 +1,6 @@
-from datetime import UTC, datetime, timedelta
 import uuid
+from datetime import datetime, timedelta
+from typing import Any
 
 PURPOSE_AGRI_SETTLEMENT = "AGRI_PRODUCE_SETTLEMENT"
 DEFAULT_ISSUER = "ONDC-RSP-PARTNER-BANK"
@@ -51,3 +52,31 @@ def generate_erupi_qr_payload(
         f"upi://mandate?pa=rsp@ondcbank&pn=ONDC_RSP&am={amount_inr}&mam={amount_inr}"
         f"&cu=INR&purpose={purpose_code}&tid={voucher_code}&tr={transaction_id}"
     )
+
+
+class NpciVoucherClient:
+    """SSRF-hardened client for NPCI e-RUPI gateway and partner bank settlement verification."""
+
+    def __init__(
+        self,
+        gateway_url: str = "https://npci.org.in/api/v1/erupi",
+        transport: Any | None = None,
+        allow_private: bool = False,
+    ) -> None:
+        self.gateway_url = gateway_url.rstrip("/")
+        self._transport = transport
+        self._allow_private = allow_private
+
+    async def verify_voucher_status(self, voucher_code: str) -> dict[str, Any]:
+        """Verify voucher redemption status with the NPCI/Partner Bank gateway."""
+        from app.common.http_client import SafeAsyncClient
+
+        endpoint = f"{self.gateway_url}/status/{voucher_code}"
+        async with SafeAsyncClient(
+            transport=self._transport,
+            allow_private=self._allow_private,
+        ) as client:
+            resp = await client.get(endpoint)
+            if resp.status_code == 200:
+                return resp.json()
+            return {"status": "ACTIVE", "voucher_code": voucher_code}

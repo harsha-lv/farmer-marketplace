@@ -1,0 +1,199 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"><meta content="mobile_stack" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&amp;family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{width:100%;margin:0;padding:0;}body{overscroll-behavior-y:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "sand": "#FFF3DF", "surface-container": "#d6f2ff", "surface-container-lowest": "#ffffff", "line": "#D7E7EB", "slate": "#607780", "on-surface": "#001f28", "primary-fixed": "#aeecff", "on-tertiary": "#ffffff", "on-primary-fixed-variant": "#004e5d", "on-primary-container": "#003e4a", "surface": "#FFFFFF", "mist-text": "#8FA1A7", "surface-dim": "#c1dfec", "on-secondary": "#ffffff", "on-primary": "#ffffff", "on-error": "#ffffff", "inverse-surface": "#17343e", "primary": "#00687b", "tertiary-container": "#cf972f", "surface-container-high": "#cfedfa", "surface-variant": "#c9e7f4", "surface-container-low": "#e4f7ff", "on-tertiary-fixed": "#281900", "outline-variant": "#bdc8cd", "secondary-fixed": "#ffdbcf", "on-tertiary-container": "#4c3300", "error": "#ba1a1a", "tertiary-fixed": "#ffdeac", "surface-tint": "#00687b", "on-tertiary-fixed-variant": "#604100", "on-error-container": "#93000a", "inverse-primary": "#65d5f2", "canvas": "#F4FAFC", "secondary-container": "#fd9168", "secondary-fixed-dim": "#ffb59a", "on-surface-variant": "#3d494c", "on-primary-fixed": "#001f26", "blue-soft": "#C7E8F0", "primary-container": "#36afcb", "secondary": "#9a4522", "surface-container-highest": "#c9e7f4", "inverse-on-surface": "#ddf5ff", "on-background": "#001f28", "tertiary": "#7e5700", "clear-blue": "#147F9E", "clay-orange": "#A95135", "on-secondary-fixed": "#380d00", "blue-mist": "#E2F3F8", "background": "#f2fbff", "on-secondary-container": "#742907", "outline": "#6d797d", "error-container": "#ffdad6", "on-secondary-fixed-variant": "#7c2e0c", "primary-fixed-dim": "#65d5f2", "danger": "#C64F48", "tertiary-fixed-dim": "#f9bc51", "surface-bright": "#f2fbff" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "space-xl": "24px", "space-xs": "4px", "space-md": "12px", "gutter": "12px", "space-lg": "16px", "margin": "16px", "space-sm": "8px" }, fontFamily: { "headline-lg": ["Fraunces"], "headline-sm": ["Fraunces"], "headline-lg-mobile": ["Fraunces"], "data-md": ["IBM Plex Mono"], "body-md": ["Inter"], "headline-md": ["Fraunces"], "label-lg": ["Inter"], "data-lg": ["IBM Plex Mono"], "label-md": ["Inter"], "body-lg": ["Inter"], "data-xs": ["IBM Plex Mono"], "data-sm": ["IBM Plex Mono"], "caption": ["Inter"], "display-data": ["IBM Plex Mono"] }, fontSize: { "headline-lg": ["28px", { "lineHeight": "36px", "fontWeight": "600" }], "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "500" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }], "data-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }], "label-lg": ["16px", { "lineHeight": "24px", "fontWeight": "600" }], "data-lg": ["22px", { "lineHeight": "28px", "fontWeight": "500" }], "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "data-xs": ["12px", { "lineHeight": "16px", "fontWeight": "500" }], "data-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }], "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "display-data": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.5px", "fontWeight": "500" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-canvas text-on-surface font-body-md text-body-md antialiased min-h-screen flex flex-col"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-margin flex items-center justify-between gap-space-sm max-w-[600px] mx-auto"><div class="flex items-center gap-space-sm min-w-0"><button aria-label="Go Back" class="w-11 h-11 flex items-center justify-center rounded-lg text-on-surface hover:bg-blue-mist transition-colors -ml-1" onclick="history.back()"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><h1 class="font-headline-sm text-headline-sm text-on-surface truncate">Create Harvest Lot</h1></div><div class="flex items-center gap-space-sm shrink-0"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full max-w-[600px] mx-auto px-margin pt-16 pb-safe bg-canvas"><div class="flex flex-col w-full pb-8">
+<div class="w-full pt-4 pb-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="font-data-xs text-data-xs text-primary font-medium tracking-wider uppercase">पायरी ३ / Step 3</span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary/40"></span>
+<span class="font-data-xs text-data-xs text-slate">अंतिम पुनरावलोकन</span>
+</div>
+<span class="font-data-xs text-data-xs bg-sand text-secondary px-2 py-0.5 rounded-full font-medium">100% Filled</span>
+</div>
+<div class="w-full bg-blue-mist h-1.5 rounded-full mt-2.5 overflow-hidden">
+<div class="bg-primary h-full rounded-full transition-all duration-500 ease-out" style="width: 100%;"></div>
+</div>
+<div class="mt-4 flex flex-col">
+<h2 class="font-headline-md text-headline-md text-on-surface">Review before publishing</h2>
+<p class="font-body-md text-body-md text-slate mt-0.5">साठा प्रकाशित करण्यापूर्वी माहिती तपासा</p>
+</div>
+</div>
+<div class="flex flex-col gap-3 mt-3">
+<div class="bg-surface rounded-xl p-4 shadow-sm flex flex-col">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-blue-mist flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-[20px]">agriculture</span>
+</div>
+<div>
+<span class="font-label-md text-label-md text-slate block leading-tight">Crop &amp; Quantity</span>
+<span class="font-caption text-caption text-mist-text block">पीक आणि वजन</span>
+</div>
+</div>
+<button aria-label="Edit crop details" class="min-h-[48px] px-3 -mr-2 flex items-center justify-center text-primary font-label-md text-label-md hover:bg-blue-mist/50 rounded-lg transition-colors" type="button">
+          Edit / बदला
+        </button>
+</div>
+<div class="mt-3.5 pt-3 border-t border-line/60 flex items-end justify-between">
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface">Red Onion</span>
+<span class="font-body-md text-body-md text-slate block">लाल कांदा</span>
+</div>
+<div class="text-right">
+<span class="font-display-data text-display-data text-on-surface">4,000</span>
+<span class="font-data-md text-data-md text-slate ml-1">kg</span>
+<span class="font-data-xs text-data-xs text-mist-text block">≈ 40 क्विंटल • <span class="text-primary font-medium">(Demo Lot)</span></span>
+</div>
+</div>
+</div>
+<div class="bg-surface rounded-xl p-4 shadow-sm flex flex-col">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-blue-mist flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-[20px]">event_available</span>
+</div>
+<div>
+<span class="font-label-md text-label-md text-slate block leading-tight">Harvest Details</span>
+<span class="font-caption text-caption text-mist-text block">कापणी तपशील</span>
+</div>
+</div>
+<button aria-label="Edit harvest details" class="min-h-[48px] px-3 -mr-2 flex items-center justify-center text-primary font-label-md text-label-md hover:bg-blue-mist/50 rounded-lg transition-colors" type="button">
+          Edit / बदला
+        </button>
+</div>
+<div class="mt-3.5 pt-3 border-t border-line/60 grid grid-cols-2 gap-3">
+<div class="bg-canvas p-2.5 rounded-lg flex flex-col justify-between">
+<div>
+<span class="font-caption text-caption text-slate block leading-tight">Actual Harvest Date</span>
+<span class="font-caption text-caption text-mist-text block">कापणी तारीख</span>
+</div>
+<div class="mt-2 flex items-center gap-1.5"><span class="material-symbols-outlined text-clear-blue text-[18px]">calendar_today</span><span class="font-data-sm text-data-sm text-on-surface">18 Oct 2026</span><span class="font-data-xs text-data-xs text-mist-text ml-1"><span class="material-symbols-outlined text-[14px]">check</span> Uploaded &amp; ready / जोडले</span></div>
+</div>
+<div class="bg-canvas p-2.5 rounded-lg flex flex-col justify-between">
+<div>
+<span class="font-caption text-caption text-slate block leading-tight">Sale Readiness</span>
+<span class="font-caption text-caption text-mist-text block">विक्री स्थिती</span>
+</div>
+<div class="mt-2">
+<span class="inline-flex items-center px-2 py-0.5 rounded-md bg-blue-soft text-on-surface font-label-md text-label-md font-medium">
+              खळा साठा
+            </span>
+<span class="font-data-xs text-data-xs text-slate block mt-0.5"><span class="material-symbols-outlined text-[14px]">check</span> Uploaded &amp; ready / जोडले</span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface rounded-xl p-4 shadow-sm flex flex-col">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-blue-mist flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-[20px]">handshake</span>
+</div>
+<div>
+<span class="font-label-md text-label-md text-slate block leading-tight">Negotiation</span>
+<span class="font-caption text-caption text-mist-text block">दर वाटाघाटी</span>
+</div>
+</div>
+<button aria-label="Edit negotiation preference" class="min-h-[48px] px-3 -mr-2 flex items-center justify-center text-primary font-label-md text-label-md hover:bg-blue-mist/50 rounded-lg transition-colors" type="button">
+          Edit / बदला
+        </button>
+</div>
+<div class="mt-3.5 pt-3 border-t border-line/60 flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-on-surface font-medium">Open to negotiation (Yes)</span>
+<span class="font-caption text-caption text-slate">व्यापाऱ्यांशी दर ठरवण्यास तयार आहे</span>
+</div>
+<div class="w-10 h-6 bg-primary rounded-full relative flex items-center px-0.5 justify-end">
+<div class="w-5 h-5 bg-surface rounded-full shadow-sm"></div>
+</div>
+</div>
+</div>
+<div class="bg-surface rounded-xl p-4 shadow-sm flex flex-col">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-blue-mist flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-[20px]">photo_camera</span>
+</div>
+<div>
+<span class="font-label-md text-label-md text-slate block leading-tight">Photos Verification</span>
+<span class="font-caption text-caption text-mist-text block">फोटो पडताळणी</span>
+</div>
+</div>
+<button aria-label="Change photos" class="min-h-[48px] px-3 -mr-2 flex items-center justify-center text-primary font-label-md text-label-md hover:bg-blue-mist/50 rounded-lg transition-colors" type="button">
+          Edit / बदला
+        </button>
+</div>
+<div class="mt-3.5 pt-3 border-t border-line/60 grid grid-cols-2 gap-3">
+<div class="flex flex-col bg-canvas rounded-lg p-2 overflow-hidden">
+<div class="relative w-full h-24 rounded-md overflow-hidden bg-slate/10">
+<img class="w-full h-full object-cover" data-alt="Close-up macro sample of harvested dried red onions in Maharashtra mandi daylight, showing natural terracotta outer skin texture, clean dry root disc, without artificial gloss or saturation" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGOSedd6z9j6WBB-WRqTTz7aboJt9oaRDE7wf3E0fjcDLSdVs0Q0LaGGqtP4UWMi-e13wqvbvjjQ-b-NYQvub8WruLbAD_wZq2inND7UMB3vpnGdWd7nMmL2qF5cemZQzwatlTGdw69HgRWJ6QFz_nwLUSNTV4JUDZQOTnH2c9EzxIV3cL2utIj_WVRkHg8kTuIcTQj8hC6RGOHqiFrQlEIoI9zE5oUZrbkZGjyAuLsyRjC2DIMZEd">
+<div class="absolute top-1.5 left-1.5 bg-surface/90 backdrop-blur-sm px-1.5 py-0.5 rounded text-[10px] font-medium text-clear-blue flex items-center gap-1 shadow-sm"><span class="material-symbols-outlined text-[13px]">photo</span> Demo Photo</div>
+</div>
+<div class="mt-2 flex flex-col"><span class="material-symbols-outlined text-clear-blue text-[18px]">calendar_today</span><span class="font-data-sm text-data-sm text-on-surface">18 Oct 2026</span><span class="font-data-xs text-data-xs text-mist-text ml-1"><span class="material-symbols-outlined text-[14px]">check</span> Uploaded &amp; ready / जोडले</span></div>
+</div>
+<div class="flex flex-col bg-canvas rounded-lg p-2 overflow-hidden">
+<div class="relative w-full h-24 rounded-md overflow-hidden bg-slate/10">
+<img class="w-full h-full object-cover" data-alt="Wide outdoor view of clean agricultural storage barn containing large harvest pile of sorted red onions under open airy shed natural warm daylight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjBn1glxt4tj5afXD8ecYRqOO841i91t-iJMNFPIjzhIsmvfhCtqWiTERXOV1NEFji7yBWYynOWCjPdDTKezk16wzovzKSb6vtklF-iwfdrF2TwsTfPIa1aeFBtG-qeX1JL-8y4S-rJrF446GH2fL1iVfCW3ALzxuhWdRwbAu1Ru3qNfqIz8je7SG3mD2Gjs4aNlBP7g8qSu0E-L0aTty_h-25C4c0EedeQWQ7CIyLOvFrykh41N91">
+<div class="absolute top-1.5 left-1.5 bg-surface/90 backdrop-blur-sm px-1.5 py-0.5 rounded text-[10px] font-medium text-clear-blue flex items-center gap-1 shadow-sm"><span class="material-symbols-outlined text-[13px]">photo</span> Demo Photo</div>
+</div>
+<div class="mt-2 flex flex-col">
+<span class="font-label-md text-label-md text-on-surface truncate">संपूर्ण साठा फोटो</span>
+<span class="font-data-xs text-data-xs text-clear-blue flex items-center gap-0.5 mt-0.5"><span class="material-symbols-outlined text-[14px]">check</span> Uploaded &amp; ready / जोडले</span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-sand/80 rounded-xl p-3.5 flex gap-3 items-start">
+<div class="w-8 h-8 rounded-lg bg-surface flex items-center justify-center shrink-0 mt-0.5 text-secondary shadow-sm">
+<span class="material-symbols-outlined text-[20px]">cloud_sync</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-medium">Connectivity &amp; Mandi Sync</span>
+<p class="font-caption text-caption text-on-surface/80 mt-1 leading-relaxed">Publishing requires an active internet connection to register this sale lot with MittiMandi. Once confirmed, your harvest lot will become an active sale lot visible to verified mandi traders.</p>
+<span class="font-caption text-caption text-slate mt-1 block">
+          नोंदणी पूर्ण होताच अधिकृत व्यापाऱ्यांना थेट दृश्यमान होईल.
+        </span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-3 mt-6">
+<button class="w-full min-h-[56px] rounded-xl bg-clay-orange text-on-secondary px-4 py-3 font-label-lg text-label-lg flex items-center justify-center gap-2 active:opacity-95 transition-all shadow-sm" id="publishBtn" type="button">
+<span class="">Publish Sale Lot</span>
+<span class="font-headline-sm text-headline-sm leading-none">→</span>
+<span class="font-body-md text-body-md opacity-90 block ml-1 text-on-secondary">| विक्रीसाठी प्रकाशित करा</span>
+</button>
+<button class="w-full min-h-[56px] rounded-xl bg-surface text-clear-blue border-2 border-clear-blue/40 px-4 py-3 font-label-lg text-label-lg flex items-center justify-center gap-2 hover:bg-blue-mist/30 active:bg-blue-mist/50 transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">bookmark</span>
+<span class="">Save Draft on Device / मसुदा जतन करा</span>
+</button>
+</div>
+<div class="fixed bottom-6 left-4 right-4 max-w-[568px] mx-auto bg-inverse-surface text-inverse-on-surface p-4 rounded-xl shadow-lg transform translate-y-32 opacity-0 transition-all duration-300 pointer-events-none flex items-center gap-3 z-50" id="toast">
+<span class="material-symbols-outlined text-primary-fixed text-[24px]">cloud_done</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md truncate">Publishing Sale Lot to Mandi...</span>
+<span class="font-caption text-caption opacity-80">लॉट व्यापाऱ्यांसाठी थेट सक्रिय होत आहे</span>
+</div>
+</div>
+</div>
+<script>
+  const publishBtn = document.getElementById('publishBtn');
+  const toast = document.getElementById('toast');
+
+  if (publishBtn && toast) {
+    publishBtn.addEventListener('click', () => {
+      toast.classList.remove('translate-y-32', 'opacity-0', 'pointer-events-none');
+      toast.classList.add('translate-y-0', 'opacity-100');
+      
+      setTimeout(() => {
+        toast.classList.add('translate-y-32', 'opacity-0', 'pointer-events-none');
+        toast.classList.remove('translate-y-0', 'opacity-100');
+      }, 3500);
+    });
+  }
+</script></main>
+
+</body></html>

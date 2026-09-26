@@ -84,6 +84,8 @@ class ConfirmService:
                         "type": "Delivery",
                         "end": {"location": {"gps": contract.delivery_gps}},
                         "tracking": True,
+                        "carrier_name": contract.carrier_name or "Standard Logistics",
+                        "@ondc/org/provider_name": contract.carrier_name or "Standard Logistics",
                         "state": {"descriptor": {"code": "Order-confirmed"}},
                     },
                     "quote": {

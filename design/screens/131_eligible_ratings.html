@@ -1,0 +1,236 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"><meta content="mobile_stack" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "inverse-surface": "#17343e", "on-primary-fixed-variant": "#004e5d", "on-error-container": "#93000a", "outline": "#6d797d", "on-secondary": "#ffffff", "primary-fixed-dim": "#65d5f2", "on-primary": "#ffffff", "on-background": "#001f28", "surface-container": "#d6f2ff", "on-primary-fixed": "#001f26", "on-secondary-fixed": "#380d00", "surface-container-low": "#e4f7ff", "on-surface-variant": "#3d494c", "primary-fixed": "#aeecff", "surface": "#FFFFFF", "inverse-primary": "#65d5f2", "blue-soft": "#C7E8F0", "on-tertiary": "#ffffff", "clay-orange": "#A95135", "secondary-container": "#fd9168", "surface-variant": "#c9e7f4", "on-primary-container": "#003e4a", "on-tertiary-fixed": "#281900", "surface-tint": "#00687b", "sand": "#FFF3DF", "primary-container": "#36afcb", "secondary-fixed": "#ffdbcf", "danger": "#C64F48", "secondary": "#9a4522", "secondary-fixed-dim": "#ffb59a", "outline-variant": "#bdc8cd", "error": "#ba1a1a", "surface-container-lowest": "#ffffff", "tertiary-container": "#cf972f", "on-surface": "#001f28", "on-error": "#ffffff", "tertiary": "#7e5700", "blue-mist": "#E2F3F8", "on-secondary-fixed-variant": "#7c2e0c", "slate": "#607780", "surface-dim": "#c1dfec", "surface-container-high": "#cfedfa", "tertiary-fixed": "#ffdeac", "on-secondary-container": "#742907", "error-container": "#ffdad6", "primary": "#00687b", "canvas": "#F4FAFC", "line": "#D7E7EB", "background": "#f2fbff", "inverse-on-surface": "#ddf5ff", "surface-container-highest": "#c9e7f4", "on-tertiary-fixed-variant": "#604100", "on-tertiary-container": "#4c3300", "surface-bright": "#f2fbff", "tertiary-fixed-dim": "#f9bc51", "clear-blue": "#147F9E", "mist-text": "#8FA1A7" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "space-lg": "16px", "space-md": "12px", "space-sm": "8px", "gutter": "12px", "space-xs": "4px", "space-xl": "24px", "margin": "16px" }, fontFamily: { "data-md": ["IBM Plex Mono"], "caption": ["Inter"], "display-data": ["IBM Plex Mono"], "headline-lg-mobile": ["Fraunces"], "headline-md": ["Fraunces"], "data-lg": ["IBM Plex Mono"], "body-lg": ["Inter"], "headline-sm": ["Fraunces"], "data-xs": ["IBM Plex Mono"], "headline-lg": ["Fraunces"], "body-md": ["Inter"], "label-lg": ["Inter"], "label-md": ["Inter"], "data-sm": ["IBM Plex Mono"] }, fontSize: { "data-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }], "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "display-data": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.5px", "fontWeight": "500" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }], "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }], "data-lg": ["22px", { "lineHeight": "28px", "fontWeight": "500" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "500" }], "data-xs": ["12px", { "lineHeight": "16px", "fontWeight": "500" }], "headline-lg": ["28px", { "lineHeight": "36px", "fontWeight": "600" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "label-lg": ["16px", { "lineHeight": "24px", "fontWeight": "600" }], "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }], "data-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-canvas font-body-md text-body-md text-on-surface flex flex-col min-h-screen antialiased"><header class="fixed top-0 inset-x-0 z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe"><div class="h-16 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm min-w-0"><button aria-label="Go back" class="w-12 h-12 -ml-space-sm flex items-center justify-center text-on-surface hover:text-primary transition-colors" onclick="history.back()"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><h1 class="font-headline-sm text-headline-sm text-on-surface truncate">Trader Reviews</h1></div><div class="flex items-center gap-space-xs shrink-0"><button aria-label="More options" class="w-12 h-12 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[24px]">more_vert</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-16 pb-safe bg-canvas min-h-screen"><div class="flex flex-col w-full pb-space-xl">
+<!-- Top Protocol / Demo Banner -->
+<div class="px-margin pt-space-md pb-space-sm">
+<div class="w-full bg-sand text-on-tertiary-container rounded-xl p-space-md shadow-sm">
+<div class="flex items-center gap-space-sm mb-space-xs">
+<span class="material-symbols-outlined text-[18px] text-tertiary">verified_user</span>
+<span class="font-data-xs text-data-xs tracking-wide uppercase font-semibold text-tertiary">
+          DEMO / PROTOTYPE • पात्र व्यवहार
+        </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+        Feedback eligibility verified from completed transaction 
+        <span class="font-data-sm text-data-sm text-on-surface font-medium">MH-15-EG-4820</span>.
+      </p>
+</div>
+</div>
+<!-- Verified Completed Transaction Context Card -->
+<div class="px-margin pt-space-xs pb-space-md">
+<div class="w-full bg-surface rounded-xl p-space-md shadow-sm">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-clear-blue text-[18px]">receipt_long</span>
+<span class="font-data-xs text-data-xs text-on-surface-variant font-medium">
+            ORD: MM-ORD-DEMO-000001
+          </span>
+</div>
+<div class="inline-flex items-center gap-space-xs px-space-sm py-0.5 rounded-full bg-blue-mist text-clear-blue font-data-xs text-data-xs">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span class="">Settled (पूर्ण)</span>
+</div>
+</div>
+<div class="flex flex-col gap-space-xs pt-space-xs">
+<div class="flex justify-between items-baseline">
+<span class="font-headline-sm text-headline-sm text-on-surface">
+            Nashik Red Onion <span class="font-body-md text-body-md text-on-surface-variant font-normal">(नाशिक लाल कांदा)</span>
+</span>
+</div>
+<div class="flex items-center gap-space-md text-on-surface-variant font-body-md text-body-md">
+<span class="inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-slate">scale</span>
+            4,000 kg (40 क्विंटल)
+          </span>
+<span class="text-slate">•</span>
+<span class="font-data-xs text-data-xs text-on-surface-variant">RCP: MM-RCP-DEMO-000001</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm bg-blue-mist/60 rounded-lg p-space-sm flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-caption text-caption text-on-surface-variant">Final Settlement Realization</span>
+<span class="font-caption text-caption text-on-surface-variant">नोंदवलेली अंतिम जमा रक्कम</span>
+</div>
+<div class="text-right">
+<span class="font-data-lg text-data-lg text-on-surface font-semibold">₹1,08,432</span>
+<span class="block font-data-xs text-data-xs text-clear-blue">Verified via Mandi Escrow</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Section Header -->
+<div class="px-margin pt-space-sm pb-space-xs flex items-center justify-between">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Eligible Parties for Feedback</h2>
+<p class="font-caption text-caption text-on-surface-variant">अभिप्राय नोंदणीसाठी पात्र घटक</p>
+</div>
+<span class="px-space-sm py-1 bg-surface-container rounded-full font-data-xs text-data-xs text-on-primary-container font-semibold">
+      2 Eligible
+    </span>
+</div>
+<!-- Entities Cards List -->
+<div class="px-margin flex flex-col gap-space-md pt-space-xs">
+<!-- Option 1 Card: Buyer (Selected / Active Focus) -->
+<div class="w-full bg-surface rounded-xl p-space-lg shadow-md relative overflow-hidden flex flex-col gap-space-md">
+<!-- 4dp Solid Accent Leading Indicator -->
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-clear-blue"></div>
+<div class="flex items-start justify-between gap-space-sm pl-space-xs">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="inline-flex items-center px-space-sm py-0.5 rounded bg-blue-mist text-clear-blue font-data-xs text-data-xs font-semibold uppercase">
+              BUYER (खरेदीदार)
+            </span>
+<span class="inline-flex items-center gap-1 font-caption text-caption text-slate bg-canvas px-space-xs py-0.5 rounded">
+<span class="material-symbols-outlined text-[13px]">swap_horiz</span>
+              Farmer → Buyer
+            </span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-1">
+            Sahyadri Agro Traders
+          </h3>
+<p class="font-body-md text-body-md text-on-surface-variant -mt-1">सह्याद्री ॲग्रो ट्रेडर्स</p>
+</div>
+<div class="w-10 h-10 rounded-full bg-blue-mist flex items-center justify-center shrink-0 text-clear-blue">
+<span class="material-symbols-outlined text-[20px]">storefront</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-body-md text-body-md pl-space-xs">
+<span class="material-symbols-outlined text-slate text-[18px]">location_on</span>
+<span class="">Lasalgaon APMC Yard, Nashik (लासलगाव कृषी उत्पन्न बाजार समिती)</span>
+</div>
+<!-- Eligibility Clearance Pill -->
+<div class="pl-space-xs">
+<div class="inline-flex items-center gap-space-xs px-space-sm py-1 rounded-md bg-blue-mist text-clear-blue">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+<span class="font-data-xs text-data-xs font-medium">Feedback Available (अभिप्राय उपलब्ध)</span>
+</div>
+</div>
+<!-- Context Verification Micro-data -->
+<div class="bg-canvas rounded-lg p-space-sm flex items-start gap-space-sm ml-space-xs">
+<span class="material-symbols-outlined text-slate text-[18px] shrink-0 mt-0.5">assignment_turned_in</span>
+<p class="font-caption text-caption text-on-surface-variant">
+          Trade agreement, weighbridge clearance, and settlement recorded in ledger.
+          <span class="block text-slate font-normal">वजन पावती आणि संपूर्ण पेमेंट पुष्टीकरण नोंदवले गेले आहे.</span>
+</p>
+</div>
+<!-- Primary Action for Buyer: Burnt Orange CTA Button -->
+<div class="pt-space-xs pl-space-xs">
+<button class="w-full min-h-[56px] py-space-sm px-space-lg rounded-[10dp] bg-secondary text-on-secondary font-label-lg text-label-lg flex items-center justify-center gap-space-sm active:scale-[0.99] transition-transform" type="button">
+<span class="">Rate Buyer (खरेदीदाराला रेटिंग द्या)</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Option 2 Card: Transport Provider -->
+<div class="w-full bg-surface rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="inline-flex items-center px-space-sm py-0.5 rounded bg-sand text-tertiary font-data-xs text-data-xs font-semibold uppercase">
+              TRANSPORT PROVIDER (वाहतूकदार)
+            </span>
+<span class="inline-flex items-center gap-1 font-caption text-caption text-slate bg-canvas px-space-xs py-0.5 rounded">
+<span class="material-symbols-outlined text-[13px]">swap_horiz</span>
+              Farmer → Transport Provider
+            </span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-1">
+            Shree Ganesh Logistics
+          </h3>
+<p class="font-body-md text-body-md text-on-surface-variant -mt-1">श्री गणेश लॉजिस्टिक</p>
+</div>
+<div class="w-10 h-10 rounded-full bg-sand flex items-center justify-center shrink-0 text-tertiary">
+<span class="material-symbols-outlined text-[20px]">local_shipping</span>
+</div>
+</div>
+<div class="flex flex-col gap-1 text-on-surface-variant">
+<div class="flex items-center gap-space-xs font-body-md text-body-md">
+<span class="material-symbols-outlined text-slate text-[18px]">rv_hookup</span>
+<span class="font-data-sm text-data-sm text-on-surface">MH-15-EG-4820</span>
+<span class="text-slate font-caption text-caption">• 4 Ton Eicher Pro</span>
+</div>
+<p class="font-caption text-caption text-slate pl-6">
+          Origin: Dindori Gate Farm → Lasalgaon Yard Shed 4
+        </p>
+</div>
+<!-- Eligibility Clearance Pill -->
+<div>
+<div class="inline-flex items-center gap-space-xs px-space-sm py-1 rounded-md bg-blue-mist text-clear-blue">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+<span class="font-data-xs text-data-xs font-medium">Feedback Available (अभिप्राय उपलब्ध)</span>
+</div>
+</div>
+<!-- Context Verification Micro-data -->
+<div class="bg-canvas rounded-lg p-space-sm flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-slate text-[18px] shrink-0 mt-0.5">inventory</span>
+<p class="font-caption text-caption text-on-surface-variant">
+          Delivery manifest completed and verified at delivery bay. No transit damage flagged.
+          <span class="block text-slate font-normal">वाहतूक पावती प्रमाणित व सुरक्षित वितरीत करण्यात आली आहे.</span>
+</p>
+</div>
+<!-- Secondary Action for Transport: Solid Clear Blue / Prominent Surface -->
+<div class="pt-space-xs">
+<button class="w-full min-h-[56px] py-space-sm px-space-lg rounded-[10dp] bg-clear-blue text-on-primary font-label-lg text-label-lg flex items-center justify-center gap-space-sm active:scale-[0.99] transition-transform" type="button">
+<span class="">Rate Transport (वाहतूकदाराला रेटिंग द्या)</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Mandatory Platform Policy Notice Box (Anti-Speculative & Asymmetric Safeguard) -->
+<div class="px-margin pt-space-lg">
+<div class="w-full bg-canvas rounded-xl p-space-md shadow-sm">
+<div class="flex items-start gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-sand flex items-center justify-center shrink-0 text-clay-orange mt-0.5">
+<span class="material-symbols-outlined text-[18px]">policy</span>
+</div>
+<div class="flex flex-col gap-1 min-w-0">
+<h4 class="font-label-md text-label-md text-on-surface">
+            Platform Policy Notice (अभिप्राय नियमावली)
+          </h4>
+<p class="font-caption text-caption text-on-surface-variant leading-relaxed">
+<strong class="text-on-surface font-semibold">Buyers are NOT permitted to rate Farmers.</strong> To protect farming producers from transactional leverage, only farmers may submit reviews for counterparties. If accessing as a buyer account, only the Transport Provider feedback card will be operational.
+          </p>
+<div class="mt-1 pt-1 border-0">
+<p class="font-caption text-caption text-slate">
+              Ratings do not generate speculative public "Trust Scores" or block future platform access. All reviews record factual fulfillment records.
+            </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Visual Affirmation / Delight Counter -->
+<div class="px-margin pt-space-md">
+<div class="flex items-center justify-center gap-space-xs py-space-xs px-space-md rounded-full bg-surface shadow-sm mx-auto w-fit">
+<span class="material-symbols-outlined text-clear-blue text-[16px]">lock</span>
+<span class="font-caption text-caption text-on-surface-variant">
+        Cryptographically signed trade record • 100% Verified
+      </span>
+</div>
+</div>
+<!-- Bottom Navigation Link -->
+<div class="px-margin pt-space-md pb-space-sm flex justify-center">
+<button class="min-h-[48px] px-space-lg flex items-center justify-center gap-space-xs text-clear-blue font-label-md text-label-md hover:underline active:opacity-80" onclick="history.back()" type="button">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+<span class="">Back to Introduction (मागे जा)</span>
+</button>
+</div>
+</div>
+<script>
+  // Micro-interaction for feedback selection haptics/styling
+  document.querySelectorAll('button').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      if (this.innerText.includes('Rate Buyer') || this.innerText.includes('Rate Transport')) {
+        this.classList.add('opacity-90');
+        setTimeout(() => this.classList.remove('opacity-90'), 150);
+      }
+    });
+  });
+</script></main>
+
+</body></html>

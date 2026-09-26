@@ -1,9 +1,7 @@
 from typing import Annotated
 
 from fastapi import APIRouter, Depends
-from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.api.deps import SessionDep, SettingsDep
 from app.errors import AppError
 from app.telemetry.jetstream import NatsJetStreamEngine, get_jetstream_engine
 from app.telemetry.rpc import BecknRpcBroker, get_beckn_rpc_broker

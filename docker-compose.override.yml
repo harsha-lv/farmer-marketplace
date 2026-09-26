@@ -1,0 +1,39 @@
+# ============================================================================
+# Local Development Overrides
+# Automatically loaded by `docker compose up` in local development.
+# ============================================================================
+services:
+  api:
+    command: ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+    volumes:
+      - ./app:/app/app:ro
+      - ./alembic:/app/alembic:ro
+      - ./models:/app/models
+    environment:
+      - APP_ENVIRONMENT=local
+      - APP_LOG_LEVEL=DEBUG
+      - APP_CHECK_ALEMBIC_HEAD=false
+
+  outbox-relay:
+    volumes:
+      - ./app:/app/app:ro
+      - ./alembic:/app/alembic:ro
+    environment:
+      - APP_ENVIRONMENT=local
+      - APP_LOG_LEVEL=DEBUG
+
+  kafka-consumer:
+    volumes:
+      - ./app:/app/app:ro
+      - ./alembic:/app/alembic:ro
+    environment:
+      - APP_ENVIRONMENT=local
+      - APP_LOG_LEVEL=DEBUG
+
+  beckn-rpc:
+    volumes:
+      - ./app:/app/app:ro
+      - ./alembic:/app/alembic:ro
+    environment:
+      - APP_ENVIRONMENT=local
+      - APP_LOG_LEVEL=DEBUG

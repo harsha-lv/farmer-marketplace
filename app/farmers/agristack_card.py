@@ -6,16 +6,15 @@ to retrieve digitized e-Pehchan Farmer Card profiles, digital signatures,
 land records, and crop survey registrations.
 """
 
+import re
 from dataclasses import dataclass
 from datetime import UTC, datetime
-from decimal import Decimal
-import re
 from typing import Any
 
 import httpx
 
 from app.farmers.farm_id import FarmIdError, validate_farm_id
-from app.farmers.ufsi import LandHolding, ParcelCrop, _area, _attribute, _crops
+from app.farmers.ufsi import LandHolding, _area, _attribute, _crops
 from app.prices.lgd import canonical_state_lgd_code
 
 
@@ -144,9 +143,15 @@ def parse_card_response(body: dict[str, Any], *, fallback_state: str) -> Agrista
 class AgristackCardClient:
     """HTTP client for fetching digitized farmer cards via GET /agristack/newcard.php."""
 
-    def __init__(self, base_url: str, transport: httpx.AsyncBaseTransport | None = None) -> None:
+    def __init__(
+        self,
+        base_url: str,
+        transport: httpx.AsyncBaseTransport | None = None,
+        allow_private: bool | None = None,
+    ) -> None:
         self.base_url = base_url.rstrip("/")
         self._transport = transport
+        self._allow_private = allow_private if allow_private is not None else (transport is not None)
 
     async def fetch_card(
         self,
@@ -162,13 +167,19 @@ class AgristackCardClient:
             "state": state.strip(),
         }
         try:
-            async with httpx.AsyncClient(transport=self._transport, timeout=30.0) as client:
+            from app.common.http_client import SafeAsyncClient
+            from app.errors import AppError
+
+            async with SafeAsyncClient(
+                transport=self._transport,
+                allow_private=self._allow_private,
+            ) as client:
                 response = await client.get(
                     f"{self.base_url}/agristack/newcard.php",
                     params=params,
                     headers={"accept": "application/json"},
                 )
-        except httpx.HTTPError as exc:
+        except (httpx.HTTPError, AppError) as exc:
             raise AgristackCardError("AgriStack card request failed") from exc
 
         if response.status_code == 401 or response.status_code == 403:

@@ -5,6 +5,7 @@ from app.ondc.catalog import ack, context_error, nack, response_context
 from app.ondc.contract import delivery_terms, quote_with_commission
 from app.ondc.order import parse_order, unavailable_reason
 from app.ondc.quote import selected_quantity
+from app.ondc.tlc import TlcService
 from app.prices.schemas import PriceFilter
 
 
@@ -74,6 +75,40 @@ class InitService:
             price_inr=int(quote["price"]["value"]),
             commission_inr=int(quote["breakup"][2]["price"]["value"]),
         )
+        # Extract chosen LSP from order fulfillments
+        fulfillment = order.get("fulfillment") or (order.get("fulfillments")[0] if order.get("fulfillments") else {})
+        chosen_lsp_name = None
+        chosen_lsp_id = None
+        if isinstance(fulfillment, dict):
+            chosen_lsp_name = (
+                fulfillment.get("@ondc/org/provider_name")
+                or fulfillment.get("carrier_name")
+                or fulfillment.get("provider_name")
+            )
+            chosen_lsp_id = (
+                fulfillment.get("@ondc/org/provider_id")
+                or fulfillment.get("provider_id")
+                or fulfillment.get("id")
+            )
+            if chosen_lsp_name or chosen_lsp_id:
+                contract.carrier_name = chosen_lsp_name or chosen_lsp_id
+
+        grade = lot.assay.grade if lot.assay else "Standard"
+        tlc_service = TlcService(self.contracts.session)
+        tlc_record = await tlc_service.generate_and_persist(
+            transaction_id=str(context["transaction_id"]),
+            contract_code=contract.contract_code,
+            commodity=lot.commodity,
+            grade=grade,
+            quantity_mt=quantity,
+            price_per_mt=int(int(quote["price"]["value"]) / quantity) if quantity > 0 else int(quote["price"]["value"]),
+            commission_percent=self.commission_percent,
+            buyer_name=terms["name"],
+            farmer_id=lot.farmer_id,
+            delivery_location=str(terms.get("gps", terms.get("address", ""))),
+            chosen_lsp={"lsp_id": chosen_lsp_id, "lsp_name": chosen_lsp_name} if (chosen_lsp_id or chosen_lsp_name) else None,
+        )
+        contract.tlc_hash = tlc_record.tlc_hash
         await self.contracts.session.commit()
         on_init = {
             "context": response_context(context, action="on_init", bpp_id=self.bpp_id, bpp_uri=self.bpp_uri),
@@ -96,7 +131,9 @@ class InitService:
                             "list": [
                                 {"code": "id", "value": contract.contract_code},
                                 {"code": "status", "value": contract.status},
-                                {"code": "settlement", "value": "on delivery acceptance"},
+                                {"code": "settlement", "value": "Friday + 2 Banking Days"},
+                                {"code": "tlc_hash", "value": tlc_record.tlc_hash},
+                                {"code": "signature", "value": tlc_record.signature},
                             ],
                         }
                     ],

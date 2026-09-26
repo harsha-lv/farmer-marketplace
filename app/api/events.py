@@ -3,7 +3,7 @@ from typing import Annotated, Any
 
 from fastapi import APIRouter, Depends, Query
 
-from app.api.deps import SessionDep, SettingsDep
+from app.api.deps import SessionDep, SettingsDep, require_roles
 from app.events.publisher import EventPublisher
 from app.events.reconciliation import reconcile_audit_ledger
 from app.events.reconstruction import reconstruct_point_in_time_state
@@ -21,7 +21,11 @@ from app.events.schemas import (
     StreamReplayResponse,
 )
 
-router = APIRouter(prefix="/events", tags=["events"])
+router = APIRouter(
+    prefix="/events",
+    tags=["events"],
+    dependencies=[Depends(require_roles("admin"))],
+)
 
 
 

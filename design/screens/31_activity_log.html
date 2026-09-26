@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"secondary-container":"#fd9168","error-container":"#ffdad6","danger":"#C64F48","blue-mist":"#E2F3F8","surface-variant":"#c9e7f4","primary-fixed":"#aeecff","on-surface":"#001f28","mist-text":"#8FA1A7","surface-container-lowest":"#ffffff","on-tertiary-container":"#4c3300","on-secondary-fixed-variant":"#7c2e0c","surface-container":"#d6f2ff","secondary-fixed-dim":"#ffb59a","inverse-primary":"#65d5f2","on-tertiary-fixed-variant":"#604100","inverse-surface":"#17343e","on-tertiary-fixed":"#281900","on-secondary":"#ffffff","sand":"#FFF3DF","background":"#f2fbff","outline-variant":"#bdc8cd","inverse-on-surface":"#ddf5ff","slate":"#607780","on-error":"#ffffff","tertiary-container":"#cf972f","on-primary-fixed":"#001f26","surface":"#FFFFFF","on-tertiary":"#ffffff","canvas":"#F4FAFC","clay-orange":"#A95135","secondary-fixed":"#ffdbcf","outline":"#6d797d","on-primary-fixed-variant":"#004e5d","on-secondary-fixed":"#380d00","surface-tint":"#00687b","surface-container-high":"#cfedfa","clear-blue":"#147F9E","primary-container":"#36afcb","surface-dim":"#c1dfec","tertiary":"#7e5700","tertiary-fixed-dim":"#f9bc51","primary-fixed-dim":"#65d5f2","surface-container-highest":"#c9e7f4","primary":"#00687b","on-primary-container":"#003e4a","surface-bright":"#f2fbff","surface-container-low":"#e4f7ff","on-background":"#001f28","on-error-container":"#93000a","error":"#ba1a1a","on-secondary-container":"#742907","on-surface-variant":"#3d494c","blue-soft":"#C7E8F0","tertiary-fixed":"#ffdeac","on-primary":"#ffffff","line":"#D7E7EB","secondary":"#9a4522"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"gutter":"12px","margin":"16px","space-md":"12px","space-sm":"8px","space-xs":"4px","space-xl":"24px","space-lg":"16px"},fontFamily:{"data-lg":["IBM Plex Mono"],"caption":["Inter"],"headline-lg-mobile":["Fraunces"],"body-md":["Inter"],"headline-sm":["Fraunces"],"label-md":["Inter"],"headline-md":["Fraunces"],"headline-lg":["Fraunces"],"data-sm":["IBM Plex Mono"],"body-lg":["Inter"],"data-md":["IBM Plex Mono"],"data-xs":["IBM Plex Mono"],"label-lg":["Inter"],"display-data":["IBM Plex Mono"]},fontSize:{"data-lg":["22px",{lineHeight:"28px",fontWeight:"500"}],"caption":["12px",{lineHeight:"16px",fontWeight:"400"}],"headline-lg-mobile":["24px",{lineHeight:"32px",fontWeight:"600"}],"body-md":["14px",{lineHeight:"20px",fontWeight:"400"}],"headline-sm":["18px",{lineHeight:"24px",fontWeight:"500"}],"label-md":["14px",{lineHeight:"20px",fontWeight:"500"}],"headline-md":["20px",{lineHeight:"28px",fontWeight:"600"}],"headline-lg":["28px",{lineHeight:"36px",fontWeight:"600"}],"data-sm":["14px",{lineHeight:"20px",fontWeight:"500"}],"body-lg":["16px",{lineHeight:"24px",fontWeight:"400"}],"data-md":["16px",{lineHeight:"24px",fontWeight:"500"}],"data-xs":["12px",{lineHeight:"16px",fontWeight:"500"}],"label-lg":["16px",{lineHeight:"24px",fontWeight:"600"}],"display-data":["32px",{lineHeight:"40px",letterSpacing:"-0.5px",fontWeight:"500"}]}}}}</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-canvas text-on-surface font-body-md flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 px-margin flex items-center justify-between"><div class="flex flex-col justify-center min-w-0 pr-space-sm"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-primary text-[18px]">verified</span><span class="font-data-xs text-data-xs text-primary tracking-wider uppercase truncate">Auth Admin • प्रात्यक्षिक</span></div><h1 class="font-headline-sm text-headline-sm text-on-surface truncate leading-tight">MittiMandi Ops</h1><p class="font-caption text-caption text-slate truncate leading-none">Monitor</p></div><div class="flex items-center gap-space-sm flex-shrink-0"><button class="w-11 h-11 rounded-full flex items-center justify-center text-slate hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[22px]">tune</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-20 pb-24 bg-canvas"><div class="flex flex-col w-full px-margin space-y-space-lg">
+<!-- Sub-header / Operational Manifest Intro -->
+<div class="flex flex-col space-y-space-xs pt-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-clear-blue text-[16px]">history_toggle_off</span>
+<span class="font-data-xs text-data-xs text-clear-blue tracking-wider uppercase">Live Trace • प्रत्यक्ष नोंद</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Chronological Operational Manifest</h2>
+<p class="font-body-md text-body-md text-slate">Demo Activity Log / प्रशासकीय कृती व ऑडिट नोंद</p>
+</div>
+<!-- Truthfulness Banner (Radical Transparency, Anti-Speculative) -->
+<div class="bg-sand p-space-lg rounded-xl flex items-start gap-space-md shadow-sm">
+<div class="w-8 h-8 rounded-full bg-tertiary/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-tertiary text-[20px]" style="font-variation-settings: 'FILL' 1;">info</span>
+</div>
+<div class="flex flex-col space-y-space-xs min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md text-on-tertiary-container">Truthfulness Protocol • पारदर्शकता</span>
+<span class="px-space-xs py-0.5 rounded bg-surface text-tertiary font-data-xs text-data-xs">DEMO AUDIT</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface leading-snug">
+        Activity records shown for prototype demonstration. Do not claim this is an immutable blockchain audit log.
+      </p>
+<p class="font-caption text-caption text-slate">
+        (प्रात्यक्षिक नोंदी — हे ब्लॉकचेन किंवा अपरिवर्तनीय शासकीय लेजर नाही.)
+      </p>
+</div>
+</div>
+<!-- Filter Pills Bar -->
+<div class="flex flex-col space-y-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-caption text-caption text-slate uppercase tracking-wider">Audit Stream Filter</span>
+<span class="font-data-xs text-data-xs text-clear-blue font-medium" id="active-count-label">Showing 6 Events</span>
+</div>
+<div class="flex items-center gap-space-xs overflow-x-auto pb-1 -mx-margin px-margin no-scrollbar">
+<button class="filter-chip px-space-md py-space-xs rounded-full bg-clear-blue text-surface font-label-md text-label-md whitespace-nowrap shadow-sm flex items-center gap-1.5 transition-all" onclick="filterLogs('all', this)">
+<span>All</span>
+<span class="font-data-xs text-data-xs opacity-90">(6)</span>
+</button>
+<button class="filter-chip px-space-md py-space-xs rounded-full bg-surface-container text-on-surface font-label-md text-label-md whitespace-nowrap shadow-sm flex items-center gap-1.5 transition-all" onclick="filterLogs('verification', this)">
+<span>Verifications</span>
+<span class="font-data-xs text-data-xs text-slate">(2)</span>
+</button>
+<button class="filter-chip px-space-md py-space-xs rounded-full bg-surface-container text-on-surface font-label-md text-label-md whitespace-nowrap shadow-sm flex items-center gap-1.5 transition-all" onclick="filterLogs('offers', this)">
+<span>Offers</span>
+<span class="font-data-xs text-data-xs text-slate">(1)</span>
+</button>
+<button class="filter-chip px-space-md py-space-xs rounded-full bg-surface-container text-on-surface font-label-md text-label-md whitespace-nowrap shadow-sm flex items-center gap-1.5 transition-all" onclick="filterLogs('grievances', this)">
+<span>Grievances</span>
+<span class="font-data-xs text-data-xs text-slate">(2)</span>
+</button>
+<button class="filter-chip px-space-md py-space-xs rounded-full bg-surface-container text-on-surface font-label-md text-label-md whitespace-nowrap shadow-sm flex items-center gap-1.5 transition-all" onclick="filterLogs('system', this)">
+<span>System</span>
+<span class="font-data-xs text-data-xs text-slate">(1)</span>
+</button>
+</div>
+</div>
+<!-- Operational Timeline List -->
+<div class="flex flex-col space-y-space-md relative" id="timeline-container">
+<!-- Visual timeline vertical line -->
+<div class="absolute left-6 top-4 bottom-6 w-0.5 bg-blue-soft -z-0"></div>
+<!-- Log 1: Grievance Resolved -->
+<div class="log-item relative z-10 flex items-start gap-space-md" data-category="grievances">
+<div class="w-12 h-12 rounded-full bg-blue-mist flex items-center justify-center flex-shrink-0 text-clear-blue shadow-sm">
+<span class="material-symbols-outlined text-[22px]">task_alt</span>
+</div>
+<div class="flex-1 bg-surface p-space-md rounded-xl shadow-sm flex flex-col space-y-space-xs">
+<div class="flex items-center justify-between gap-space-xs">
+<span class="font-data-sm text-data-sm text-clear-blue font-semibold">10:20 AM</span>
+<span class="px-space-xs py-0.5 rounded bg-blue-mist text-clear-blue font-data-xs text-data-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">verified</span>
+            RESOLVED
+          </span>
+</div>
+<h3 class="font-label-lg text-label-lg text-on-surface">Grievance Resolved</h3>
+<p class="font-body-md text-body-md text-on-surface">Ticket <span class="font-data-xs text-data-xs bg-canvas px-1 rounded text-clear-blue">MM-GRV-DEMO-000001</span> marked resolved by Admin #402</p>
+<div class="pt-space-xs flex items-center justify-between text-slate font-caption text-caption">
+<span>Action: Resolution Settlement</span>
+<span>Latency: 40m</span>
+</div>
+</div>
+</div>
+<!-- Log 2: Profile info request -->
+<div class="log-item relative z-10 flex items-start gap-space-md" data-category="verification">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center flex-shrink-0 text-slate shadow-sm">
+<span class="material-symbols-outlined text-[22px]">badge</span>
+</div>
+<div class="flex-1 bg-surface p-space-md rounded-xl shadow-sm flex flex-col space-y-space-xs">
+<div class="flex items-center justify-between gap-space-xs">
+<span class="font-data-sm text-data-sm text-slate">10:05 AM</span>
+<span class="px-space-xs py-0.5 rounded bg-surface-container-high text-on-surface-variant font-data-xs text-data-xs">INFO QUERY</span>
+</div>
+<h3 class="font-label-lg text-label-lg text-on-surface">Profile Info Request</h3>
+<p class="font-body-md text-body-md text-on-surface">Profile information request recorded for <strong class="font-label-md text-label-md">Sahyadri Agro Traders</strong></p>
+<div class="pt-space-xs flex items-center gap-space-xs text-slate font-caption text-caption">
+<span class="material-symbols-outlined text-[15px]">corporate_fare</span>
+<span>Entity ID: MH-PUN-AGRO-882</span>
+</div>
+</div>
+</div>
+<!-- Log 3: Operational grievance opened -->
+<div class="log-item relative z-10 flex items-start gap-space-md" data-category="grievances">
+<div class="w-12 h-12 rounded-full bg-sand flex items-center justify-center flex-shrink-0 text-clay-orange shadow-sm">
+<span class="material-symbols-outlined text-[22px]">flag</span>
+</div>
+<div class="flex-1 bg-surface p-space-md rounded-xl shadow-sm flex flex-col space-y-space-xs">
+<div class="flex items-center justify-between gap-space-xs">
+<span class="font-data-sm text-data-sm text-clay-orange font-semibold">09:40 AM</span>
+<span class="px-space-xs py-0.5 rounded bg-sand text-clay-orange font-data-xs text-data-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">calculate</span>
+            ESTIMATE
+          </span>
+</div>
+<h3 class="font-label-lg text-label-lg text-on-surface">Operational Grievance Opened</h3>
+<p class="font-body-md text-body-md text-on-surface"><span class="font-data-xs text-data-xs bg-canvas px-1 rounded text-slate">MM-GRV-DEMO-000001</span> (Weighbridge inquiry at Baramati Mandi Platform)</p>
+<div class="pt-space-xs flex items-center justify-between text-slate font-caption text-caption">
+<span>Discrepancy: ≈ 18.4 Quintal</span>
+<span class="text-clay-orange font-medium">In Queue</span>
+</div>
+</div>
+</div>
+<!-- Log 4: FPO offer monitored -->
+<div class="log-item relative z-10 flex items-start gap-space-md" data-category="offers">
+<div class="w-12 h-12 rounded-full bg-blue-soft flex items-center justify-center flex-shrink-0 text-clear-blue shadow-sm">
+<span class="material-symbols-outlined text-[22px]">storefront</span>
+</div>
+<div class="flex-1 bg-surface p-space-md rounded-xl shadow-sm flex flex-col space-y-space-xs">
+<div class="flex items-center justify-between gap-space-xs">
+<span class="font-data-sm text-data-sm text-clear-blue">09:25 AM</span>
+<span class="px-space-xs py-0.5 rounded bg-sand text-tertiary font-data-xs text-data-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">trending_up</span>
+            FORECAST
+          </span>
+</div>
+<h3 class="font-label-lg text-label-lg text-on-surface">FPO Offer Monitored</h3>
+<p class="font-body-md text-body-md text-on-surface">FPO offer monitored — <span class="font-data-xs text-data-xs bg-canvas px-1 rounded text-clear-blue">MM-FPO-OFR-DEMO-000001</span></p>
+<div class="bg-blue-mist p-space-xs rounded flex items-center justify-between text-on-surface">
+<span class="font-data-xs text-data-xs">Status: Agreement prep state</span>
+<span class="font-data-xs text-data-xs font-semibold">₹2,840/Qtl</span>
+</div>
+</div>
+</div>
+<!-- Log 5: Verification request reviewed -->
+<div class="log-item relative z-10 flex items-start gap-space-md" data-category="verification">
+<div class="w-12 h-12 rounded-full bg-blue-mist flex items-center justify-center flex-shrink-0 text-clear-blue shadow-sm">
+<span class="material-symbols-outlined text-[22px]">how_to_reg</span>
+</div>
+<div class="flex-1 bg-surface p-space-md rounded-xl shadow-sm flex flex-col space-y-space-xs">
+<div class="flex items-center justify-between gap-space-xs">
+<span class="font-data-sm text-data-sm text-clear-blue">09:10 AM</span>
+<span class="px-space-xs py-0.5 rounded bg-blue-mist text-clear-blue font-data-xs text-data-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">check_circle</span>
+            ACTUAL
+          </span>
+</div>
+<h3 class="font-label-lg text-label-lg text-on-surface">Verification Request Reviewed</h3>
+<p class="font-body-md text-body-md text-on-surface">Sahyadri Agro Traders: Status shifted from <span class="font-caption text-caption px-1.5 py-0.5 rounded bg-sand text-tertiary">Pending</span> to <span class="font-caption text-caption px-1.5 py-0.5 rounded bg-blue-mist text-clear-blue font-medium">Verified</span></p>
+<div class="pt-space-xs flex items-center gap-space-xs text-slate font-caption text-caption">
+<span class="material-symbols-outlined text-[14px]">shield</span>
+<span>APMC Lic. #MH-5520-B</span>
+</div>
+</div>
+</div>
+<!-- Log 6: Admin session authenticated -->
+<div class="log-item relative z-10 flex items-start gap-space-md" data-category="system">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center flex-shrink-0 text-slate shadow-sm">
+<span class="material-symbols-outlined text-[22px]">lock_clock</span>
+</div>
+<div class="flex-1 bg-surface p-space-md rounded-xl shadow-sm flex flex-col space-y-space-xs">
+<div class="flex items-center justify-between gap-space-xs">
+<span class="font-data-sm text-data-sm text-slate">08:45 AM</span>
+<span class="px-space-xs py-0.5 rounded bg-surface-container-high text-slate font-data-xs text-data-xs">AUTH PASS</span>
+</div>
+<h3 class="font-label-lg text-label-lg text-on-surface">Admin Session Authenticated</h3>
+<p class="font-body-md text-body-md text-on-surface">Terminal authentication handshake completed. Dual-factor token verified.</p>
+<div class="pt-space-xs flex items-center justify-between text-slate font-caption text-caption">
+<span>IP: 10.14.88.23 (VPC Local)</span>
+<span>Device: Ops Pad #4</span>
+</div>
+</div>
+</div>
+<!-- Empty State Container for zero-filter result -->
+<div class="hidden bg-surface p-space-xl rounded-xl text-center flex-col items-center justify-center space-y-space-sm shadow-sm" id="filter-empty-state">
+<span class="material-symbols-outlined text-mist-text text-[40px]">manage_search</span>
+<p class="font-headline-sm text-headline-sm text-on-surface">No Activity Found</p>
+<p class="font-body-md text-body-md text-slate">या श्रेणीमध्ये अद्याप कोणतीही नोंद आढळली नाही.</p>
+</div>
+</div>
+<!-- Realtime Telemetry Card -->
+<div class="bg-blue-mist p-space-md rounded-xl flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-2.5 h-2.5 rounded-full bg-clear-blue animate-pulse"></div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Manifest Stream: Synchronized</span>
+<span class="font-caption text-caption text-slate">Last sync 1 min ago • 6 events in buffer</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-clear-blue text-[20px]">sync</span>
+</div>
+<!-- Action CTAs Stack -->
+<div class="flex flex-col space-y-space-sm pt-space-xs pb-space-sm">
+<!-- Primary Action (56dp min height, outline clear blue style as per system specs) -->
+<button class="w-full h-14 rounded-xl bg-surface text-clear-blue font-label-lg text-label-lg flex items-center justify-center gap-space-sm shadow-sm active:bg-blue-mist transition-colors" onclick="triggerDownloadFeedback(this)">
+<span class="material-symbols-outlined text-[20px]">download</span>
+<span>Download Demo Log (प्रात्यक्षिक नोंद प्रत)</span>
+</button>
+<!-- Secondary CTA -->
+<a class="w-full h-14 rounded-xl bg-canvas text-slate font-label-md text-label-md flex items-center justify-center gap-space-xs hover:text-on-surface transition-colors" href="#" onclick="alert('Navigating to Admin Dashboard (डॅशबोर्ड)'); return false;">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+<span>Back to Admin Dashboard (डॅशबोर्डवर परत जा)</span>
+</a>
+</div>
+<!-- Notification Toast Simulation container -->
+<div class="fixed bottom-20 left-4 right-4 bg-inverse-surface text-inverse-on-surface px-space-md py-space-sm rounded-xl font-label-md text-label-md shadow-xl flex items-center justify-between opacity-0 pointer-events-none transition-opacity duration-300 z-50" id="toast-msg">
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="material-symbols-outlined text-inverse-primary text-[20px]">check_circle</span>
+<span class="truncate font-body-md text-body-md" id="toast-text">Demo Log CSV generated successfully.</span>
+</div>
+<span class="font-data-xs text-data-xs text-inverse-primary font-mono ml-space-sm">UTF-8</span>
+</div>
+</div>
+<script>
+  function filterLogs(category, btnElement) {
+    // Update chip styling
+    const chips = document.querySelectorAll('.filter-chip');
+    chips.forEach(chip => {
+      chip.classList.remove('bg-clear-blue', 'text-surface');
+      chip.classList.add('bg-surface-container', 'text-on-surface');
+      const countSpan = chip.querySelector('span:last-child');
+      if (countSpan) countSpan.classList.add('text-slate');
+    });
+
+    btnElement.classList.remove('bg-surface-container', 'text-on-surface');
+    btnElement.classList.add('bg-clear-blue', 'text-surface');
+    const activeCountSpan = btnElement.querySelector('span:last-child');
+    if (activeCountSpan) activeCountSpan.classList.remove('text-slate');
+
+    // Filter cards
+    const items = document.querySelectorAll('.log-item');
+    let visibleCount = 0;
+
+    items.forEach(item => {
+      const itemCat = item.getAttribute('data-category');
+      if (category === 'all' || itemCat === category) {
+        item.style.display = 'flex';
+        visibleCount++;
+      } else {
+        item.style.display = 'none';
+      }
+    });
+
+    const emptyState = document.getElementById('filter-empty-state');
+    if (visibleCount === 0) {
+      emptyState.classList.remove('hidden');
+      emptyState.classList.add('flex');
+    } else {
+      emptyState.classList.add('hidden');
+      emptyState.classList.remove('flex');
+    }
+
+    const label = document.getElementById('active-count-label');
+    if (label) {
+      label.innerText = `Showing ${visibleCount} Event${visibleCount === 1 ? '' : 's'}`;
+    }
+  }
+
+  function triggerDownloadFeedback(btn) {
+    const originalText = btn.innerHTML;
+    btn.innerHTML = `<span class="material-symbols-outlined animate-spin text-[20px]">progress_activity</span><span>Preparing Demo Manifest...</span>`;
+    
+    setTimeout(() => {
+      btn.innerHTML = originalText;
+      const toast = document.getElementById('toast-msg');
+      if (toast) {
+        toast.classList.remove('opacity-0', 'pointer-events-none');
+        toast.classList.add('opacity-100');
+        setTimeout(() => {
+          toast.classList.remove('opacity-100');
+          toast.classList.add('opacity-0', 'pointer-events-none');
+        }, 2800);
+      }
+    }, 600);
+  }
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-1px_8px_rgba(0,0,0,0.04)]" data-active-classes="text-clear-blue font-label-md"><div class="flex items-center justify-around h-16 px-space-xs"><a class="flex flex-col items-center justify-center w-16 h-12 text-slate hover:text-on-surface transition-colors" data-path="overview" href="#"><span class="material-symbols-outlined text-[24px]">dashboard</span><span class="font-caption text-caption mt-0.5">Overview</span></a><a class="flex flex-col items-center justify-center w-16 h-12 text-slate hover:text-on-surface transition-colors" data-path="verification" href="#"><span class="material-symbols-outlined text-[24px]">verified_user</span><span class="font-caption text-caption mt-0.5">Verify</span></a><a aria-current="page" class="flex flex-col items-center justify-center w-16 h-12 transition-colors text-clear-blue font-label-md" data-path="monitor" href="#"><span class="material-symbols-outlined text-[24px]">receipt_long</span><span class="font-caption text-caption mt-0.5">Monitor</span></a><a class="flex flex-col items-center justify-center w-16 h-12 text-slate hover:text-on-surface transition-colors" data-path="grievances" href="#"><span class="material-symbols-outlined text-[24px]">support_agent</span><span class="font-caption text-caption mt-0.5">Grievance</span></a></div></nav></body></html>

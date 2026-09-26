@@ -2,6 +2,7 @@ from fastapi.responses import JSONResponse
 
 from app.ondc.callback import BecknCallback, CallbackError
 from app.ondc.catalog import ack, context_error, nack, response_context
+from app.ondc.igm import IgmService
 
 
 class SupportService:
@@ -50,23 +51,58 @@ class SupportService:
         if contract is None:
             return JSONResponse(status_code=400, content=nack(reply_context, "contract not found"))
 
-        ticket_id = f"TKT-{contract.transaction_id}"[:64]
+        # Extract issue info if provided
+        issue_data = message.get("issue") if isinstance(message, dict) and isinstance(message.get("issue"), dict) else {}
+        category = issue_data.get("category", "QUALITY")
+        sub_category = issue_data.get("sub_category", "MOISTURE_EXCESS")
+        description = issue_data.get("description", "Quality or fulfillment grievance")
+        complainant_info = issue_data.get(
+            "complainant_info",
+            {"person": {"name": contract.buyer_name, "phone": contract.buyer_phone}},
+        )
+        respondent_info = issue_data.get(
+            "respondent_info",
+            {"type": "BPP", "organization": {"id": self.bpp_id, "name": "Seller Desk"}},
+        )
+
+        igm_service = IgmService(self.contracts.session)
+        ticket = await igm_service.create_ticket(
+            transaction_id=contract.transaction_id,
+            category=category,
+            sub_category=sub_category,
+            description=description,
+            complainant_info=complainant_info,
+            respondent_info=respondent_info,
+            ticket_id=str(issue_data.get("id")) if issue_data.get("id") else None,
+        )
+
         on_support = {
             "context": response_context(context, action="on_support", bpp_id=self.bpp_id, bpp_uri=self.bpp_uri),
             "message": {
                 "phone": self.support_phone,
                 "email": self.support_email,
-                "uri": f"{self.bpp_uri}/support/{ticket_id}",
+                "uri": f"{self.bpp_uri}/support/{ticket.ticket_id}",
+                "issue": {
+                    "id": ticket.ticket_id,
+                    "category": ticket.category,
+                    "sub_category": ticket.sub_category,
+                    "description": ticket.description,
+                    "status": ticket.status,
+                    "expected_response_time": ticket.expected_response_time,
+                    "complainant_info": ticket.complainant_info,
+                    "respondent_info": ticket.respondent_info,
+                },
                 "tags": [
                     {
                         "code": "igm_ticket",
                         "list": [
-                            {"code": "id", "value": ticket_id},
-                            {"code": "status", "value": "OPEN"},
-                            {"code": "escalation_level", "value": "Level 1 - FPO Nodal Officer"},
+                            {"code": "id", "value": ticket.ticket_id},
+                            {"code": "status", "value": ticket.status},
+                            {"code": "escalation_level", "value": f"Level {ticket.escalation_level} - FPO Nodal Officer"},
                             {"code": "resolution_sla_hours", "value": "48"},
                             {"code": "ref_transaction", "value": contract.transaction_id},
                             {"code": "contract_code", "value": contract.contract_code},
+                            {"code": "settlement_paused", "value": str(ticket.settlement_paused)},
                         ],
                     }
                 ],
